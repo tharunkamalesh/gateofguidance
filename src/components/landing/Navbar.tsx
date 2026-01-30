@@ -13,7 +13,7 @@ const navItems: NavItem[] = [
   { label: "Home", href: "/", isRoute: true },
   { label: "About Us", href: "/about", isRoute: true },
   { label: "Domestic", href: "/domestic", isRoute: true },
-  { label: "International", href: "/#international" },
+  { label: "International", href: "/international", isRoute: true },
   { label: "FAQ's", href: "/#faq" },
   { label: "Contact Us", href: "/#contact" },
 ];
