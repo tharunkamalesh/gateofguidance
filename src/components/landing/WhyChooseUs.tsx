@@ -1,9 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import featureVerified from "@/assets/feature-verified.jpg";
-import featureTransparent from "@/assets/feature-transparent.jpg";
-import featureSupport from "@/assets/feature-support.jpg";
-import featureHonest from "@/assets/feature-honest.jpg";
+import featureVerified from "@/assets/verifief uni.jpg";
+import featureTransparent from "@/assets/Transparency.jpg";
+import featureSupport from "@/assets/dedicated cons.jpg";
+import featureHonest from "@/assets/honest.jpg";
 
 const features = [
   {

@@ -3,17 +3,17 @@ import { CircleHelp, FileText, Target, ArrowRight, ClipboardList } from "lucide-
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import aboutHero from "@/assets/about-hero.jpg";
-import aboutHandshake from "@/assets/about-handshake.jpg";
-import aboutCampus from "@/assets/about-campus.jpg";
-import aboutCounseling from "@/assets/about-counseling.jpg";
-import testimonialStudent from "@/assets/testimonial-student.jpg";
+import aboutHero from "@/assets/about us hero.jpg";
+import aboutHandshake from "@/assets/about us handshake.jpg";
+import aboutCampus from "@/assets/about us clg.jpg";
+import aboutCounseling from "@/assets/about us ethical.jpg";
+import testimonialStudent from "@/assets/testimonial.jpg";
 
 const About = () => {
   return (
     <div className="min-h-screen">
       <Navbar variant="transparent" />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center">
         <div
@@ -22,7 +22,7 @@ const About = () => {
         >
           <div className="absolute inset-0 bg-foreground/50" />
         </div>
-        
+
         <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
             Built on Transparency.<br />
@@ -53,7 +53,7 @@ const About = () => {
                 We started because the path was unclear
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Medical admissions in India and abroad demand more than application forms and test scores. 
+                Medical admissions in India and abroad demand more than application forms and test scores.
                 Students and parents navigate conflicting information, unverified consultants, and unclear processes.
               </p>
             </div>
@@ -88,7 +88,7 @@ const About = () => {
               <span className="text-xs text-muted-foreground uppercase tracking-wider">Principles</span>
               <h3 className="text-xl font-bold text-foreground mt-1 mb-3">Verified universities</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-                We work only with accredited institutions in India and abroad. No shortcuts, no unverified claims. 
+                We work only with accredited institutions in India and abroad. No shortcuts, no unverified claims.
                 Every university is vetted before recommendation.
               </p>
               <Link to="#" className="text-foreground text-sm font-medium inline-flex items-center hover:underline">
@@ -101,7 +101,7 @@ const About = () => {
               <span className="text-xs text-muted-foreground uppercase tracking-wider">Standards</span>
               <h3 className="text-xl font-bold text-foreground mt-1 mb-3">Ethical guidance</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-                We don't inflate credentials or promise guaranteed seats. We work within the rules and help you 
+                We don't inflate credentials or promise guaranteed seats. We work within the rules and help you
                 present your authentic profile.
               </p>
               <Link to="#" className="text-foreground text-sm font-medium inline-flex items-center hover:underline">
@@ -114,7 +114,7 @@ const About = () => {
               <Target className="w-8 h-8 text-foreground mb-4" strokeWidth={1.5} />
               <h3 className="text-lg font-bold text-foreground mb-3">Student first</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                Your goals shape our strategy, not commission structures. We counsel based on merit, fit, and your 
+                Your goals shape our strategy, not commission structures. We counsel based on merit, fit, and your
                 timeline, regardless of where it leads.
               </p>
               <Link to="#" className="text-foreground text-sm font-medium inline-flex items-center hover:underline">
@@ -127,7 +127,7 @@ const About = () => {
                 <ClipboardList className="w-8 h-8 text-foreground mb-4" strokeWidth={1.5} />
                 <h3 className="text-lg font-bold text-foreground mb-3">Transparent process</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  Every step is explained. Admission requirements, timelines, costs, and outcomes are laid out clearly 
+                  Every step is explained. Admission requirements, timelines, costs, and outcomes are laid out clearly
                   from the start.
                 </p>
                 <Link to="#" className="text-foreground text-sm font-medium inline-flex items-center hover:underline">
@@ -153,7 +153,7 @@ const About = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             <div className="space-y-10">
               <div className="flex gap-4">
                 <FileText className="w-8 h-8 text-foreground flex-shrink-0" strokeWidth={1.5} />

@@ -6,7 +6,7 @@ import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import contactImage from "@/assets/contact-handshake-abstract.jpg";
+import contactImage from "@/assets/contact.jpg";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),

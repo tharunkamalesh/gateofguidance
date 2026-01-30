@@ -10,13 +10,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import heroImage from "@/assets/international-hero.jpg";
+import heroVideo from "@/assets/inter-hero.mp4";
 import studentTabletImg from "@/assets/international-student-tablet.jpg";
-import studentsGroupImg from "@/assets/international-students-group.jpg";
+import studentsGroupImg from "@/assets/inter-group.jpg";
 import seminarImg from "@/assets/international-seminar.jpg";
-import destinationImg from "@/assets/international-destination.jpg";
-import medicalDeskImg from "@/assets/international-medical-desk.jpg";
-import travelImg from "@/assets/international-travel.jpg";
+import destinationImg from "@/assets/inter-kazakasthan.jpg";
+import medicalDeskImg from "@/assets/domestic desk.jpg";
+import travelImg from "@/assets/inter-travel.jpg";
 
 const destinations = ["Russia", "Georgia", "Philippines and Kazakhstan options", "Russia", "Georgia", "Philippines"];
 
@@ -76,12 +76,21 @@ const International = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          onTimeUpdate={(e) => {
+            if (e.currentTarget.currentTime >= 10) {
+              e.currentTarget.currentTime = 0;
+            }
+          }}
         >
-          <div className="absolute inset-0 bg-foreground/60" />
-        </div>
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 section-container pt-20 text-center">
           <div className="max-w-3xl mx-auto">
@@ -366,9 +375,8 @@ const International = () => {
                   <button
                     key={index + 1}
                     onClick={() => setActiveStep(index + 1)}
-                    className={`w-full p-6 text-left transition-colors ${
-                      activeStep === index + 1 ? "bg-muted" : "hover:bg-muted/50"
-                    }`}
+                    className={`w-full p-6 text-left transition-colors ${activeStep === index + 1 ? "bg-muted" : "hover:bg-muted/50"
+                      }`}
                   >
                     <span className="text-2xl font-display font-bold text-primary">{step.number}</span>
                   </button>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import testimonialImg from "@/assets/testimonial-student.jpg";
+import testimonialImg from "@/assets/testimonial.jpg";
 
 const testimonials = [
   {
@@ -87,9 +87,8 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-foreground" : "bg-border"
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? "bg-foreground" : "bg-border"
+                    }`}
                 />
               ))}
             </div>

@@ -10,18 +10,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import domesticHeroImg from "@/assets/domestic-hero.jpg";
-import domesticStudentsImg from "@/assets/domestic-students.jpg";
-import domesticDeskImg from "@/assets/domestic-desk.jpg";
+import domesticHeroVideo from "@/assets/domestic hero.mp4";
+import domesticStudentsImg from "@/assets/domestic students.jpg";
+import domesticDeskImg from "@/assets/domestic desk.jpg";
 import domesticCorridorImg from "@/assets/domestic-corridor.jpg";
-import domesticDoctorImg from "@/assets/domestic-doctor.jpg";
-import domesticEligibilityImg from "@/assets/domestic-eligibility.jpg";
-import domesticGovtCollegeImg from "@/assets/domestic-govt-college.jpg";
-import domesticPrivateCollegeImg from "@/assets/domestic-private-college.jpg";
-import domesticNeetImg from "@/assets/domestic-neet.jpg";
-import domesticCounselingImg from "@/assets/domestic-counseling-process.jpg";
-import domesticClassroomImg from "@/assets/domestic-classroom.jpg";
-import domesticAdmissionImg from "@/assets/domestic-admission.jpg";
+import domesticDoctorImg from "@/assets/domestic doc.jpg";
+import domesticEligibilityImg from "@/assets/domestic eligibilty.jpg";
+import domesticGovtCollegeImg from "@/assets/domestic govrn.jpg";
+import domesticPrivateCollegeImg from "@/assets/domestic pvrt.jpg";
+import domesticNeetImg from "@/assets/dom-neet.jpg";
+import domesticCounselingImg from "@/assets/dom-register.jpg";
+import domesticClassroomImg from "@/assets/dom-clsroom.jpg";
+import domesticAdmissionImg from "@/assets/dom-study.jpg";
+import domesticSeatAllotmentImg from "@/assets/dom-seat allotment.jpg";
 
 const features = [
   {
@@ -120,7 +121,7 @@ const processSteps = [
     step: "Four",
     title: "Receive seat allocation",
     description: "Merit-based algorithm assigns you to a college matching your rank.",
-    image: domesticCounselingImg,
+    image: domesticSeatAllotmentImg,
   },
   {
     step: "Five",
@@ -157,14 +158,19 @@ const Domestic = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar variant="transparent" />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${domesticHeroImg})` }}
-        />
-        <div className="absolute inset-0 bg-primary/70" />
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={domesticHeroVideo} type="video/mp4" />
+        </video>
+
         <div className="relative z-10 section-container text-center text-primary-foreground">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 max-w-3xl mx-auto">
             Navigate MBBS admissions with clarity
@@ -195,7 +201,7 @@ const Domestic = () => {
               <p className="text-muted-foreground leading-relaxed mb-12">
                 India's MBBS program spans five and a half years of rigorous medical training followed by a mandatory internship. Your degree holds recognition across India and qualifies you for licensing examinations.
               </p>
-              
+
               {/* Features List */}
               <div className="space-y-12">
                 {features.map((feature) => (
@@ -212,17 +218,17 @@ const Domestic = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="space-y-6">
-              <img 
-                src={domesticStudentsImg} 
-                alt="Medical students" 
+              <img
+                src={domesticStudentsImg}
+                alt="Medical students"
                 className="w-full h-64 object-cover rounded-lg"
               />
               {features.slice(1).map((feature) => (
-                <img 
+                <img
                   key={feature.number}
-                  src={feature.image} 
+                  src={feature.image}
                   alt={feature.title}
                   className="w-full h-48 object-cover rounded-lg"
                 />
@@ -245,9 +251,9 @@ const Domestic = () => {
               </p>
             </div>
             <div>
-              <img 
-                src={domesticDoctorImg} 
-                alt="Medical professional" 
+              <img
+                src={domesticDoctorImg}
+                alt="Medical professional"
                 className="w-full h-80 object-cover rounded-lg"
               />
             </div>
@@ -278,15 +284,15 @@ const Domestic = () => {
                 </div>
               ))}
             </div>
-            
+
             <div>
-              <img 
-                src={domesticEligibilityImg} 
-                alt="Student" 
+              <img
+                src={domesticEligibilityImg}
+                alt="Student"
                 className="w-full h-96 object-cover rounded-lg"
               />
             </div>
-            
+
             <div className="space-y-8">
               {eligibilityItems.slice(2).map((item) => (
                 <div key={item.title} className="text-center md:text-right">
@@ -316,14 +322,14 @@ const Domestic = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Government College Card */}
             <div className="border-2 border-dashed border-border rounded-xl p-6">
-              <img 
-                src={domesticGovtCollegeImg} 
-                alt="Government college" 
+              <img
+                src={domesticGovtCollegeImg}
+                alt="Government college"
                 className="w-full h-48 object-cover rounded-lg mb-6"
               />
               <h3 className="text-xl font-bold text-foreground text-center mb-1">Government colleges</h3>
               <p className="text-muted-foreground text-sm text-center mb-6">Highly subsidized education</p>
-              
+
               <div className="space-y-3 mb-6">
                 {govtFeatures.map((feature) => (
                   <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
@@ -332,7 +338,7 @@ const Domestic = () => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="space-y-2">
                 {govtBenefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -349,14 +355,14 @@ const Domestic = () => {
 
             {/* Private College Card */}
             <div className="border-2 border-dashed border-border rounded-xl p-6">
-              <img 
-                src={domesticPrivateCollegeImg} 
-                alt="Private college" 
+              <img
+                src={domesticPrivateCollegeImg}
+                alt="Private college"
                 className="w-full h-48 object-cover rounded-lg mb-6"
               />
               <h3 className="text-xl font-bold text-foreground text-center mb-1">Private colleges</h3>
               <p className="text-muted-foreground text-sm text-center mb-6">Self-funded medical education</p>
-              
+
               <div className="space-y-3 mb-6">
                 {privateFeatures.map((feature) => (
                   <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
@@ -365,7 +371,7 @@ const Domestic = () => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="space-y-2">
                 {privateBenefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -401,8 +407,8 @@ const Domestic = () => {
               <Link to="#" className="text-foreground font-medium text-sm flex items-center gap-2 mb-4">
                 Reach Us <ArrowRight className="w-4 h-4" />
               </Link>
-              <img 
-                src={processSteps[0].image} 
+              <img
+                src={processSteps[0].image}
                 alt={processSteps[0].title}
                 className="w-full h-48 object-cover rounded-lg mt-auto"
               />
@@ -417,8 +423,8 @@ const Domestic = () => {
                 <Link to="#" className="text-foreground font-medium text-sm flex items-center gap-2 mb-4">
                   Reach Us <ArrowRight className="w-4 h-4" />
                 </Link>
-                <img 
-                  src={step.image} 
+                <img
+                  src={step.image}
                   alt={step.title}
                   className="w-full h-32 object-cover rounded-lg"
                 />

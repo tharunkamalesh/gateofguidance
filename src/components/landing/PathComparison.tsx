@@ -1,6 +1,6 @@
 import { Check, ArrowRight } from "lucide-react";
-import mbbsIndiaImg from "@/assets/mbbs-india.jpg";
-import mbbsAbroadImg from "@/assets/mbbs-abroad.jpg";
+import mbbsIndiaImg from "@/assets/mbbs in india.avif";
+import mbbsAbroadImg from "@/assets/mbbs in abroad.png";
 import { Button } from "@/components/ui/button";
 
 interface PathCardProps {
@@ -16,10 +16,10 @@ const PathCard = ({ image, title, subtitle, features, benefits, ctaText }: PathC
   <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
     <div className="p-6">
       <img src={image} alt={title} className="w-full h-48 object-cover rounded-xl mb-6" />
-      
+
       <h3 className="text-xl font-bold text-foreground text-center mb-1">{title}</h3>
       <p className="text-muted-foreground text-sm text-center mb-6">{subtitle}</p>
-      
+
       <div className="space-y-4 mb-6">
         {features.map((feature, index) => (
           <div key={index} className="flex justify-between items-center py-2 border-b border-border last:border-0">
@@ -28,7 +28,7 @@ const PathCard = ({ image, title, subtitle, features, benefits, ctaText }: PathC
           </div>
         ))}
       </div>
-      
+
       <div className="space-y-3 mb-6">
         {benefits.map((benefit, index) => (
           <div key={index} className="flex items-start gap-3">
@@ -37,7 +37,7 @@ const PathCard = ({ image, title, subtitle, features, benefits, ctaText }: PathC
           </div>
         ))}
       </div>
-      
+
       <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
         {ctaText} <ArrowRight className="ml-2 w-4 h-4" />
       </Button>
