@@ -15,7 +15,7 @@ const navItems: NavItem[] = [
   { label: "Domestic", href: "/domestic", isRoute: true },
   { label: "International", href: "/international", isRoute: true },
   { label: "FAQ's", href: "/#faq" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Contact Us", href: "/contact", isRoute: true },
 ];
 
 interface NavbarProps {
