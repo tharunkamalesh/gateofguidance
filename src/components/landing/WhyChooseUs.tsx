@@ -1,5 +1,8 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useCountUp } from "@/hooks/useCountUp";
 import featureVerified from "@/assets/verifief uni.jpg";
 import featureTransparent from "@/assets/Transparency.jpg";
 import featureSupport from "@/assets/dedicated cons.jpg";
@@ -37,16 +40,35 @@ const features = [
 ];
 
 const stats = [
-  { number: "2800+", label: "Medical students admitted to quality institutions" },
-  { number: "15+", label: "Nations with recognized MBBS programs" },
+  { number: 2800, suffix: "+", label: "Medical students admitted to quality institutions" },
+  { number: 15, suffix: "+", label: "Nations with recognized MBBS programs" },
 ];
 
-const WhyChooseUs = () => {
+interface WhyChooseUsProps {
+  showNations?: boolean;
+  showStats?: boolean;
+}
+
+const WhyChooseUs = ({ showNations = true, showStats = true }: WhyChooseUsProps) => {
+  const headerReveal = useScrollReveal();
+  const featuresReveal = useScrollReveal();
+  const statsReveal = useScrollReveal();
+
+  const activeStats = showNations ? stats : stats.slice(0, 1);
+
+  const count1 = useCountUp({ end: 2800, duration: 2500, isActive: statsReveal.isVisible });
+  const count2 = useCountUp({ end: 15, duration: 2000, isActive: statsReveal.isVisible });
+
+  const counts = [count1, count2];
+
   return (
     <section className="section-padding bg-background" id="about">
       <div className="section-container">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
+        >
           <span className="text-muted-foreground text-sm uppercase tracking-wider">Trust</span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2 mb-4">
             Why choose us
@@ -57,9 +79,12 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div
+          ref={featuresReveal.ref}
+          className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 scroll-reveal-stagger ${featuresReveal.isVisible ? 'is-visible' : ''}`}
+        >
           {features.map((feature) => (
-            <div key={feature.label} className="feature-card">
+            <div key={feature.label} className="feature-card scroll-reveal flex flex-col items-center text-center">
               <span className="text-xs text-muted-foreground uppercase tracking-wider">
                 {feature.label}
               </span>
@@ -70,43 +95,58 @@ const WhyChooseUs = () => {
               <img
                 src={feature.image}
                 alt={feature.title}
-                className="w-full h-40 object-cover rounded-lg"
+                className="w-full h-40 object-cover rounded-lg mt-auto"
               />
             </div>
           ))}
         </div>
 
         {/* Stats Section */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-muted-foreground text-sm uppercase tracking-wider">Results</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2">
-              Our track record speaks clearly
-            </h2>
-          </div>
-          <div>
-            <p className="text-muted-foreground mb-6">
-              These numbers reflect years of dedicated work and genuine commitment to student
-              success across India and abroad.
-            </p>
-            <div className="flex gap-12 mb-6">
-              {stats.map((stat) => (
-                <div key={stat.number}>
-                  <span className="stat-number">{stat.number}</span>
-                  <p className="text-muted-foreground text-sm mt-1 max-w-[150px]">{stat.label}</p>
+        {showStats && (
+          <div
+            ref={statsReveal.ref}
+            className={`max-w-4xl mx-auto scroll-reveal ${statsReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-10">
+              <span className="text-muted-foreground text-sm uppercase tracking-wider">Results</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2">
+                Our track record speaks clearly
+              </h2>
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-12 items-center justify-between text-center md:text-left">
+              <div className="max-w-md">
+                <p className="text-muted-foreground mb-8 text-lg">
+                  These numbers reflect years of dedicated work and genuine commitment to student
+                  success across India and abroad.
+                </p>
+                <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                  <Link to="/about">
+                    <Button variant="outline" className="border-foreground text-foreground px-8">
+                      Discover
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button variant="ghost" className="text-foreground">
+                      Reach Us <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
-              ))}
-            </div>
-            <div className="flex gap-4">
-              <Button variant="outline" className="border-foreground text-foreground">
-                Discover
-              </Button>
-              <Button variant="ghost" className="text-foreground">
-                Reach Us <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              </div>
+
+              <div className="flex gap-16">
+                {activeStats.map((stat, index) => (
+                  <div key={stat.number} className="text-center">
+                    <span className="stat-number block">
+                      {counts[index]}{stat.suffix}
+                    </span>
+                    <p className="text-muted-foreground text-sm mt-2 max-w-[150px] mx-auto">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   {
@@ -34,17 +35,26 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const headerReveal = useScrollReveal();
+  const faqReveal = useScrollReveal();
+
   return (
     <section className="section-padding bg-background" id="faq">
       <div className="section-container">
-        <div className="text-center mb-12">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
+        >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Questions
           </h2>
           <p className="text-muted-foreground">Clear answers to what matters most to you</p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div
+          ref={faqReveal.ref}
+          className={`max-w-2xl mx-auto scroll-reveal ${faqReveal.isVisible ? 'is-visible' : ''}`}
+        >
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-b border-border">

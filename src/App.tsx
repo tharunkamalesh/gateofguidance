@@ -9,6 +9,7 @@ import Domestic from "./pages/Domestic";
 import International from "./pages/International";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ScrollToHashElement from "./components/ScrollToHashElement";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToHashElement />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

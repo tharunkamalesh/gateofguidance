@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import testimonialImg from "@/assets/testimonial.jpg";
 
 const testimonials = [
@@ -28,6 +29,7 @@ const testimonials = [
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const testimonialReveal = useScrollReveal();
 
   const prev = () => setCurrentIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1));
   const next = () => setCurrentIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1));
@@ -37,7 +39,10 @@ const Testimonials = () => {
   return (
     <section className="section-padding bg-background">
       <div className="section-container">
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <div
+          ref={testimonialReveal.ref}
+          className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto scroll-reveal ${testimonialReveal.isVisible ? 'is-visible' : ''}`}
+        >
           {/* Image */}
           <div className="aspect-[4/5] overflow-hidden rounded-xl">
             <img

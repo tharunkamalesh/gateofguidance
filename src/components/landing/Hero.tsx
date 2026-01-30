@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero main.jpg";
 
 const Hero = () => {
@@ -13,41 +14,27 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 section-container pt-20">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
-            Honest Guidance for MBBS in India & Abroad
+        <div className="max-w-3xl">
+          <span className="inline-block text-primary-foreground/90 font-medium tracking-wider uppercase text-sm mb-4 bg-primary/20 backdrop-blur-sm px-4 py-1 rounded-full border border-primary-foreground/20">
+            Built on Transparency.
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-primary-foreground leading-tight mb-6">
+            Focused on Your <span className="text-primary italic">Medical Future.</span>
           </h1>
-          <p className="text-lg text-primary-foreground/80 mb-8">
-            Based on your NEET score, budget, and long-term goals.
+          <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed max-w-2xl">
+            Navigate MBBS admissions with verified counselling, university shortlisting, and complete admission support. We handle the complexity so you can focus on your future.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="btn-hero-outline">Enquire Now</button>
-            <button className="btn-hero-solid">Explore Programs</button>
+            <Link to="/contact">
+              <button className="btn-hero-solid">Enquiry Now</button>
+            </Link>
+            <Link to="/domestic">
+              <button className="btn-hero-outline">Explore Path</button>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Services Ticker */}
-      <div className="absolute bottom-0 left-0 right-0 bg-primary py-3 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[
-            "Medical guidance",
-            "Admission support",
-            "Counselling expertise",
-            "Visa assistance",
-            "College selection",
-            "Medical guidance",
-            "Admission support",
-            "Counselling expertise",
-            "Visa assistance",
-            "College selection",
-          ].map((item, index) => (
-            <span key={index} className="mx-8 text-primary-foreground text-sm font-medium">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };

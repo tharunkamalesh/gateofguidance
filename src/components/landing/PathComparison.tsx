@@ -1,7 +1,9 @@
 import { Check, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import mbbsIndiaImg from "@/assets/mbbs in india.avif";
 import mbbsAbroadImg from "@/assets/mbbs in abroad.png";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface PathCardProps {
   image: string;
@@ -10,10 +12,13 @@ interface PathCardProps {
   features: { label: string; value: string }[];
   benefits: string[];
   ctaText: string;
+  ctaHref: string;
 }
 
-const PathCard = ({ image, title, subtitle, features, benefits, ctaText }: PathCardProps) => (
-  <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+
+
+const PathCard = ({ image, title, subtitle, features, benefits, ctaText, ctaHref }: PathCardProps) => (
+  <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm card-hover-lift">
     <div className="p-6">
       <img src={image} alt={title} className="w-full h-48 object-cover rounded-xl mb-6" />
 
@@ -38,18 +43,47 @@ const PathCard = ({ image, title, subtitle, features, benefits, ctaText }: PathC
         ))}
       </div>
 
-      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-        {ctaText} <ArrowRight className="ml-2 w-4 h-4" />
-      </Button>
+      <Link to={ctaHref}>
+        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+          {ctaText} <ArrowRight className="ml-2 w-4 h-4" />
+        </Button>
+      </Link>
     </div>
   </div>
 );
 
 const PathComparison = () => {
+  const headerReveal = useScrollReveal();
+  const cardsReveal = useScrollReveal();
+
   return (
-    <section className="section-padding bg-background" id="domestic">
+    <section className="section-padding bg-background relative" id="domestic">
+      {/* Services Ticker */}
+      <div className="absolute top-0 left-0 right-0 bg-primary py-3 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[
+            "Medical guidance",
+            "Admission support",
+            "Counselling expertise",
+            "Visa assistance",
+            "College selection",
+            "Medical guidance",
+            "Admission support",
+            "Counselling expertise",
+            "Visa assistance",
+            "College selection",
+          ].map((item, index) => (
+            <span key={index} className="mx-8 text-primary-foreground text-sm font-medium">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
       <div className="section-container">
-        <div className="text-center mb-12">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
+        >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             India or Abroad — Which Path Fits You?
           </h2>
@@ -58,7 +92,10 @@ const PathComparison = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div
+          ref={cardsReveal.ref}
+          className={`grid md:grid-cols-2 gap-8 max-w-4xl mx-auto scroll-reveal ${cardsReveal.isVisible ? 'is-visible' : ''}`}
+        >
           <PathCard
             image={mbbsIndiaImg}
             title="MBBS in India"
@@ -73,6 +110,7 @@ const PathComparison = () => {
               "Residency pathway well-defined domestically",
             ]}
             ctaText="See If I Qualify for India"
+            ctaHref="/domestic"
           />
 
           <PathCard
@@ -89,6 +127,7 @@ const PathComparison = () => {
               "Global career opportunities and mobility",
             ]}
             ctaText="See If I Qualify for Abroad"
+            ctaHref="/international"
           />
         </div>
       </div>

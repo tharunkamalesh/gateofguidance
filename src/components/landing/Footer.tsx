@@ -1,19 +1,19 @@
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 const footerLinks = {
   column1: [
-    { label: "About us", href: "#about" },
-    { label: "Contact", href: "#contact" },
-    { label: "Programs", href: "#" },
-    { label: "Resources", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "About us", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Domestic", href: "/domestic" },
+    { label: "International", href: "/international" },
+    { label: "FAQ's", href: "/#faq" },
   ],
   column2: [
-    { label: "About us", href: "#" },
-    { label: "Our approach", href: "#" },
-    { label: "Partner universities", href: "#" },
-    { label: "Student stories", href: "#" },
-    { label: "Get in touch", href: "#" },
+    { label: "Our approach", href: "/#process" },
+    { label: "Why choose us", href: "/#about" },
+    { label: "Student stories", href: "/#testimonials" },
+    { label: "Get in touch", href: "/contact" },
   ],
 };
 
@@ -32,9 +32,9 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-12">
             {/* Brand & Contact */}
             <div>
-              <a href="#" className="text-foreground font-display text-2xl italic block mb-6">
+              <Link to="/" className="text-foreground font-display text-2xl italic block mb-6">
                 Logo
-              </a>
+              </Link>
 
               <div className="space-y-4 text-sm">
                 <div>
@@ -70,12 +70,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {footerLinks.column1.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -86,12 +86,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {footerLinks.column2.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

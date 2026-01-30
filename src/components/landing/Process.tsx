@@ -1,50 +1,63 @@
+import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
+
 const steps = [
   {
     number: "01",
     label: "Process",
-    title: "Consultation",
-    description: "Three straightforward steps from consultation to admission",
+    title: "Initial Consultation",
+    description: "Our journey begins with a deep dive into your vision. In the discovery phase, we engage in meaningful conversations to grasp your goals and the essence of your medical career aspirations. This phase sets the stage for all that follows.",
   },
   {
     number: "02",
     label: "Step one",
     title: "Shortlisting & Application",
-    description:
-      "We assess your profile, goals, and academic standing. This foundation shapes every decision that follows.",
+    description: "We assess your academic profile, NEET scores, and goals thoroughly. We shortlist verified institutions in India and abroad that align with your aspirations, helping you prepare a strong application profile.",
   },
   {
     number: "03",
     label: "Three steps",
-    title: "Admission + Visa",
-    description:
-      "From your first conversation to your admission letter, we handle the complexity so you can focus on what matters.",
+    title: "Admission + Visa Support",
+    description: "From your first conversation to your actual enrollment, we handle the complexity of international or domestic admission and visa processes, ensuring you can focus on your studies while we take care of the paperwork.",
   },
 ];
 
 const Process = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-secondary/10">
       <div className="section-container">
-        <div className="max-w-3xl mx-auto border-2 border-dashed border-border rounded-xl p-8 md:p-12">
-          <div className="space-y-16">
+        <div className="grid md:grid-cols-2 md:gap-12 xl:gap-16">
+          <div className="left-0 top-32 md:sticky md:h-fit md:py-12">
+            <span className="text-xs text-primary font-semibold uppercase tracking-wider">our process</span>
+            <h2 className="mb-6 mt-4 text-4xl md:text-5xl font-display font-bold text-primary tracking-tight">
+              Planning your <span className="text-foreground">educational journey</span>
+            </h2>
+            <p className="max-w-prose text-muted-foreground leading-relaxed">
+              We provide a structured pathway to medical admission. Our process is transparent, reliable, and designed to minimize stress while maximizing your chances of securing a seat in a reputable institution.
+            </p>
+          </div>
+
+          <ContainerScroll className="space-y-8 py-12">
             {steps.map((step, index) => (
-              <div key={step.number} className="flex gap-6 md:gap-12 items-start">
-                <span className="process-number font-display">{step.number}</span>
-                <div className="pt-4">
-                  {index > 0 && <div className="h-px w-16 bg-foreground mb-4" />}
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">
-                    {step.label}
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-primary mt-1 mb-3">
+              <CardSticky
+                key={step.number}
+                index={index + 2}
+                className="rounded-2xl border border-border bg-background/80 p-8 shadow-xl backdrop-blur-md"
+              >
+                <div className="flex items-center justify-between gap-4 mb-6">
+                  <h3 className="text-2xl font-display font-bold text-primary">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-md">
-                    {step.description}
-                  </p>
+                  <span className="text-3xl font-display font-bold text-primary/20">
+                    {step.number}
+                  </span>
                 </div>
-              </div>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </CardSticky>
             ))}
-          </div>
+          </ContainerScroll>
         </div>
       </div>
     </section>

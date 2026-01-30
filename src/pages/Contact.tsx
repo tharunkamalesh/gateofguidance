@@ -6,6 +6,7 @@ import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import contactImage from "@/assets/contact.jpg";
 
 const contactSchema = z.object({
@@ -19,6 +20,9 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
+  const formReveal = useScrollReveal();
+  const contactReveal = useScrollReveal();
+
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     mobile: "",
@@ -59,20 +63,25 @@ const Contact = () => {
       <Navbar variant="solid" />
 
       {/* Form Section */}
-      <section className="pt-24 pb-16 bg-background">
+      <section className="pt-32 pb-16 bg-background">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Form */}
-            <div>
-              <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Connect</span>
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mt-2 mb-4">
-                Reach out
-              </h1>
-              <p className="text-muted-foreground mb-8">
-                Have questions about your medical education options?
-              </p>
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Connect</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mt-2 mb-4">
+              Reach out to us
+            </h1>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Have questions about your medical education options? Our expert counsellors are ready to help you navigate your path.
+            </p>
+          </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6 max-w-md">
+          <div
+            ref={formReveal.ref}
+            className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto scroll-reveal ${formReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            {/* Form */}
+            <div className="bg-secondary/20 p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-sm font-medium text-foreground">
                     Name
@@ -168,61 +177,66 @@ const Contact = () => {
       {/* Get in Touch Section */}
       <section className="py-16 bg-primary">
         <div className="section-container">
-          <span className="text-sm font-semibold text-primary-foreground/70 uppercase tracking-wider">Connect</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mt-2 mb-4">
-            Get in touch
-          </h2>
-          <p className="text-primary-foreground/80 mb-12">
-            We're here to guide your medical education journey
-          </p>
+          <div
+            ref={contactReveal.ref}
+            className={`scroll-reveal ${contactReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <span className="text-sm font-semibold text-primary-foreground/70 uppercase tracking-wider">Connect</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mt-2 mb-4">
+              Get in touch
+            </h2>
+            <p className="text-primary-foreground/80 mb-12">
+              We're here to guide your medical education journey
+            </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Email */}
-            <div>
-              <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-primary-foreground" />
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Email */}
+              <div>
+                <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-bold text-primary-foreground mb-2">Email</h3>
+                <p className="text-primary-foreground/70 text-sm mb-2">
+                  Send us your questions and we'll respond promptly
+                </p>
+                <a
+                  href="mailto:hello@mbbs-admissions.in"
+                  className="text-primary-foreground underline text-sm"
+                >
+                  hello@mbbs-admissions.in
+                </a>
               </div>
-              <h3 className="text-xl font-bold text-primary-foreground mb-2">Email</h3>
-              <p className="text-primary-foreground/70 text-sm mb-2">
-                Send us your questions and we'll respond promptly
-              </p>
-              <a
-                href="mailto:hello@mbbs-admissions.in"
-                className="text-primary-foreground underline text-sm"
-              >
-                hello@mbbs-admissions.in
-              </a>
-            </div>
 
-            {/* Phone */}
-            <div>
-              <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6 text-primary-foreground" />
+              {/* Phone */}
+              <div>
+                <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-bold text-primary-foreground mb-2">Phone</h3>
+                <p className="text-primary-foreground/70 text-sm mb-2">
+                  Speak directly with our counselling team during office hours
+                </p>
+                <a
+                  href="tel:+919360711986"
+                  className="text-primary-foreground underline text-sm"
+                >
+                  93607 11986
+                </a>
               </div>
-              <h3 className="text-xl font-bold text-primary-foreground mb-2">Phone</h3>
-              <p className="text-primary-foreground/70 text-sm mb-2">
-                Speak directly with our counselling team during office hours
-              </p>
-              <a
-                href="tel:+919360711986"
-                className="text-primary-foreground underline text-sm"
-              >
-                93607 11986
-              </a>
-            </div>
 
-            {/* Office */}
-            <div>
-              <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-primary-foreground" />
+              {/* Office */}
+              <div>
+                <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-bold text-primary-foreground mb-2">Office</h3>
+                <p className="text-primary-foreground/70 text-sm mb-2">
+                  Visit us in New Delhi to discuss your admission strategy
+                </p>
+                <p className="text-primary-foreground text-sm">
+                  45 Institutional Area, New Delhi 110016 India
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-primary-foreground mb-2">Office</h3>
-              <p className="text-primary-foreground/70 text-sm mb-2">
-                Visit us in New Delhi to discuss your admission strategy
-              </p>
-              <p className="text-primary-foreground text-sm">
-                45 Institutional Area, New Delhi 110016 India
-              </p>
             </div>
           </div>
         </div>

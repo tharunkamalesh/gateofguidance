@@ -8,6 +8,10 @@
    Navy blue professional theme with clean typography */
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 215 25% 15%;
@@ -68,7 +72,12 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-sans font-semibold;
   }
 }
@@ -104,5 +113,119 @@
 
   .process-number {
     @apply text-7xl md:text-8xl font-bold text-foreground/10;
+  }
+}
+
+/* Premium Scroll Reveal Animations */
+@layer utilities {
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal.is-visible,
+  .scroll-reveal-stagger.is-visible .scroll-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-fast {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-fast.is-visible,
+  .scroll-reveal-stagger.is-visible .scroll-reveal-fast {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays for child elements */
+  .scroll-reveal-stagger>* {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-stagger.is-visible>* {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-stagger>*:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .scroll-reveal-stagger>*:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .scroll-reveal-stagger>*:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .scroll-reveal-stagger>*:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+
+  .scroll-reveal-stagger>*:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+
+  .scroll-reveal-stagger>*:nth-child(6) {
+    transition-delay: 0.6s;
+  }
+}
+
+/* Premium Card Hover Effects */
+@layer components {
+  .feature-card {
+    @apply bg-card rounded-lg p-6 border border-border transition-all duration-300 ease-out;
+  }
+
+  .feature-card:hover {
+    @apply shadow-xl -translate-y-2;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover-lift:hover {
+    @apply -translate-y-2 shadow-xl;
+  }
+}
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  100% {
+    transform: scale(1.01) translateY(-8px);
   }
 }

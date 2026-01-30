@@ -3,6 +3,7 @@ import { ArrowRight, Check, X, Percent, Calendar, Award, Users } from "lucide-re
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
   Accordion,
   AccordionContent,
@@ -155,6 +156,15 @@ const faqItems = [
 ];
 
 const Domestic = () => {
+  const heroReveal = useScrollReveal();
+  const whatMbbsReveal = useScrollReveal();
+  const competitiveReveal = useScrollReveal();
+  const eligibilityReveal = useScrollReveal();
+  const collegesReveal = useScrollReveal();
+  const processReveal = useScrollReveal();
+  const faqReveal = useScrollReveal();
+  const ctaReveal = useScrollReveal();
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar variant="transparent" />
@@ -171,7 +181,10 @@ const Domestic = () => {
           <source src={domesticHeroVideo} type="video/mp4" />
         </video>
 
-        <div className="relative z-10 section-container text-center text-primary-foreground">
+        <div
+          ref={heroReveal.ref}
+          className={`relative z-10 section-container text-center text-primary-foreground scroll-reveal ${heroReveal.isVisible ? 'is-visible' : ''}`}
+        >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 max-w-3xl mx-auto">
             Navigate MBBS admissions with clarity
           </h1>
@@ -179,12 +192,16 @@ const Domestic = () => {
             We guide you through every step of India's medical education pathway with structured counselling, admission support, and visa assistance. Your journey to becoming a doctor starts here.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-              Enquire
-            </Button>
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
-              Explore
-            </Button>
+            <Link to="/contact">
+              <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                Enquire
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
+                Explore
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -192,23 +209,28 @@ const Domestic = () => {
       {/* What MBBS in India Entails */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
+          <div
+            ref={whatMbbsReveal.ref}
+            className={`max-w-4xl mx-auto scroll-reveal ${whatMbbsReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-16">
               <span className="text-xs text-muted-foreground uppercase tracking-wider">Structure</span>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-6">
                 What MBBS in India entails
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-12">
+              <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl mx-auto">
                 India's MBBS program spans five and a half years of rigorous medical training followed by a mandatory internship. Your degree holds recognition across India and qualifies you for licensing examinations.
               </p>
+            </div>
 
-              {/* Features List */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-12">
                 {features.map((feature) => (
-                  <div key={feature.number} className="flex gap-6">
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">
-                        {feature.number}. {feature.title}
+                  <div key={feature.number} className="flex gap-6 items-start">
+                    <span className="text-2xl font-bold text-primary/20 font-display">{feature.number}</span>
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground mb-2">
+                        {feature.title}
                       </h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">
                         {feature.description}
@@ -217,44 +239,53 @@ const Domestic = () => {
                   </div>
                 ))}
               </div>
-            </div>
 
-            <div className="space-y-6">
-              <img
-                src={domesticStudentsImg}
-                alt="Medical students"
-                className="w-full h-64 object-cover rounded-lg"
-              />
-              {features.slice(1).map((feature) => (
+              <div className="grid grid-cols-2 gap-4">
                 <img
-                  key={feature.number}
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-48 object-cover rounded-lg"
+                  src={domesticStudentsImg}
+                  alt="Medical students"
+                  className="w-full h-64 object-cover rounded-xl shadow-lg col-span-2"
                 />
-              ))}
+                {features.slice(1).map((feature) => (
+                  <img
+                    key={feature.number}
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-40 object-cover rounded-xl shadow-md"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Highly Competitive Section */}
-      <section className="section-padding bg-background border-2 border-dashed border-border mx-4 md:mx-8 rounded-xl">
+      <section className="section-padding bg-background">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+          <div
+            ref={competitiveReveal.ref}
+            className={`grid md:grid-cols-2 gap-12 items-center border-2 border-primary/20 rounded-2xl p-8 md:p-12 scroll-reveal ${competitiveReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
                 Highly competitive
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                NEET determines placement with limited government seats and substantial private college options available.
+              <p className="text-muted-foreground leading-relaxed text-lg mb-8">
+                NEET determines placement with limited government seats and substantial private college options available. We help you navigate these choices based on your merit and financial considerations.
               </p>
+              <Link to="/contact">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8">
+                  Get Expert Advice
+                </Button>
+              </Link>
             </div>
-            <div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-primary/5 rounded-full blur-3xl" />
               <img
                 src={domesticDoctorImg}
                 alt="Medical professional"
-                className="w-full h-80 object-cover rounded-lg"
+                className="relative w-full h-[400px] object-cover rounded-2xl shadow-2xl"
               />
             </div>
           </div>
@@ -264,43 +295,53 @@ const Domestic = () => {
       {/* Eligibility Criteria */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <div className="text-center mb-12">
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">Requirements</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-              Eligibility criteria for MBBS admission
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              NEET is the single entrance examination for all MBBS seats in India. Your score determines both government and private college eligibility based on merit and cutoff marks.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            <div className="space-y-8">
-              {eligibilityItems.slice(0, 2).map((item) => (
-                <div key={item.title} className="text-center md:text-left">
-                  <item.icon className="w-8 h-8 text-primary mx-auto md:mx-0 mb-3" />
-                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </div>
-              ))}
+          <div
+            ref={eligibilityReveal.ref}
+            className={`scroll-reveal ${eligibilityReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-12">
+              <span className="text-xs text-muted-foreground uppercase tracking-wider">Requirements</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Eligibility criteria for MBBS admission
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                NEET is the single entrance examination for all MBBS seats in India. Your score determines both government and private college eligibility based on merit and cutoff marks.
+              </p>
             </div>
 
-            <div>
-              <img
-                src={domesticEligibilityImg}
-                alt="Student"
-                className="w-full h-96 object-cover rounded-lg"
-              />
-            </div>
+            <div className="grid md:grid-cols-3 gap-12 items-center">
+              <div className="space-y-12">
+                {eligibilityItems.slice(0, 2).map((item) => (
+                  <div key={item.title} className="text-center md:text-right group">
+                    <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:ml-auto md:mr-0 mb-4 transition-colors group-hover:bg-primary/10">
+                      <item.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                ))}
+              </div>
 
-            <div className="space-y-8">
-              {eligibilityItems.slice(2).map((item) => (
-                <div key={item.title} className="text-center md:text-right">
-                  <item.icon className="w-8 h-8 text-primary mx-auto md:ml-auto md:mr-0 mb-3" />
-                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </div>
-              ))}
+              <div className="relative h-full flex items-center justify-center">
+                <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl" />
+                <img
+                  src={domesticEligibilityImg}
+                  alt="Student"
+                  className="relative w-full h-[400px] object-cover rounded-3xl shadow-xl border-4 border-background"
+                />
+              </div>
+
+              <div className="space-y-12">
+                {eligibilityItems.slice(2).map((item) => (
+                  <div key={item.title} className="text-center md:text-left group">
+                    <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4 transition-colors group-hover:bg-primary/10">
+                      <item.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -309,76 +350,81 @@ const Domestic = () => {
       {/* Government vs Private Colleges */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <div className="text-center mb-12">
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">Choice</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-              Government versus private colleges
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Both pathways lead to medical practice with distinct advantages and trade-offs.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Government College Card */}
-            <div className="border-2 border-dashed border-border rounded-xl p-6">
-              <img
-                src={domesticGovtCollegeImg}
-                alt="Government college"
-                className="w-full h-48 object-cover rounded-lg mb-6"
-              />
-              <h3 className="text-xl font-bold text-foreground text-center mb-1">Government colleges</h3>
-              <p className="text-muted-foreground text-sm text-center mb-6">Highly subsidized education</p>
-
-              <div className="space-y-3 mb-6">
-                {govtFeatures.map((feature) => (
-                  <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                    <span className="text-muted-foreground text-sm">{feature.label}</span>
-                    <span className="text-foreground font-semibold text-sm">{feature.value}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-2">
-                {govtBenefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    {benefit.positive ? (
-                      <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    ) : (
-                      <X className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
-                    )}
-                    <span className="text-muted-foreground text-sm">{benefit.text}</span>
-                  </div>
-                ))}
-              </div>
+          <div
+            ref={collegesReveal.ref}
+            className={`scroll-reveal ${collegesReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-12">
+              <span className="text-xs text-muted-foreground uppercase tracking-wider">Choice</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Government versus private colleges
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Both pathways lead to medical practice with distinct advantages and trade-offs.
+              </p>
             </div>
 
-            {/* Private College Card */}
-            <div className="border-2 border-dashed border-border rounded-xl p-6">
-              <img
-                src={domesticPrivateCollegeImg}
-                alt="Private college"
-                className="w-full h-48 object-cover rounded-lg mb-6"
-              />
-              <h3 className="text-xl font-bold text-foreground text-center mb-1">Private colleges</h3>
-              <p className="text-muted-foreground text-sm text-center mb-6">Self-funded medical education</p>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Government College Card */}
+              <div className="border-2 border-border rounded-xl p-6 card-hover-lift">
+                <img
+                  src={domesticGovtCollegeImg}
+                  alt="Government college"
+                  className="w-full h-48 object-cover rounded-lg mb-6"
+                />
+                <h3 className="text-xl font-bold text-foreground text-center mb-1">Government colleges</h3>
+                <p className="text-muted-foreground text-sm text-center mb-6">Highly subsidized education</p>
 
-              <div className="space-y-3 mb-6">
-                {privateFeatures.map((feature) => (
-                  <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                    <span className="text-muted-foreground text-sm">{feature.label}</span>
-                    <span className="text-foreground font-semibold text-sm">{feature.value}</span>
-                  </div>
-                ))}
+                <div className="space-y-3 mb-6">
+                  {govtFeatures.map((feature) => (
+                    <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
+                      <span className="text-muted-foreground text-sm">{feature.label}</span>
+                      <span className="text-foreground font-semibold text-sm">{feature.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  {govtBenefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      {benefit.positive ? (
+                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      ) : (
+                        <X className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
+                      )}
+                      <span className="text-muted-foreground text-sm">{benefit.text}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="space-y-2">
-                {privateBenefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground text-sm">{benefit.text}</span>
-                  </div>
-                ))}
+              {/* Private College Card */}
+              <div className="border-2 border-border rounded-xl p-6 card-hover-lift">
+                <img
+                  src={domesticPrivateCollegeImg}
+                  alt="Private college"
+                  className="w-full h-48 object-cover rounded-lg mb-6"
+                />
+                <h3 className="text-xl font-bold text-foreground text-center mb-1">Private colleges</h3>
+                <p className="text-muted-foreground text-sm text-center mb-6">Self-funded medical education</p>
+
+                <div className="space-y-3 mb-6">
+                  {privateFeatures.map((feature) => (
+                    <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
+                      <span className="text-muted-foreground text-sm">{feature.label}</span>
+                      <span className="text-foreground font-semibold text-sm">{feature.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  {privateBenefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground text-sm">{benefit.text}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -388,48 +434,38 @@ const Domestic = () => {
       {/* Process Section */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <div className="text-center mb-12">
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">Process</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-              Your path to medical college
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              India's admission process follows a structured timeline with counselling determining your final seat allocation.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* First large card */}
-            <div className="md:row-span-2 border border-border rounded-xl p-6 flex flex-col">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{processSteps[0].step}</span>
-              <h3 className="text-xl font-bold text-foreground mb-3">{processSteps[0].title}</h3>
-              <p className="text-muted-foreground text-sm mb-4 flex-grow">{processSteps[0].description}</p>
-              <Link to="#" className="text-foreground font-medium text-sm flex items-center gap-2 mb-4">
-                Reach Us <ArrowRight className="w-4 h-4" />
-              </Link>
-              <img
-                src={processSteps[0].image}
-                alt={processSteps[0].title}
-                className="w-full h-48 object-cover rounded-lg mt-auto"
-              />
+          <div
+            ref={processReveal.ref}
+            className={`scroll-reveal ${processReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-12">
+              <span className="text-xs text-muted-foreground uppercase tracking-wider">Process</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Your path to medical college
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                India's admission process follows a structured timeline with counselling determining your final seat allocation.
+              </p>
             </div>
 
-            {/* Remaining cards */}
-            {processSteps.slice(1).map((step) => (
-              <div key={step.step} className="border border-border rounded-xl p-6">
-                <span className="text-xs text-muted-foreground uppercase tracking-wider mb-2 block">{step.step}</span>
-                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm mb-3">{step.description}</p>
-                <Link to="#" className="text-foreground font-medium text-sm flex items-center gap-2 mb-4">
-                  Reach Us <ArrowRight className="w-4 h-4" />
-                </Link>
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-full h-32 object-cover rounded-lg"
-                />
-              </div>
-            ))}
+            <div className="grid md:grid-cols-3 gap-8">
+              {processSteps.map((step, index) => (
+                <div key={step.step} className="flex flex-col items-center text-center p-6 border border-border rounded-2xl hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-display font-bold text-lg mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-6 flex-grow">{step.description}</p>
+                  <div className="w-full aspect-video overflow-hidden rounded-xl bg-muted">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -437,7 +473,10 @@ const Domestic = () => {
       {/* FAQ Section */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <div className="max-w-3xl mx-auto">
+          <div
+            ref={faqReveal.ref}
+            className={`max-w-3xl mx-auto scroll-reveal ${faqReveal.isVisible ? 'is-visible' : ''}`}
+          >
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
               Questions
             </h2>
@@ -464,15 +503,22 @@ const Domestic = () => {
       {/* CTA Section */}
       <section className="section-padding bg-background">
         <div className="section-container text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-            Begin your medical education journey
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            Schedule a personalized consultation with our experienced counsellors today.
-          </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Book now
-          </Button>
+          <div
+            ref={ctaReveal.ref}
+            className={`scroll-reveal ${ctaReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
+              Begin your medical education journey
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Schedule a personalized consultation with our experienced counsellors today.
+            </p>
+            <Link to="/contact">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Book now
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

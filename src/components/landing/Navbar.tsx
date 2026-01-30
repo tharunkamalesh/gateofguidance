@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
   { label: "About Us", href: "/about", isRoute: true },
   { label: "Domestic", href: "/domestic", isRoute: true },
   { label: "International", href: "/international", isRoute: true },
-  { label: "FAQ's", href: "/#faq" },
+  { label: "FAQ's", href: "/#faq", isRoute: true },
   { label: "Contact Us", href: "/contact", isRoute: true },
 ];
 
@@ -59,11 +59,13 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
           </div>
 
           {/* CTA Button */}
-          <Button
-            className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-md"
-          >
-            Enquiry Now
-          </Button>
+          <Link to="/contact">
+            <Button
+              className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-md"
+            >
+              Enquiry Now
+            </Button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -100,9 +102,11 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
                 </a>
               )
             ))}
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-              Enquiry Now
-            </Button>
+            <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                Enquiry Now
+              </Button>
+            </Link>
           </div>
         </div>
       )}
