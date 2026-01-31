@@ -9,6 +9,10 @@ import { Label } from "@/components/ui/label";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import contactImage from "@/assets/contact.jpg";
 
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import emailjs from "@emailjs/browser";
+
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   mobile: z.string().trim().min(10, "Valid mobile number required").max(15),
@@ -31,6 +35,7 @@ const Contact = () => {
     course: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -40,7 +45,7 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(formData);
     if (!result.success) {
@@ -53,9 +58,60 @@ const Contact = () => {
       setErrors(fieldErrors);
       return;
     }
-    // Handle form submission
-    alert("Form submitted successfully!");
-    setFormData({ name: "", mobile: "", email: "", fatherName: "", course: "" });
+
+    setIsSubmitting(true);
+    try {
+      await addDoc(collection(db, "consultancy_requests"), {
+        name: formData.name,
+        mobile: formData.mobile,
+        email: formData.email,
+        fatherName: formData.fatherName,
+        courseRequired: formData.course,
+        createdAt: serverTimestamp(),
+      });
+
+      // Send admin notification email via EmailJS (non-blocking)
+      emailjs
+        .send(
+          "service_55sekqb",
+          "template_ff0plvc",
+          {
+            name: formData.name,
+            mobile: formData.mobile,
+            email: formData.email,
+            fatherName: formData.fatherName,
+            courseRequired: formData.course,
+            created_at: new Date().toLocaleString(),
+          },
+          "DF_F23GJxs_lQ91d3"
+        )
+        .catch((err) => console.error("EmailJS Admin Notification error:", err));
+
+      // Send user confirmation email via EmailJS (non-blocking)
+      emailjs
+        .send(
+          "service_55sekqb",
+          "template_9t522be",
+          {
+            name: formData.name,
+            mobile: formData.mobile,
+            email: formData.email,
+            fatherName: formData.fatherName,
+            courseRequired: formData.course,
+            created_at: new Date().toLocaleString(),
+          },
+          "DF_F23GJxs_lQ91d3"
+        )
+        .catch((err) => console.error("EmailJS User Notification error:", err));
+
+      alert("Form submitted successfully!");
+      setFormData({ name: "", mobile: "", email: "", fatherName: "", course: "" });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("An error occurred while submitting the form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -154,8 +210,12 @@ const Contact = () => {
                   {errors.course && <p className="text-destructive text-sm mt-1">{errors.course}</p>}
                 </div>
 
-                <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  Send
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Sending..." : "Send"}
                 </Button>
               </form>
             </div>
