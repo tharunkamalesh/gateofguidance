@@ -59,7 +59,7 @@ const PathComparison = () => {
   return (
     <section className="section-padding bg-background relative" id="domestic">
       {/* Services Ticker */}
-      <div className="absolute top-0 left-0 right-0 bg-primary py-3 overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 bg-white py-4 overflow-hidden border-b border-border shadow-sm">
         <div className="flex animate-marquee whitespace-nowrap">
           {[
             "Medical guidance",
@@ -73,7 +73,8 @@ const PathComparison = () => {
             "Visa assistance",
             "College selection",
           ].map((item, index) => (
-            <span key={index} className="mx-8 text-primary-foreground text-sm font-medium">
+            <span key={index} className="mx-8 text-primary text-sm font-bold uppercase tracking-widest flex items-center">
+              <span className="w-1.5 h-1.5 bg-primary rounded-full mr-4" />
               {item}
             </span>
           ))}

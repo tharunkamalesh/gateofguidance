@@ -4,12 +4,7 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import FAQ from "@/components/landing/FAQ";
 
 import domesticHeroVideo from "@/assets/domestic hero.mp4";
 import domesticStudentsImg from "@/assets/domestic students.jpg";
@@ -265,7 +260,7 @@ const Domestic = () => {
         <div className="section-container">
           <div
             ref={competitiveReveal.ref}
-            className={`grid md:grid-cols-2 gap-12 items-center border-2 border-primary/20 rounded-2xl p-8 md:p-12 scroll-reveal ${competitiveReveal.isVisible ? 'is-visible' : ''}`}
+            className={`grid md:grid-cols-2 gap-12 items-center rounded-2xl p-8 md:p-12 scroll-reveal ${competitiveReveal.isVisible ? 'is-visible' : ''}`}
           >
             <div className="text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
@@ -470,35 +465,7 @@ const Domestic = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section-padding bg-background">
-        <div className="section-container">
-          <div
-            ref={faqReveal.ref}
-            className={`max-w-3xl mx-auto scroll-reveal ${faqReveal.isVisible ? 'is-visible' : ''}`}
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-              Questions
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Find answers to what matters most about your medical education journey.
-            </p>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqItems.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6">
-                  <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-4">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-4">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FAQ items={faqItems} title="Questions" />
 
       {/* CTA Section */}
       <section className="section-padding bg-background">

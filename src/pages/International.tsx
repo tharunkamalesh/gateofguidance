@@ -6,12 +6,16 @@ import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
+import FAQ from "@/components/landing/FAQ";
+import { Timeline } from "@/components/ui/timeline";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  SliderBtnGroup,
+  ProgressSlider,
+  SliderBtn,
+  SliderContent,
+  SliderWrapper,
+} from "@/components/ui/progressive-carousel";
+import { cn } from "@/lib/utils";
 
 import heroVideo from "@/assets/inter-hero.mp4";
 import studentTabletImg from "@/assets/international-student-tablet.jpg";
@@ -55,24 +59,35 @@ const destinationsData = [
 const processSteps = [
   {
     number: "01",
-    title: "Visa application and approval",
-    description: "We begin with a detailed assessment of your academic profile, NEET scores, and medical education goals. This foundation ensures we recommend universities aligned with your qualifications and aspirations.",
-    label: "University selection and application preparation",
+    title: "University Selection",
+    description: "Detailed assessment of your academic profile, NEET scores, and medical education goals to recommend universities aligned with your qualifications.",
+    label: "Step 01",
+    img: studentTabletImg,
+    sliderName: "step1"
   },
   {
     number: "02",
-    title: "Pre-departure and enrollment support",
-    label: "Pre-departure and enrollment support",
+    title: "Admission Approval",
+    description: "Handling the entire application process, securing admission to top NMC-recognized medical universities worldwide with expert guidance.",
+    label: "Step 02",
+    img: medicalDeskImg,
+    sliderName: "step2"
   },
   {
     number: "03",
-    title: "Admission approval",
-    label: "Admission approval",
+    title: "Visa Processing",
+    description: "Complete visa assistance, from document preparation to embassy interview training, ensuring all requirements are met for success.",
+    label: "Step 03",
+    img: destinationImg,
+    sliderName: "step3"
   },
   {
     number: "04",
-    title: "Visa processing",
-    label: "Visa processing",
+    title: "Pre-departure Support",
+    description: "Comprehensive guidance including travel arrangements, enrollment documentation, and orientation for your new university environment.",
+    label: "Step 04",
+    img: travelImg,
+    sliderName: "step4"
   },
 ];
 
@@ -100,7 +115,6 @@ const faqs = [
 ];
 
 const International = () => {
-  const [activeStep, setActiveStep] = useState(0);
   const [activeDest, setActiveDest] = useState(0);
 
   const heroReveal = useScrollReveal();
@@ -163,87 +177,92 @@ const International = () => {
         </div>
       </section>
 
-      {/* Grouped Overview Sections with CardStack */}
-      <section className="section-padding bg-secondary/10 overflow-hidden">
-        <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-12 xl:gap-16 items-start">
-            {/* Left side: Sticky Content */}
-            <div className="md:sticky md:top-32 md:h-fit md:py-12">
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Overview</span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2 mb-6 leading-tight tracking-tight">
-                Why study medicine <span className="text-foreground">globally?</span>
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-                Limited domestic seats create barriers for qualified candidates in India. Our international programs offer high-standard education and a clear path to your medical career, helping you bypass extreme competition.
-              </p>
-              <div className="mt-8">
-                <Link to="/contact">
-                  <Button className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
-                    Get Expert Advice
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right side: Scrolled Cards */}
-            <ContainerScroll className="space-y-8 py-12">
-              {/* Card 1: Why Study Abroad */}
-              <CardSticky index={2} className="rounded-2xl border border-border bg-background/80 p-8 shadow-xl backdrop-blur-md">
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  <h3 className="text-2xl font-display font-bold text-primary">Why study medicine abroad</h3>
-                  <span className="text-3xl font-display font-bold text-primary/20">01</span>
+      {/* Timeline Section */}
+      <section className="bg-white dark:bg-neutral-950">
+        <Timeline
+          title="Why study medicine globally?"
+          description="Limited domestic seats create barriers for qualified candidates in India. Our international programs offer high-standard education and a clear path to your medical career, helping you bypass extreme competition."
+          data={[
+            {
+              title: "01",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Why study medicine abroad</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    International programs offer a global perspective, world-class infrastructure, and a direct path to becoming a licensed doctor without the intense pressure of local seat availability.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={studentTabletImg}
+                      alt="Medical student"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  International programs offer a global perspective, world-class infrastructure, and a direct path to becoming a licensed doctor without the intense pressure of local seat availability.
-                </p>
-                <div className="aspect-video overflow-hidden rounded-xl">
-                  <img src={studentTabletImg} alt="Medical student" className="w-full h-full object-cover" />
+              ),
+            },
+            {
+              title: "02",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Structured curriculum</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    India's medical colleges receive far more applicants than available positions. International universities offer proven pathways for capable students with accredited training.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={studentsGroupImg}
+                      alt="Group of students"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
                 </div>
-              </CardSticky>
-
-              {/* Card 2: Curriculum */}
-              <CardSticky index={3} className="rounded-2xl border border-border bg-background/80 p-8 shadow-xl backdrop-blur-md">
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  <h3 className="text-2xl font-display font-bold text-primary">Structured curriculum</h3>
-                  <span className="text-3xl font-display font-bold text-primary/20">02</span>
+              ),
+            },
+            {
+              title: "03",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Global clinical exposure</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    Exposure to diverse healthcare systems and international standards strengthens clinical judgment and professional adaptability in a globalized medical environment.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={studentsGroupImg}
+                      alt="International medical students"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  India's medical colleges receive far more applicants than available positions. International universities offer proven pathways for capable students with accredited training.
-                </p>
-                <div className="aspect-video overflow-hidden rounded-xl">
-                  <img src={studentsGroupImg} alt="Group of students" className="w-full h-full object-cover" />
+              ),
+            },
+            {
+              title: "04",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Rigorous med curricula</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    Partner institutions follow evidence-based education with comprehensive clinical training. NMC-recognized programs ensure graduates meet rigorous Indian practice standards.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={seminarImg}
+                      alt="Seminar"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
                 </div>
-              </CardSticky>
-
-              {/* Card 3: Exposure */}
-              <CardSticky index={4} className="rounded-2xl border border-border bg-background/80 p-8 shadow-xl backdrop-blur-md">
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  <h3 className="text-2xl font-display font-bold text-primary">Global clinical exposure</h3>
-                  <span className="text-3xl font-display font-bold text-primary/20">03</span>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Exposure to diverse healthcare systems and international standards strengthens clinical judgment and professional adaptability in a globalized medical environment.
-                </p>
-                <div className="aspect-video overflow-hidden rounded-xl">
-                  <img src={studentsGroupImg} alt="International medical students" className="w-full h-full object-cover" />
-                </div>
-              </CardSticky>
-
-              {/* Card 4: Standards */}
-              <CardSticky index={5} className="rounded-2xl border border-border bg-background/80 p-8 shadow-xl backdrop-blur-md">
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  <h3 className="text-2xl font-display font-bold text-primary">Rigorous med curricula</h3>
-                  <span className="text-3xl font-display font-bold text-primary/20">04</span>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Partner institutions follow evidence-based education with comprehensive clinical training. NMC-recognized programs ensure graduates meet rigorous Indian practice standards.
-                </p>
-                <div className="aspect-video overflow-hidden rounded-xl">
-                  <img src={seminarImg} alt="Seminar" className="w-full h-full object-cover" />
-                </div>
-              </CardSticky>
-            </ContainerScroll>
-          </div>
+              ),
+            },
+          ]}
+        />
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pb-20">
+          <Link to="/contact">
+            <Button className="rounded-full px-10 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl transition-all duration-300">
+              Get Expert Advice
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -399,107 +418,81 @@ const International = () => {
       </section>
 
       {/* Admission and Visa Pathway */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-white overflow-hidden border-t border-border">
         <div className="section-container">
           <div
             ref={processReveal.ref}
             className={`scroll-reveal ${processReveal.isVisible ? 'is-visible' : ''}`}
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <span className="text-sm font-semibold text-primary uppercase tracking-wider">Process</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-4 mb-6">
                 Admission and visa pathway
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                 We manage every stage from university selection through visa approval and enrollment.
               </p>
             </div>
 
-            <div className="border-2 border-border rounded-xl overflow-hidden">
-              <div className="grid md:grid-cols-4">
-                {/* Main Content */}
-                <div className="md:col-span-1 border-r border-border p-6 flex items-center">
-                  <span className="text-sm font-medium text-muted-foreground [writing-mode:vertical-lr] rotate-180">
-                    {processSteps[activeStep].label}
-                  </span>
-                </div>
-                <div className="md:col-span-2 p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-4xl font-display font-bold text-primary">{processSteps[activeStep].number}</span>
-                  </div>
-                  <h3 className="text-2xl font-display font-bold text-foreground mb-4">
-                    {processSteps[activeStep].title}
-                  </h3>
-                  {processSteps[activeStep].description && (
-                    <p className="text-muted-foreground mb-6">
-                      {processSteps[activeStep].description}
-                    </p>
-                  )}
-                  <div className="aspect-video overflow-hidden rounded-xl">
-                    <img
-                      src={travelImg}
-                      alt="International study"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Step Navigation */}
-                <div className="md:col-span-1 border-l border-border divide-y divide-border">
-                  {processSteps.slice(1).map((step, index) => (
-                    <button
-                      key={index + 1}
-                      onClick={() => setActiveStep(index + 1)}
-                      className={`w-full p-6 text-left transition-colors ${activeStep === index + 1 ? "bg-muted" : "hover:bg-muted/50"
-                        }`}
-                    >
-                      <span className="text-2xl font-display font-bold text-primary">{step.number}</span>
-                    </button>
+            <div className="max-w-6xl mx-auto">
+              <ProgressSlider activeSlider="step1" duration={5000} className="relative">
+                <SliderContent>
+                  {processSteps.map((step, index) => (
+                    <SliderWrapper key={index} value={step.sliderName}>
+                      <div className="grid lg:grid-cols-2 gap-12 items-center bg-card border border-border rounded-3xl overflow-hidden shadow-2xl p-4 lg:p-8">
+                        <div className="order-2 lg:order-1 p-6">
+                          <div className="flex items-center gap-4 mb-6">
+                            <span className="text-6xl font-display font-bold text-primary/20">{step.number}</span>
+                            <div className="h-px bg-primary/20 flex-1"></div>
+                          </div>
+                          <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+                            {step.title}
+                          </h3>
+                          <p className="text-muted-foreground text-xl leading-relaxed mb-8">
+                            {step.description}
+                          </p>
+                        </div>
+                        <div className="order-1 lg:order-2 aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl shadow-xl">
+                          <img
+                            src={step.img}
+                            alt={step.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </SliderWrapper>
                   ))}
-                </div>
-              </div>
+                </SliderContent>
+
+                <SliderBtnGroup className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-3xl overflow-hidden border border-border shadow-2xl bg-white dark:bg-neutral-900">
+                  {processSteps.map((step, index) => (
+                    <SliderBtn
+                      key={index}
+                      value={step.sliderName}
+                      className="text-left cursor-pointer p-8 focus:outline-none transition-all duration-500 border-r border-border last:border-0 relative overflow-hidden group"
+                      progressBarClass="bg-primary/20"
+                    >
+                      <div className="relative z-10">
+                        <span className={cn(
+                          "inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 transition-colors duration-300",
+                          "bg-primary text-primary-foreground"
+                        )}>
+                          {step.label}
+                        </span>
+                        <h4 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                          {step.title}
+                        </h4>
+                      </div>
+                    </SliderBtn>
+                  ))}
+                </SliderBtnGroup>
+              </ProgressSlider>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section-padding bg-background">
-        <div className="section-container">
-          <div
-            ref={faqReveal.ref}
-            className={`scroll-reveal ${faqReveal.isVisible ? 'is-visible' : ''}`}
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-                FAQ
-              </h2>
-              <p className="text-muted-foreground">
-                Common questions about international medical education, eligibility, and licensing.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full space-y-4">
-                {faqs.map((faq, index) => (
-                  <AccordionItem
-                    key={index}
-                    value={`item-${index}`}
-                    className="border border-border rounded-lg px-6"
-                  >
-                    <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline py-6">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-6">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQ items={faqs} title="FAQ" />
 
       {/* CTA Section */}
       <section className="section-padding bg-background">

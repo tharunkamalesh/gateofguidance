@@ -23,46 +23,44 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar variant="solid" />
+      <Navbar />
 
-      {/* Hero Section - Boxed Layout */}
-      <section className="bg-background pt-8 pb-12">
-        <div className="section-container">
-          <div className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center rounded-3xl overflow-hidden shadow-sm">
-            {/* Background Image with Overlay */}
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${aboutHero})` }}
-            >
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-            </div>
+      {/* Hero Section - Full Screen */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{ backgroundImage: `url(${aboutHero})` }}
+        >
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
+        </div>
 
-            {/* Content */}
-            <div
-              ref={heroReveal.ref}
-              className={`relative z-10 text-center max-w-4xl mx-auto px-6 scroll-reveal ${heroReveal.isVisible ? 'is-visible' : ''}`}
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
-                Built on Transparency.<br />
-                Focused on Your Medical Future.
-              </h1>
-              <p className="text-base md:text-lg text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Navigate MBBS admissions with verified counselling, university shortlisting, and complete
-                admission support. We handle the complexity so you can focus on your future.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact">
-                  <button className="px-8 py-3 bg-white text-[#0B1B35] font-semibold rounded-md hover:bg-white/90 transition-all">
-                    Enquiry Now
-                  </button>
-                </Link>
-                <Link to="/domestic">
-                  <button className="px-8 py-3 bg-transparent border border-white text-white font-semibold rounded-md hover:bg-white/10 transition-all">
-                    Explore
-                  </button>
-                </Link>
-              </div>
-            </div>
+        {/* Content */}
+        <div
+          ref={heroReveal.ref}
+          className={`relative z-10 text-center max-w-4xl mx-auto px-6 pt-20 scroll-reveal ${heroReveal.isVisible ? 'is-visible' : ''}`}
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 drop-shadow-2xl">
+            Navigate MBBS <br className="hidden md:block" />
+            <span className="text-white/90">admissions with clarity</span>
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            We guide you through every step of India's medical education pathway
+            with structured counselling, admission support, and visa assistance.
+            Your journey to becoming a doctor starts here.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact">
+              <button className="px-8 py-3 bg-white text-primary font-bold rounded-full hover:bg-white/90 transition-all shadow-xl hover:scale-105 active:scale-95 duration-300">
+                Enquiry Now
+              </button>
+            </Link>
+            <Link to="/domestic">
+              <button className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-md hover:scale-105 active:scale-95 duration-300">
+                Explore
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -72,7 +70,7 @@ const About = () => {
         <div className="section-container">
           <div
             ref={storyReveal.ref}
-            className={`grid md:grid-cols-2 gap-12 items-center border-2 border-primary/30 rounded-xl p-8 md:p-12 scroll-reveal ${storyReveal.isVisible ? 'is-visible' : ''}`}
+            className={`grid md:grid-cols-2 gap-12 items-center rounded-xl p-8 md:p-12 scroll-reveal ${storyReveal.isVisible ? 'is-visible' : ''}`}
           >
             <div>
               <CircleHelp className="w-12 h-12 text-primary/30 mb-6" strokeWidth={1} />
@@ -84,7 +82,7 @@ const About = () => {
                 Students and parents navigate conflicting information, unverified consultants, and unclear processes.
               </p>
             </div>
-            <div className="border-2 border-primary/30 rounded-xl overflow-hidden">
+            <div className="rounded-xl overflow-hidden">
               <img
                 src={testimonialStudent}
                 alt="Medical student"
@@ -199,7 +197,7 @@ const About = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="border-2 border-primary/20 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={aboutHandshake}
                   alt="Professional handshake"
