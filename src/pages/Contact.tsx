@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { z } from "zod";
 import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -242,7 +241,6 @@ const Contact = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

@@ -1,43 +1,15 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, DollarSign, HandHeart, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
+import CardFlip from "@/components/ui/flip-card";
 import featureVerified from "@/assets/verifief uni.jpg";
 import featureTransparent from "@/assets/Transparency.jpg";
 import featureSupport from "@/assets/dedicated cons.jpg";
 import featureHonest from "@/assets/honest.jpg";
 
-const features = [
-  {
-    label: "Verified",
-    title: "Verified universities only",
-    description:
-      "Every institution in our network is accredited and recognized. We partner only with universities that meet international standards and deliver quality medical education.",
-    image: featureVerified,
-  },
-  {
-    label: "Transparent",
-    title: "Transparent fee structure",
-    description:
-      "No hidden charges or surprise costs. You know exactly what you pay for and what you receive at every stage of the process.",
-    image: featureTransparent,
-  },
-  {
-    label: "Dedicated",
-    title: "Dedicated counsellor support",
-    description:
-      "Your personal counsellor stays with you throughout your journey. We respond quickly and address your concerns with genuine care and expertise.",
-    image: featureSupport,
-  },
-  {
-    label: "Honest",
-    title: "No hidden commissions",
-    description:
-      "We earn through transparent service fees, not by pushing you toward expensive options. Your best outcome is our only incentive.",
-    image: featureHonest,
-  },
-];
+
 
 const stats = [
   { number: 2800, suffix: "+", label: "Medical students admitted to quality institutions" },
@@ -70,7 +42,7 @@ const WhyChooseUs = ({ showNations = true, showStats = true }: WhyChooseUsProps)
           className={`text-center mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
         >
           <span className="text-muted-foreground text-sm uppercase tracking-wider">Trust</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mt-2 mb-4">
             Why choose us
           </h2>
           <p className="text-muted-foreground">
@@ -83,22 +55,62 @@ const WhyChooseUs = ({ showNations = true, showStats = true }: WhyChooseUsProps)
           ref={featuresReveal.ref}
           className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 scroll-reveal-stagger ${featuresReveal.isVisible ? 'is-visible' : ''}`}
         >
-          {features.map((feature) => (
-            <div key={feature.label} className="feature-card scroll-reveal flex flex-col items-center text-center">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider">
-                {feature.label}
-              </span>
-              <h3 className="text-lg font-bold text-foreground mt-1 mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {feature.description}
-              </p>
-              <img
-                src={feature.image}
-                alt={feature.title}
-                className="w-full h-40 object-cover rounded-lg mt-auto"
-              />
-            </div>
-          ))}
+          <CardFlip
+            title="Verified universities"
+            subtitle="Verified"
+            description="Every institution in our network is accredited and recognized. We partner only with universities that meet international standards."
+            features={[
+              'International Standards',
+              'Accredited Network',
+              'Quality Education',
+              'Recognized Degrees',
+            ]}
+            color="#0ea5e9"
+            icon={ShieldCheck}
+            frontImage={featureVerified}
+          />
+          <CardFlip
+            title="Transparent fees"
+            subtitle="Transparent"
+            description="No hidden charges or surprise costs. You know exactly what you pay for and what you receive at every stage."
+            features={[
+              'No Hidden Charges',
+              'Clear Breakdown',
+              'Upfront Pricing',
+              'Process Clarity',
+            ]}
+            color="#8b5cf6"
+            icon={DollarSign}
+            frontImage={featureTransparent}
+          />
+          <CardFlip
+            title="Dedicated support"
+            subtitle="Dedicated"
+            description="Your personal counsellor stays with you throughout your journey. We respond quickly and address your concerns with care."
+            features={[
+              'Personal Counsellor',
+              '24/7 Response',
+              'Expert Guidance',
+              'Caring Support',
+            ]}
+            color="#f43f5e"
+            icon={HandHeart}
+            frontImage={featureSupport}
+          />
+          <CardFlip
+            title="No hidden commissions"
+            subtitle="Honest"
+            description="We earn through transparent service fees, not by pushing you toward expensive options. Your best outcome is our goal."
+            features={[
+              'Transparent Fees',
+              'Student First',
+              'Unbiased Advice',
+              'Ethical Practice',
+            ]}
+            color="#10b981"
+            icon={Scale}
+            frontImage={featureHonest}
+          />
         </div>
 
         {/* Stats Section */}
@@ -109,7 +121,7 @@ const WhyChooseUs = ({ showNations = true, showStats = true }: WhyChooseUsProps)
           >
             <div className="text-center mb-10">
               <span className="text-muted-foreground text-sm uppercase tracking-wider">Results</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mt-2">
                 Our track record speaks clearly
               </h2>
             </div>

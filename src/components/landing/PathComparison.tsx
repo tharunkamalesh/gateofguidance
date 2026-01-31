@@ -57,9 +57,9 @@ const PathComparison = () => {
   const cardsReveal = useScrollReveal();
 
   return (
-    <section className="section-padding bg-background relative" id="domestic">
+    <section className="section-padding bg-background relative overflow-hidden" id="domestic">
       {/* Services Ticker */}
-      <div className="absolute top-0 left-0 right-0 bg-white py-4 overflow-hidden border-b border-border shadow-sm">
+      <div className="absolute top-0 left-0 right-0 bg-white py-4 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[
             "Medical guidance",

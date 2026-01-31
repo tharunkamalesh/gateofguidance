@@ -204,6 +204,7 @@ export const SliderBtn: FC<SliderBtnProps> = ({
 
     return (
         <button
+            data-active={active === value}
             className={cn(
                 `relative transition-all duration-300 ${active === value ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`,
                 className

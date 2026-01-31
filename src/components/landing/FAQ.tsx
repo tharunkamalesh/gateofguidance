@@ -53,15 +53,9 @@ const FAQ = ({
   title = "Frequently Asked Questions",
   subtitle = "Can't find what you are looking for?"
 }: FAQProps) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [openItem, setOpenItem] = useState("");
   const headerReveal = useScrollReveal();
   const faqReveal = useScrollReveal();
-
-  const filteredFaqs = items.filter(
-    (faq) =>
-      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <section className="py-24 bg-white" id="faq">
@@ -97,17 +91,7 @@ const FAQ = ({
                     <MessageSquare className="w-8 h-8 text-white fill-white" />
                   </div>
                   {/* Arrow decoration */}
-                  <svg
-                    className="absolute -right-8 -top-8 w-12 h-12 text-black"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M17 7L7 17M7 17H17M7 17V7" transform="rotate(135 12 12)" />
-                  </svg>
+
                 </div>
               </div>
             </div>
@@ -122,28 +106,25 @@ const FAQ = ({
                 faqReveal.isVisible && "is-visible"
               )}
             >
-              {/* Search Bar */}
-              <div className="relative mb-12 group">
-                <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-black transition-colors" />
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-transparent border-b border-gray-200 border-dashed py-4 pl-10 text-lg focus:outline-none focus:border-black transition-all placeholder:text-gray-400"
-                />
-              </div>
-
               {/* FAQ Accordion */}
-              <Accordion type="single" collapsible className="w-full space-y-0">
-                {filteredFaqs.length > 0 ? (
-                  filteredFaqs.map((faq, index) => (
+              <Accordion
+                type="single"
+                collapsible
+                className="w-full space-y-0"
+                value={openItem}
+                onValueChange={setOpenItem}
+              >
+                {items.length > 0 ? (
+                  items.map((faq, index) => (
                     <AccordionItem
                       key={index}
                       value={`item-${index}`}
                       className="border-b border-gray-200 py-2 last:border-0"
                     >
-                      <AccordionTrigger className="group flex flex-row-reverse items-center justify-between py-6 hover:no-underline text-left">
+                      <AccordionTrigger
+                        className="group flex flex-row-reverse items-center justify-between py-6 hover:no-underline text-left"
+                        onMouseEnter={() => setOpenItem(`item-${index}`)}
+                      >
                         <span className="text-lg font-bold text-black flex-1 pl-4 group-data-[state=open]:text-black">
                           {faq.question}
                         </span>
@@ -156,7 +137,7 @@ const FAQ = ({
                   ))
                 ) : (
                   <div className="py-20 text-center text-gray-400">
-                    No results found for "{searchQuery}"
+                    No items found.
                   </div>
                 )}
               </Accordion>

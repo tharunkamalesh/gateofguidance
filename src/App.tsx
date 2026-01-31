@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Domestic from "./pages/Domestic";
 import International from "./pages/International";
 import Contact from "./pages/Contact";
+import StickyFooterDemo from "./pages/StickyFooterDemo";
 import NotFound from "./pages/NotFound";
 import ScrollToHashElement from "./components/ScrollToHashElement";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/domestic" element={<Domestic />} />
           <Route path="/international" element={<International />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/demo" element={<StickyFooterDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
