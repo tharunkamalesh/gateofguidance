@@ -3,7 +3,7 @@ import { CircleHelp, FileText, Target, ArrowRight, ClipboardList } from "lucide-
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
+import StickyFooter from "@/components/ui/sticky-footer";
 import aboutHero from "@/assets/about us hero.jpg";
 import aboutHandshake from "@/assets/about us handshake.jpg";
 import aboutCampus from "@/assets/about us clg.jpg";
@@ -12,7 +12,6 @@ import ethicalGuidanceImg from "@/assets/honest.jpg";
 import studentFirstImg from "@/assets/dedicated cons.jpg";
 import testimonialStudent from "@/assets/testimonial.jpg";
 
-import WhyChooseUs from "@/components/landing/WhyChooseUs";
 
 const About = () => {
   const heroReveal = useScrollReveal();
@@ -182,8 +181,6 @@ const About = () => {
         </div>
       </section>
 
-      <WhyChooseUs showStats={false} />
-
       {/* Process Section */}
       <section className="section-padding bg-secondary/20">
         <div className="section-container">
@@ -271,7 +268,7 @@ const About = () => {
         </div>
       </section>
 
-      <Footer />
+      <StickyFooter />
     </div>
   );
 };

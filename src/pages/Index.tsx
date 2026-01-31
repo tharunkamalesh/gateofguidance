@@ -6,7 +6,7 @@ import WhyChooseUs from "@/components/landing/WhyChooseUs";
 import Testimonials from "@/components/landing/Testimonials";
 import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
-import Footer from "@/components/landing/Footer";
+import StickyFooter from "@/components/ui/sticky-footer";
 
 const Index = () => {
   return (
@@ -19,7 +19,7 @@ const Index = () => {
       <Testimonials />
       <FAQ />
       <CTA />
-      <Footer />
+      <StickyFooter />
     </div>
   );
 };
