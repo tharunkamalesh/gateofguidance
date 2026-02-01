@@ -1,5 +1,6 @@
 "use client";
 import {
+    useMotionValueEvent,
     useScroll,
     useTransform,
     motion,
@@ -14,11 +15,11 @@ interface TimelineEntry {
 export const Timeline = ({
     data,
     title,
-    description
+    description,
 }: {
-    data: TimelineEntry[],
-    title?: string,
-    description?: string
+    data: TimelineEntry[];
+    title?: string;
+    description?: React.ReactNode;
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,7 @@ export const Timeline = ({
             const rect = ref.current.getBoundingClientRect();
             setHeight(rect.height);
         }
-    }, [ref, data]);
+    }, [ref]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -44,18 +45,15 @@ export const Timeline = ({
             className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
             ref={containerRef}
         >
-            <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-                {title && (
-                    <h2 className="text-2xl md:text-5xl mb-4 text-black dark:text-white max-w-4xl font-display font-bold">
-                        {title}
-                    </h2>
-                )}
-                {description && (
-                    <p className="text-neutral-700 dark:text-neutral-300 text-lg md:text-xl max-w-2xl leading-relaxed">
-                        {description}
-                    </p>
-                )}
+            <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 flex flex-col items-center text-center">
+                <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+                    {title}
+                </h2>
+                <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-3xl">
+                    {description}
+                </p>
             </div>
+
             <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
                 {data.map((item, index) => (
                     <div

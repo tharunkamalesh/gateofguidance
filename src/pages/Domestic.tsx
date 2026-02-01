@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, X, Percent, Calendar, Award, Users } from "lucide-react";
+import { Timeline } from "@/components/ui/timeline";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
@@ -202,58 +203,67 @@ const Domestic = () => {
         </div>
       </section>
 
-      {/* What MBBS in India Entails */}
-      <section className="section-padding bg-background">
-        <div className="section-container">
-          <div
-            ref={whatMbbsReveal.ref}
-            className={`max-w-4xl mx-auto scroll-reveal ${whatMbbsReveal.isVisible ? 'is-visible' : ''}`}
-          >
-            <div className="text-center mb-16">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider">Structure</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-6">
-                What MBBS in India entails
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl mx-auto">
-                India's MBBS program spans five and a half years of rigorous medical training followed by a mandatory internship. Your degree holds recognition across India and qualifies you for licensing examinations.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-12">
-                {features.map((feature) => (
-                  <div key={feature.number} className="flex gap-6 items-start">
-                    <span className="text-2xl font-bold text-primary/20 font-display">{feature.number}</span>
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
+      <section className="bg-white dark:bg-neutral-950">
+        <Timeline
+          title="What MBBS in India entails"
+          description="India's MBBS program spans five and a half years of rigorous medical training followed by a mandatory internship. Your degree holds recognition across India and qualifies you for licensing examinations."
+          data={[
+            {
+              title: "01",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Five year course</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    Your qualification is recognized by the Medical Council of India and enables practice nationwide.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={domesticStudentsImg}
+                      alt="Medical students"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
                   </div>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <img
-                  src={domesticStudentsImg}
-                  alt="Medical students"
-                  className="w-full h-64 object-cover rounded-xl shadow-lg col-span-2"
-                />
-                {features.slice(1).map((feature) => (
-                  <img
-                    key={feature.number}
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-40 object-cover rounded-xl shadow-md"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+                </div>
+              ),
+            },
+            {
+              title: "02",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Structured Internship</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    Compulsory rotatory internship in recognized hospitals provides hands-on clinical experience essential for independent practice.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={domesticDeskImg}
+                      alt="Internship"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+              ),
+            },
+            {
+              title: "03",
+              content: (
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Licensing Exam</h3>
+                  <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-lg font-normal mb-8">
+                    Clear the NEXT (National Exit Test) to obtain your license to practice medicine across India and pursue postgraduate studies.
+                  </p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <img
+                      src={domesticCorridorImg}
+                      alt="Licensing"
+                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+              ),
+            },
+          ]}
+        />
       </section>
 
       {/* Highly Competitive Section */}

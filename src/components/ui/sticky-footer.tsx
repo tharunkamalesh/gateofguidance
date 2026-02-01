@@ -2,11 +2,10 @@ import React, { useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import {
-    FacebookIcon,
-    FrameIcon,
-    InstagramIcon,
-    LinkedinIcon,
-    YoutubeIcon,
+    Facebook,
+    Instagram,
+    Linkedin,
+    Youtube,
 } from 'lucide-react';
 import { Button } from './button';
 import { Link } from 'react-router-dom';
@@ -64,7 +63,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                 </p>
                                 <div className="flex gap-2">
                                     {socialLinks.map((link, idx) => (
-                                        <Button key={idx} size="icon" variant="outline" className="size-8 border-white/20 text-white hover:bg-white/10 shadow-none">
+                                        <Button key={idx} size="icon" variant="outline" className="size-8 border-white/20 text-white bg-transparent hover:bg-white/10 shadow-none">
                                             <link.icon className="size-4" />
                                         </Button>
                                     ))}
@@ -117,10 +116,10 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
 }
 
 const socialLinks = [
-    { title: 'Facebook', href: '#', icon: FacebookIcon },
-    { title: 'Instagram', href: '#', icon: InstagramIcon },
-    { title: 'Youtube', href: '#', icon: YoutubeIcon },
-    { title: 'LinkedIn', href: '#', icon: LinkedinIcon },
+    { title: 'Facebook', href: '#', icon: Facebook },
+    { title: 'Instagram', href: '#', icon: Instagram },
+    { title: 'Youtube', href: '#', icon: Youtube },
+    { title: 'LinkedIn', href: '#', icon: Linkedin },
 ];
 
 const footerLinkGroups: FooterLinkGroup[] = [

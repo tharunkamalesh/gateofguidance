@@ -182,7 +182,13 @@ const International = () => {
       <section className="bg-white dark:bg-neutral-950">
         <Timeline
           title="Why study medicine globally?"
-          description="Limited domestic seats create barriers for qualified candidates in India. Our international programs offer high-standard education and a clear path to your medical career, helping you bypass extreme competition."
+          description={
+            <>
+              Limited domestic seats create barriers for qualified candidates in India.
+              <br className="hidden md:block" />
+              Our international programs offer high-standard education and a clear path to your medical career, helping you bypass extreme competition.
+            </>
+          }
           data={[
             {
               title: "01",

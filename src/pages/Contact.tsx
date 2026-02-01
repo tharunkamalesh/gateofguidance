@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { z } from "zod";
 import Navbar from "@/components/landing/Navbar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import contactImage from "@/assets/contact.jpg";
+<<<<<<< HEAD
 
 import { db } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -21,11 +17,15 @@ const contactSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
+=======
+import { ContactForm } from "@/components/landing/ContactForm";
+>>>>>>> 0422259 (animation changes)
 
 const Contact = () => {
   const formReveal = useScrollReveal();
   const contactReveal = useScrollReveal();
 
+<<<<<<< HEAD
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     mobile: "",
@@ -113,6 +113,8 @@ const Contact = () => {
     }
   };
 
+=======
+>>>>>>> 0422259 (animation changes)
   return (
     <div className="min-h-screen bg-background">
       <Navbar variant="solid" />
@@ -136,6 +138,7 @@ const Contact = () => {
           >
             {/* Form */}
             <div className="bg-secondary/20 p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
+<<<<<<< HEAD
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -217,6 +220,9 @@ const Contact = () => {
                   {isSubmitting ? "Sending..." : "Send"}
                 </Button>
               </form>
+=======
+              <ContactForm />
+>>>>>>> 0422259 (animation changes)
             </div>
 
             {/* Image */}
