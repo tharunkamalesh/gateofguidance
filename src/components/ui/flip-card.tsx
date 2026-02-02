@@ -9,7 +9,7 @@ export interface CardFlipProps {
     description?: string;
     features?: string[];
     color?: string;
-    icon?: any;
+    icon?: React.ElementType;
     frontImage?: string;
 }
 

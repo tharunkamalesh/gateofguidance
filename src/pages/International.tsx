@@ -316,7 +316,7 @@ const International = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-sm font-bold text-primary uppercase tracking-widest">Premier Choice</span>
-                  <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2 leading-tight">
+                  <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
                     {destinationsData[activeDest].title}
                   </h3>
                 </div>
@@ -361,7 +361,7 @@ const International = () => {
                   <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:ml-auto md:mr-0 mb-4 group-hover:bg-primary/10 transition-colors">
                     <User className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">NEET qualification</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">NEET qualification</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Most international universities require NEET qualification as a mandatory baseline eligibility criterion for Indian students.
                   </p>
@@ -370,7 +370,7 @@ const International = () => {
                   <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:ml-auto md:mr-0 mb-4 group-hover:bg-primary/10 transition-colors">
                     <Award className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Degree Recognition</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">Degree Recognition</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Our partner institutions hold full recognition from national and international medical councils, ensuring your degree is valid.
                   </p>
@@ -404,7 +404,7 @@ const International = () => {
                   <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4 group-hover:bg-primary/10 transition-colors">
                     <Award className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">FMGE Pathways</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">FMGE Pathways</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     We provide specific guidance on FMGE/NEXT examination preparation throughout your international journey.
                   </p>
@@ -413,7 +413,7 @@ const International = () => {
                   <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4 group-hover:bg-primary/10 transition-colors">
                     <User className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Expert Counseling</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">Expert Counseling</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Our experts help you choose the right country and university based on your budget and academic goals.
                   </p>
@@ -452,7 +452,7 @@ const International = () => {
                             <span className="text-6xl font-display font-bold text-primary/20">{step.number}</span>
                             <div className="h-px bg-primary/20 flex-1"></div>
                           </div>
-                          <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+                          <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
                             {step.title}
                           </h3>
                           <p className="text-muted-foreground text-xl leading-relaxed mb-8">
@@ -486,7 +486,7 @@ const International = () => {
                         )}>
                           {step.label}
                         </span>
-                        <h4 className="text-lg font-bold text-foreground group-hover:text-primary group-data-[active=true]:text-white transition-colors duration-300">
+                        <h4 className="text-lg font-bold text-primary group-data-[active=true]:text-white transition-colors duration-300">
                           {step.title}
                         </h4>
                       </div>
@@ -519,7 +519,7 @@ const International = () => {
                   />
 
                   <div className="relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+                    <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
                       Begin your medical education journey
                     </h2>
                     <p className="text-muted-foreground mb-10 text-lg md:text-xl max-w-2xl mx-auto">

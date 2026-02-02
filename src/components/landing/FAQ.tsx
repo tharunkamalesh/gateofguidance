@@ -70,7 +70,7 @@ const FAQ = ({
                 headerReveal.isVisible && "is-visible"
               )}
             >
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight mb-16 leading-[1.1]">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary tracking-tight mb-16 leading-[1.1]">
                 {title.split(' ').map((word, i) => {
                   // Add a line break after the second word for "Frequently Asked"
                   if (i === 1) return <span key={i}>{word} <br /></span>;
@@ -82,7 +82,7 @@ const FAQ = ({
                 <p className="text-gray-400 text-sm mb-2 font-medium">
                   {subtitle}
                 </p>
-                <h3 className="text-xl font-bold text-black mb-6">
+                <h3 className="text-xl font-bold text-primary mb-6">
                   We would like to chat with you.
                 </h3>
 
@@ -125,10 +125,10 @@ const FAQ = ({
                         className="group flex flex-row-reverse items-center justify-between py-6 hover:no-underline text-left"
                         onMouseEnter={() => setOpenItem(`item-${index}`)}
                       >
-                        <span className="text-lg font-bold text-black flex-1 pl-4 group-data-[state=open]:text-black">
+                        <span className="text-lg font-bold text-primary flex-1 pl-4 group-data-[state=open]:text-primary">
                           {faq.question}
                         </span>
-                        <ChevronDown className="w-5 h-5 text-gray-400 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-black shrink-0" />
+                        <ChevronDown className="w-5 h-5 text-gray-400 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-primary shrink-0" />
                       </AccordionTrigger>
                       <AccordionContent className="text-gray-600 text-lg leading-relaxed pb-8 pt-2 pl-9">
                         {faq.answer}

@@ -82,8 +82,6 @@ const govtBenefits = [
 
 const privateFeatures = [
   { label: "Annual fees", value: "₹15-25 lakhs" },
-  { label: "Annual tuition", value: "₹10-15K" },
-  { label: "Moderate merit cutoff", value: "50-75 percentile" },
   { label: "Total available seats", value: "~30,000+" },
   { label: "Admission accessibility", value: "More accessible pathways" },
 ];
@@ -186,7 +184,7 @@ const Domestic = () => {
             Navigate MBBS admissions with clarity
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-            We guide you through every step of India's medical education pathway with structured counselling, admission support, and visa assistance. Your journey to becoming a doctor starts here.
+            We guide you through every step of India's medical education pathway with structured counselling and admission support. Your journey to becoming a doctor starts here.
           </p>
           <div className="flex gap-4 justify-center">
             <Link to="/contact">
@@ -322,7 +320,7 @@ const Domestic = () => {
                     <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:ml-auto md:mr-0 mb-4 transition-colors group-hover:bg-primary/10">
                       <item.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                   </div>
                 ))}
@@ -343,7 +341,7 @@ const Domestic = () => {
                     <div className="bg-primary/5 w-16 h-16 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4 transition-colors group-hover:bg-primary/10">
                       <item.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                   </div>
                 ))}
@@ -378,7 +376,7 @@ const Domestic = () => {
                   alt="Government college"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />
-                <h3 className="text-xl font-bold text-foreground text-center mb-1">Government colleges</h3>
+                <h3 className="text-xl font-bold text-primary text-center mb-1">Government colleges</h3>
                 <p className="text-muted-foreground text-sm text-center mb-6">Highly subsidized education</p>
 
                 <div className="space-y-3 mb-6">
@@ -411,7 +409,7 @@ const Domestic = () => {
                   alt="Private college"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />
-                <h3 className="text-xl font-bold text-foreground text-center mb-1">Private colleges</h3>
+                <h3 className="text-xl font-bold text-primary text-center mb-1">Private colleges</h3>
                 <p className="text-muted-foreground text-sm text-center mb-6">Self-funded medical education</p>
 
                 <div className="space-y-3 mb-6">
@@ -460,7 +458,7 @@ const Domestic = () => {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-display font-bold text-lg mb-6 shadow-lg group-hover:scale-110 transition-transform">
                     {index + 1}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+                  <h3 className="text-xl font-bold text-primary mb-3">{step.title}</h3>
                   <p className="text-muted-foreground text-sm mb-6 flex-grow">{step.description}</p>
                   <div className="w-full aspect-video overflow-hidden rounded-xl bg-muted">
                     <img
@@ -496,7 +494,7 @@ const Domestic = () => {
                   />
 
                   <div className="relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+                    <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
                       Begin your medical education journey
                     </h2>
                     <p className="text-muted-foreground mb-10 text-lg md:text-xl max-w-2xl mx-auto">

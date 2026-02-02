@@ -42,7 +42,7 @@ const WhyChooseUs = ({ showNations = true, showStats = true }: WhyChooseUsProps)
           className={`text-center mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
         >
           <span className="text-muted-foreground text-sm uppercase tracking-wider">Trust</span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mt-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2 mb-4">
             Why choose us
           </h2>
           <p className="text-muted-foreground">
@@ -121,7 +121,7 @@ const WhyChooseUs = ({ showNations = true, showStats = true }: WhyChooseUsProps)
           >
             <div className="text-center mb-10">
               <span className="text-muted-foreground text-sm uppercase tracking-wider">Results</span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mt-2">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2">
                 Our track record speaks clearly
               </h2>
             </div>

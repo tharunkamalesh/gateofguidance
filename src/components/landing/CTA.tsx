@@ -24,7 +24,7 @@ const CTA = () => {
                 />
 
                 <div className="relative z-10">
-                  <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+                  <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
                     Start your medical journey now
                   </h2>
                   <p className="text-muted-foreground mb-10 text-lg md:text-xl max-w-2xl mx-auto">

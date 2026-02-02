@@ -29,7 +29,7 @@ const Process = () => {
           <div className="left-0 top-32 md:sticky md:h-fit md:py-12">
             <span className="text-xs text-primary font-semibold uppercase tracking-wider">our process</span>
             <h2 className="mb-6 mt-4 text-4xl md:text-5xl font-display font-bold text-primary tracking-tight">
-              Planning your <span className="text-foreground">educational journey</span>
+              Planning your educational journey
             </h2>
             <p className="max-w-prose text-muted-foreground leading-relaxed">
               We provide a structured pathway to medical admission. Our process is transparent, reliable, and designed to minimize stress while maximizing your chances of securing a seat in a reputable institution.

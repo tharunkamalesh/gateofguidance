@@ -13,7 +13,7 @@ import { PopupForm } from "@/components/ui/PopupForm";
 const Index = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
-  const pathComparisonRef = useRef<HTMLDivElement>(null);
+  const processTriggerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,16 +23,16 @@ const Index = () => {
           setHasTriggered(true);
         }
       },
-      { threshold: 0.3 } // Trigger when 30% of the section is visible
+      { threshold: 0.1 } // Trigger when just 10% of WhyChooseUs is visible
     );
 
-    if (pathComparisonRef.current) {
-      observer.observe(pathComparisonRef.current);
+    if (processTriggerRef.current) {
+      observer.observe(processTriggerRef.current);
     }
 
     return () => {
-      if (pathComparisonRef.current) {
-        observer.unobserve(pathComparisonRef.current);
+      if (processTriggerRef.current) {
+        observer.unobserve(processTriggerRef.current);
       }
     };
   }, [hasTriggered]);
@@ -41,11 +41,11 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <div ref={pathComparisonRef}>
-        <PathComparison />
-      </div>
+      <PathComparison />
       <Process />
-      <WhyChooseUs />
+      <div ref={processTriggerRef}>
+        <WhyChooseUs />
+      </div>
       <Testimonials />
       <FAQ />
       <CTA />

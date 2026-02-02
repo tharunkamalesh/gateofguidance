@@ -46,7 +46,7 @@ const About = () => {
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
             We guide you through every step of India's medical education pathway
-            with structured counselling, admission support, and visa assistance.
+            with structured counselling and admission support.
             Your journey to becoming a doctor starts here.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -114,7 +114,7 @@ const About = () => {
             <div className="md:col-span-8 flex flex-col md:flex-row border border-border rounded-lg overflow-hidden card-hover-lift bg-background shadow-sm">
               <div className="p-8 md:w-1/2 flex flex-col">
                 <span className="text-xs text-foreground font-semibold uppercase tracking-wider mb-4">Principles</span>
-                <h3 className="text-2xl font-display font-bold text-foreground mb-4">Verified universities</h3>
+                <h3 className="text-2xl font-display font-bold text-primary mb-4">Verified universities</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                   We work only with accredited institutions in India and abroad. No shortcuts, no unverified claims. Every university is vetted before recommendation.
                 </p>
@@ -133,7 +133,7 @@ const About = () => {
             <div className="md:col-span-4 md:row-span-2 border border-border rounded-lg overflow-hidden flex flex-col card-hover-lift bg-background shadow-sm">
               <div className="p-8">
                 <span className="text-xs text-foreground font-semibold uppercase tracking-wider mb-4">Standards</span>
-                <h3 className="text-2xl font-display font-bold text-foreground mb-4">Ethical guidance</h3>
+                <h3 className="text-2xl font-display font-bold text-primary mb-4">Ethical guidance</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                   We don't inflate credentials or promise guaranteed seats. We work within the rules and help you present your authentic profile.
                 </p>
@@ -151,7 +151,7 @@ const About = () => {
               <div className="mb-6">
                 <Target className="w-10 h-10 text-foreground" strokeWidth={1.5} />
               </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-3">Student first</h3>
+              <h3 className="text-xl font-display font-bold text-primary mb-3">Student first</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Your goals shape our strategy, not commission structures. We counsel based on merit, fit, and your timeline, regardless of where it leads.
               </p>
@@ -167,7 +167,7 @@ const About = () => {
               <div className="mb-6">
                 <ClipboardList className="w-10 h-10 text-foreground" strokeWidth={1.5} />
               </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-3">Transparent process</h3>
+              <h3 className="text-xl font-display font-bold text-primary mb-3">Transparent process</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Every step is explained. Admission requirements, timelines, costs, and outcomes are laid out clearly from the start.
               </p>
@@ -208,7 +208,7 @@ const About = () => {
                     <FileText className="w-8 h-8 text-primary" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Understand your profile</h3>
+                    <h3 className="text-xl font-bold text-primary mb-2">Understand your profile</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       We assess your academic background, test scores, and career aspirations honestly.
                     </p>
@@ -220,7 +220,7 @@ const About = () => {
                     <Target className="w-8 h-8 text-primary" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Match with right universities</h3>
+                    <h3 className="text-xl font-bold text-primary mb-2">Match with right universities</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       We shortlist verified institutions that align with your goals and qualifications.
                     </p>
@@ -232,7 +232,7 @@ const About = () => {
                     <ClipboardList className="w-8 h-8 text-primary" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Complete the admission journey</h3>
+                    <h3 className="text-xl font-bold text-primary mb-2">Complete the admission journey</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       From applications to visa support, we guide you through every step.
                     </p>

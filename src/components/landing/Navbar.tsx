@@ -109,19 +109,6 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <Link to="/contact">
-            <Button
-              className={cn(
-                "hidden md:flex rounded-full px-6 transition-all duration-300",
-                shouldBeSolid
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                  : "bg-white text-primary hover:bg-white/90"
-              )}
-            >
-              Enquiry Now
-            </Button>
-          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -147,11 +134,6 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
                 {item.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block pt-4">
-              <Button className="w-full h-12 text-lg bg-primary text-primary-foreground hover:bg-primary/90 rounded-full">
-                Enquiry Now
-              </Button>
-            </Link>
           </div>
         </div>
       )}
@@ -160,4 +142,3 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
 };
 
 export default Navbar;
-

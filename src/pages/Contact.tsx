@@ -2,119 +2,12 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import contactImage from "@/assets/contact.jpg";
-<<<<<<< HEAD
-
-import { db } from "../firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import emailjs from "@emailjs/browser";
-
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  mobile: z.string().trim().min(10, "Valid mobile number required").max(15),
-  email: z.string().trim().email("Valid email required").max(255),
-  fatherName: z.string().trim().min(1, "Father's name is required").max(100),
-  course: z.string().trim().min(1, "Course is required").max(200),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-=======
 import { ContactForm } from "@/components/landing/ContactForm";
->>>>>>> 0422259 (animation changes)
 
 const Contact = () => {
   const formReveal = useScrollReveal();
   const contactReveal = useScrollReveal();
 
-<<<<<<< HEAD
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    mobile: "",
-    email: "",
-    fatherName: "",
-    course: "",
-  });
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof ContactFormData]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = contactSchema.safeParse(formData);
-    if (!result.success) {
-      const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
-      result.error.errors.forEach((err) => {
-        if (err.path[0]) {
-          fieldErrors[err.path[0] as keyof ContactFormData] = err.message;
-        }
-      });
-      setErrors(fieldErrors);
-      return;
-    }
-
-    setIsSubmitting(true);
-    try {
-      await addDoc(collection(db, "consultancy_requests"), {
-        name: formData.name,
-        mobile: formData.mobile,
-        email: formData.email,
-        fatherName: formData.fatherName,
-        courseRequired: formData.course,
-        createdAt: serverTimestamp(),
-      });
-
-      // Send admin notification email via EmailJS (non-blocking)
-      emailjs
-        .send(
-          "service_55sekqb",
-          "template_ff0plvc",
-          {
-            name: formData.name,
-            mobile: formData.mobile,
-            email: formData.email,
-            fatherName: formData.fatherName,
-            courseRequired: formData.course,
-            created_at: new Date().toLocaleString(),
-          },
-          "DF_F23GJxs_lQ91d3"
-        )
-        .catch((err) => console.error("EmailJS Admin Notification error:", err));
-
-      // Send user confirmation email via EmailJS (non-blocking)
-      emailjs
-        .send(
-          "service_55sekqb",
-          "template_9t522be",
-          {
-            name: formData.name,
-            mobile: formData.mobile,
-            email: formData.email,
-            fatherName: formData.fatherName,
-            courseRequired: formData.course,
-            created_at: new Date().toLocaleString(),
-          },
-          "DF_F23GJxs_lQ91d3"
-        )
-        .catch((err) => console.error("EmailJS User Notification error:", err));
-
-      alert("Form submitted successfully!");
-      setFormData({ name: "", mobile: "", email: "", fatherName: "", course: "" });
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      alert("An error occurred while submitting the form. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-=======
->>>>>>> 0422259 (animation changes)
   return (
     <div className="min-h-screen bg-background">
       <Navbar variant="solid" />
@@ -124,7 +17,7 @@ const Contact = () => {
         <div className="section-container">
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-primary uppercase tracking-wider">Connect</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mt-2 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary mt-2 mb-4">
               Reach out to us
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -138,91 +31,7 @@ const Contact = () => {
           >
             {/* Form */}
             <div className="bg-secondary/20 p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
-<<<<<<< HEAD
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label htmlFor="name" className="text-sm font-medium text-foreground">
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="mt-1 border-border"
-                  />
-                  {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
-                </div>
-
-                <div>
-                  <Label htmlFor="mobile" className="text-sm font-medium text-foreground">
-                    Mobile Number
-                  </Label>
-                  <Input
-                    id="mobile"
-                    name="mobile"
-                    type="tel"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    className="mt-1 border-border"
-                  />
-                  {errors.mobile && <p className="text-destructive text-sm mt-1">{errors.mobile}</p>}
-                </div>
-
-                <div>
-                  <Label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="mt-1 border-border"
-                  />
-                  {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
-                </div>
-
-                <div>
-                  <Label htmlFor="fatherName" className="text-sm font-medium text-foreground">
-                    Father's Name
-                  </Label>
-                  <Input
-                    id="fatherName"
-                    name="fatherName"
-                    value={formData.fatherName}
-                    onChange={handleChange}
-                    className="mt-1 border-border"
-                  />
-                  {errors.fatherName && <p className="text-destructive text-sm mt-1">{errors.fatherName}</p>}
-                </div>
-
-                <div>
-                  <Label htmlFor="course" className="text-sm font-medium text-foreground">
-                    Course Required
-                  </Label>
-                  <Input
-                    id="course"
-                    name="course"
-                    value={formData.course}
-                    onChange={handleChange}
-                    className="mt-1 border-border"
-                  />
-                  {errors.course && <p className="text-destructive text-sm mt-1">{errors.course}</p>}
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Sending..." : "Send"}
-                </Button>
-              </form>
-=======
               <ContactForm />
->>>>>>> 0422259 (animation changes)
             </div>
 
             {/* Image */}

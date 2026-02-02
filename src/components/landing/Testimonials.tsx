@@ -39,6 +39,11 @@ const Testimonials = () => {
   return (
     <section className="section-padding bg-background">
       <div className="section-container">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-primary">
+            Our Assets
+          </h2>
+        </div>
         <div
           ref={testimonialReveal.ref}
           className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto scroll-reveal ${testimonialReveal.isVisible ? 'is-visible' : ''}`}

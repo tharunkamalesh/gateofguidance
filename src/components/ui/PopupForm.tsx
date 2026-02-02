@@ -13,40 +13,51 @@ export const PopupForm = ({ isOpen, onClose }: PopupFormProps) => {
         <AnimatePresence>
             {isOpen && (
                 <>
-                    {/* Backdrop with blur */}
+                    {/* Backdrop with sophisticated blur and slight darkening */}
                     <motion.div
-                        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
-                        exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        className="fixed inset-0 z-[100] bg-black/40"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] bg-slate-900/20 backdrop-blur-md"
                         onClick={onClose}
                     />
 
                     {/* Modal Container */}
-                    <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none">
+                    <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 md:p-6 pointer-events-none">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                            exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative w-full max-w-lg bg-white dark:bg-neutral-900 rounded-3xl shadow-2xl overflow-hidden pointer-events-auto border border-border"
+                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 40, scale: 0.95 }}
+                            transition={{
+                                type: "spring",
+                                damping: 25,
+                                stiffness: 300,
+                                duration: 0.6
+                            }}
+                            className="relative w-full max-w-[400px] bg-white/70 dark:bg-neutral-900/70 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.1)] overflow-hidden pointer-events-auto border border-white/40 group"
                         >
-                            {/* Close Button */}
+                            {/* Subtle Inner Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
+
+                            {/* Close Button - Refined Glass Style */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-4 right-4 p-2 rounded-full bg-secondary/50 hover:bg-secondary text-foreground transition-colors z-[102]"
+                                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/40 hover:bg-white/60 text-slate-600 backdrop-blur-md transition-all flex items-center justify-center z-[102] active:scale-90 border border-white/20 shadow-sm"
                                 aria-label="Close modal"
                             >
-                                <X className="w-5 h-5" />
+                                <X className="w-4 h-4" />
                             </button>
 
-                            <div className="p-8 md:p-10">
-                                <div className="text-center mb-8">
-                                    <h2 className="text-2xl font-display font-bold text-primary mb-2">
+                            <div className="p-6 md:p-8 relative z-10">
+                                <div className="text-center mb-6">
+                                    <div className="inline-block px-3 py-1 rounded-full bg-[#f97316]/10 text-[#f97316] text-[8px] font-bold uppercase tracking-[0.2em] mb-3">
+                                        Personal Consultation
+                                    </div>
+                                    <h2 className="text-xl md:text-2xl font-display font-bold text-[#1e293b] mb-1.5">
                                         Expert Path Guidance
                                     </h2>
-                                    <p className="text-muted-foreground text-sm">
-                                        Fill in your details and our counsellors will help you choose the right path for your medical career.
+                                    <p className="text-slate-600 text-[13px] max-w-[95%] mx-auto leading-tight">
+                                        Our counsellors will reach out soon.
                                     </p>
                                 </div>
 
