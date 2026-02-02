@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Domestic from "./pages/Domestic";
@@ -11,6 +11,13 @@ import Contact from "./pages/Contact";
 import StickyFooterDemo from "./pages/StickyFooterDemo";
 import NotFound from "./pages/NotFound";
 import ScrollToHashElement from "./components/ScrollToHashElement";
+
+// Admin Pages
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import AdminLayout from "./components/AdminLayout";
+import AdminRedirect from "./components/AdminRedirect";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +35,17 @@ const App = () => (
           <Route path="/international" element={<International />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/demo" element={<StickyFooterDemo />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin">
+            <Route index element={<AdminRedirect />} />
+            <Route path="login" element={<AdminLogin />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="dashboard" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
+              <Route path="enquiries" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
+            </Route>
+          </Route>
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -37,3 +55,4 @@ const App = () => (
 );
 
 export default App;
+
