@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { cn } from '@/lib/utils';
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import {
     Facebook,
     Instagram,

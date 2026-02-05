@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, X, Percent, Calendar, Award, Users } from "lucide-react";
+import { Percent, Calendar, Award, Users } from "lucide-react";
 import { Timeline } from "@/components/ui/timeline";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 import Navbar from "@/components/landing/Navbar";
@@ -13,34 +13,11 @@ import domesticDeskImg from "@/assets/domestic desk.jpg";
 import domesticCorridorImg from "@/assets/domestic-corridor.jpg";
 import domesticDoctorImg from "@/assets/domestic doc.jpg";
 import domesticEligibilityImg from "@/assets/domestic eligibilty.jpg";
-import domesticGovtCollegeImg from "@/assets/domestic govrn.jpg";
-import domesticPrivateCollegeImg from "@/assets/domestic pvrt.jpg";
 import domesticNeetImg from "@/assets/dom-neet.jpg";
 import domesticCounselingImg from "@/assets/dom-register.jpg";
 import domesticClassroomImg from "@/assets/dom-clsroom.jpg";
 import domesticAdmissionImg from "@/assets/dom-study.jpg";
 import domesticSeatAllotmentImg from "@/assets/dom-seat allotment.jpg";
-
-const features = [
-  {
-    number: "01",
-    title: "Five year course",
-    description: "Your qualification is recognized by the Medical Council of India and enables practice nationwide.",
-    image: domesticStudentsImg,
-  },
-  {
-    number: "02",
-    title: "Feature two",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    image: domesticDeskImg,
-  },
-  {
-    number: "03",
-    title: "Feature three",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    image: domesticCorridorImg,
-  },
-];
 
 const eligibilityItems = [
   {
@@ -98,8 +75,6 @@ const processSteps = [
     image: domesticAdmissionImg,
   },
 ];
-
-
 
 const Domestic = () => {
   const heroReveal = useScrollReveal();
@@ -338,8 +313,6 @@ const Domestic = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* CTA Section */}
       <section className="section-padding bg-background">
