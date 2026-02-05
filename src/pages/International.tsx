@@ -252,106 +252,107 @@ const International = () => {
       </section>
 
       {/* World Map Section */}
-      <section className="section-padding bg-background overflow-hidden">
-        <div className="section-container">
+      <section className="py-20 overflow-hidden relative" style={{ background: "linear-gradient(135deg, #1e3a5f 0%, #0f2744 50%, #1a3550 100%)" }}>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
+        </div>
+
+        <div className="section-container relative z-10">
           <div
             ref={worldMapReveal.ref}
             className={`scroll-reveal ${worldMapReveal.isVisible ? 'is-visible' : ''}`}
           >
+            {/* Title */}
             <div className="text-center mb-12">
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Global Presence</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-                Countries We Operate In
+              <h2 className="text-4xl md:text-5xl font-display mb-2">
+                <span className="text-amber-400 italic font-script" style={{ fontFamily: "'Pacifico', cursive" }}>Top Countries</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                We help Indian students pursue their medical dreams across 9 countries with NMC-recognized programs.
-              </p>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-white">
+                for Studying MBBS Abroad
+              </h3>
             </div>
 
             {/* World Map with Country Markers */}
             <div className="relative w-full max-w-5xl mx-auto">
-              {/* SVG World Map */}
-              <svg viewBox="0 0 1000 500" className="w-full h-auto">
-                {/* Simplified World Map Background */}
+              {/* SVG World Map - Cream/Beige Style */}
+              <svg viewBox="0 0 1000 600" className="w-full h-auto">
                 <defs>
-                  <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#e0e7ff" />
-                    <stop offset="100%" stopColor="#c7d2fe" />
-                  </linearGradient>
+                  <filter id="mapShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#000" floodOpacity="0.3" />
+                  </filter>
                 </defs>
 
-                {/* Ocean Background */}
-                <rect x="0" y="0" width="1000" height="500" fill="#f0f9ff" rx="20" />
+                {/* Europe */}
+                <path d="M380 120 L420 100 L480 95 L520 100 L540 120 L530 150 L500 170 L460 180 L420 175 L390 160 L380 140 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
 
-                {/* Simplified Continents */}
-                {/* Europe & Asia */}
-                <path d="M450 80 L480 70 L550 60 L620 70 L700 80 L780 100 L850 130 L900 160 L920 200 L900 250 L850 280 L780 300 L700 310 L620 300 L550 280 L500 250 L450 200 L430 150 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+                {/* Russia/Northern Asia */}
+                <path d="M520 80 L580 60 L680 55 L780 70 L860 100 L900 140 L880 180 L820 200 L740 210 L660 200 L580 180 L540 150 L520 120 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
 
-                {/* South Asia */}
-                <path d="M620 220 L680 200 L720 220 L740 260 L720 300 L680 320 L640 300 L620 260 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+                {/* Central Asia */}
+                <path d="M540 180 L600 170 L660 180 L680 210 L660 240 L600 250 L550 240 L530 210 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
+
+                {/* Middle East & South Asia */}
+                <path d="M480 200 L530 190 L560 200 L580 230 L600 270 L620 310 L600 350 L560 360 L520 340 L480 300 L460 250 L470 220 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
+
+                {/* China & East Asia */}
+                <path d="M680 200 L760 180 L840 200 L880 250 L860 310 L800 340 L720 330 L680 290 L670 240 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
 
                 {/* Southeast Asia */}
-                <path d="M750 280 L800 260 L850 280 L870 320 L850 360 L800 380 L750 360 L730 320 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+                <path d="M720 340 L780 330 L820 360 L840 420 L820 480 L760 500 L700 480 L680 420 L700 370 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
 
                 {/* Africa */}
-                <path d="M420 200 L480 180 L520 200 L540 260 L530 340 L500 400 L450 420 L400 390 L380 330 L390 260 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+                <path d="M400 220 L460 200 L500 220 L520 280 L510 360 L480 440 L420 480 L360 460 L340 380 L350 300 L380 250 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
 
-                {/* Americas (simplified) */}
-                <path d="M100 100 L180 80 L220 100 L240 160 L220 220 L180 280 L140 320 L120 380 L100 400 L80 350 L60 280 L50 200 L60 140 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+                {/* Australia */}
+                <path d="M800 450 L880 430 L940 460 L960 520 L920 570 L840 580 L780 540 L770 490 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
+
+                {/* Americas */}
+                <path d="M80 100 L160 80 L200 120 L220 200 L200 300 L160 380 L120 440 L80 480 L50 420 L40 320 L50 220 L60 140 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
+                <path d="M180 180 L260 160 L300 200 L320 280 L300 360 L260 400 L200 380 L180 300 L170 240 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
               </svg>
 
-              {/* Country Markers */}
+              {/* Country Pin Markers with Labels */}
               {[
-                { name: "Russia", x: "58%", y: "22%", num: 1 },
-                { name: "Kazakhstan", x: "62%", y: "32%", num: 2 },
-                { name: "Uzbekistan", x: "60%", y: "38%", num: 3 },
-                { name: "Kyrgyzstan", x: "64%", y: "36%", num: 4 },
-                { name: "China", x: "72%", y: "40%", num: 5 },
-                { name: "Georgia", x: "54%", y: "35%", num: 6 },
-                { name: "Azerbaijan", x: "56%", y: "38%", num: 7 },
-                { name: "Bangladesh", x: "68%", y: "52%", num: 8 },
-                { name: "Timor Leste", x: "82%", y: "68%", num: 9 },
+                { name: "Kazakhstan", x: "58%", y: "28%" },
+                { name: "Russia", x: "72%", y: "18%" },
+                { name: "Kyrgyzstan", x: "64%", y: "34%" },
+                { name: "Uzbekistan", x: "56%", y: "36%" },
+                { name: "China", x: "76%", y: "42%" },
+                { name: "Georgia", x: "50%", y: "32%" },
+                { name: "Nepal", x: "62%", y: "48%" },
+                { name: "Bangladesh", x: "66%", y: "54%" },
+                { name: "Philippines", x: "82%", y: "58%" },
+                { name: "Timor Leste", x: "80%", y: "72%" },
               ].map((country) => (
                 <div
                   key={country.name}
-                  className="absolute group cursor-pointer"
-                  style={{ left: country.x, top: country.y, transform: "translate(-50%, -50%)" }}
+                  className="absolute group"
+                  style={{ left: country.x, top: country.y, transform: "translate(-50%, -100%)" }}
                 >
-                  {/* Pulsing Marker */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-25" style={{ width: "24px", height: "24px" }} />
-                    <div className="relative w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-xs font-bold shadow-lg border-2 border-white group-hover:scale-125 transition-transform duration-300">
-                      {country.num}
+                  {/* Pin */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Label */}
+                    <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-md shadow-lg mb-1 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-sm font-bold text-slate-800 whitespace-nowrap">{country.name}</span>
+                    </div>
+                    {/* Pin Icon */}
+                    <div className="relative">
+                      <svg width="20" height="28" viewBox="0 0 20 28" className="drop-shadow-lg">
+                        <path d="M10 0C4.5 0 0 4.5 0 10c0 7.5 10 18 10 18s10-10.5 10-18c0-5.5-4.5-10-10-10z" fill="#dc2626" />
+                        <circle cx="10" cy="10" r="4" fill="#fca5a5" />
+                      </svg>
                     </div>
                   </div>
-                  {/* Tooltip */}
-                  <div className="absolute left-1/2 -translate-x-1/2 -top-10 bg-primary text-primary-foreground px-3 py-1 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg z-10">
-                    {country.name}
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-primary" />
-                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Country List Cards */}
-            <div className="grid grid-cols-3 md:grid-cols-9 gap-4 mt-12">
-              {[
-                "Russia", "Kazakhstan", "Uzbekistan", "Kyrgyzstan", "China",
-                "Georgia", "Azerbaijan", "Bangladesh", "Timor Leste"
-              ].map((country, idx) => (
-                <div key={country} className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg hover:border-primary/50 transition-all duration-300 group">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <span className="text-sm font-bold text-primary group-hover:text-primary-foreground">{idx + 1}</span>
-                  </div>
-                  <p className="text-xs font-semibold text-foreground">{country}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-10">
+            {/* CTA Button */}
+            <div className="text-center mt-12">
               <Link to="/contact">
-                <Button className="rounded-full px-8 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl">
-                  Explore Programs <ArrowRight className="w-5 h-5 ml-2" />
+                <Button className="rounded-full px-10 py-6 text-lg bg-amber-500 text-white hover:bg-amber-600 shadow-xl transition-all duration-300 hover:scale-105">
+                  Start Your Journey <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
