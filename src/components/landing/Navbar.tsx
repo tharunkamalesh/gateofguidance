@@ -122,28 +122,43 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu - Outside motion.nav to avoid clipping from transform */}
+      {/* Mobile Menu - Modern Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[64px] md:top-[80px] bg-white z-[60] overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
-          <div className="section-container py-8 space-y-2">
-            {navItems.map((item) => (
-              <Link
+        <div className="md:hidden fixed inset-0 z-[60] pt-[64px] bg-white/98 backdrop-blur-lg overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="flex flex-col p-6 space-y-1">
+            {navItems.map((item, idx) => (
+              <motion.div
                 key={item.label}
-                to={item.href}
-                className={cn(
-                  "block py-4 px-4 text-xl font-medium text-slate-900 rounded-xl transition-colors",
-                  location.pathname === item.href ? "bg-primary/5 text-primary border-l-4 border-primary" : "active:bg-slate-50"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.05 }}
               >
-                {item.label}
-              </Link>
+                <Link
+                  to={item.href}
+                  className={cn(
+                    "block py-4 px-4 text-xl font-display font-semibold text-slate-900 rounded-xl transition-all",
+                    location.pathname === item.href
+                      ? "bg-primary/10 text-primary"
+                      : "hover:bg-slate-50 active:bg-slate-100"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
             ))}
-            <div className="pt-8 px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.05 }}
+              className="pt-8 px-4"
+            >
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full py-6 text-lg">Enquire Now</Button>
+                <Button className="w-full py-7 text-lg shadow-xl shadow-primary/20 rounded-2xl">
+                  Enquire Now
+                </Button>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       )}
