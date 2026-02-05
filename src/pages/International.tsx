@@ -87,7 +87,7 @@ const destinationsData = [
     id: "bangladesh",
     name: "Bangladesh",
     title: "About Bangladesh",
-    description: "Bangladesh is a South Asian country located on the Bay of Bengal. It shares borders with India on three sides and Myanmar to the southeast. The capital city is Dhaka, a bustling metropolis with a population of over 21 million, making it one of the most populous cities in the world.\n\nBangladesh has a rich and diverse cultural heritage. The official language is Bengali, which is spoken by the majority of the population. The country has a long tradition of literature, music, art, and dance.\n\nOne of the biggest advantages is that the syllabus and teaching pattern closely resemble Indian medical colleges, making it easier for students to clear licensing exams like FMGE/NEXT. Additionally, Bangladesh has a low cost of education and living, and Indian food is easily available, ensuring a comfortable stay. With a safe environment, high-quality education, and a strong track record of Indian students succeeding in medical careers, Bangladesh remains a top choice.",
+    description: "Bangladesh is a top choice for Indian students due to its medical syllabus and teaching patterns that closely resemble India's, making it easier to clear exams like FMGE/NEXT. With affordable education, a safe environment, and familiar culture (including food and language), it ensures a comfortable and successful academic journey.",
     image: studentsGroupImg,
     universities: [
       "Dhaka National Medical College",
