@@ -31,86 +31,68 @@ const About = () => {
       <Navbar />
 
       {/* Hero Section - Full Screen */}
-      <section className="relative h-[80svh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_top] md:bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{ backgroundImage: `url(${aboutHero})` }}
         >
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
         </div>
 
         {/* Content */}
         <div
           ref={heroReveal.ref}
-          className={`relative z-10 text-center max-w-4xl mx-auto px-6 pt-20 transition-all duration-1000 ${heroReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`relative z-10 text-center max-w-4xl mx-auto px-6 pt-20 scroll-reveal ${heroReveal.isVisible ? 'is-visible' : ''}`}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white leading-tight mb-8 drop-shadow-2xl">
-            Empowering Your <br className="hidden md:block" />
-            <span className="text-primary italic">Medical Aspirations</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 drop-shadow-2xl">
+            Navigate MBBS <br className="hidden md:block" />
+            <span className="text-white/90">admissions with clarity</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
-            At GateOfGuidance, we simplify the complex world of MBBS admissions
-            with transparency, expertise, and a student-first approach.
+          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            We guide you through every step of India's medical education pathway
+            with structured counselling and admission support.
+            Your journey to becoming a doctor starts here.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
-              <button className="px-10 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-2xl hover:scale-105 active:scale-95 duration-300">
+              <button className="px-8 py-3 bg-white text-primary font-bold rounded-full hover:bg-white/90 transition-all shadow-xl hover:scale-105 active:scale-95 duration-300">
                 Enquiry Now
+              </button>
+            </Link>
+            <Link to="/domestic">
+              <button className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-md hover:scale-105 active:scale-95 duration-300">
+                Explore
               </button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Our Mission Section - NEW Content */}
-      <section className="section-padding bg-slate-50 relative overflow-hidden">
+      {/* Story Section */}
+      <section className="section-padding bg-secondary/30">
         <div className="section-container">
           <div
             ref={storyReveal.ref}
-            className={`grid md:grid-cols-2 gap-16 items-center transition-all duration-1000 ${storyReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+            className={`grid md:grid-cols-2 gap-12 items-center rounded-xl p-8 md:p-12 scroll-reveal ${storyReveal.isVisible ? 'is-visible' : ''}`}
           >
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 text-primary font-bold tracking-wider uppercase text-xs px-4 py-2 bg-primary/10 rounded-full">
-                Our Story
-              </div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 leading-tight">
-                Built to bring <span className="text-primary">Clarity</span> to the medical journey.
+            <div>
+              <CircleHelp className="w-12 h-12 text-primary/30 mb-6" strokeWidth={1} />
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
+                We started because the path was unclear
               </h2>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-                <p>
-                  Gate Of Guidance was established with a singular vision: to transform access to global
-                  medical education through integrity and excellence.
-                </p>
-                <p>
-                  By simplifying complex admissions, university selection, and visa processes, we have built
-                  a trusted platform that delivers confidence at every stage of a student's career.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-8 pt-4">
-                <div className="border-l-4 border-primary pl-4">
-                  <p className="text-3xl font-display font-bold text-slate-900">500+</p>
-                  <p className="text-sm text-slate-500 font-medium">Students Placed</p>
-                </div>
-                <div className="border-l-4 border-primary pl-4">
-                  <p className="text-3xl font-display font-bold text-slate-900">50+</p>
-                  <p className="text-sm text-slate-500 font-medium">Partner Universities</p>
-                </div>
-              </div>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Medical admissions in India and abroad demand more than application forms and test scores.
+                Students and parents navigate conflicting information, unverified consultants, and unclear processes.
+              </p>
             </div>
-
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl relative z-10">
-                <img
-                  src={aboutCampus}
-                  alt="Modern Campus"
-                  className="w-full h-[500px] object-cover"
-                />
-              </div>
-              {/* Decorative background box */}
-              <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 rounded-2xl -z-0"></div>
+            <div className="rounded-xl overflow-hidden">
+              <img
+                src={testimonialStudent}
+                alt="Medical student"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
