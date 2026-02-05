@@ -22,34 +22,62 @@ import domesticSeatAllotmentImg from "@/assets/dom-seat allotment.jpg";
 import domesticGovtCollegeImg from "@/assets/domestic govrn.jpg";
 import domesticPrivateImg from "@/assets/domestic pvrt.jpg";
 
-const hubsData = [
+const coursesData = [
   {
-    id: "tamilnadu",
-    name: "Tamil Nadu",
-    title: "The Medical Hub of South India",
-    description: "Home to some of India's oldest and most prestigious medical institutions. Tamil Nadu offers a robust healthcare ecosystem with extensive clinical exposure and research opportunities in both government and private sectors.",
+    id: "commerce",
+    name: "Commerce",
+    title: "School of Commerce Courses",
+    description: "B.Com (Hons), B.Com (Computer Application), B.Com (Chartered Accountancy), B.Com (with Accounting & Finance), B.Com (Information Technology), B.Com (Cost & Management Accountant), B.Com (Business Process Services), B.Com (Company Secretary), B.Com (Certified Financial Planner), B.Com (E-Commerce), B.Com (Banking & Insurance), B.Com (Professional Accounting).",
     image: domesticGovtCollegeImg,
   },
   {
-    id: "karnataka",
-    name: "Karnataka",
-    title: "Center for Academic Excellence",
-    description: "Known for its high density of medical colleges and world-class healthcare infrastructure. Karnataka is a preferred destination for students seeking quality education and diverse clinical environments.",
+    id: "science",
+    name: "Science",
+    title: "School of Science Courses",
+    description: "B.Sc. (Computer Science), B.Sc. (Computer Technology), B.Sc. (Embedded & Real-time System), B.Sc. (Biochemistry), B.Sc. (Control Systems), B.Sc. (Computer System & Design), B.Sc. (Microbiology), B.Sc. (Information Technology), B.Sc. (Communication System), B.Sc. (Zoology), B.Sc. (Chemistry), B.Sc. (Botany), B.Sc. (Rural Development Science), B.Sc. (Electronics), B.Sc. (Mathematics), B.Sc. (Industrial Electronics), B.Sc. (Costume Design & Fashion), B.Sc. (Interior Decoration), B.Sc. (Visual Communication), B.Sc. (Mathematics with CA), B.Sc. Cyber Security, B.Sc. (Rehabilitation Science), B.Sc. (Geology), B.Sc. (Physical Education), B.Sc. (Physics), B.Sc. (Psychology), B.Sc. (Microbiology), B.Sc. (Industrial Microbiology), B.Sc. Forensic Science, B.Sc. (Computer Integrated Manufacturing), B.Sc. Information Security & Digital Forensics.",
     image: domesticStudentsImg,
   },
   {
-    id: "maharashtra",
-    name: "Maharashtra",
-    title: "Leading Medical Infrastructure",
-    description: "Boasting a vast network of medical colleges and specialized hospitals. Maharashtra provides students with exposure to a wide range of medical cases and advanced clinical training facilities.",
+    id: "management",
+    name: "Management",
+    title: "School of Management Courses",
+    description: "B.B.A, B.B.A (Computer Application), B.B.A (International Business), B.C.A (Computer Application), B.B.M (Business Management).",
     image: domesticDeskImg,
   },
   {
-    id: "kerala",
-    name: "Kerala",
-    title: "The Wellness & Healthcare Leader",
-    description: "Focusing on community health and high-quality nursing and medical education. Kerala's institutions are recognized for their rigorous academic standards and focus on ethical medical practice.",
+    id: "agriculture",
+    name: "Agriculture",
+    title: "School of Agriculture Courses",
+    description: "B.Sc. Agriculture, B.Sc. Horticulture, B.Sc. Fisheries Science, B.Sc. Forestry, B.Sc. Dairy Science.",
     image: domesticDoctorImg,
+  },
+  {
+    id: "law",
+    name: "Law",
+    title: "School of Law Courses",
+    description: "BA - LLB, BBA - LLB, LLB, M.L, LLM (Business Law), LLM (Human Rights).",
+    image: domesticCorridorImg,
+  },
+  {
+    id: "arts",
+    name: "Arts",
+    title: "School of Arts Courses",
+    description: "B.A Criminology, B.A (Tamil), B.A (Social Work), B.A (English), B.A (Corporate Secretaryship), B.A (Carnatic Music).",
+    image: domesticEligibilityImg,
+  },
+  {
+    id: "pharmacy",
+    name: "Pharmacy",
+    title: "Pharmacy Courses",
+    description: "Diploma in Pharmacy, B.Pharm, Pharm.D, M.Pharm in Pharmaceutics, M.Pharm in Industrial Pharmacy, M.Pharm in Pharmacy Practice, M.Pharm in Pharmacology, M.Pharm in Pharmaceutical Analysis, BPT, MPT, MPT Cardio Pulmonary Diseases, MPT Orthopaedics, MPT Neurology, MPT Sports Physiotherapy, MPT Paediatric Neurology, MPT Obstetrics and Gynaecology.",
+    image: domesticNeetImg,
+  },
+  {
+    id: "nursing",
+    name: "Nursing",
+    title: "Nursing Courses",
+    description: "B.Sc. Nursing, GNM & ANM, M.Sc. Nursing, Psychiatric Nursing, Medical-Surgical Nursing, Public Health Nursing, Critical Care Nursing, Occupational Health Nursing, Obstetrics and Gynaecology, Pediatric Nursing, Oncology, Orthopaedic Nursing, Neuroscience, Neuroscience Nursing, Nursing Management.",
+    image: domesticCounselingImg,
   },
 ];
 
@@ -265,52 +293,52 @@ const Domestic = () => {
             className={`border-2 border-border rounded-xl p-8 md:p-12 scroll-reveal ${hubsReveal.isVisible ? 'is-visible' : ''}`}
           >
             <div className="text-center mb-8">
-              <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Medical Hubs</span>
+              <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Programs</span>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-                Top Medical Hubs in India
+                Courses We Offer
               </h2>
               <p className="text-muted-foreground">
-                Premier states offering exceptional medical education and clinical infrastructure.
+                Comprehensive courses across multiple disciplines to help you build your career.
               </p>
             </div>
 
-            {/* Hubs Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 border border-border divide-x divide-border mb-8 rounded-lg overflow-hidden">
-              {hubsData.map((hub, index) => (
+            {/* Courses Grid */}
+            <div className="grid grid-cols-4 md:grid-cols-8 border border-border divide-x divide-border mb-8 rounded-lg overflow-hidden">
+              {coursesData.map((course, index) => (
                 <button
-                  key={hub.id}
+                  key={course.id}
                   onClick={() => setActiveHub(index)}
                   className={`p-4 text-center transition-all duration-300 ${activeHub === index ? 'bg-primary text-primary-foreground' : 'bg-transparent text-foreground hover:bg-primary/5'}`}
                 >
-                  <span className="text-sm font-semibold">{hub.name}</span>
+                  <span className="text-xs md:text-sm font-semibold">{course.name}</span>
                 </button>
               ))}
             </div>
 
-            {/* Featured Hub */}
+            {/* Featured Course */}
             <div className="grid md:grid-cols-2 gap-12 items-center min-h-[400px]">
               <div className="relative group overflow-hidden rounded-2xl shadow-xl">
                 <img
-                  src={hubsData[activeHub].image}
-                  alt={hubsData[activeHub].name}
+                  src={coursesData[activeHub].image}
+                  alt={coursesData[activeHub].name}
                   className="w-full aspect-[4/3] object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
               </div>
               <div className="space-y-6">
                 <div>
-                  <span className="text-sm font-bold text-primary uppercase tracking-widest">Top Destination</span>
+                  <span className="text-sm font-bold text-primary uppercase tracking-widest">Courses Offered</span>
                   <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
-                    {hubsData[activeHub].title}
+                    {coursesData[activeHub].title}
                   </h3>
                 </div>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  {hubsData[activeHub].description}
+                  {coursesData[activeHub].description}
                 </p>
                 <div className="pt-4">
                   <Link to="/contact">
                     <Button className="rounded-full px-8 flex items-center gap-2 group">
-                      Consult for {hubsData[activeHub].name}
+                      Enquire about {coursesData[activeHub].name}
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
