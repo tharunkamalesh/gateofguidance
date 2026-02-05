@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/progressive-carousel";
 import { cn } from "@/lib/utils";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
+import SEO from "@/components/SEO";
 
 import heroVideo from "@/assets/inter-hero.mp4";
 import studentTabletImg from "@/assets/international-student-tablet.jpg";
@@ -198,6 +199,10 @@ const International = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="MBBS Abroad Admissions | GateOfGuidance"
+        description="Study MBBS abroad in top medical universities. Expert guidance for admissions in Russia, Georgia, Kyrgyzstan, and more."
+      />
       <Navbar variant="transparent" />
 
       {/* Hero Section */}

@@ -2,6 +2,7 @@ import React from 'react';
 import StickyFooter from "@/components/ui/sticky-footer";
 import Lenis from '@studio-freight/lenis';
 import { ArrowDownIcon } from 'lucide-react';
+import SEO from "@/components/SEO";
 
 export default function StickyFooterDemo() {
     React.useEffect(() => {
@@ -17,6 +18,7 @@ export default function StickyFooterDemo() {
 
     return (
         <div className="relative w-full overflow-hidden">
+            <SEO title="Sticky Footer Demo | GateOfGuidance" noindex />
             <div className="flex h-screen flex-col items-center justify-center gap-10">
                 <h1 className="max-w-xl text-center">
                     <span className="text-foreground/80 text-4xl font-semibold">

@@ -9,6 +9,7 @@ import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
 import StickyFooter from "@/components/ui/sticky-footer";
 import { PopupForm } from "@/components/ui/PopupForm";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -39,6 +40,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="MBBS Admissions Guidance | GateOfGuidance"
+        description="Expert MBBS admission guidance in India and abroad. Get counseling, college selection, and application support."
+      />
       <Navbar />
       <Hero />
       <PathComparison />

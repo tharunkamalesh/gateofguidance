@@ -3,6 +3,7 @@ import Navbar from "@/components/landing/Navbar";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import contactImage from "@/assets/contact.jpg";
 import { ContactForm } from "@/components/landing/ContactForm";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const formReveal = useScrollReveal();
@@ -10,6 +11,10 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us | GateOfGuidance"
+        description="Contact GateOfGuidance for MBBS admission counseling and expert guidance."
+      />
       <Navbar variant="solid" />
 
       {/* Form Section */}
@@ -74,10 +79,10 @@ const Contact = () => {
                   Send us your questions and we'll respond promptly
                 </p>
                 <a
-                  href="mailto:hello@mbbs-admissions.in"
+                  href="mailto:info@gateofguidance.com"
                   className="text-primary-foreground underline text-sm"
                 >
-                  hello@mbbs-admissions.in
+                  info@gateofguidance.com
                 </a>
               </div>
 
@@ -91,10 +96,10 @@ const Contact = () => {
                   Speak directly with our counselling team during office hours
                 </p>
                 <a
-                  href="tel:+919360711986"
+                  href="tel:+919342094698"
                   className="text-primary-foreground underline text-sm"
                 >
-                  93607 11986
+                  93420 94698
                 </a>
               </div>
 
@@ -103,12 +108,20 @@ const Contact = () => {
                 <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
                   <MapPin className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-primary-foreground mb-2">Office</h3>
+                <h3 className="text-xl font-bold text-primary-foreground mb-2">Head Office</h3>
                 <p className="text-primary-foreground/70 text-sm mb-2">
-                  Visit us in New Delhi to discuss your admission strategy
+                  100 Jalan Sultan, #09-06, Sultan Plaza
                 </p>
-                <p className="text-primary-foreground text-sm">
-                  45 Institutional Area, New Delhi 110016 India
+                <p className="text-primary-foreground text-sm mb-4">
+                  Singapore - 199 001
+                </p>
+
+                <h3 className="text-lg font-bold text-primary-foreground mb-2">Branches</h3>
+                <p className="text-primary-foreground/70 text-sm">
+                  Theni: 197, L.F.Road, Cumbum - 625516
+                </p>
+                <p className="text-primary-foreground/70 text-sm">
+                  Puducherry: No. 89, Anna Nagar Main Road
                 </p>
               </div>
             </div>

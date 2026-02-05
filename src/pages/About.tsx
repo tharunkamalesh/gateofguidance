@@ -12,7 +12,7 @@ import ethicalGuidanceImg from "@/assets/honest.jpg";
 import studentFirstImg from "@/assets/dedicated cons.jpg";
 import testimonialStudent from "@/assets/testimonial.jpg";
 import gog1Img from "@/assets/gog1.jpg";
-
+import SEO from "@/components/SEO";
 
 const About = () => {
   const heroReveal = useScrollReveal();
@@ -24,6 +24,10 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="About Us | GateOfGuidance"
+        description="Learn more about GateOfGuidance and our mission to provide the best MBBS admission guidance."
+      />
       <Navbar />
 
       {/* Hero Section - Full Screen */}

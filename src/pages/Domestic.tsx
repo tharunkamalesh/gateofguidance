@@ -21,6 +21,7 @@ import domesticAdmissionImg from "@/assets/dom-study.jpg";
 import domesticSeatAllotmentImg from "@/assets/dom-seat allotment.jpg";
 import domesticGovtCollegeImg from "@/assets/domestic govrn.jpg";
 import domesticPrivateImg from "@/assets/domestic pvrt.jpg";
+import SEO from "@/components/SEO";
 
 const coursesData = [
   {
@@ -151,6 +152,10 @@ const Domestic = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="MBBS in India Admissions | GateOfGuidance"
+        description="Study MBBS in India. Get expert guidance for NEET, college selection, and admissions in top Indian medical colleges."
+      />
       <Navbar variant="transparent" />
 
       {/* Hero Section */}

@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "@/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Lock } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const AdminLogin = () => {
     const [email, setEmail] = useState("");
@@ -35,31 +36,33 @@ const AdminLogin = () => {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // Check Firestore for admin privilege
-            let adminDoc = await getDoc(doc(db, "admins", user.uid));
+            console.log("Logged-in email:", user.email);
 
-            // TEMPORARY: Auto-create admin doc if it doesn't exist (relies on temporary rules)
-            if (!adminDoc.exists()) {
-                try {
-                    await setDoc(doc(db, "admins", user.uid), {
-                        email: user.email,
-                        role: "admin",
-                        createdAt: serverTimestamp()
-                    });
-                    // Refresh the doc reference
-                    adminDoc = await getDoc(doc(db, "admins", user.uid));
-                } catch (err) {
-                    console.log("Auto-creation failed, verify rules:", err);
+            // Check Firestore for admin privilege using email
+            const adminsRef = collection(db, "admins");
+            const q = query(adminsRef, where("email", "==", user.email));
+            const querySnapshot = await getDocs(q);
+
+            console.log("Firestore query result (empty?):", querySnapshot.empty);
+
+            let isAdmin = false;
+
+            if (!querySnapshot.empty) {
+                const adminData = querySnapshot.docs[0].data();
+                console.log("Admin doc data:", adminData);
+                if (adminData.role === "admin") {
+                    isAdmin = true;
                 }
             }
 
-            if (adminDoc.exists()) {
+            if (isAdmin) {
                 toast({
                     title: "Login Successful",
                     description: "Welcome back, Admin!",
                 });
                 navigate("/admin/dashboard", { replace: true });
             } else {
+                console.log("Access Denied: Email not found in admins or incorrect role.");
                 toast({
                     variant: "destructive",
                     title: "Access Denied",
@@ -68,6 +71,7 @@ const AdminLogin = () => {
                 await auth.signOut();
             }
         } catch (error: any) {
+            console.error("Login error:", error);
             toast({
                 variant: "destructive",
                 title: "Login Failed",
@@ -88,6 +92,7 @@ const AdminLogin = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-slate-50 px-4">
+            <SEO title="Admin Login | GateOfGuidance" noindex />
             <Card className="w-full max-w-md border-none shadow-2xl">
                 <CardHeader className="space-y-1 text-center">
                     <div className="flex justify-center mb-4">

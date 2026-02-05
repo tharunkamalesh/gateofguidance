@@ -22,29 +22,24 @@ interface FAQProps {
 
 const defaultFaqs: FAQItem[] = [
   {
-    question: "Do I need NEET to apply?",
+    question: "What are the eligibility criteria for Indian students?",
     answer:
-      "Yes. NEET qualification is mandatory for Indian students seeking MBBS admission, whether in India or abroad. We guide you through preparation and use your score strategically during applications.",
+      "Indian students must have successfully completed 10+2 or equivalent education with Physics, Chemistry, and Biology as mandatory subjects. A minimum aggregate score of 50% in PCB is required for General category candidates, while 40% is applicable for SC/ST/OBC candidates, in accordance with National Medical Commission (NMC) guidelines. Applicants must have attained the age of 17 years on or before 31st December of the admission year.",
   },
   {
-    question: "Is foreign MBBS recognized in India?",
+    question: "Is NEET required to study MBBS abroad?",
     answer:
-      "MBBS degrees from our partner universities are recognized by the Medical Council of India. We work only with accredited institutions that meet international standards and Indian regulatory requirements.",
+      "Yes. Qualifying NEET is mandatory for Indian students pursuing MBBS abroad if they intend to practice medicine in India after graduation. This requirement is prescribed by the National Medical Commission (NMC), Government of India, and applies to all foreign medical graduates seeking licensure in India.",
   },
   {
-    question: "What is the total cost involved?",
+    question: "Is there an entrance examination for admission?",
     answer:
-      "Costs vary by country and university. We provide transparent breakdowns covering tuition, living expenses, and our service fees upfront. No hidden charges at any stage.",
+      "Most international medical universities do not conduct separate entrance examinations. Admissions are primarily based on academic merit and NEET qualification. Certain universities may conduct online interviews or basic eligibility assessments as part of the admission process.",
   },
   {
-    question: "Do you guarantee admission?",
+    question: "Are hostel facilities available for students?",
     answer:
-      "We cannot guarantee admission, but we maximize your chances through careful university selection and strong applications. Our track record speaks to our success rate and genuine commitment.",
-  },
-  {
-    question: "How long is the entire process?",
-    answer:
-      "From initial consultation to visa approval typically takes six to nine months. We work within your timeline and keep you informed at every milestone.",
+      "Yes. The majority of universities offer safe, well-maintained on-campus or nearby hostel accommodations for international students. These facilities are designed to provide a comfortable living environment, with many universities offering Indian food options. Students may also choose private off-campus accommodation, subject to availability.",
   },
 ];
 

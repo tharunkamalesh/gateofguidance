@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { auth, db } from "@/firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 export const ProtectedRoute = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -14,8 +14,19 @@ export const ProtectedRoute = () => {
             if (currentUser) {
                 try {
                     // Check Firestore for admin privilege
-                    const adminDoc = await getDoc(doc(db, "admins", currentUser.uid));
-                    if (adminDoc.exists()) {
+                    const adminsRef = collection(db, "admins");
+                    const q = query(adminsRef, where("email", "==", currentUser.email));
+                    const querySnapshot = await getDocs(q);
+
+                    let isUserAdmin = false;
+                    if (!querySnapshot.empty) {
+                        const adminData = querySnapshot.docs[0].data();
+                        if (adminData.role === "admin") {
+                            isUserAdmin = true;
+                        }
+                    }
+
+                    if (isUserAdmin) {
                         setUser(currentUser);
                         setIsAdmin(true);
                     } else {

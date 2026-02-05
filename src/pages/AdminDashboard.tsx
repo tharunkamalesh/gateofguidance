@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, Search, Filter, Eye, Calendar, User, Phone, Mail, GraduationCap } from "lucide-react";
+import SEO from "@/components/SEO";
 
 interface Enquiry {
     id: string;
@@ -105,6 +106,7 @@ const AdminDashboard = () => {
 
     return (
         <div className="space-y-6 animate-in fade-in duration-500">
+            <SEO title="Admin Dashboard | GateOfGuidance" noindex />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card className="bg-white border-none shadow-sm">
                     <CardHeader className="pb-2">
