@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import StickyFooterDemo from "./pages/StickyFooterDemo";
 import NotFound from "./pages/NotFound";
 import ScrollToHashElement from "./components/ScrollToHashElement";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 // Admin Pages
 import AdminLogin from "./pages/AdminLogin";
@@ -29,6 +30,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <GoogleAnalytics />
           <ScrollToHashElement />
           <Routes>
             <Route path="/" element={<Index />} />
