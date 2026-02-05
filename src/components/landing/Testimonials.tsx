@@ -1,29 +1,31 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import testimonialImg from "@/assets/testimonial.jpg";
+import img1 from "@/assets/1.jpeg";
+import img2 from "@/assets/2.jpeg";
+import img3 from "@/assets/3.jpeg";
 
 const testimonials = [
   {
-    image: testimonialImg,
+    image: img1,
     quote:
-      "They didn't just help me get into medical school—they understood what I wanted and made sure every decision aligned with my goals. The counsellor was there when I had doubts, and that made all the difference.",
-    name: "Arjun Sharma",
-    role: "MBBS student, Poland",
+      "Deeply grateful for the guidance that helped me secure my medical seat. The transition from Theni to my dream college was made possible by their dedicated support and transparent counselling.",
+    name: "Deepan kandhaswamy",
+    role: "Theni",
   },
   {
-    image: testimonialImg,
+    image: img2,
     quote:
-      "The entire process was seamless. From choosing the right university to getting my visa approved, they handled everything professionally. I'm now studying in Germany and couldn't be happier.",
-    name: "Priya Patel",
-    role: "MBBS student, Germany",
+      "Studying at Community Based Medical College, Bangladesh has been a life-changing experience. The entire admission and visa process was handled with extreme professionalism and care.",
+    name: "Dr Thanish Abbas",
+    role: "Community based medical college, Bangladesh",
   },
   {
-    image: testimonialImg,
+    image: img3,
     quote:
-      "What impressed me most was their honesty. They didn't push expensive options—they genuinely wanted what was best for me. That trust made the journey so much easier.",
-    name: "Rahul Kumar",
-    role: "MBBS student, Russia",
+      "The expert advice I received was instrumental in navigating the complex medical admission pathway. Their honest approach ensured I made the best decision for my future career.",
+    name: "Dr Hari Saravanan",
+    role: "Dindugal",
   },
 ];
 
