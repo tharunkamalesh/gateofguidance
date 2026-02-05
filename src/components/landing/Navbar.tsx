@@ -71,58 +71,60 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
   );
 
   return (
-    <motion.nav
-      variants={{
-        visible: { y: 0, opacity: 1 },
-        hidden: { y: "-100%", opacity: 0 },
-      }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={navbarClasses}
-    >
-      <div className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-20 transition-all duration-300">
-          {/* Logo */}
-          <Link to="/" className={cn(textColor, "font-display text-xl md:text-2xl italic font-bold tracking-tight shrink-0")}>
-            GateOfGuidance
-          </Link>
+    <>
+      <motion.nav
+        variants={{
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: "-100%", opacity: 0 },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={navbarClasses}
+      >
+        <div className="section-container">
+          <div className="flex items-center justify-between h-16 md:h-20 transition-all duration-300">
+            {/* Logo */}
+            <Link to="/" className={cn(textColor, "font-display text-xl md:text-2xl italic font-bold tracking-tight shrink-0")}>
+              GateOfGuidance
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 xl:gap-8">
-            {navItems.map((item) => (
-              item.isRoute ? (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className={cn(
-                    navLinkClass,
-                    location.pathname === item.href && "underline underline-offset-4 font-bold"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <a key={item.label} href={item.href} className={navLinkClass}>
-                  {item.label}
-                </a>
-              )
-            ))}
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6 xl:gap-8">
+              {navItems.map((item) => (
+                item.isRoute ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={cn(
+                      navLinkClass,
+                      location.pathname === item.href && "underline underline-offset-4 font-bold"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a key={item.label} href={item.href} className={navLinkClass}>
+                    {item.label}
+                  </a>
+                )
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className={cn("md:hidden p-2 rounded-lg transition-colors", textColor)}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={cn("md:hidden p-2 rounded-lg transition-colors", textColor)}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-      </div>
+      </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Outside motion.nav to avoid clipping from transform */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[72px] bg-white z-[60] overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
+        <div className="md:hidden fixed inset-0 top-[64px] md:top-[80px] bg-white z-[60] overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
           <div className="section-container py-8 space-y-2">
             {navItems.map((item) => (
               <Link
@@ -145,7 +147,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
           </div>
         </div>
       )}
-    </motion.nav>
+    </>
   );
 };
 

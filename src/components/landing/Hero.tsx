@@ -3,13 +3,13 @@ import heroImage from "@/assets/hero main.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-end pb-10 md:pb-12">
+    <section className="relative h-[100svh] min-h-[600px] flex items-end pb-10 md:pb-16 overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-[center_15%] bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-foreground/80 via-foreground/40 to-transparent" />
       </div>
 
       {/* Content */}
