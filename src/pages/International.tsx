@@ -30,10 +30,27 @@ const destinationsData = [
   {
     id: "russia",
     name: "Russia",
-    title: "Medical excellence in historical institutions",
-    description: "Russia offers world-renowned medical universities that combine historical prestige with modern research facilities. High passing rates in global screening tests make it a preferred destination.",
+    title: "About Russia",
+    description: "Russia provides world-class medical education at a low cost compared to private colleges in India. With an HDI score of 0.824 and high literacy, it offers a safe, friendly environment. The straightforward admission process requires only NEET qualification, making it an ideal gateway to a promising medical career.",
     image: destinationImg,
-    universities: []
+    universities: [
+      "Siberian State Medical University",
+      "Voronezh State Medical University named after N.N. Burdenko",
+      "Volgograd State Medical University",
+      "Bashkir State Medical University",
+      "Kemerovo State Medical Academy",
+      "North Caucasian State Medical University",
+      "Kazan State Medical University",
+      "Kazan Federal University",
+      "Pitirim Sorokin Syktyvkar State University",
+      "Ural State Medical University",
+      "Omsk State Medical University",
+      "Ulyanovsk State Medical University",
+      "Samara State Medical University",
+      "Ingush State University",
+      "Chuvash State University named after I.N. Ulyanov",
+      "Yaroslavl State Medical University"
+    ]
   },
   {
     id: "kazakhstan",
@@ -150,9 +167,9 @@ const destinationsData = [
   {
     id: "timor_leste",
     name: "Timor Leste",
-    title: "New opportunities in Southeast Asia",
-    description: "East Timor (Timor-Leste) is an emerging destination offering medical programs with a focus on community health and tropical medicine, providing a unique learning environment.",
-    image: travelImg, // Placeholder image
+    title: "About Timor Leste",
+    description: "Timor Leste is a peaceful Southeast Asian nation with a tropical climate and affordable living costs. Medical programs are offered in English, providing students with real-world clinical experience in local hospitals. The degree is recognized internationally, allowing graduates to pursue global medical careers.",
+    image: travelImg,
     universities: []
   },
 ];
