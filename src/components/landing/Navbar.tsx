@@ -56,10 +56,10 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
 
   // Dynamic Styles
   const navbarClasses = cn(
-    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
     shouldBeSolid
       ? "bg-white/95 backdrop-blur-md border-b border-border shadow-sm py-2"
-      : "bg-transparent py-4"
+      : "bg-transparent py-4 md:py-6"
   );
 
   const textColor = shouldBeSolid ? "text-slate-900" : "text-white";
@@ -88,7 +88,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <div className="hidden md:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
               item.isRoute ? (
                 <Link
@@ -109,11 +109,11 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
             ))}
           </div>
 
-
           {/* Mobile Menu Button */}
           <button
-            className={cn("lg:hidden p-2 rounded-lg transition-colors", textColor)}
+            className={cn("md:hidden p-2 rounded-lg transition-colors", textColor)}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -122,7 +122,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[64px] bg-white z-50 overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
+        <div className="md:hidden fixed inset-0 top-[72px] bg-white z-[60] overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
           <div className="section-container py-8 space-y-2">
             {navItems.map((item) => (
               <Link
@@ -146,7 +146,6 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
         </div>
       )}
     </motion.nav>
-
   );
 };
 
