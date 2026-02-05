@@ -478,9 +478,6 @@ const International = () => {
                       className="w-full flex items-center justify-between bg-card p-4 rounded-xl border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group shadow-sm"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="bg-primary/10 w-10 h-10 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                          <Award className="w-5 h-5" />
-                        </div>
                         <div className="text-left">
                           <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">Top Medical Colleges</h4>
                           <p className="text-xs text-muted-foreground">Click to view {destinationsData[activeDest].universities.length} universities</p>
