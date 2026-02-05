@@ -33,20 +33,7 @@ const destinationsData = [
     title: "Medical excellence in historical institutions",
     description: "Russia offers world-renowned medical universities that combine historical prestige with modern research facilities. High passing rates in global screening tests make it a preferred destination.",
     image: destinationImg,
-  },
-  {
-    id: "georgia",
-    name: "Georgia",
-    title: "European standards in safe environments",
-    description: "Georgian universities follow European medical education standards (Bologna process), providing students with globally recognized degrees in some of the safest cities in the world.",
-    image: studentsGroupImg,
-  },
-  {
-    id: "philippines",
-    name: "Philippines",
-    title: "US-pattern medical education system",
-    description: "With an American-style medical curriculum and English as the primary language of instruction, the Philippines offers exceptional clinical training and USMLE focus.",
-    image: seminarImg,
+    universities: []
   },
   {
     id: "kazakhstan",
@@ -54,6 +41,82 @@ const destinationsData = [
     title: "Modern infrastructure and affordable costs",
     description: "Kazakhstan has rapidly modernized its medical education infrastructure, offering Indian students NMC-recognized programs with high-quality clinical exposure at a fraction of domestic costs.",
     image: travelImg,
+    universities: []
+  },
+  {
+    id: "kyrgyzstan",
+    name: "Kyrgyzstan",
+    title: "Affordable education with quality standards",
+    description: "Kyrgyzstan is known for its low cost of living and education, making it an attractive destination for medical aspirants. The universities are MCI/NMC approved and offer English-medium MBBS programs.",
+    image: studentsGroupImg, // Placeholder image
+    universities: []
+  },
+  {
+    id: "uzbekistan",
+    name: "Uzbekistan",
+    title: "Emerging hub for medical studies",
+    description: "Uzbekistan offers a perfect blend of high-quality education and rich cultural heritage. The medical universities are equipped with modern labs and provide extensive clinical training.",
+    image: seminarImg, // Placeholder image
+    universities: []
+  },
+  {
+    id: "georgia",
+    name: "Georgia",
+    title: "European standards in safe environments",
+    description: "Georgian universities follow European medical education standards (Bologna process), providing students with globally recognized degrees in some of the safest cities in the world.",
+    image: studentsGroupImg,
+    universities: []
+  },
+  {
+    id: "china",
+    name: "China",
+    title: "World-class education with advanced technology",
+    description: "China is a top destination for MBBS due to its advanced medical infrastructure, English-medium programs, and high global ranking of universities. It offers excellent clinical exposure in large affiliated hospitals.",
+    image: destinationImg, // Placeholder image
+    universities: []
+  },
+  {
+    id: "nepal",
+    name: "Nepal",
+    title: "Familiar environment and curriculum",
+    description: "Nepal shares a similar culture, climate, and medical curriculum with India. It is a preferred choice for Indian students due to the short travel distance and high MCI screening test passing rates.",
+    image: medicalDeskImg, // Placeholder image
+    universities: []
+  },
+  {
+    id: "bangladesh",
+    name: "Bangladesh",
+    title: "High-quality clinical exposure",
+    description: "Bangladesh is a top choice for Indian students due to its similar syllabus, culture, and high patient flow for clinical training. The colleges are NMC recognized and have a high FMCG/NEXT passing rate.",
+    image: studentsGroupImg, // Placeholder image
+    universities: [
+      "Dhaka National Medical College",
+      "Sahabuddin Medical College",
+      "Maina Moti Medical College",
+      "Dr. Sirajuislam Medical College",
+      "International Medical College",
+      "Tairunnessa Medical College",
+      "Enam Medical College",
+      "Holi Family Medical College",
+      "Anwar Khan Medical College",
+      "Ad-din Women's Medical College"
+    ]
+  },
+  {
+    id: "philippines",
+    name: "Philippines",
+    title: "US-pattern medical education system",
+    description: "With an American-style medical curriculum and English as the primary language of instruction, the Philippines offers exceptional clinical training and USMLE focus.",
+    image: seminarImg,
+    universities: []
+  },
+  {
+    id: "timor_leste",
+    name: "Timor Leste",
+    title: "New opportunities in Southeast Asia",
+    description: "East Timor (Timor-Leste) is an emerging destination offering medical programs with a focus on community health and tropical medicine, providing a unique learning environment.",
+    image: travelImg, // Placeholder image
+    universities: []
   },
 ];
 
@@ -364,43 +427,71 @@ const International = () => {
             </div>
 
             {/* Destinations Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 border border-border divide-x divide-border mb-8 rounded-lg overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-5 border border-border divide-x divide-y md:divide-y-0 divide-border mb-8 rounded-lg overflow-hidden bg-card/50">
               {destinationsData.map((dest, index) => (
                 <button
                   key={dest.id}
                   onClick={() => setActiveDest(index)}
-                  className={`p-4 text-center transition-all duration-300 ${activeDest === index ? 'bg-primary text-primary-foreground' : 'bg-transparent text-foreground hover:bg-primary/5'}`}
+                  className={`p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center ${activeDest === index ? 'bg-primary text-primary-foreground shadow-inner' : 'bg-transparent text-foreground'}`}
                 >
-                  <span className="text-sm font-semibold">{dest.name}</span>
+                  <span className="text-xs md:text-sm font-semibold">{dest.name}</span>
                 </button>
               ))}
             </div>
 
             {/* Featured Destination */}
-            <div className="grid md:grid-cols-2 gap-12 items-center min-h-[400px]">
-              <div className="relative group overflow-hidden rounded-2xl shadow-xl">
+            <div className="grid md:grid-cols-2 gap-12 items-start min-h-[400px]">
+              <div className="relative group overflow-hidden rounded-2xl shadow-xl sticky top-8">
                 <img
                   src={destinationsData[activeDest].image}
                   alt={destinationsData[activeDest].name}
                   className="w-full aspect-[4/3] object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <span className="text-sm font-bold text-primary uppercase tracking-widest">Premier Choice</span>
-                  <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
-                    {destinationsData[activeDest].title}
-                  </h3>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">{destinationsData[activeDest].name}</h3>
+                  <div className="h-1 w-20 bg-primary rounded-full"></div>
                 </div>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {destinationsData[activeDest].description}
-                </p>
+              </div>
+
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-sm font-bold text-primary uppercase tracking-widest">About {destinationsData[activeDest].name}</span>
+                    <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
+                      {destinationsData[activeDest].title}
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    {destinationsData[activeDest].description}
+                  </p>
+                </div>
+
+                {/* Universities List */}
+                {destinationsData[activeDest].universities.length > 0 && (
+                  <div className="space-y-4 pt-4 border-t border-border">
+                    <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      <Award className="w-5 h-5 text-primary" />
+                      Top Colleges in {destinationsData[activeDest].name}
+                    </h4>
+                    <div className="grid gap-3">
+                      {destinationsData[activeDest].universities.map((uni, idx) => (
+                        <div key={idx} className="bg-card p-3 rounded-lg border border-border/60 hover:border-primary/50 transition-colors flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                            <span className="text-primary font-bold text-xs">{idx + 1}</span>
+                          </div>
+                          <span className="text-sm font-medium">{uni}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="pt-4">
                   <Link to="/contact">
-                    <Button className="rounded-full px-8 flex items-center gap-2 group">
-                      Consult for {destinationsData[activeDest].name}
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <Button className="rounded-full px-8 py-6 text-lg w-full md:w-auto shadow-lg hover:shadow-xl transition-all">
+                      Get Admission in {destinationsData[activeDest].name}
+                      <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </Link>
                 </div>
