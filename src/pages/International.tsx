@@ -24,6 +24,7 @@ import seminarImg from "@/assets/international-seminar.jpg";
 import destinationImg from "@/assets/inter-kazakasthan.jpg";
 import medicalDeskImg from "@/assets/domestic desk.jpg";
 import travelImg from "@/assets/inter-travel.jpg";
+import worldMapBg from "@/assets/bg.jpg";
 
 const destinationsData = [
   {
@@ -271,55 +272,25 @@ const International = () => {
 
             {/* World Map with Country Markers */}
             <div className="relative w-full max-w-5xl mx-auto">
-              {/* SVG World Map - Cream/Beige Style */}
-              <svg viewBox="0 0 1000 600" className="w-full h-auto">
-                <defs>
-                  <filter id="mapShadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#000" floodOpacity="0.3" />
-                  </filter>
-                </defs>
+              {/* World Map Image */}
+              <img
+                src={worldMapBg}
+                alt="World Map"
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
 
-                {/* Europe */}
-                <path d="M380 120 L420 100 L480 95 L520 100 L540 120 L530 150 L500 170 L460 180 L420 175 L390 160 L380 140 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Russia/Northern Asia */}
-                <path d="M520 80 L580 60 L680 55 L780 70 L860 100 L900 140 L880 180 L820 200 L740 210 L660 200 L580 180 L540 150 L520 120 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Central Asia */}
-                <path d="M540 180 L600 170 L660 180 L680 210 L660 240 L600 250 L550 240 L530 210 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Middle East & South Asia */}
-                <path d="M480 200 L530 190 L560 200 L580 230 L600 270 L620 310 L600 350 L560 360 L520 340 L480 300 L460 250 L470 220 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* China & East Asia */}
-                <path d="M680 200 L760 180 L840 200 L880 250 L860 310 L800 340 L720 330 L680 290 L670 240 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Southeast Asia */}
-                <path d="M720 340 L780 330 L820 360 L840 420 L820 480 L760 500 L700 480 L680 420 L700 370 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Africa */}
-                <path d="M400 220 L460 200 L500 220 L520 280 L510 360 L480 440 L420 480 L360 460 L340 380 L350 300 L380 250 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Australia */}
-                <path d="M800 450 L880 430 L940 460 L960 520 L920 570 L840 580 L780 540 L770 490 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-
-                {/* Americas */}
-                <path d="M80 100 L160 80 L200 120 L220 200 L200 300 L160 380 L120 440 L80 480 L50 420 L40 320 L50 220 L60 140 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-                <path d="M180 180 L260 160 L300 200 L320 280 L300 360 L260 400 L200 380 L180 300 L170 240 Z" fill="#f5f0e1" stroke="#d4cfc0" strokeWidth="1" filter="url(#mapShadow)" />
-              </svg>
-
-              {/* Country Pin Markers with Labels */}
+              {/* Country Pin Markers with Labels - Positioned for standard world map */}
               {[
-                { name: "Kazakhstan", x: "58%", y: "28%" },
-                { name: "Russia", x: "72%", y: "18%" },
-                { name: "Kyrgyzstan", x: "64%", y: "34%" },
-                { name: "Uzbekistan", x: "56%", y: "36%" },
-                { name: "China", x: "76%", y: "42%" },
-                { name: "Georgia", x: "50%", y: "32%" },
+                { name: "Russia", x: "65%", y: "22%" },
+                { name: "Kazakhstan", x: "58%", y: "32%" },
+                { name: "Kyrgyzstan", x: "60%", y: "38%" },
+                { name: "Uzbekistan", x: "55%", y: "36%" },
+                { name: "Georgia", x: "48%", y: "35%" },
+                { name: "China", x: "72%", y: "45%" },
                 { name: "Nepal", x: "62%", y: "48%" },
-                { name: "Bangladesh", x: "66%", y: "54%" },
-                { name: "Philippines", x: "82%", y: "58%" },
-                { name: "Timor Leste", x: "80%", y: "72%" },
+                { name: "Bangladesh", x: "65%", y: "52%" },
+                { name: "Philippines", x: "80%", y: "55%" },
+                { name: "Timor Leste", x: "82%", y: "70%" },
               ].map((country) => (
                 <div
                   key={country.name}
