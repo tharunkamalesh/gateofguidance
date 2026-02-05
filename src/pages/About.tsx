@@ -11,11 +11,13 @@ import aboutCounseling from "@/assets/about us ethical.jpg";
 import ethicalGuidanceImg from "@/assets/honest.jpg";
 import studentFirstImg from "@/assets/dedicated cons.jpg";
 import testimonialStudent from "@/assets/testimonial.jpg";
+import gog1Img from "@/assets/gog1.jpg";
 
 
 const About = () => {
   const heroReveal = useScrollReveal();
   const storyReveal = useScrollReveal();
+  const directorReveal = useScrollReveal();
   const beliefReveal = useScrollReveal();
   const processReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
@@ -87,6 +89,32 @@ const About = () => {
                 alt="Medical student"
                 className="w-full h-full object-cover"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Message from Director Section */}
+      <section className="section-padding bg-background">
+        <div className="section-container">
+          <div
+            ref={directorReveal.ref}
+            className={`grid md:grid-cols-2 gap-12 items-center scroll-reveal ${directorReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="order-2 md:order-1 rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={gog1Img}
+                alt="Director"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
+                Message from Director
+              </h2>
+              <p className="text-muted-foreground leading-relaxed text-lg italic">
+                "Gate of Guidance was established with a clear vision to transform access to global medical education through integrity, transparency, and excellence. By simplifying complex admission, university selection, and visa processes, we have built a trusted, student-focused platform that delivers clarity and confidence at every stage. With an expanding presence across multiple locations, our expert team provides seamless end-to-end guidance—from strategic university selection to successful admissions and visa facilitation. Driven by the success of our students, we remain committed to shaping global medical careers and enabling access to world-class education worldwide."
+              </p>
             </div>
           </div>
         </div>
