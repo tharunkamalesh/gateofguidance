@@ -79,25 +79,28 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
     return (
         <footer
             ref={footerRef}
-            className={cn('relative h-[800px] md:h-[500px] w-full', className)}
+            className={cn('relative h-[950px] md:h-[500px] w-full', className)}
             style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
             {...props}
         >
             <div className="fixed bottom-0 h-full w-full">
                 <div
-                    className="sticky bottom-0 h-[800px] md:h-[500px] overflow-hidden bg-footer-bg text-white bg-cover bg-center bg-no-repeat"
+                    className="sticky bottom-0 h-[950px] md:h-[500px] overflow-hidden bg-slate-900 text-white bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url(${footerBg})` }}
                 >
+                    {/* Dark Overlay for better text legibility */}
+                    <div className="absolute inset-0 bg-slate-950/70 md:bg-slate-950/40" />
+
                     <motion.div
                         style={{ opacity, filter, scale }}
-                        className="relative flex size-full flex-col justify-between border-t border-white/10 px-6 py-12 md:px-12"
+                        className="relative flex size-full flex-col justify-between border-t border-white/10 px-6 py-12 md:px-12 z-20"
                     >
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 xl:mt-0 relative z-10">
                             <AnimatedContainer className="w-full sm:col-span-2 lg:col-span-1 space-y-4">
                                 <Link to="/" className="text-white font-display text-2xl italic font-bold">
                                     GateOfGuidance
                                 </Link>
-                                <p className="text-white/60 mt-4 text-sm leading-relaxed max-w-xs">
+                                <p className="text-white/90 mt-4 text-sm leading-relaxed max-w-xs">
                                     Empowering aspiring medical students with verified counseling,
                                     transparent admission processes, and global education opportunities.
                                 </p>
@@ -116,14 +119,14 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                     className="w-full"
                                 >
                                     <div className="space-y-4">
-                                        <h3 className="text-sm uppercase font-bold tracking-wider text-white/90">{group.label}</h3>
-                                        <ul className="text-white/60 space-y-2 text-sm">
+                                        <h3 className="text-sm uppercase font-bold tracking-wider text-white">{group.label}</h3>
+                                        <ul className="text-white/80 space-y-3 text-sm">
                                             {group.links.map((link) => (
                                                 <li key={link.title}>
                                                     {link.isRoute ? (
                                                         <Link
                                                             to={link.href}
-                                                            className="hover:text-white inline-flex items-center transition-all duration-300"
+                                                            className="hover:text-primary inline-flex items-center transition-all duration-300"
                                                         >
                                                             {link.icon && <link.icon className="me-1 size-4" />}
                                                             {link.title}
@@ -131,7 +134,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                                     ) : (
                                                         <a
                                                             href={link.href}
-                                                            className="hover:text-white inline-flex items-center transition-all duration-300"
+                                                            className="hover:text-primary inline-flex items-center transition-all duration-300"
                                                         >
                                                             {link.icon && <link.icon className="me-1 size-4" />}
                                                             {link.title}
@@ -144,7 +147,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                 </AnimatedContainer>
                             ))}
                         </div>
-                        <div className="text-white/40 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs md:text-sm md:flex-row relative z-10 mt-auto">
+                        <div className="text-white/60 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs md:text-sm md:flex-row relative z-10 mt-auto">
                             <p>© 2025 Gate of Guidance. All rights reserved.</p>
                             <p>Empowering Future Doctors</p>
                         </div>
