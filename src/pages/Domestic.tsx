@@ -65,33 +65,6 @@ const eligibilityItems = [
   },
 ];
 
-const govtFeatures = [
-  { label: "Annual fees", value: "₹10-15K" },
-  { label: "Competitive merit cutoff", value: "95-99 percentile" },
-  { label: "Total available seats", value: "~15,000" },
-  { label: "Admission difficulty", value: "Extremely competitive" },
-];
-
-const govtBenefits = [
-  { positive: true, text: "Strong faculty and infrastructure" },
-  { positive: true, text: "Established reputation nationally" },
-  { positive: false, text: "Limited seats create intense pressure" },
-  { positive: false, text: "Geographic preference constraints apply" },
-];
-
-const privateFeatures = [
-  { label: "Annual fees", value: "₹15-25 lakhs" },
-  { label: "Total available seats", value: "~30,000+" },
-  { label: "Admission accessibility", value: "More accessible pathways" },
-];
-
-const privateBenefits = [
-  { positive: true, text: "Variable quality across institutions" },
-  { positive: true, text: "Growing recognition in medical field" },
-  { positive: true, text: "Higher financial commitment required" },
-  { positive: true, text: "Flexible admission timelines available" },
-];
-
 const processSteps = [
   {
     step: "One",
@@ -133,7 +106,6 @@ const Domestic = () => {
   const whatMbbsReveal = useScrollReveal();
   const competitiveReveal = useScrollReveal();
   const eligibilityReveal = useScrollReveal();
-  const collegesReveal = useScrollReveal();
   const processReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
 
@@ -322,90 +294,6 @@ const Domestic = () => {
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Government vs Private Colleges */}
-      <section className="section-padding bg-background">
-        <div className="section-container">
-          <div
-            ref={collegesReveal.ref}
-            className={`scroll-reveal ${collegesReveal.isVisible ? 'is-visible' : ''}`}
-          >
-            <div className="text-center mb-12">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider">Choice</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-                Government versus private colleges
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Both pathways lead to medical practice with distinct advantages and trade-offs.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Government College Card */}
-              <div className="border-2 border-border rounded-xl p-6 card-hover-lift">
-                <img
-                  src={domesticGovtCollegeImg}
-                  alt="Government college"
-                  className="w-full h-48 object-cover rounded-lg mb-6"
-                />
-                <h3 className="text-xl font-bold text-primary text-center mb-1">Government colleges</h3>
-                <p className="text-muted-foreground text-sm text-center mb-6">Highly subsidized education</p>
-
-                <div className="space-y-3 mb-6">
-                  {govtFeatures.map((feature) => (
-                    <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                      <span className="text-muted-foreground text-sm">{feature.label}</span>
-                      <span className="text-foreground font-semibold text-sm">{feature.value}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  {govtBenefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      {benefit.positive ? (
-                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      ) : (
-                        <X className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
-                      )}
-                      <span className="text-muted-foreground text-sm">{benefit.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Private College Card */}
-              <div className="border-2 border-border rounded-xl p-6 card-hover-lift">
-                <img
-                  src={domesticPrivateCollegeImg}
-                  alt="Private college"
-                  className="w-full h-48 object-cover rounded-lg mb-6"
-                />
-                <h3 className="text-xl font-bold text-primary text-center mb-1">Private colleges</h3>
-                <p className="text-muted-foreground text-sm text-center mb-6">Self-funded medical education</p>
-
-                <div className="space-y-3 mb-6">
-                  {privateFeatures.map((feature) => (
-                    <div key={feature.label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                      <span className="text-muted-foreground text-sm">{feature.label}</span>
-                      <span className="text-foreground font-semibold text-sm">{feature.value}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  {privateBenefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground text-sm">{benefit.text}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
