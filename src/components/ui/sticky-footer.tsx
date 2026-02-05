@@ -79,29 +79,29 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
     return (
         <footer
             ref={footerRef}
-            className={cn('relative h-[500px] w-full', className)}
+            className={cn('relative h-[800px] md:h-[500px] w-full', className)}
             style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
             {...props}
         >
-            <div className="fixed bottom-0 h-[500px] w-full">
+            <div className="fixed bottom-0 h-full w-full">
                 <div
-                    className="sticky top-[calc(100vh-500px)] h-full overflow-y-auto bg-footer-bg text-white bg-cover bg-center bg-no-repeat"
+                    className="sticky bottom-0 h-[800px] md:h-[500px] overflow-hidden bg-footer-bg text-white bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url(${footerBg})` }}
                 >
                     <motion.div
                         style={{ opacity, filter, scale }}
-                        className="relative flex size-full flex-col justify-between gap-5 border-t border-white/10 px-4 py-8 md:px-12"
+                        className="relative flex size-full flex-col justify-between border-t border-white/10 px-6 py-12 md:px-12"
                     >
-                        <div className="mt-10 flex flex-col gap-8 md:flex-row xl:mt-0 relative z-10">
-                            <AnimatedContainer className="w-full max-w-sm min-w-2xs space-y-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 xl:mt-0 relative z-10">
+                            <AnimatedContainer className="w-full sm:col-span-2 lg:col-span-1 space-y-4">
                                 <Link to="/" className="text-white font-display text-2xl italic font-bold">
-                                    Logo
+                                    GateOfGuidance
                                 </Link>
-                                <p className="text-white/60 mt-8 text-sm md:mt-0 leading-relaxed">
+                                <p className="text-white/60 mt-4 text-sm leading-relaxed max-w-xs">
                                     Empowering aspiring medical students with verified counseling,
                                     transparent admission processes, and global education opportunities.
                                 </p>
-                                <div className="flex gap-2">
+                                <div className="flex gap-2 pt-2">
                                     {socialLinks.map((link, idx) => (
                                         <Button key={idx} size="icon" variant="outline" className="size-8 border-white/20 text-white bg-transparent hover:bg-white/10 shadow-none">
                                             <link.icon className="size-4" />
@@ -115,9 +115,9 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                     delay={0.1 + index * 0.1}
                                     className="w-full"
                                 >
-                                    <div className="mb-10 md:mb-0">
+                                    <div className="space-y-4">
                                         <h3 className="text-sm uppercase font-bold tracking-wider text-white/90">{group.label}</h3>
-                                        <ul className="text-white/60 mt-4 space-y-2 text-sm md:text-xs lg:text-sm">
+                                        <ul className="text-white/60 space-y-2 text-sm">
                                             {group.links.map((link) => (
                                                 <li key={link.title}>
                                                     {link.isRoute ? (
@@ -144,7 +144,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                 </AnimatedContainer>
                             ))}
                         </div>
-                        <div className="text-white/40 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-4 text-sm md:flex-row relative z-10">
+                        <div className="text-white/40 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs md:text-sm md:flex-row relative z-10 mt-auto">
                             <p>© 2025 Gate of Guidance. All rights reserved.</p>
                             <p>Empowering Future Doctors</p>
                         </div>

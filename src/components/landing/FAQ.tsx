@@ -65,7 +65,7 @@ const FAQ = ({
                 headerReveal.isVisible && "is-visible"
               )}
             >
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary tracking-tight mb-16 leading-[1.1]">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary tracking-tight mb-16 leading-[1.1]">
                 {title.split(' ').map((word, i) => {
                   // Add a line break after the second word for "Frequently Asked"
                   if (i === 1) return <span key={i}>{word} <br /></span>;

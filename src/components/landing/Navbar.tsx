@@ -83,12 +83,12 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20 transition-all duration-300">
           {/* Logo */}
-          <Link to="/" className={cn(textColor, "font-display text-2xl italic font-bold tracking-tight")}>
-            Logo
+          <Link to="/" className={cn(textColor, "font-display text-xl md:text-2xl italic font-bold tracking-tight shrink-0")}>
+            GateOfGuidance
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
               item.isRoute ? (
                 <Link
@@ -112,7 +112,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
 
           {/* Mobile Menu Button */}
           <button
-            className={cn("md:hidden p-2 rounded-lg transition-colors", textColor)}
+            className={cn("lg:hidden p-2 rounded-lg transition-colors", textColor)}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -122,22 +122,31 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-border animate-in slide-in-from-top duration-300">
-          <div className="section-container py-6 space-y-4">
+        <div className="lg:hidden fixed inset-0 top-[64px] bg-white z-50 overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
+          <div className="section-container py-8 space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className="block py-3 text-lg font-medium text-slate-900 border-b border-slate-100 last:border-0"
+                className={cn(
+                  "block py-4 px-4 text-xl font-medium text-slate-900 rounded-xl transition-colors",
+                  location.pathname === item.href ? "bg-primary/5 text-primary border-l-4 border-primary" : "active:bg-slate-50"
+                )}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
+            <div className="pt-8 px-4">
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="w-full py-6 text-lg">Enquire Now</Button>
+              </Link>
+            </div>
           </div>
         </div>
       )}
     </motion.nav>
+
   );
 };
 
