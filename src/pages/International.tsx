@@ -6,7 +6,6 @@ import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
-import FAQ from "@/components/landing/FAQ";
 import { Timeline } from "@/components/ui/timeline";
 import {
   SliderBtnGroup,
@@ -92,28 +91,7 @@ const processSteps = [
   },
 ];
 
-const faqs = [
-  {
-    question: "Is NEET mandatory for abroad?",
-    answer: "Yes, NEET qualification is required by most international universities accepting Indian students. Your NEET score demonstrates medical aptitude and is essential for admission consideration.",
-  },
-  {
-    question: "Are foreign degrees recognized in India?",
-    answer: "Degrees from NMC-recognized institutions are fully recognized for medical practice in India. Graduates must complete FMGE examination to obtain Indian medical registration and practice license.",
-  },
-  {
-    question: "How safe are these countries?",
-    answer: "Our partner destinations maintain established student communities with strong safety records. We provide pre-departure orientation covering local customs, accommodation, and emergency support networks.",
-  },
-  {
-    question: "What is the admission timeline?",
-    answer: "Typical admission process spans four to six months from application to enrollment. We manage timelines ensuring applications reach universities during active admission cycles.",
-  },
-  {
-    question: "Can I practice medicine after graduation?",
-    answer: "Yes, graduates from NMC-recognized institutions can practice in India after FMGE qualification. International experience enhances clinical skills and provides global medical perspective.",
-  },
-];
+
 
 const International = () => {
   const [activeDest, setActiveDest] = useState(0);
@@ -126,7 +104,6 @@ const International = () => {
   const destinationsReveal = useScrollReveal();
   const eligibilityReveal = useScrollReveal();
   const processReveal = useScrollReveal();
-  const faqReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
 
   return (
@@ -499,7 +476,7 @@ const International = () => {
         </div>
       </section>
 
-      <FAQ items={faqs} title="FAQ" />
+
 
       {/* CTA Section */}
       <section className="section-padding bg-background">

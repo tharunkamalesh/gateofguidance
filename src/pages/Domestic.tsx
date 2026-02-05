@@ -6,7 +6,6 @@ import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import FAQ from "@/components/landing/FAQ";
 
 import domesticHeroVideo from "@/assets/domestic hero.mp4";
 import domesticStudentsImg from "@/assets/domestic students.jpg";
@@ -127,28 +126,7 @@ const processSteps = [
   },
 ];
 
-const faqItems = [
-  {
-    question: "Can I attempt NEET again?",
-    answer: "Yes, you can retake NEET multiple times to improve your score. Many students attempt it twice or thrice before securing their desired college. Each attempt gives you another chance to strengthen your preparation and increase your percentile.",
-  },
-  {
-    question: "What happens after counselling?",
-    answer: "After counselling concludes and seats are allocated, you receive your college assignment. You then report to your assigned institution with required documents to complete admission formalities and begin your medical education.",
-  },
-  {
-    question: "Are private colleges recognized?",
-    answer: "Private medical colleges in India are recognized by the Medical Council of India and their graduates can practice medicine nationwide. However, recognition quality varies by institution, making college selection important.",
-  },
-  {
-    question: "How competitive is government admission?",
-    answer: "Government MBBS seats are extremely competitive with cutoffs typically ranging from 95 to 99 percentile depending on your category and state. Limited seat availability makes these positions highly sought after.",
-  },
-  {
-    question: "What if I miss counselling dates?",
-    answer: "Missing counselling deadlines can result in forfeiting your seat. Counselling authorities maintain strict timelines, so marking important dates and submitting documents promptly is essential for securing admission.",
-  },
-];
+
 
 const Domestic = () => {
   const heroReveal = useScrollReveal();
@@ -157,7 +135,6 @@ const Domestic = () => {
   const eligibilityReveal = useScrollReveal();
   const collegesReveal = useScrollReveal();
   const processReveal = useScrollReveal();
-  const faqReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
 
   return (
@@ -474,7 +451,7 @@ const Domestic = () => {
         </div>
       </section>
 
-      <FAQ items={faqItems} title="Questions" />
+
 
       {/* CTA Section */}
       <section className="section-padding bg-background">
