@@ -46,18 +46,30 @@ const destinationsData = [
   {
     id: "kyrgyzstan",
     name: "Kyrgyzstan",
-    title: "Affordable education with quality standards",
-    description: "Kyrgyzstan is known for its low cost of living and education, making it an attractive destination for medical aspirants. The universities are MCI/NMC approved and offer English-medium MBBS programs.",
-    image: studentsGroupImg, // Placeholder image
-    universities: []
+    title: "Affordable quality education",
+    description: "A popular destination for MBBS due to its affordable fees and high-quality education. Home to top-ranked medical universities like Kyrgyz State and Osh State, offering NMC-approved degrees and excellent clinical exposure in a scenic environment.",
+    image: studentsGroupImg,
+    universities: [
+      "Jalalabad State University",
+      "OSH State Medical University",
+      "International School of Medicine Kyrgyzstan",
+      "Adam University School of Medicine",
+      "Asian Medical Institute Kyrgyzstan"
+    ]
   },
   {
     id: "uzbekistan",
     name: "Uzbekistan",
-    title: "Emerging hub for medical studies",
-    description: "Uzbekistan offers a perfect blend of high-quality education and rich cultural heritage. The medical universities are equipped with modern labs and provide extensive clinical training.",
-    image: seminarImg, // Placeholder image
-    universities: []
+    title: "Rich history & modern medicine",
+    description: "Emerging as a top choice for Indian students with its simple admission process (NEET only) and high FMGE passing rates. Universities in Tashkent and historic cities like Samarkand offer a safe environment and diverse culture.",
+    image: seminarImg,
+    universities: [
+      "Tashkent Medical Academy",
+      "Tashkent Medical Academy Urgench",
+      "Tashkent Pediatric Medical Institute",
+      "Bukhara State Medical University",
+      "Fergana State University"
+    ]
   },
   {
     id: "georgia",
