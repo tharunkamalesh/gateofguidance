@@ -124,7 +124,7 @@ const socialLinks = [
 
 const footerLinkGroups: FooterLinkGroup[] = [
     {
-        label: 'Primary Paths',
+        label: 'Quick Links',
         links: [
             { title: 'Home', href: '/', isRoute: true },
             { title: 'About Us', href: '/about', isRoute: true },
@@ -134,29 +134,23 @@ const footerLinkGroups: FooterLinkGroup[] = [
         ],
     },
     {
-        label: 'Our Approach',
+        label: 'Contact Us',
         links: [
-            { title: 'Counselling Process', href: '/#process', isRoute: true },
-            { title: 'Why Choose Us', href: '/#about', isRoute: true },
-            { title: 'Student Success', href: '/#testimonials', isRoute: true },
-            { title: 'FAQ\'s', href: '/#faq', isRoute: true },
+            { title: 'Tel: 93420 94698', href: 'tel:+919342094698' },
+            { title: 'Email: info@gateofguidance.com', href: 'mailto:info@gateofguidance.com' },
         ],
     },
     {
-        label: 'Resources',
+        label: 'Head Office',
         links: [
-            { title: 'Admission Guides', href: '#' },
-            { title: 'NEET Support', href: '#' },
-            { title: 'University Lists', href: '#' },
-            { title: 'Visa Assistance', href: '#' },
+            { title: '100 Jalan Sultan, #09-06, Sultan Plaza, Singapore - 199 001.', href: 'https://maps.google.com/?q=100+Jalan+Sultan+Sultan+Plaza+Singapore+199001' },
         ],
     },
     {
-        label: 'Legal',
+        label: 'Branches',
         links: [
-            { title: 'Privacy Policy', href: '#' },
-            { title: 'Terms of Service', href: '#' },
-            { title: 'Cookie Policy', href: '#' },
+            { title: 'Theni: 197, L.F.Road, Cumbum - 625516.', href: '#' },
+            { title: 'Puducherry: No. 89, Anna Nagar Main Road, Anna Nagar - 605005.', href: '#' },
         ],
     },
 ];
