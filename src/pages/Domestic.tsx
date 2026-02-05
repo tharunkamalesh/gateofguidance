@@ -1,6 +1,7 @@
 // Domestic Page - MBBS in India
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Percent, Calendar, Award, Users } from "lucide-react";
+import { Percent, Calendar, Award, Users, ArrowRight } from "lucide-react";
 import { Timeline } from "@/components/ui/timeline";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 import Navbar from "@/components/landing/Navbar";
@@ -18,6 +19,39 @@ import domesticCounselingImg from "@/assets/dom-register.jpg";
 import domesticClassroomImg from "@/assets/dom-clsroom.jpg";
 import domesticAdmissionImg from "@/assets/dom-study.jpg";
 import domesticSeatAllotmentImg from "@/assets/dom-seat allotment.jpg";
+import domesticGovtCollegeImg from "@/assets/domestic govrn.jpg";
+import domesticPrivateImg from "@/assets/domestic pvrt.jpg";
+
+const hubsData = [
+  {
+    id: "tamilnadu",
+    name: "Tamil Nadu",
+    title: "The Medical Hub of South India",
+    description: "Home to some of India's oldest and most prestigious medical institutions. Tamil Nadu offers a robust healthcare ecosystem with extensive clinical exposure and research opportunities in both government and private sectors.",
+    image: domesticGovtCollegeImg,
+  },
+  {
+    id: "karnataka",
+    name: "Karnataka",
+    title: "Center for Academic Excellence",
+    description: "Known for its high density of medical colleges and world-class healthcare infrastructure. Karnataka is a preferred destination for students seeking quality education and diverse clinical environments.",
+    image: domesticStudentsImg,
+  },
+  {
+    id: "maharashtra",
+    name: "Maharashtra",
+    title: "Leading Medical Infrastructure",
+    description: "Boasting a vast network of medical colleges and specialized hospitals. Maharashtra provides students with exposure to a wide range of medical cases and advanced clinical training facilities.",
+    image: domesticDeskImg,
+  },
+  {
+    id: "kerala",
+    name: "Kerala",
+    title: "The Wellness & Healthcare Leader",
+    description: "Focusing on community health and high-quality nursing and medical education. Kerala's institutions are recognized for their rigorous academic standards and focus on ethical medical practice.",
+    image: domesticDoctorImg,
+  },
+];
 
 const eligibilityItems = [
   {
@@ -81,8 +115,11 @@ const Domestic = () => {
   const whatMbbsReveal = useScrollReveal();
   const competitiveReveal = useScrollReveal();
   const eligibilityReveal = useScrollReveal();
+  const hubsReveal = useScrollReveal();
   const processReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
+
+  const [activeHub, setActiveHub] = useState(0);
 
   return (
     <div className="min-h-screen bg-background">
@@ -215,6 +252,70 @@ const Domestic = () => {
                 alt="Medical professional"
                 className="relative w-full h-[400px] object-cover rounded-2xl shadow-2xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Top Medical Hubs Section */}
+      <section className="section-padding bg-background">
+        <div className="section-container">
+          <div
+            ref={hubsReveal.ref}
+            className={`border-2 border-border rounded-xl p-8 md:p-12 scroll-reveal ${hubsReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-8">
+              <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Medical Hubs</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Top Medical Hubs in India
+              </h2>
+              <p className="text-muted-foreground">
+                Premier states offering exceptional medical education and clinical infrastructure.
+              </p>
+            </div>
+
+            {/* Hubs Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 border border-border divide-x divide-border mb-8 rounded-lg overflow-hidden">
+              {hubsData.map((hub, index) => (
+                <button
+                  key={hub.id}
+                  onClick={() => setActiveHub(index)}
+                  className={`p-4 text-center transition-all duration-300 ${activeHub === index ? 'bg-primary text-primary-foreground' : 'bg-transparent text-foreground hover:bg-primary/5'}`}
+                >
+                  <span className="text-sm font-semibold">{hub.name}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Featured Hub */}
+            <div className="grid md:grid-cols-2 gap-12 items-center min-h-[400px]">
+              <div className="relative group overflow-hidden rounded-2xl shadow-xl">
+                <img
+                  src={hubsData[activeHub].image}
+                  alt={hubsData[activeHub].name}
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <span className="text-sm font-bold text-primary uppercase tracking-widest">Top Destination</span>
+                  <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
+                    {hubsData[activeHub].title}
+                  </h3>
+                </div>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {hubsData[activeHub].description}
+                </p>
+                <div className="pt-4">
+                  <Link to="/contact">
+                    <Button className="rounded-full px-8 flex items-center gap-2 group">
+                      Consult for {hubsData[activeHub].name}
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
