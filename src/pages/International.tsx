@@ -271,15 +271,15 @@ const International = () => {
             </div>
 
             {/* World Map with Country Markers */}
-            <div className="relative w-full max-w-5xl mx-auto">
+            <div className="relative w-full max-w-5xl mx-auto mb-16">
               {/* World Map Image */}
               <img
                 src={worldMapBg}
                 alt="World Map"
-                className="w-full h-auto rounded-2xl shadow-xl"
+                className="w-full h-auto rounded-2xl shadow-xl border border-border/50"
               />
 
-              {/* Country Pin Markers with Labels - Positioned for standard world map */}
+              {/* Country Pin Markers with Labels */}
               {[
                 { name: "Russia", x: "65%", y: "22%" },
                 { name: "Kazakhstan", x: "58%", y: "32%" },
@@ -297,20 +297,39 @@ const International = () => {
                   className="absolute group"
                   style={{ left: country.x, top: country.y, transform: "translate(-50%, -100%)" }}
                 >
-                  {/* Pin */}
-                  <div className="relative flex flex-col items-center">
+                  {/* Pin Container */}
+                  <div className="relative flex flex-col items-center cursor-pointer">
+
                     {/* Label */}
-                    <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-md shadow-lg mb-1 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-sm font-bold text-slate-800 whitespace-nowrap">{country.name}</span>
+                    <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg mb-2 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 border border-border/10">
+                      <span className="text-xs md:text-sm font-bold text-slate-800 whitespace-nowrap">{country.name}</span>
                     </div>
-                    {/* Pin Icon */}
+
+                    {/* Pin Icon with Pulse */}
                     <div className="relative">
-                      <svg width="20" height="28" viewBox="0 0 20 28" className="drop-shadow-lg">
+                      {/* Pulse Effect */}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full animate-ping opacity-75"></div>
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full opacity-30"></div>
+
+                      {/* Actual Pin */}
+                      <svg width="24" height="34" viewBox="0 0 20 28" className="drop-shadow-lg relative z-10 transition-transform duration-300 group-hover:-translate-y-2">
                         <path d="M10 0C4.5 0 0 4.5 0 10c0 7.5 10 18 10 18s10-10.5 10-18c0-5.5-4.5-10-10-10z" fill="#dc2626" />
-                        <circle cx="10" cy="10" r="4" fill="#fca5a5" />
+                        <circle cx="10" cy="10" r="3.5" fill="#fee2e2" />
                       </svg>
                     </div>
                   </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Country List Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
+              {[
+                "Russia", "Kazakhstan", "Kyrgyzstan", "Uzbekistan", "Georgia",
+                "China", "Nepal", "Bangladesh", "Philippines", "Timor Leste"
+              ].map((country) => (
+                <div key={country} className="bg-card border border-border/50 rounded-lg p-3 text-center hover:bg-primary/5 hover:border-primary/30 transition-colors duration-300">
+                  <span className="text-sm font-medium text-foreground">{country}</span>
                 </div>
               ))}
             </div>
