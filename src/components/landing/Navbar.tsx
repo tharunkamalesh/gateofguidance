@@ -58,16 +58,14 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
   const navbarClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
     shouldBeSolid
-      ? "bg-white/95 backdrop-blur-md border-b border-border shadow-sm py-2"
+      ? "bg-primary shadow-xl py-2"
       : "bg-transparent py-4 md:py-6"
   );
 
-  const textColor = shouldBeSolid ? "text-slate-900" : "text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]";
+  const textColor = "text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]";
   const navLinkClass = cn(
-    "text-sm font-medium transition-colors duration-200",
-    shouldBeSolid
-      ? "text-slate-600 hover:text-primary"
-      : "text-white/90 hover:text-white drop-shadow-sm"
+    "text-sm font-medium transition-colors duration-200 text-white/90 hover:text-white drop-shadow-sm",
+    location.pathname === "/" && !scrolled ? "text-white font-semibold" : ""
   );
 
   return (
