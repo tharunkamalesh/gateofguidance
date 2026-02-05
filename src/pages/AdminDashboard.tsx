@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { auth, db } from "@/firebase";
 import { collection, query, orderBy, onSnapshot, Timestamp, doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
     Table,
     TableBody,
@@ -37,6 +37,7 @@ interface Enquiry {
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
@@ -106,7 +107,10 @@ const AdminDashboard = () => {
 
     return (
         <div className="space-y-6 animate-in fade-in duration-500">
-            <SEO title="Admin Dashboard | GateOfGuidance" noindex />
+            <SEO
+                title={location.pathname.includes('enquiries') ? "Admin Enquiries | GateOfGuidance" : "Admin Dashboard | GateOfGuidance"}
+                noindex
+            />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card className="bg-white border-none shadow-sm">
                     <CardHeader className="pb-2">

@@ -26,7 +26,7 @@ const About = () => {
     <div className="min-h-screen">
       <SEO
         title="About Us | GateOfGuidance"
-        description="Learn more about GateOfGuidance and our mission to provide the best MBBS admission guidance."
+        description="Learn about GateOfGuidance's mission to simplify medical admissions. Dedicated support for aspiring doctors in India and overseas."
       />
       <Navbar />
 
