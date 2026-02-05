@@ -14,9 +14,9 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: "Home", href: "/", isRoute: true },
   { label: "About Us", href: "/about", isRoute: true },
-  { label: "Domestic", href: "/domestic", isRoute: true },
   { label: "International", href: "/international", isRoute: true },
-  { label: "FAQ's", href: "/#faq", isRoute: true },
+  { label: "Domestic", href: "/domestic", isRoute: true },
+  { label: "FAQ", href: "/#faq", isRoute: true },
   { label: "Contact Us", href: "/contact", isRoute: true },
 ];
 
