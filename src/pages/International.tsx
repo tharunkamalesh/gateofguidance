@@ -5,7 +5,6 @@ import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
 import { Timeline } from "@/components/ui/timeline";
 import {
   SliderBtnGroup,
@@ -185,17 +184,12 @@ const processSteps = [
   },
 ];
 
-
-
 const International = () => {
   const [activeDest, setActiveDest] = useState(0);
   const [isUniListOpen, setIsUniListOpen] = useState(false);
+  const [selectedMapCountry, setSelectedMapCountry] = useState<string | null>(null);
 
   const heroReveal = useScrollReveal();
-  const whyStudyReveal = useScrollReveal();
-  const curriculumReveal = useScrollReveal();
-  const seatsReveal = useScrollReveal();
-  const universitiesReveal = useScrollReveal();
   const destinationsReveal = useScrollReveal();
   const worldMapReveal = useScrollReveal();
   const eligibilityReveal = useScrollReveal();
@@ -366,14 +360,12 @@ const International = () => {
 
             {/* World Map with Country Markers */}
             <div className="relative w-full max-w-5xl mx-auto mb-16">
-              {/* World Map Image */}
               <img
                 src={worldMapBg}
                 alt="World Map"
                 className="w-full h-auto rounded-2xl shadow-xl border border-border/50"
               />
 
-              {/* Country Pin Markers with Labels */}
               {[
                 { name: "Russia", x: "65%", y: "22%" },
                 { name: "Kyrgyzstan", x: "60%", y: "38%" },
@@ -382,35 +374,75 @@ const International = () => {
                 { name: "China", x: "72%", y: "45%" },
                 { name: "Bangladesh", x: "65%", y: "52%" },
                 { name: "Timor Leste", x: "82%", y: "70%" },
-              ].map((country) => (
-                <div
-                  key={country.name}
-                  className="absolute group"
-                  style={{ left: country.x, top: country.y, transform: "translate(-50%, -100%)" }}
-                >
-                  {/* Pin Container */}
-                  <div className="relative flex flex-col items-center cursor-pointer">
+              ].map((country) => {
+                const isSelected = selectedMapCountry === country.name;
+                const isOtherSelected = selectedMapCountry !== null && selectedMapCountry !== country.name;
 
-                    {/* Label */}
-                    <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg mb-2 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 border border-border/10">
-                      <span className="text-xs md:text-sm font-bold text-slate-800 whitespace-nowrap">{country.name}</span>
-                    </div>
+                return (
+                  <div
+                    key={country.name}
+                    className={cn(
+                      "absolute group cursor-pointer transition-all duration-500",
+                      isSelected && "z-20 scale-110",
+                      isOtherSelected && "opacity-30 scale-90"
+                    )}
+                    style={{ left: country.x, top: country.y, transform: "translate(-50%, -100%)" }}
+                    onClick={() => {
+                      const newSelected = isSelected ? null : country.name;
+                      setSelectedMapCountry(newSelected);
+                      if (newSelected) {
+                        const index = destinationsData.findIndex(d => d.name === newSelected);
+                        if (index !== -1) setActiveDest(index);
+                      }
+                    }}
+                  >
+                    <div className="relative flex flex-col items-center">
+                      <div className={cn(
+                        "bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg mb-2 transition-all duration-300 border",
+                        isSelected
+                          ? "opacity-100 scale-110 border-primary bg-primary text-white shadow-primary/30"
+                          : "opacity-90 group-hover:opacity-100 group-hover:scale-110 border-border/10"
+                      )}>
+                        <span className={cn(
+                          "text-xs md:text-sm font-bold whitespace-nowrap",
+                          isSelected ? "text-white" : "text-slate-800"
+                        )}>{country.name}</span>
+                      </div>
 
-                    {/* Pin Icon with Pulse */}
-                    <div className="relative">
-                      {/* Pulse Effect */}
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full animate-ping opacity-75"></div>
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full opacity-30"></div>
+                      <div className="relative">
+                        {isSelected && (
+                          <>
+                            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full animate-ping opacity-75"></div>
+                            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full opacity-50"></div>
+                          </>
+                        )}
+                        {!isSelected && (
+                          <>
+                            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full animate-ping opacity-75"></div>
+                            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full opacity-30"></div>
+                          </>
+                        )}
 
-                      {/* Actual Pin */}
-                      <svg width="24" height="34" viewBox="0 0 20 28" className="drop-shadow-lg relative z-10 transition-transform duration-300 group-hover:-translate-y-2">
-                        <path d="M10 0C4.5 0 0 4.5 0 10c0 7.5 10 18 10 18s10-10.5 10-18c0-5.5-4.5-10-10-10z" fill="#dc2626" />
-                        <circle cx="10" cy="10" r="3.5" fill="#fee2e2" />
-                      </svg>
+                        <svg
+                          width={isSelected ? "32" : "24"}
+                          height={isSelected ? "44" : "34"}
+                          viewBox="0 0 20 28"
+                          className={cn(
+                            "drop-shadow-lg relative z-10 transition-all duration-300",
+                            isSelected ? "-translate-y-2" : "group-hover:-translate-y-2"
+                          )}
+                        >
+                          <path
+                            d="M10 0C4.5 0 0 4.5 0 10c0 7.5 10 18 10 18s10-10.5 10-18c0-5.5-4.5-10-10-10z"
+                            fill={isSelected ? "hsl(var(--primary))" : "#dc2626"}
+                          />
+                          <circle cx="10" cy="10" r="3.5" fill={isSelected ? "white" : "#fee2e2"} />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Country List Grid */}
@@ -418,14 +450,39 @@ const International = () => {
               {[
                 "Russia", "Kyrgyzstan", "Uzbekistan", "Azerbaijan", "China",
                 "Bangladesh", "Timor Leste"
-              ].map((country) => (
-                <div key={country} className="bg-card border border-border/50 rounded-lg p-3 text-center hover:bg-primary/5 hover:border-primary/30 transition-colors duration-300">
-                  <span className="text-sm font-medium text-foreground">{country}</span>
-                </div>
-              ))}
+              ].map((country) => {
+                const isSelected = selectedMapCountry === country;
+                const isOtherSelected = selectedMapCountry !== null && selectedMapCountry !== country;
+
+                return (
+                  <button
+                    key={country}
+                    onClick={() => {
+                      const newSelected = isSelected ? null : country;
+                      setSelectedMapCountry(newSelected);
+                      if (newSelected) {
+                        const index = destinationsData.findIndex(d => d.name === newSelected);
+                        if (index !== -1) setActiveDest(index);
+                      }
+                    }}
+                    className={cn(
+                      "bg-card border rounded-lg p-3 text-center transition-all duration-300",
+                      isSelected
+                        ? "bg-primary border-primary text-white shadow-lg scale-105"
+                        : isOtherSelected
+                          ? "border-border/50 opacity-50"
+                          : "border-border/50 hover:bg-primary/5 hover:border-primary/30"
+                    )}
+                  >
+                    <span className={cn(
+                      "text-sm font-medium",
+                      isSelected ? "text-white" : "text-foreground"
+                    )}>{country}</span>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* CTA Button */}
             <div className="text-center mt-12">
               <Link to="/contact">
                 <Button className="rounded-full px-10 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl transition-all duration-300 hover:scale-105">
@@ -459,7 +516,10 @@ const International = () => {
               {destinationsData.map((dest, index) => (
                 <button
                   key={dest.id}
-                  onClick={() => setActiveDest(index)}
+                  onClick={() => {
+                    setActiveDest(index);
+                    setSelectedMapCountry(dest.name);
+                  }}
                   className={`p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center ${activeDest === index ? 'bg-primary text-primary-foreground shadow-inner' : 'bg-transparent text-foreground'}`}
                 >
                   <span className="text-xs md:text-sm font-semibold">{dest.name}</span>
@@ -483,26 +543,15 @@ const International = () => {
               </div>
 
               <div className="space-y-8">
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
-                      {destinationsData[activeDest].title}
-                    </h3>
-                  </div>
-                  <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-                    {destinationsData[activeDest].description.split('\n\n').map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
-                  </div>
-
-                  <div className="pt-2">
-                    <Link to="/contact">
-                      <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg font-bold shadow-lg flex items-center gap-2 group">
-                        Get Admission in {destinationsData[activeDest].name}
-                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
-                  </div>
+                <div>
+                  <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
+                    {destinationsData[activeDest].title}
+                  </h3>
+                </div>
+                <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+                  {destinationsData[activeDest].description.split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
                 </div>
 
                 {/* Universities List - Collapsible Dropdown */}
@@ -536,11 +585,11 @@ const International = () => {
                   </div>
                 )}
 
-                <div className="pt-4">
-                  <Link to="/contact">
-                    <Button className="rounded-full px-8 py-6 text-lg w-full md:w-auto shadow-lg hover:shadow-xl transition-all">
+                <div className="pt-6">
+                  <Link to="/contact" className="inline-block w-full md:w-auto">
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-3 h-auto text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95">
                       Get Admission in {destinationsData[activeDest].name}
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                 </div>
@@ -711,8 +760,6 @@ const International = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* CTA Section */}
       <section className="section-padding bg-background">
