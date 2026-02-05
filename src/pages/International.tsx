@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, User, Check } from "lucide-react";
+import { ArrowRight, Award, User, Check, ChevronDown, ChevronUp } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
@@ -86,9 +86,9 @@ const destinationsData = [
   {
     id: "bangladesh",
     name: "Bangladesh",
-    title: "High-quality clinical exposure",
-    description: "Bangladesh is a top choice for Indian students due to its similar syllabus, culture, and high patient flow for clinical training. The colleges are NMC recognized and have a high FMCG/NEXT passing rate.",
-    image: studentsGroupImg, // Placeholder image
+    title: "About Bangladesh",
+    description: "Bangladesh is a South Asian country located on the Bay of Bengal. It shares borders with India on three sides and Myanmar to the southeast. The capital city is Dhaka, a bustling metropolis with a population of over 21 million, making it one of the most populous cities in the world.\n\nBangladesh has a rich and diverse cultural heritage. The official language is Bengali, which is spoken by the majority of the population. The country has a long tradition of literature, music, art, and dance.\n\nOne of the biggest advantages is that the syllabus and teaching pattern closely resemble Indian medical colleges, making it easier for students to clear licensing exams like FMGE/NEXT. Additionally, Bangladesh has a low cost of education and living, and Indian food is easily available, ensuring a comfortable stay. With a safe environment, high-quality education, and a strong track record of Indian students succeeding in medical careers, Bangladesh remains a top choice.",
+    image: studentsGroupImg,
     universities: [
       "Dhaka National Medical College",
       "Sahabuddin Medical College",
@@ -159,6 +159,7 @@ const processSteps = [
 
 const International = () => {
   const [activeDest, setActiveDest] = useState(0);
+  const [isUniListOpen, setIsUniListOpen] = useState(false);
 
   const heroReveal = useScrollReveal();
   const whyStudyReveal = useScrollReveal();
@@ -462,21 +463,37 @@ const International = () => {
                       {destinationsData[activeDest].title}
                     </h3>
                   </div>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    {destinationsData[activeDest].description}
-                  </p>
+                  <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+                    {destinationsData[activeDest].description.split('\n\n').map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Universities List */}
+                {/* Universities List - Collapsible Dropdown */}
                 {destinationsData[activeDest].universities.length > 0 && (
-                  <div className="space-y-4 pt-4 border-t border-border">
-                    <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                      <Award className="w-5 h-5 text-primary" />
-                      Top Colleges in {destinationsData[activeDest].name}
-                    </h4>
-                    <div className="grid gap-3">
+                  <div className="pt-4 border-t border-border">
+                    <button
+                      onClick={() => setIsUniListOpen(!isUniListOpen)}
+                      className="w-full flex items-center justify-between bg-card p-4 rounded-xl border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group shadow-sm"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="bg-primary/10 w-10 h-10 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                          <Award className="w-5 h-5" />
+                        </div>
+                        <div className="text-left">
+                          <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">Top Medical Colleges</h4>
+                          <p className="text-xs text-muted-foreground">Click to view {destinationsData[activeDest].universities.length} universities</p>
+                        </div>
+                      </div>
+                      {isUniListOpen ? <ChevronUp className="w-5 h-5 text-primary" /> : <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />}
+                    </button>
+
+                    <div
+                      className={`grid gap-3 overflow-hidden transition-all duration-500 ease-in-out ${isUniListOpen ? 'max-h-[800px] mt-4 opacity-100' : 'max-h-0 mt-0 opacity-0'}`}
+                    >
                       {destinationsData[activeDest].universities.map((uni, idx) => (
-                        <div key={idx} className="bg-card p-3 rounded-lg border border-border/60 hover:border-primary/50 transition-colors flex items-center gap-3">
+                        <div key={idx} className="bg-card p-3 rounded-lg border border-border/60 flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
                           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                             <span className="text-primary font-bold text-xs">{idx + 1}</span>
                           </div>
