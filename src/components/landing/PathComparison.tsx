@@ -98,8 +98,26 @@ const PathComparison = () => {
           className={`grid md:grid-cols-2 gap-8 max-w-4xl mx-auto scroll-reveal ${cardsReveal.isVisible ? 'is-visible' : ''}`}
         >
           <PathCard
+            image={mbbsAbroadImg}
+            title="MBBS abroad"
+            subtitle="Global medical education opportunity"
+            features={[
+              { label: "NEET Requirement", value: "NEET Qualification" },
+              { label: "Academic Criteria", value: "PCB (Min 50%/40%)" },
+              { label: "Age Limit", value: "Min. 17 Years" },
+              { label: "Language", value: "English proficiency" },
+            ]}
+            benefits={[
+              "Universities in Europe, Asia, and beyond",
+              "Global career opportunities and mobility",
+            ]}
+            ctaText="See If I Qualify for Abroad"
+            ctaHref="/international"
+          />
+
+          <PathCard
             image={mbbsIndiaImg}
-            title="MBBS in India"
+            title="studies in india"
             subtitle="Structured pathway at home"
             features={[
               { label: "NEET score required", value: "Higher NEET cutoff" },
@@ -112,23 +130,6 @@ const PathComparison = () => {
             ]}
             ctaText="See If I Qualify for India"
             ctaHref="/domestic"
-          />
-
-          <PathCard
-            image={mbbsAbroadImg}
-            title="MBBS abroad"
-            subtitle="Global medical education opportunity"
-            features={[
-              { label: "NEET score required", value: "Lower NEET threshold" },
-              { label: "Medical degree recognition", value: "International credentials" },
-              { label: "Admission competition level", value: "Moderate" },
-            ]}
-            benefits={[
-              "Universities in Europe, Asia, and beyond",
-              "Global career opportunities and mobility",
-            ]}
-            ctaText="See If I Qualify for Abroad"
-            ctaHref="/international"
           />
         </div>
       </div>
