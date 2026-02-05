@@ -118,11 +118,12 @@ const PathComparison = () => {
           <PathCard
             image={mbbsIndiaImg}
             title="studies in india"
-            subtitle="Structured pathway at home"
+            subtitle="Comprehensive guidance for all courses"
             features={[
-              { label: "NEET score required", value: "Higher NEET cutoff" },
-              { label: "Medical degree recognition", value: "National standard" },
-              { label: "Admission competition level", value: "Highly intense" },
+              { label: "Qualification", value: "10+2 or Equivalent" },
+              { label: "Subject Basis", value: "PCB / PCM / Arts / Comm" },
+              { label: "Min. Marks", value: "40% - 50% Aggregate" },
+              { label: "Age Limit", value: "As per course guidelines" },
             ]}
             benefits={[
               "Established medical colleges across India",
