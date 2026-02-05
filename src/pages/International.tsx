@@ -53,10 +53,10 @@ const destinationsData = [
     ]
   },
   {
-    id: "kazakhstan",
-    name: "Kazakhstan",
-    title: "Modern infrastructure and affordable costs",
-    description: "Kazakhstan has rapidly modernized its medical education infrastructure, offering Indian students NMC-recognized programs with high-quality clinical exposure at a fraction of domestic costs.",
+    id: "azerbaijan",
+    name: "Azerbaijan",
+    title: "About Azerbaijan",
+    description: "Azerbaijan offers high-quality medical education with a blend of European and Asian standards. The universities are globally recognized, offering English-medium programs with modern medical technology and extensive clinical training in safe, beautiful cities.",
     image: travelImg,
     universities: []
   },
@@ -87,14 +87,6 @@ const destinationsData = [
       "Bukhara State Medical University",
       "Fergana State University"
     ]
-  },
-  {
-    id: "georgia",
-    name: "Georgia",
-    title: "European standards in safe environments",
-    description: "Georgian universities follow European medical education standards (Bologna process), providing students with globally recognized degrees in some of the safest cities in the world.",
-    image: studentsGroupImg,
-    universities: []
   },
   {
     id: "china",
@@ -400,10 +392,9 @@ const International = () => {
               {/* Country Pin Markers with Labels */}
               {[
                 { name: "Russia", x: "65%", y: "22%" },
-                { name: "Kazakhstan", x: "58%", y: "32%" },
                 { name: "Kyrgyzstan", x: "60%", y: "38%" },
                 { name: "Uzbekistan", x: "55%", y: "36%" },
-                { name: "Georgia", x: "48%", y: "35%" },
+                { name: "Azerbaijan", x: "47%", y: "37%" },
                 { name: "China", x: "72%", y: "45%" },
                 { name: "Nepal", x: "62%", y: "48%" },
                 { name: "Bangladesh", x: "65%", y: "52%" },
@@ -443,8 +434,8 @@ const International = () => {
             {/* Country List Grid */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
               {[
-                "Russia", "Kazakhstan", "Kyrgyzstan", "Uzbekistan", "Georgia",
-                "China", "Nepal", "Bangladesh", "Philippines", "Timor Leste"
+                "Russia", "Kyrgyzstan", "Uzbekistan", "Azerbaijan", "China",
+                "Nepal", "Bangladesh", "Philippines", "Timor Leste"
               ].map((country) => (
                 <div key={country} className="bg-card border border-border/50 rounded-lg p-3 text-center hover:bg-primary/5 hover:border-primary/30 transition-colors duration-300">
                   <span className="text-sm font-medium text-foreground">{country}</span>
