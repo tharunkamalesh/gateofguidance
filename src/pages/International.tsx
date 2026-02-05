@@ -63,7 +63,7 @@ const destinationsData = [
   {
     id: "kyrgyzstan",
     name: "Kyrgyzstan",
-    title: "Affordable quality education",
+    title: "About Kyrgyzstan",
     description: "Kyrgyzstan is an excellent choice for Indian medical aspirants due to its high-quality education at affordable fees and global recognition. With NMC-approved degrees, top-ranked universities, and extensive clinical exposure, it provides a perfect pathway for a successful medical career.",
     image: studentsGroupImg,
     universities: [
@@ -77,7 +77,7 @@ const destinationsData = [
   {
     id: "uzbekistan",
     name: "Uzbekistan",
-    title: "Rich history & modern medicine",
+    title: "About Uzbekistan",
     description: "Emerging as a top choice for Indian students with its simple admission process (NEET only) and high FMGE passing rates. Universities in Tashkent and historic cities like Samarkand offer a safe environment and diverse culture.",
     image: seminarImg,
     universities: [
@@ -91,7 +91,7 @@ const destinationsData = [
   {
     id: "china",
     name: "China",
-    title: "Global power in medical education",
+    title: "About China",
     description: "China offers world-class infrastructure and high-quality education at affordable costs. With advanced labs, English-medium programs, and high FMGE passing rates, it remains a top destination. The living expenses are budget-friendly, and the safe environment makes it ideal for international students.",
     image: destinationImg,
     universities: [
@@ -121,7 +121,6 @@ const destinationsData = [
       "Jinzhou Medical University"
     ]
   },
-
   {
     id: "bangladesh",
     name: "Bangladesh",
@@ -141,7 +140,6 @@ const destinationsData = [
       "Ad-din Women's Medical College"
     ]
   },
-
   {
     id: "timor_leste",
     name: "Timor Leste",
@@ -487,8 +485,7 @@ const International = () => {
               <div className="space-y-8">
                 <div className="space-y-4">
                   <div>
-                    <span className="text-sm font-bold text-primary uppercase tracking-widest">About {destinationsData[activeDest].name}</span>
-                    <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
+                    <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
                       {destinationsData[activeDest].title}
                     </h3>
                   </div>
@@ -496,6 +493,15 @@ const International = () => {
                     {destinationsData[activeDest].description.split('\n\n').map((paragraph, index) => (
                       <p key={index}>{paragraph}</p>
                     ))}
+                  </div>
+
+                  <div className="pt-2">
+                    <Link to="/contact">
+                      <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg font-bold shadow-lg flex items-center gap-2 group">
+                        Get Admission in {destinationsData[activeDest].name}
+                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
 
