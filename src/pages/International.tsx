@@ -64,7 +64,7 @@ const destinationsData = [
     id: "kyrgyzstan",
     name: "Kyrgyzstan",
     title: "Affordable quality education",
-    description: "A popular destination for MBBS due to its affordable fees and high-quality education. Home to top-ranked medical universities like Kyrgyz State and Osh State, offering NMC-approved degrees and excellent clinical exposure in a scenic environment.",
+    description: "Kyrgyzstan is an excellent choice for Indian medical aspirants due to its high-quality education at affordable fees and global recognition. With NMC-approved degrees, top-ranked universities, and extensive clinical exposure, it provides a perfect pathway for a successful medical career.",
     image: studentsGroupImg,
     universities: [
       "Jalalabad State University",
@@ -121,14 +121,7 @@ const destinationsData = [
       "Jinzhou Medical University"
     ]
   },
-  {
-    id: "nepal",
-    name: "Nepal",
-    title: "Familiar environment and curriculum",
-    description: "Nepal shares a similar culture, climate, and medical curriculum with India. It is a preferred choice for Indian students due to the short travel distance and high MCI screening test passing rates.",
-    image: medicalDeskImg, // Placeholder image
-    universities: []
-  },
+
   {
     id: "bangladesh",
     name: "Bangladesh",
@@ -148,14 +141,7 @@ const destinationsData = [
       "Ad-din Women's Medical College"
     ]
   },
-  {
-    id: "philippines",
-    name: "Philippines",
-    title: "US-pattern medical education system",
-    description: "With an American-style medical curriculum and English as the primary language of instruction, the Philippines offers exceptional clinical training and USMLE focus.",
-    image: seminarImg,
-    universities: []
-  },
+
   {
     id: "timor_leste",
     name: "Timor Leste",
@@ -396,9 +382,7 @@ const International = () => {
                 { name: "Uzbekistan", x: "55%", y: "36%" },
                 { name: "Azerbaijan", x: "47%", y: "37%" },
                 { name: "China", x: "72%", y: "45%" },
-                { name: "Nepal", x: "62%", y: "48%" },
                 { name: "Bangladesh", x: "65%", y: "52%" },
-                { name: "Philippines", x: "80%", y: "55%" },
                 { name: "Timor Leste", x: "82%", y: "70%" },
               ].map((country) => (
                 <div
@@ -435,7 +419,7 @@ const International = () => {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
               {[
                 "Russia", "Kyrgyzstan", "Uzbekistan", "Azerbaijan", "China",
-                "Nepal", "Bangladesh", "Philippines", "Timor Leste"
+                "Bangladesh", "Timor Leste"
               ].map((country) => (
                 <div key={country} className="bg-card border border-border/50 rounded-lg p-3 text-center hover:bg-primary/5 hover:border-primary/30 transition-colors duration-300">
                   <span className="text-sm font-medium text-foreground">{country}</span>
