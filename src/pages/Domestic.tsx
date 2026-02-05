@@ -27,56 +27,56 @@ const coursesData = [
     id: "commerce",
     name: "Commerce",
     title: "School of Commerce Courses",
-    description: "B.Com (Hons), B.Com (Computer Application), B.Com (Chartered Accountancy), B.Com (with Accounting & Finance), B.Com (Information Technology), B.Com (Cost & Management Accountant), B.Com (Business Process Services), B.Com (Company Secretary), B.Com (Certified Financial Planner), B.Com (E-Commerce), B.Com (Banking & Insurance), B.Com (Professional Accounting).",
+    courses: ["B.Com (Hons)", "B.Com (Computer Application)", "B.Com (Chartered Accountancy)", "B.Com (with Accounting & Finance)", "B.Com (Information Technology)", "B.Com (Cost & Management Accountant)", "B.Com (Business Process Services)", "B.Com (Company Secretary)", "B.Com (Certified Financial Planner)", "B.Com (E-Commerce)", "B.Com (Banking & Insurance)", "B.Com (Professional Accounting)"],
     image: domesticGovtCollegeImg,
   },
   {
     id: "science",
     name: "Science",
     title: "School of Science Courses",
-    description: "B.Sc. (Computer Science), B.Sc. (Computer Technology), B.Sc. (Embedded & Real-time System), B.Sc. (Biochemistry), B.Sc. (Control Systems), B.Sc. (Computer System & Design), B.Sc. (Microbiology), B.Sc. (Information Technology), B.Sc. (Communication System), B.Sc. (Zoology), B.Sc. (Chemistry), B.Sc. (Botany), B.Sc. (Rural Development Science), B.Sc. (Electronics), B.Sc. (Mathematics), B.Sc. (Industrial Electronics), B.Sc. (Costume Design & Fashion), B.Sc. (Interior Decoration), B.Sc. (Visual Communication), B.Sc. (Mathematics with CA), B.Sc. Cyber Security, B.Sc. (Rehabilitation Science), B.Sc. (Geology), B.Sc. (Physical Education), B.Sc. (Physics), B.Sc. (Psychology), B.Sc. (Microbiology), B.Sc. (Industrial Microbiology), B.Sc. Forensic Science, B.Sc. (Computer Integrated Manufacturing), B.Sc. Information Security & Digital Forensics.",
+    courses: ["B.Sc. (Computer Science)", "B.Sc. (Computer Technology)", "B.Sc. (Embedded & Real-time System)", "B.Sc. (Biochemistry)", "B.Sc. (Control Systems)", "B.Sc. (Computer System & Design)", "B.Sc. (Microbiology)", "B.Sc. (Information Technology)", "B.Sc. (Communication System)", "B.Sc. (Zoology)", "B.Sc. (Chemistry)", "B.Sc. (Botany)", "B.Sc. (Rural Development Science)", "B.Sc. (Electronics)", "B.Sc. (Mathematics)", "B.Sc. (Industrial Electronics)", "B.Sc. (Costume Design & Fashion)", "B.Sc. (Interior Decoration)", "B.Sc. (Visual Communication)", "B.Sc. (Mathematics with CA)", "B.Sc. Cyber Security", "B.Sc. (Rehabilitation Science)", "B.Sc. (Geology)", "B.Sc. (Physical Education)", "B.Sc. (Physics)", "B.Sc. (Psychology)", "B.Sc. (Industrial Microbiology)", "B.Sc. Forensic Science", "B.Sc. (Computer Integrated Manufacturing)", "B.Sc. Information Security & Digital Forensics"],
     image: domesticStudentsImg,
   },
   {
     id: "management",
     name: "Management",
     title: "School of Management Courses",
-    description: "B.B.A, B.B.A (Computer Application), B.B.A (International Business), B.C.A (Computer Application), B.B.M (Business Management).",
+    courses: ["B.B.A", "B.B.A (Computer Application)", "B.B.A (International Business)", "B.C.A (Computer Application)", "B.B.M (Business Management)"],
     image: domesticDeskImg,
   },
   {
     id: "agriculture",
     name: "Agriculture",
     title: "School of Agriculture Courses",
-    description: "B.Sc. Agriculture, B.Sc. Horticulture, B.Sc. Fisheries Science, B.Sc. Forestry, B.Sc. Dairy Science.",
+    courses: ["B.Sc. Agriculture", "B.Sc. Horticulture", "B.Sc. Fisheries Science", "B.Sc. Forestry", "B.Sc. Dairy Science"],
     image: domesticDoctorImg,
   },
   {
     id: "law",
     name: "Law",
     title: "School of Law Courses",
-    description: "BA - LLB, BBA - LLB, LLB, M.L, LLM (Business Law), LLM (Human Rights).",
+    courses: ["BA - LLB", "BBA - LLB", "LLB", "M.L", "LLM (Business Law)", "LLM (Human Rights)"],
     image: domesticCorridorImg,
   },
   {
     id: "arts",
     name: "Arts",
     title: "School of Arts Courses",
-    description: "B.A Criminology, B.A (Tamil), B.A (Social Work), B.A (English), B.A (Corporate Secretaryship), B.A (Carnatic Music).",
+    courses: ["B.A Criminology", "B.A (Tamil)", "B.A (Social Work)", "B.A (English)", "B.A (Corporate Secretaryship)", "B.A (Carnatic Music)"],
     image: domesticEligibilityImg,
   },
   {
     id: "pharmacy",
     name: "Pharmacy",
     title: "Pharmacy Courses",
-    description: "Diploma in Pharmacy, B.Pharm, Pharm.D, M.Pharm in Pharmaceutics, M.Pharm in Industrial Pharmacy, M.Pharm in Pharmacy Practice, M.Pharm in Pharmacology, M.Pharm in Pharmaceutical Analysis, BPT, MPT, MPT Cardio Pulmonary Diseases, MPT Orthopaedics, MPT Neurology, MPT Sports Physiotherapy, MPT Paediatric Neurology, MPT Obstetrics and Gynaecology.",
+    courses: ["Diploma in Pharmacy", "B.Pharm", "Pharm.D", "M.Pharm in Pharmaceutics", "M.Pharm in Industrial Pharmacy", "M.Pharm in Pharmacy Practice", "M.Pharm in Pharmacology", "M.Pharm in Pharmaceutical Analysis", "BPT", "MPT", "MPT Cardio Pulmonary Diseases", "MPT Orthopaedics", "MPT Neurology", "MPT Sports Physiotherapy", "MPT Paediatric Neurology", "MPT Obstetrics and Gynaecology"],
     image: domesticNeetImg,
   },
   {
     id: "nursing",
     name: "Nursing",
     title: "Nursing Courses",
-    description: "B.Sc. Nursing, GNM & ANM, M.Sc. Nursing, Psychiatric Nursing, Medical-Surgical Nursing, Public Health Nursing, Critical Care Nursing, Occupational Health Nursing, Obstetrics and Gynaecology, Pediatric Nursing, Oncology, Orthopaedic Nursing, Neuroscience, Neuroscience Nursing, Nursing Management.",
+    courses: ["B.Sc. Nursing", "GNM & ANM", "M.Sc. Nursing", "Psychiatric Nursing", "Medical-Surgical Nursing", "Public Health Nursing", "Critical Care Nursing", "Occupational Health Nursing", "Obstetrics and Gynaecology", "Pediatric Nursing", "Oncology", "Orthopaedic Nursing", "Neuroscience", "Neuroscience Nursing", "Nursing Management"],
     image: domesticCounselingImg,
   },
 ];
@@ -332,9 +332,14 @@ const Domestic = () => {
                     {coursesData[activeHub].title}
                   </h3>
                 </div>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {coursesData[activeHub].description}
-                </p>
+                <ul className="text-muted-foreground text-base leading-relaxed grid grid-cols-2 gap-2 max-h-[250px] overflow-y-auto">
+                  {coursesData[activeHub].courses.map((course, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>{course}</span>
+                    </li>
+                  ))}
+                </ul>
                 <div className="pt-4">
                   <Link to="/contact">
                     <Button className="rounded-full px-8 flex items-center gap-2 group">
