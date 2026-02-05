@@ -1,3 +1,4 @@
+// Domestic Page - MBBS in India
 import { Link } from "react-router-dom";
 import { Percent, Calendar, Award, Users } from "lucide-react";
 import { Timeline } from "@/components/ui/timeline";
@@ -6,7 +7,6 @@ import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-
 import domesticHeroVideo from "@/assets/domestic hero.mp4";
 import domesticStudentsImg from "@/assets/domestic students.jpg";
 import domesticDeskImg from "@/assets/domestic desk.jpg";

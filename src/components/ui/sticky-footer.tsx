@@ -11,6 +11,46 @@ import { Button } from './button';
 import { Link } from 'react-router-dom';
 import footerBg from '@/assets/footer-background.png';
 
+const socialLinks = [
+    { title: 'Facebook', href: '#', icon: Facebook },
+    { title: 'Instagram', href: '#', icon: Instagram },
+    { title: 'Youtube', href: '#', icon: Youtube },
+    { title: 'LinkedIn', href: '#', icon: Linkedin },
+];
+
+const footerLinkGroups: FooterLinkGroup[] = [
+    {
+        label: 'Quick Links',
+        links: [
+            { title: 'Home', href: '/', isRoute: true },
+            { title: 'About Us', href: '/about', isRoute: true },
+            { title: 'Domestic MBBS', href: '/domestic', isRoute: true },
+            { title: 'International MBBS', href: '/international', isRoute: true },
+            { title: 'Contact Us', href: '/contact', isRoute: true },
+        ],
+    },
+    {
+        label: 'Contact Us',
+        links: [
+            { title: 'Tel: 93420 94698', href: 'tel:+919342094698' },
+            { title: 'Email: info@gateofguidance.com', href: 'mailto:info@gateofguidance.com' },
+        ],
+    },
+    {
+        label: 'Head Office',
+        links: [
+            { title: '100 Jalan Sultan, #09-06, Sultan Plaza, Singapore - 199 001.', href: 'https://maps.google.com/?q=100+Jalan+Sultan+Sultan+Plaza+Singapore+199001' },
+        ],
+    },
+    {
+        label: 'Branches',
+        links: [
+            { title: 'Theni: 197, L.F.Road, Cumbum - 625516.', href: '#' },
+            { title: 'Puducherry: No. 89, Anna Nagar Main Road, Anna Nagar - 605005.', href: '#' },
+        ],
+    },
+];
+
 interface FooterLink {
     title: string;
     href: string;
@@ -115,45 +155,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
     );
 }
 
-const socialLinks = [
-    { title: 'Facebook', href: '#', icon: Facebook },
-    { title: 'Instagram', href: '#', icon: Instagram },
-    { title: 'Youtube', href: '#', icon: Youtube },
-    { title: 'LinkedIn', href: '#', icon: Linkedin },
-];
 
-const footerLinkGroups: FooterLinkGroup[] = [
-    {
-        label: 'Quick Links',
-        links: [
-            { title: 'Home', href: '/', isRoute: true },
-            { title: 'About Us', href: '/about', isRoute: true },
-            { title: 'Domestic MBBS', href: '/domestic', isRoute: true },
-            { title: 'International MBBS', href: '/international', isRoute: true },
-            { title: 'Contact Us', href: '/contact', isRoute: true },
-        ],
-    },
-    {
-        label: 'Contact Us',
-        links: [
-            { title: 'Tel: 93420 94698', href: 'tel:+919342094698' },
-            { title: 'Email: info@gateofguidance.com', href: 'mailto:info@gateofguidance.com' },
-        ],
-    },
-    {
-        label: 'Head Office',
-        links: [
-            { title: '100 Jalan Sultan, #09-06, Sultan Plaza, Singapore - 199 001.', href: 'https://maps.google.com/?q=100+Jalan+Sultan+Sultan+Plaza+Singapore+199001' },
-        ],
-    },
-    {
-        label: 'Branches',
-        links: [
-            { title: 'Theni: 197, L.F.Road, Cumbum - 625516.', href: '#' },
-            { title: 'Puducherry: No. 89, Anna Nagar Main Road, Anna Nagar - 605005.', href: '#' },
-        ],
-    },
-];
 
 type AnimatedContainerProps = React.ComponentProps<typeof motion.div> & {
     children?: React.ReactNode;
