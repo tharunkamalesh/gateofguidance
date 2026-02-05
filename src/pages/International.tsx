@@ -102,6 +102,7 @@ const International = () => {
   const seatsReveal = useScrollReveal();
   const universitiesReveal = useScrollReveal();
   const destinationsReveal = useScrollReveal();
+  const worldMapReveal = useScrollReveal();
   const eligibilityReveal = useScrollReveal();
   const processReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
@@ -247,6 +248,114 @@ const International = () => {
               Get Expert Advice
             </Button>
           </Link>
+        </div>
+      </section>
+
+      {/* World Map Section */}
+      <section className="section-padding bg-background overflow-hidden">
+        <div className="section-container">
+          <div
+            ref={worldMapReveal.ref}
+            className={`scroll-reveal ${worldMapReveal.isVisible ? 'is-visible' : ''}`}
+          >
+            <div className="text-center mb-12">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Global Presence</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Countries We Operate In
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We help Indian students pursue their medical dreams across 9 countries with NMC-recognized programs.
+              </p>
+            </div>
+
+            {/* World Map with Country Markers */}
+            <div className="relative w-full max-w-5xl mx-auto">
+              {/* SVG World Map */}
+              <svg viewBox="0 0 1000 500" className="w-full h-auto">
+                {/* Simplified World Map Background */}
+                <defs>
+                  <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#e0e7ff" />
+                    <stop offset="100%" stopColor="#c7d2fe" />
+                  </linearGradient>
+                </defs>
+
+                {/* Ocean Background */}
+                <rect x="0" y="0" width="1000" height="500" fill="#f0f9ff" rx="20" />
+
+                {/* Simplified Continents */}
+                {/* Europe & Asia */}
+                <path d="M450 80 L480 70 L550 60 L620 70 L700 80 L780 100 L850 130 L900 160 L920 200 L900 250 L850 280 L780 300 L700 310 L620 300 L550 280 L500 250 L450 200 L430 150 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+
+                {/* South Asia */}
+                <path d="M620 220 L680 200 L720 220 L740 260 L720 300 L680 320 L640 300 L620 260 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+
+                {/* Southeast Asia */}
+                <path d="M750 280 L800 260 L850 280 L870 320 L850 360 L800 380 L750 360 L730 320 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+
+                {/* Africa */}
+                <path d="M420 200 L480 180 L520 200 L540 260 L530 340 L500 400 L450 420 L400 390 L380 330 L390 260 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+
+                {/* Americas (simplified) */}
+                <path d="M100 100 L180 80 L220 100 L240 160 L220 220 L180 280 L140 320 L120 380 L100 400 L80 350 L60 280 L50 200 L60 140 Z" fill="url(#mapGradient)" stroke="#94a3b8" strokeWidth="1" opacity="0.8" />
+              </svg>
+
+              {/* Country Markers */}
+              {[
+                { name: "Russia", x: "58%", y: "22%", num: 1 },
+                { name: "Kazakhstan", x: "62%", y: "32%", num: 2 },
+                { name: "Uzbekistan", x: "60%", y: "38%", num: 3 },
+                { name: "Kyrgyzstan", x: "64%", y: "36%", num: 4 },
+                { name: "China", x: "72%", y: "40%", num: 5 },
+                { name: "Georgia", x: "54%", y: "35%", num: 6 },
+                { name: "Azerbaijan", x: "56%", y: "38%", num: 7 },
+                { name: "Bangladesh", x: "68%", y: "52%", num: 8 },
+                { name: "Timor Leste", x: "82%", y: "68%", num: 9 },
+              ].map((country) => (
+                <div
+                  key={country.name}
+                  className="absolute group cursor-pointer"
+                  style={{ left: country.x, top: country.y, transform: "translate(-50%, -50%)" }}
+                >
+                  {/* Pulsing Marker */}
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-25" style={{ width: "24px", height: "24px" }} />
+                    <div className="relative w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-xs font-bold shadow-lg border-2 border-white group-hover:scale-125 transition-transform duration-300">
+                      {country.num}
+                    </div>
+                  </div>
+                  {/* Tooltip */}
+                  <div className="absolute left-1/2 -translate-x-1/2 -top-10 bg-primary text-primary-foreground px-3 py-1 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg z-10">
+                    {country.name}
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-primary" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Country List Cards */}
+            <div className="grid grid-cols-3 md:grid-cols-9 gap-4 mt-12">
+              {[
+                "Russia", "Kazakhstan", "Uzbekistan", "Kyrgyzstan", "China",
+                "Georgia", "Azerbaijan", "Bangladesh", "Timor Leste"
+              ].map((country, idx) => (
+                <div key={country} className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg hover:border-primary/50 transition-all duration-300 group">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                    <span className="text-sm font-bold text-primary group-hover:text-primary-foreground">{idx + 1}</span>
+                  </div>
+                  <p className="text-xs font-semibold text-foreground">{country}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link to="/contact">
+                <Button className="rounded-full px-8 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl">
+                  Explore Programs <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
