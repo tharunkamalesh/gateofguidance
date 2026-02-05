@@ -82,10 +82,35 @@ const destinationsData = [
   {
     id: "china",
     name: "China",
-    title: "World-class education with advanced technology",
-    description: "China is a top destination for MBBS due to its advanced medical infrastructure, English-medium programs, and high global ranking of universities. It offers excellent clinical exposure in large affiliated hospitals.",
-    image: destinationImg, // Placeholder image
-    universities: []
+    title: "Global power in medical education",
+    description: "China offers world-class infrastructure and high-quality education at affordable costs. With advanced labs, English-medium programs, and high FMGE passing rates, it remains a top destination. The living expenses are budget-friendly, and the safe environment makes it ideal for international students.",
+    image: destinationImg,
+    universities: [
+      "Soochow University",
+      "Nantong University",
+      "Zhejiang University",
+      "Guangxi Medical University",
+      "Huazhong University of Science & Technology",
+      "Nanjing Medical University",
+      "Fujian Medical University",
+      "Xi'an Jiaotong University",
+      "Jilin University",
+      "Jiangsu University",
+      "Shandong University",
+      "Guangzhou Medical University",
+      "North Sichuan Medical College",
+      "Xiamen University",
+      "Yangzhou University",
+      "Sichuan University",
+      "China Three Gorges University",
+      "Kunming Medical University",
+      "China Medical University",
+      "Anhui Medical University",
+      "Qingdao University",
+      "Southeast University",
+      "Dalian Medical University",
+      "Jinzhou Medical University"
+    ]
   },
   {
     id: "nepal",
