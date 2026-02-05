@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
+import { DirectorMessage } from "@/components/landing/DirectorMessage";
 import PathComparison from "@/components/landing/PathComparison";
 import Process from "@/components/landing/Process";
 import WhyChooseUs from "@/components/landing/WhyChooseUs";
@@ -46,6 +47,7 @@ const Index = () => {
       />
       <Navbar />
       <Hero />
+      <DirectorMessage />
       <PathComparison />
       <Process />
       <div ref={processTriggerRef}>
