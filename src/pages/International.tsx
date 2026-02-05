@@ -252,25 +252,21 @@ const International = () => {
       </section>
 
       {/* World Map Section */}
-      <section className="py-20 overflow-hidden relative" style={{ background: "linear-gradient(135deg, #1e3a5f 0%, #0f2744 50%, #1a3550 100%)" }}>
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
-        </div>
-
-        <div className="section-container relative z-10">
+      <section className="section-padding bg-background overflow-hidden">
+        <div className="section-container">
           <div
             ref={worldMapReveal.ref}
             className={`scroll-reveal ${worldMapReveal.isVisible ? 'is-visible' : ''}`}
           >
             {/* Title */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-display mb-2">
-                <span className="text-amber-400 italic font-script" style={{ fontFamily: "'Pacifico', cursive" }}>Top Countries</span>
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Global Presence</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Top Countries for Studying MBBS Abroad
               </h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-white">
-                for Studying MBBS Abroad
-              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We help Indian students pursue their medical dreams across multiple countries with NMC-recognized programs.
+              </p>
             </div>
 
             {/* World Map with Country Markers */}
@@ -351,8 +347,8 @@ const International = () => {
             {/* CTA Button */}
             <div className="text-center mt-12">
               <Link to="/contact">
-                <Button className="rounded-full px-10 py-6 text-lg bg-amber-500 text-white hover:bg-amber-600 shadow-xl transition-all duration-300 hover:scale-105">
-                  Start Your Journey <ArrowRight className="w-5 h-5 ml-2" />
+                <Button className="rounded-full px-10 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl transition-all duration-300 hover:scale-105">
+                  Explore Programs <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
