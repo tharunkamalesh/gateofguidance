@@ -9,6 +9,7 @@ import {
 import { Button } from './button';
 import { Link } from 'react-router-dom';
 import footerBg from '@/assets/footer-background.png';
+import logoImage from '@/assets/gog logo.png';
 
 const socialLinks = [
     { title: 'Facebook', href: '#', icon: Facebook },
@@ -79,14 +80,18 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                 <div className="relative flex w-full flex-col justify-between border-t border-white/10 px-6 py-16 md:px-12 z-20">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 xl:mt-0 relative z-10">
                         <div className="w-full sm:col-span-2 lg:col-span-1 space-y-6">
-                            <Link to="/" className="text-white font-display text-3xl italic font-bold tracking-tight">
-                                GateOfGuidance
+                            <Link to="/" className="shrink-0 flex justify-center md:justify-start mb-6 transition-transform hover:scale-105 active:scale-95">
+                                <img
+                                    src={logoImage}
+                                    alt="Gate of Guidance"
+                                    className="h-20 md:h-24 w-auto object-contain brightness-0 invert drop-shadow-2xl"
+                                />
                             </Link>
-                            <p className="text-white/80 mt-4 text-sm leading-relaxed max-w-xs">
+                            <p className="text-white/80 mt-4 text-sm leading-relaxed max-w-xs mx-auto md:mx-0 text-center md:text-left">
                                 Empowering aspiring medical students with verified counseling,
                                 transparent admission processes, and global education opportunities.
                             </p>
-                            <div className="flex gap-3 pt-4">
+                            <div className="flex justify-center md:justify-start gap-3 pt-4">
                                 {socialLinks.map((link, idx) => (
                                     <Button key={idx} size="icon" variant="outline" className="size-10 border-white/20 text-white bg-white/5 hover:bg-white/10 shadow-none rounded-full">
                                         <link.icon className="size-5" />

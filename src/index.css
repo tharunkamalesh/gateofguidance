@@ -107,7 +107,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-10 md:py-24;
   }
 
   /* Navy Blue Section - For contrast sections */

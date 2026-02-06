@@ -28,7 +28,7 @@ const Process = () => {
         <div className="grid md:grid-cols-2 md:gap-12 xl:gap-16">
           <div className="left-0 top-32 md:sticky md:h-fit md:py-12">
             <span className="text-xs text-primary font-semibold uppercase tracking-wider">our process</span>
-            <h2 className="mb-6 mt-4 text-4xl md:text-5xl font-display font-bold text-primary tracking-tight">
+            <h2 className="mb-6 mt-4 text-3xl md:text-5xl font-display font-bold text-primary tracking-tight">
               Planning your educational journey
             </h2>
             <p className="max-w-prose text-muted-foreground leading-relaxed">

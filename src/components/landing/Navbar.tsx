@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
+import logoImage from "@/assets/gog logo.png";
 
 interface NavItem {
   label: string;
@@ -58,8 +59,8 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
   const navbarClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
     shouldBeSolid
-      ? "bg-white/95 backdrop-blur-md border-b border-border shadow-sm py-2"
-      : "bg-transparent py-4 md:py-6"
+      ? "bg-white/95 backdrop-blur-md border-b border-border shadow-sm py-0.5"
+      : "bg-transparent py-1 md:py-4"
   );
 
   const textColor = shouldBeSolid ? "text-slate-900" : "text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]";
@@ -81,11 +82,18 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className={navbarClasses}
       >
-        <div className="section-container">
-          <div className="flex items-center justify-between h-16 md:h-20 transition-all duration-300">
+        <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 w-full">
+          <div className="flex items-center justify-between h-16 md:h-28 transition-all duration-300">
             {/* Logo */}
-            <Link to="/" className={cn(textColor, "font-display text-xl md:text-2xl italic font-bold tracking-tight shrink-0")}>
-              GateOfGuidance
+            <Link to="/" className="shrink-0 -ml-2 md:-ml-4 flex items-center transition-transform hover:scale-105 active:scale-95">
+              <img
+                src={logoImage}
+                alt="Gate of Guidance - The Career Destination"
+                className={cn(
+                  "h-12 md:h-24 w-auto object-contain transition-all duration-300",
+                  !shouldBeSolid && "brightness-0 invert drop-shadow-2xl"
+                )}
+              />
             </Link>
 
             {/* Desktop Navigation */}

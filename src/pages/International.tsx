@@ -552,7 +552,7 @@ const International = () => {
 
             {/* Featured Destination */}
             <div className="grid md:grid-cols-2 gap-12 items-start min-h-[400px]">
-              <div className="relative group overflow-hidden rounded-2xl shadow-xl sticky top-8">
+              <div className="relative group overflow-hidden rounded-2xl shadow-xl md:sticky md:top-24">
                 <img
                   src={destinationsData[activeDest].image}
                   alt={destinationsData[activeDest].name}
@@ -567,11 +567,11 @@ const International = () => {
 
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
+                  <h3 className="text-2xl md:text-5xl font-display font-bold text-primary leading-tight">
                     {destinationsData[activeDest].title}
                   </h3>
                 </div>
-                <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+                <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
                   {destinationsData[activeDest].description.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                   ))}
@@ -737,10 +737,10 @@ const International = () => {
                             <span className="text-6xl font-display font-bold text-primary/20">{step.number}</span>
                             <div className="h-px bg-primary/20 flex-1"></div>
                           </div>
-                          <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
+                          <h3 className="text-2xl md:text-4xl font-display font-bold text-primary mb-4 md:mb-6">
                             {step.title}
                           </h3>
-                          <p className="text-muted-foreground text-xl leading-relaxed mb-8">
+                          <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8">
                             {step.description}
                           </p>
                         </div>

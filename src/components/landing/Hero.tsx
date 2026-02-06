@@ -19,10 +19,10 @@ const Hero = () => {
           <div className="inline-block text-white font-medium tracking-wider uppercase text-[10px] md:text-sm mb-6 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
             Built on Transparency.
           </div>
-          <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.2] md:leading-[1.1] mb-4 md:mb-6">
             Focused on Your <br className="sm:hidden" /> <span className="text-secondary italic">Medical Future.</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/95 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p className="text-base md:text-xl text-white/95 mb-8 md:mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
             Expert MBBS admissions guidance with verified counselling and complete support. Your journey to becoming a doctor starts here.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
