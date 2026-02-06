@@ -812,35 +812,26 @@ const International = () => {
       </section>
 
       {/* Airport Diaries Section */}
-      <section className="section-padding bg-white overflow-hidden border-t border-border">
+      <section className="pt-12 pb-4 md:pt-16 md:pb-6 bg-white overflow-hidden border-t border-border">
         <div className="section-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-2">
             <span className="text-sm font-semibold text-primary uppercase tracking-wider">Memories</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-4 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2 mb-2">
               Airport Diaries
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed mb-16">
               Capturing the excitement and new beginnings as our students embark on their international medical journeys.
             </p>
           </div>
+        </div>
 
-          <div className="py-10">
-            <ThreeDPhotoCarousel
-              images={[
-                airport1,
-                airport2,
-                airport3,
-                airport4,
-                airport1,
-                airport2,
-                airport3,
-                airport4,
-                airport1,
-                airport2,
-                airport3,
-                airport4
-              ]}
-            />
+        <div className="section-container pb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[airport1, airport2, airport3, airport4, airport1, airport2, airport3, airport4, airport1, airport2, airport3, airport4].map((img, idx) => (
+              <div key={idx} className="aspect-square rounded-xl overflow-hidden border-2 border-white shadow-md hover:shadow-lg transition-shadow">
+                <img src={img} alt={`Airport ${idx}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -47,9 +47,9 @@ const Carousel = memo(
         isCarouselActive: boolean
     }) => {
         const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
-        const cylinderWidth = isScreenSizeSm ? 1200 : 2200
+        const cylinderWidth = isScreenSizeSm ? 800 : 1400
         const faceCount = cards.length
-        const faceWidth = cylinderWidth / faceCount
+        const faceWidth = isScreenSizeSm ? 180 : 300
         const radius = cylinderWidth / (2 * Math.PI)
         const rotation = useMotionValue(0)
         const transform = useTransform(
@@ -79,18 +79,19 @@ const Carousel = memo(
                         isCarouselActive &&
                         rotation.set(rotation.get() + info.offset.x * 0.05)
                     }
-                    onDragEnd={(_, info) =>
-                        isCarouselActive &&
-                        controls.start({
-                            rotateY: rotation.get() + info.velocity.x * 0.05,
-                            transition: {
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 30,
-                                mass: 0.1,
-                            },
-                        })
-                    }
+                    onDragEnd={(_, info) => {
+                        if (isCarouselActive) {
+                            controls.start({
+                                rotateY: rotation.get() + info.velocity.x * 0.05,
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 100,
+                                    damping: 30,
+                                    mass: 0.1,
+                                },
+                            })
+                        }
+                    }}
                     animate={controls}
                 >
                     {cards.map((imgUrl, i) => (
@@ -173,7 +174,7 @@ export function ThreeDPhotoCarousel({ images }: { images: string[] }) {
                     </motion.div>
                 )}
             </AnimatePresence>
-            <div className="relative h-[500px] md:h-[650px] w-full overflow-hidden">
+            <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden">
                 <Carousel
                     handleClick={handleClick}
                     controls={controls}
