@@ -37,8 +37,8 @@ const About = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{ backgroundImage: `url(${aboutHero})` }}
         >
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-[hsl(227,35%,15%)]/50 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(227,35%,15%)]/60 via-transparent to-[hsl(227,35%,15%)]/60" />
         </div>
 
         {/* Content */}
@@ -71,7 +71,7 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="section-padding bg-secondary/30">
+      <section className="section-padding bg-[hsl(0,0%,91%)]">
         <div className="section-container">
           <div
             ref={storyReveal.ref}
@@ -214,7 +214,7 @@ const About = () => {
       </section>
 
       {/* Process Section */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-[hsl(0,0%,91%)]">
         <div className="section-container">
           <div
             ref={processReveal.ref}

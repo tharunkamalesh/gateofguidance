@@ -16,6 +16,8 @@ import {
 import { cn } from "@/lib/utils";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 import SEO from "@/components/SEO";
+import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
+import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
 
 import heroVideo from "@/assets/inter-hero.mp4";
 import studentTabletImg from "@/assets/international-student-tablet.jpg";
@@ -25,6 +27,22 @@ import destinationImg from "@/assets/inter-kazakasthan.jpg";
 import medicalDeskImg from "@/assets/domestic desk.jpg";
 import travelImg from "@/assets/inter-travel.jpg";
 import worldMapBg from "@/assets/bg.jpg";
+import russiaImg from "@/assets/russia.webp";
+import azerbaijanImg from "@/assets/Azerbaijan.jpg";
+import kyrgyzstanImg from "@/assets/Kyrgyzstan.jpg";
+import uzbekistanImg from "@/assets/Uzbekistan.webp";
+import chinaImg from "@/assets/China.jpg";
+import bangladeshImg from "@/assets/Bangladesh.webp";
+import timorLesteImg from "@/assets/Timor Leste.jpg";
+import fmgeAchiever1 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM (1).jpeg";
+import fmgeAchiever2 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM.jpeg";
+import fmgeAchiever3 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.33 PM (1).jpeg";
+import fmgeAchiever4 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.33 PM.jpeg";
+
+import airport1 from "@/assets/WhatsApp Image 2026-02-04 at 6.53.51 PM.jpeg";
+import airport2 from "@/assets/WhatsApp Image 2026-02-04 at 6.54.26 PM.jpeg";
+import airport3 from "@/assets/WhatsApp Image 2026-02-04 at 6.54.27 PM.jpeg";
+import airport4 from "@/assets/WhatsApp Image 2026-02-04 at 6.55.10 PM.jpeg";
 
 const destinationsData = [
   {
@@ -32,7 +50,7 @@ const destinationsData = [
     name: "Russia",
     title: "About Russia",
     description: "Russia provides world-class medical education at a low cost compared to private colleges in India. With an HDI score of 0.824 and high literacy, it offers a safe, friendly environment. The straightforward admission process requires only NEET qualification, making it an ideal gateway to a promising medical career.",
-    image: destinationImg,
+    image: russiaImg,
     universities: [
       "Siberian State Medical University",
       "Voronezh State Medical University named after N.N. Burdenko",
@@ -57,7 +75,7 @@ const destinationsData = [
     name: "Azerbaijan",
     title: "About Azerbaijan",
     description: "Azerbaijan offers high-quality medical education with a blend of European and Asian standards. The universities are globally recognized, offering English-medium programs with modern medical technology and extensive clinical training in safe, beautiful cities.",
-    image: travelImg,
+    image: azerbaijanImg,
     universities: []
   },
   {
@@ -65,7 +83,7 @@ const destinationsData = [
     name: "Kyrgyzstan",
     title: "About Kyrgyzstan",
     description: "Kyrgyzstan is an excellent choice for Indian medical aspirants due to its high-quality education at affordable fees and global recognition. With NMC-approved degrees, top-ranked universities, and extensive clinical exposure, it provides a perfect pathway for a successful medical career.",
-    image: studentsGroupImg,
+    image: kyrgyzstanImg,
     universities: [
       "Jalalabad State University",
       "OSH State Medical University",
@@ -79,7 +97,7 @@ const destinationsData = [
     name: "Uzbekistan",
     title: "About Uzbekistan",
     description: "Emerging as a top choice for Indian students with its simple admission process (NEET only) and high FMGE passing rates. Universities in Tashkent and historic cities like Samarkand offer a safe environment and diverse culture.",
-    image: seminarImg,
+    image: uzbekistanImg,
     universities: [
       "Tashkent Medical Academy",
       "Tashkent Medical Academy Urgench",
@@ -93,7 +111,7 @@ const destinationsData = [
     name: "China",
     title: "About China",
     description: "China offers world-class infrastructure and high-quality education at affordable costs. With advanced labs, English-medium programs, and high FMGE passing rates, it remains a top destination. The living expenses are budget-friendly, and the safe environment makes it ideal for international students.",
-    image: destinationImg,
+    image: chinaImg,
     universities: [
       "Soochow University",
       "Nantong University",
@@ -126,7 +144,7 @@ const destinationsData = [
     name: "Bangladesh",
     title: "About Bangladesh",
     description: "Bangladesh is a top choice for Indian students due to its medical syllabus and teaching patterns that closely resemble India's, making it easier to clear exams like FMGE/NEXT. With affordable education, a safe environment, and familiar culture (including food and language), it ensures a comfortable and successful academic journey.",
-    image: studentsGroupImg,
+    image: bangladeshImg,
     universities: [
       "Dhaka National Medical College",
       "Sahabuddin Medical College",
@@ -145,7 +163,7 @@ const destinationsData = [
     name: "Timor Leste",
     title: "About Timor Leste",
     description: "Timor Leste is a peaceful Southeast Asian nation with a tropical climate and affordable living costs. Medical programs are offered in English, providing students with real-world clinical experience in local hospitals. The degree is recognized internationally, allowing graduates to pursue global medical careers.",
-    image: travelImg,
+    image: timorLesteImg,
     universities: []
   },
 ];
@@ -221,7 +239,7 @@ const International = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-[hsl(227,35%,15%)]/50" />
 
         <div
           ref={heroReveal.ref}
@@ -738,7 +756,7 @@ const International = () => {
                   ))}
                 </SliderContent>
 
-                <SliderBtnGroup className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-3xl overflow-hidden border border-border shadow-2xl bg-white dark:bg-neutral-900">
+                <SliderBtnGroup className="mt-4 grid grid-cols-2 md:grid-cols-4 rounded-3xl overflow-hidden border border-border shadow-2xl bg-white dark:bg-neutral-900">
                   {processSteps.map((step, index) => (
                     <SliderBtn
                       key={index}
@@ -766,6 +784,67 @@ const International = () => {
         </div>
       </section>
 
+      {/* FMGE Achievers Section */}
+      <section className="section-padding bg-gradient-to-b from-slate-50 to-white overflow-hidden border-t border-border">
+        <div className="section-container">
+          <ImageAutoSlider
+            images={[
+              fmgeAchiever1,
+              fmgeAchiever2,
+              fmgeAchiever3,
+              fmgeAchiever4,
+              fmgeAchiever1,
+              fmgeAchiever2,
+              fmgeAchiever3,
+              fmgeAchiever4,
+              fmgeAchiever1,
+              fmgeAchiever2,
+              fmgeAchiever3,
+              fmgeAchiever4
+            ]}
+            subtitle="Success Stories"
+            title="FMGE Achievers"
+            description="Meet our proud students who cleared FMGE and are now practicing doctors across India"
+            duration={25}
+            className="py-4"
+          />
+        </div>
+      </section>
+
+      {/* Airport Diaries Section */}
+      <section className="section-padding bg-white overflow-hidden border-t border-border">
+        <div className="section-container">
+          <div className="text-center mb-12">
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Memories</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-4 mb-6">
+              Airport Diaries
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Capturing the excitement and new beginnings as our students embark on their international medical journeys.
+            </p>
+          </div>
+
+          <div className="py-10">
+            <ThreeDPhotoCarousel
+              images={[
+                airport1,
+                airport2,
+                airport3,
+                airport4,
+                airport1,
+                airport2,
+                airport3,
+                airport4,
+                airport1,
+                airport2,
+                airport3,
+                airport4
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-background">
         <div className="section-container text-center max-w-5xl mx-auto">
@@ -779,7 +858,7 @@ const International = () => {
                   <Particles
                     className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
                     quantity={200}
-                    color={"#555555"}
+                    color={"#2d3552"}
                     vy={-0.2}
                   />
 

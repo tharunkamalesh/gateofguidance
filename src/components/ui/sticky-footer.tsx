@@ -1,6 +1,5 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import {
     Facebook,
     Instagram,
@@ -65,126 +64,75 @@ interface FooterLinkGroup {
 type StickyFooterProps = React.ComponentProps<'footer'>;
 
 export default function StickyFooter({ className, ...props }: StickyFooterProps) {
-    const footerRef = React.useRef<HTMLElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: footerRef,
-        offset: ["start end", "end end"]
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
-    const blurValue = useTransform(scrollYProgress, [0, 0.8], [10, 0]);
-    const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
-    const scale = useTransform(scrollYProgress, [0, 0.8], [0.95, 1]);
-
     return (
         <footer
-            ref={footerRef}
-            className={cn('relative h-[950px] md:h-[500px] w-full', className)}
-            style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
+            className={cn('relative w-full bg-[hsl(227,35%,15%)] text-white overflow-hidden', className)}
             {...props}
         >
-            <div className="fixed bottom-0 h-full w-full">
-                <div
-                    className="sticky bottom-0 h-[950px] md:h-[500px] overflow-hidden bg-slate-900 text-white bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url(${footerBg})` }}
-                >
-                    {/* Dark Overlay for better text legibility */}
-                    <div className="absolute inset-0 bg-slate-950/70 md:bg-slate-950/40" />
+            <div
+                className="relative w-full bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${footerBg})` }}
+            >
+                {/* Dark Overlay for better text legibility */}
+                <div className="absolute inset-0 bg-[hsl(227,35%,10%)]/80 md:bg-[hsl(227,35%,10%)]/60" />
 
-                    <motion.div
-                        style={{ opacity, filter, scale }}
-                        className="relative flex size-full flex-col justify-between border-t border-white/10 px-6 py-12 md:px-12 z-20"
-                    >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 xl:mt-0 relative z-10">
-                            <AnimatedContainer className="w-full sm:col-span-2 lg:col-span-1 space-y-4">
-                                <Link to="/" className="text-white font-display text-2xl italic font-bold">
-                                    GateOfGuidance
-                                </Link>
-                                <p className="text-white/90 mt-4 text-sm leading-relaxed max-w-xs">
-                                    Empowering aspiring medical students with verified counseling,
-                                    transparent admission processes, and global education opportunities.
-                                </p>
-                                <div className="flex gap-2 pt-2">
-                                    {socialLinks.map((link, idx) => (
-                                        <Button key={idx} size="icon" variant="outline" className="size-8 border-white/20 text-white bg-transparent hover:bg-white/10 shadow-none">
-                                            <link.icon className="size-4" />
-                                        </Button>
+                <div className="relative flex w-full flex-col justify-between border-t border-white/10 px-6 py-16 md:px-12 z-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 xl:mt-0 relative z-10">
+                        <div className="w-full sm:col-span-2 lg:col-span-1 space-y-6">
+                            <Link to="/" className="text-white font-display text-3xl italic font-bold tracking-tight">
+                                GateOfGuidance
+                            </Link>
+                            <p className="text-white/80 mt-4 text-sm leading-relaxed max-w-xs">
+                                Empowering aspiring medical students with verified counseling,
+                                transparent admission processes, and global education opportunities.
+                            </p>
+                            <div className="flex gap-3 pt-4">
+                                {socialLinks.map((link, idx) => (
+                                    <Button key={idx} size="icon" variant="outline" className="size-10 border-white/20 text-white bg-white/5 hover:bg-white/10 shadow-none rounded-full">
+                                        <link.icon className="size-5" />
+                                    </Button>
+                                ))}
+                            </div>
+                        </div>
+                        {footerLinkGroups.map((group) => (
+                            <div key={group.label} className="w-full space-y-6">
+                                <h3 className="text-sm uppercase font-bold tracking-widest text-white/60">{group.label}</h3>
+                                <ul className="text-white/90 space-y-4 text-sm font-medium">
+                                    {group.links.map((link) => (
+                                        <li key={link.title}>
+                                            {link.isRoute ? (
+                                                <Link
+                                                    to={link.href}
+                                                    className="hover:text-primary-foreground/70 inline-flex items-center transition-all duration-300"
+                                                >
+                                                    {link.icon && <link.icon className="me-2 size-4" />}
+                                                    {link.title}
+                                                </Link>
+                                            ) : (
+                                                <a
+                                                    href={link.href}
+                                                    className="hover:text-primary-foreground/70 inline-flex items-center transition-all duration-300"
+                                                >
+                                                    {link.icon && <link.icon className="me-2 size-4" />}
+                                                    {link.title}
+                                                </a>
+                                            )}
+                                        </li>
                                     ))}
-                                </div>
-                            </AnimatedContainer>
-                            {footerLinkGroups.map((group, index) => (
-                                <AnimatedContainer
-                                    key={group.label}
-                                    delay={0.1 + index * 0.1}
-                                    className="w-full"
-                                >
-                                    <div className="space-y-4">
-                                        <h3 className="text-sm uppercase font-bold tracking-wider text-white">{group.label}</h3>
-                                        <ul className="text-white/80 space-y-3 text-sm">
-                                            {group.links.map((link) => (
-                                                <li key={link.title}>
-                                                    {link.isRoute ? (
-                                                        <Link
-                                                            to={link.href}
-                                                            className="hover:text-primary inline-flex items-center transition-all duration-300"
-                                                        >
-                                                            {link.icon && <link.icon className="me-1 size-4" />}
-                                                            {link.title}
-                                                        </Link>
-                                                    ) : (
-                                                        <a
-                                                            href={link.href}
-                                                            className="hover:text-primary inline-flex items-center transition-all duration-300"
-                                                        >
-                                                            {link.icon && <link.icon className="me-1 size-4" />}
-                                                            {link.title}
-                                                        </a>
-                                                    )}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </AnimatedContainer>
-                            ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="text-white/40 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 text-xs md:text-sm md:flex-row relative z-10 mt-16">
+                        <p>© 2025 Gate of Guidance. All rights reserved.</p>
+                        <div className="flex gap-8">
+                            <p className="hover:text-white/60 cursor-pointer">Privacy Policy</p>
+                            <p className="hover:text-white/60 cursor-pointer">Terms & Conditions</p>
                         </div>
-                        <div className="text-white/60 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs md:text-sm md:flex-row relative z-10 mt-auto">
-                            <p>© 2025 Gate of Guidance. All rights reserved.</p>
-                            <p>Empowering Future Doctors</p>
-                        </div>
-                    </motion.div>
+                        <p className="font-semibold text-white/60 italic">Empowering Future Doctors</p>
+                    </div>
                 </div>
             </div>
         </footer>
-    );
-}
-
-
-
-type AnimatedContainerProps = React.ComponentProps<typeof motion.div> & {
-    children?: React.ReactNode;
-    delay?: number;
-};
-
-function AnimatedContainer({
-    delay = 0.1,
-    children,
-    ...props
-}: AnimatedContainerProps) {
-    const shouldReduceMotion = useReducedMotion();
-
-    if (shouldReduceMotion) {
-        return <>{children}</>;
-    }
-
-    return (
-        <motion.div
-            initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
-            whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay, duration: 0.8 }}
-            {...props}
-        >
-            {children}
-        </motion.div>
     );
 }

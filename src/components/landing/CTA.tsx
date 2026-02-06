@@ -19,7 +19,7 @@ const CTA = () => {
                 <Particles
                   className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
                   quantity={200}
-                  color={"#555555"}
+                  color={"#2d3552"}
                   vy={-0.2}
                 />
 

@@ -53,7 +53,7 @@ const FAQ = ({
   const faqReveal = useScrollReveal();
 
   return (
-    <section className="py-24 bg-white" id="faq">
+    <section className="py-24 bg-background" id="faq">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16">
           {/* Left Column */}
@@ -74,7 +74,7 @@ const FAQ = ({
               </h2>
 
               <div className="mt-auto">
-                <p className="text-gray-400 text-sm mb-2 font-medium">
+                <p className="text-[hsl(223,17%,50%)] text-sm mb-2 font-medium">
                   {subtitle}
                 </p>
                 <h3 className="text-xl font-bold text-primary mb-6">
@@ -82,7 +82,7 @@ const FAQ = ({
                 </h3>
 
                 <div className="relative inline-block">
-                  <div className="w-16 h-16 bg-[#4182F9] rounded-2xl flex items-center justify-center shadow-lg cursor-pointer hover:bg-[#3471E5] transition-colors group">
+                  <div className="w-16 h-16 bg-[hsl(227,30%,25%)] rounded-2xl flex items-center justify-center shadow-lg shadow-[hsl(227,35%,15%)]/20 cursor-pointer hover:bg-[hsl(227,35%,20%)] transition-colors group">
                     <MessageSquare className="w-8 h-8 text-white fill-white" />
                   </div>
                   {/* Arrow decoration */}
@@ -125,7 +125,7 @@ const FAQ = ({
                         </span>
                         <ChevronDown className="w-5 h-5 text-gray-400 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-primary shrink-0" />
                       </AccordionTrigger>
-                      <AccordionContent className="text-gray-600 text-lg leading-relaxed pb-8 pt-2 pl-9">
+                      <AccordionContent className="text-[hsl(223,17%,50%)] text-lg leading-relaxed pb-8 pt-2 pl-9">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>

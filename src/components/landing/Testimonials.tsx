@@ -39,7 +39,7 @@ const Testimonials = () => {
   const current = testimonials[currentIndex];
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-[hsl(0,0%,91%)]">
       <div className="section-container">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-primary">
@@ -63,7 +63,7 @@ const Testimonials = () => {
           <div>
             <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-foreground text-foreground" />
+                <Star key={i} className="w-5 h-5 fill-[hsl(227,30%,25%)] text-[hsl(227,30%,25%)]" />
               ))}
             </div>
 

@@ -35,7 +35,7 @@ const Contact = () => {
             className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto scroll-reveal ${formReveal.isVisible ? 'is-visible' : ''}`}
           >
             {/* Form */}
-            <div className="bg-secondary/20 p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
+            <div className="bg-[hsl(0,0%,91%)] p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
               <ContactForm />
             </div>
 

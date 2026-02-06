@@ -3,26 +3,26 @@ import heroImage from "@/assets/hero main.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-end pb-20 md:pb-24 overflow-hidden">
+    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
       {/* Background Image - Adjusted to show the student's face better on mobile */}
       <div
-        className="absolute inset-0 bg-cover bg-[80%_center] md:bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[80%_center] md:bg-right bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        {/* Stronger Top-down gradient for Navbar and Bottom-up for content readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 md:bg-gradient-to-r md:from-black/80 md:via-black/20 md:to-transparent" />
+        {/* Stronger left-to-right gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(227,35%,15%)]/60 via-transparent to-[hsl(227,35%,15%)]/80 md:bg-gradient-to-r md:from-[hsl(227,35%,15%)]/90 md:via-[hsl(227,35%,15%)]/40 md:to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 section-container w-full mb-4 md:mb-0">
-        <div className="max-w-3xl mx-auto md:ml-auto md:mr-0 text-center md:text-left pt-20">
-          <div className="inline-block text-white font-medium tracking-wider uppercase text-[10px] md:text-sm mb-4 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+      <div className="relative z-10 section-container w-full pt-12 md:pt-20">
+        <div className="max-w-3xl text-center md:text-left">
+          <div className="inline-block text-white font-medium tracking-wider uppercase text-[10px] md:text-sm mb-6 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
             Built on Transparency.
           </div>
           <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
-            Focused on Your <br className="sm:hidden" /> <span className="text-primary italic">Medical Future.</span>
+            Focused on Your <br className="sm:hidden" /> <span className="text-secondary italic">Medical Future.</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p className="text-lg md:text-xl text-white/95 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
             Expert MBBS admissions guidance with verified counselling and complete support. Your journey to becoming a doctor starts here.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">

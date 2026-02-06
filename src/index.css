@@ -4,8 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* MBBS Admission Consultancy Design System
-   Navy blue professional theme with clean typography */
+/* GateOfGuidance Design System
+   Navy Blue Professional Theme - Elegant & Premium */
 
 @layer base {
   html {
@@ -13,53 +13,69 @@
   }
 
   :root {
+    /* Background - Pure White for clean professional look */
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 227 35% 15%;
 
+    /* Cards - White with subtle warmth */
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 227 35% 15%;
 
+    /* Popovers */
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 227 35% 15%;
 
-    /* Deep Navy Blue Primary */
-    --primary: 215 50% 23%;
+    /* Primary - Deep Navy Blue (for buttons, headings, key elements) */
+    --primary: 227 30% 25%;
     --primary-foreground: 0 0% 100%;
 
-    /* Light Blue Gray Secondary */
-    --secondary: 210 25% 93%;
-    --secondary-foreground: 215 50% 23%;
+    /* Secondary - Light Gray (section backgrounds) */
+    --secondary: 227 15% 92%;
+    --secondary-foreground: 227 35% 15%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 45%;
+    /* Muted - Soft gray for subtle backgrounds */
+    --muted: 227 15% 95%;
+    --muted-foreground: 223 17% 50%;
 
-    --accent: 215 50% 23%;
+    /* Accent - Medium Navy for interactive elements */
+    --accent: 225 21% 37%;
     --accent-foreground: 0 0% 100%;
 
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 215 50% 23%;
+    /* Borders - Subtle blue-gray */
+    --border: 227 20% 88%;
+    --input: 227 20% 88%;
+    --ring: 227 30% 25%;
 
     --radius: 0.5rem;
 
-    /* Footer Navy */
-    --footer-bg: 215 50% 18%;
-    --footer-card: 210 25% 88%;
+    /* Custom Navy Palette Variables */
+    --navy-darkest: 227 35% 15%;
+    --navy-dark: 227 30% 25%;
+    --navy-medium: 225 21% 37%;
+    --navy-light: 223 17% 50%;
+    --navy-lightest: 222 22% 62%;
+    --gray-light: 0 0% 91%;
+
+    /* Footer - Darkest Navy */
+    --footer-bg: 227 35% 15%;
+    --footer-card: 227 20% 92%;
 
     /* Hero overlay */
-    --hero-overlay: 215 50% 10%;
+    --hero-overlay: 227 35% 10%;
 
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 227 30% 25%;
+    --sidebar-primary: 227 35% 15%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 227 15% 95%;
+    --sidebar-accent-foreground: 227 35% 15%;
+    --sidebar-border: 227 20% 88%;
+    --sidebar-ring: 227 30% 25%;
   }
 }
 
@@ -94,6 +110,25 @@
     @apply py-16 md:py-24;
   }
 
+  /* Navy Blue Section - For contrast sections */
+  .section-navy {
+    @apply bg-[hsl(227, 35%, 15%)] text-white;
+  }
+
+  .section-navy h2,
+  .section-navy h3 {
+    @apply text-white;
+  }
+
+  .section-navy p {
+    @apply text-white/80;
+  }
+
+  /* Light Gray Section */
+  .section-light {
+    @apply bg-[hsl(0, 0%, 91%)];
+  }
+
   .nav-link {
     @apply text-sm font-medium text-white/90 hover:text-white transition-colors;
   }
@@ -104,6 +139,15 @@
 
   .btn-hero-solid {
     @apply px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-all;
+  }
+
+  /* Navy Button Variants */
+  .btn-navy {
+    @apply bg-[hsl(227, 30%, 25%)] text-white hover:bg-[hsl(227, 35%, 20%)] transition-all;
+  }
+
+  .btn-navy-outline {
+    @apply border-2 border-[hsl(227, 30%, 25%)] text-[hsl(227, 30%, 25%)] hover:bg-[hsl(227, 30%, 25%)] hover:text-white transition-all;
   }
 
   .feature-card {
@@ -183,6 +227,31 @@
   .scroll-reveal-stagger>*:nth-child(6) {
     transition-delay: 0.6s;
   }
+
+  /* Navy gradient utilities */
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, hsl(227, 35%, 15%) 0%, hsl(227, 30%, 25%) 100%);
+  }
+
+  .bg-navy-gradient-light {
+    background: linear-gradient(135deg, hsl(227, 30%, 25%) 0%, hsl(225, 21%, 37%) 100%);
+  }
+
+  .text-navy-dark {
+    color: hsl(227, 35%, 15%);
+  }
+
+  .text-navy-medium {
+    color: hsl(225, 21%, 37%);
+  }
+
+  .text-navy-light {
+    color: hsl(223, 17%, 50%);
+  }
+
+  .border-navy {
+    border-color: hsl(227, 30%, 25%);
+  }
 }
 
 /* Premium Card Hover Effects */
@@ -193,8 +262,8 @@
 
   .feature-card:hover {
     @apply shadow-xl -translate-y-2;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(26, 31, 53, 0.1),
+      0 10px 10px -5px rgba(26, 31, 53, 0.04);
   }
 
   .card-hover-lift {
@@ -203,6 +272,15 @@
 
   .card-hover-lift:hover {
     @apply -translate-y-2 shadow-xl;
+  }
+
+  /* Navy accent shadow */
+  .shadow-navy {
+    box-shadow: 0 10px 40px -10px rgba(26, 31, 53, 0.3);
+  }
+
+  .shadow-navy-lg {
+    box-shadow: 0 20px 60px -15px rgba(26, 31, 53, 0.4);
   }
 }
 
@@ -231,4 +309,19 @@
   100% {
     transform: scale(1.01) translateY(-8px);
   }
+}
+
+/* Navy marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
