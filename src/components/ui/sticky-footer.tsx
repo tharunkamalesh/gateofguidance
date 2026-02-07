@@ -84,7 +84,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                                 <img
                                     src={logoImage}
                                     alt="Gate of Guidance"
-                                    className="h-14 md:h-24 w-auto object-contain drop-shadow-2xl"
+                                    className="h-14 md:h-24 w-auto object-contain brightness-0 invert drop-shadow-2xl"
                                 />
                             </Link>
                             <p className="text-white/80 mt-4 text-sm leading-relaxed max-w-xs mx-auto md:mx-0 text-center md:text-left">
