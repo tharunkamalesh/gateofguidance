@@ -77,9 +77,9 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                 {/* Dark Overlay for better text legibility */}
                 <div className="absolute inset-0 bg-[hsl(227,35%,10%)]/80 md:bg-[hsl(227,35%,10%)]/60" />
 
-                <div className="relative flex w-full flex-col justify-between border-t border-white/10 px-6 py-16 md:px-12 z-20">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 xl:mt-0 relative z-10">
-                        <div className="w-full sm:col-span-2 lg:col-span-1 space-y-6">
+                <div className="relative flex w-full flex-col justify-between border-t border-white/10 px-6 py-10 md:px-12 md:py-16 z-20">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 xl:mt-0 relative z-10">
+                        <div className="w-full col-span-2 sm:col-span-2 lg:col-span-1 space-y-4 md:space-y-6">
                             <Link to="/" className="shrink-0 flex justify-center md:justify-start mb-6 transition-transform hover:scale-105 active:scale-95">
                                 <img
                                     src={logoImage}
