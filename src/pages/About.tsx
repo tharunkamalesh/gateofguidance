@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
 import aboutHero from "@/assets/about us hero.jpg";
-import aboutHandshake from "@/assets/about us handshake.jpg";
+import aboutHandshake from "@/assets/handshake-centered.png";
 import aboutCampus from "@/assets/about us clg.jpg";
 import aboutCounseling from "@/assets/about us ethical.jpg";
 import ethicalGuidanceImg from "@/assets/honest.jpg";
