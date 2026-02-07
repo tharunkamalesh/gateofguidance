@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import contactImage from "@/assets/contact.jpg";
+import contactImage from "@/assets/handshake-centered.png";
 import { ContactForm } from "@/components/landing/ContactForm";
 import SEO from "@/components/SEO";
 
