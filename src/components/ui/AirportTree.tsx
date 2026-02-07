@@ -124,8 +124,8 @@ const AirportTree = ({ branches }: AirportTreeProps) => {
             </div>
 
             {/* Logo at the bottom (tree trunk base) */}
-            <div className="relative z-10 bg-white rounded-full p-4 md:p-6 shadow-2xl border-4 border-primary/20 -mt-4">
-                <img src={logoImage} alt="Gate of Guidance" className="w-20 h-20 md:w-28 md:h-28 object-contain" />
+            <div className="relative z-10 bg-white rounded-full p-2 shadow-2xl border-4 border-primary/20 -mt-4">
+                <img src={logoImage} alt="Gate of Guidance" className="w-24 h-24 md:w-32 md:h-32 object-contain" />
             </div>
         </div>
     );
