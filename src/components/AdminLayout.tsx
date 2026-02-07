@@ -9,6 +9,7 @@ import {
     LogOut,
     ChevronRight,
     Menu,
+    X,
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -62,17 +63,17 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                     isSidebarOpen ? "w-64 translate-x-0" : "w-0 -translate-x-full lg:w-20 lg:translate-x-0"
                 )}
             >
-                <div className="p-6 border-b border-slate-100 flex items-center justify-between">
-                    <Link to="/admin" className={cn("text-xl font-bold text-primary transition-opacity", !isSidebarOpen && "lg:opacity-0")}>
+                <div className="p-4 md:p-6 border-b border-slate-100 flex items-center justify-between">
+                    <Link to="/admin/dashboard" className={cn("text-lg md:text-xl font-bold text-primary transition-opacity overflow-hidden whitespace-nowrap", !isSidebarOpen && "lg:opacity-0")}>
                         GateOfGuidance
                     </Link>
                     <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        onClick={() => setIsSidebarOpen(false)}
                         className="lg:hidden"
                     >
-                        <Menu className="w-5 h-5" />
+                        <X className="w-5 h-5" />
                     </Button>
                 </div>
 
@@ -122,8 +123,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-w-0">
-                <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-40">
-                    <div className="flex items-center gap-4">
+                <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8 sticky top-0 z-30">
+                    <div className="flex items-center gap-2 md:gap-4">
                         <Button
                             variant="ghost"
                             size="icon"
@@ -132,17 +133,19 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                         >
                             <Menu className="w-5 h-5" />
                         </Button>
-                        <h1 className="text-xl font-semibold text-slate-800">Admin Dashboard</h1>
+                        <h1 className="text-base md:text-xl font-semibold text-slate-800 truncate max-w-[120px] sm:max-w-none">
+                            Admin Dashboard
+                        </h1>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-full">
+                    <div className="flex items-center gap-2 md:gap-4">
+                        <div className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-slate-100 rounded-full">
                             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                            <span className="text-sm font-medium text-slate-600">Admin</span>
+                            <span className="text-[10px] md:text-sm font-medium text-slate-600">Admin</span>
                         </div>
                     </div>
                 </header>
 
-                <main className="flex-1 p-8 overflow-y-auto">
+                <main className="flex-1 p-4 md:p-8 overflow-y-auto">
                     {children}
                 </main>
             </div>
