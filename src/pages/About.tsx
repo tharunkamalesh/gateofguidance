@@ -300,10 +300,10 @@ const About = () => {
 
                   <div className="relative z-10">
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
-                      Begin your medical education journey
+                      Let's build your medical career together
                     </h2>
                     <p className="text-muted-foreground mb-10 text-lg md:text-xl max-w-2xl mx-auto">
-                      Schedule a personalized consultation with our counselors to explore international medical programs.
+                      Join hundreds of successful doctors who started their journey with Gate of Guidance. Your dream is closer than you think.
                     </p>
                     <Link to="/contact">
                       <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-primary/25 transition-all duration-300">
