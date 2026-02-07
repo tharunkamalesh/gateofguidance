@@ -158,12 +158,12 @@ const AdminDashboard = () => {
                     <Table>
                         <TableHeader className="bg-slate-50">
                             <TableRow>
-                                <TableHead className="font-semibold text-slate-700">Submitted Date</TableHead>
+                                <TableHead className="font-semibold text-slate-700 hidden md:table-cell">Submitted Date</TableHead>
                                 <TableHead className="font-semibold text-slate-700">Name</TableHead>
-                                <TableHead className="font-semibold text-slate-700">Course Required</TableHead>
+                                <TableHead className="font-semibold text-slate-700">Course</TableHead>
                                 <TableHead className="font-semibold text-slate-700">Mobile</TableHead>
-                                <TableHead className="font-semibold text-slate-700">WhatsApp</TableHead>
-                                <TableHead className="font-semibold text-slate-700">Email</TableHead>
+                                <TableHead className="font-semibold text-slate-700 hidden lg:table-cell">WhatsApp</TableHead>
+                                <TableHead className="font-semibold text-slate-700 hidden md:table-cell">Email</TableHead>
                                 <TableHead className="text-right font-semibold text-slate-700">Action</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -177,7 +177,7 @@ const AdminDashboard = () => {
                             ) : (
                                 filteredEnquiries.map((enquiry) => (
                                     <TableRow key={enquiry.id} className="hover:bg-slate-50/50 group">
-                                        <TableCell className="text-slate-500 text-xs font-medium">
+                                        <TableCell className="text-slate-500 text-xs font-medium hidden md:table-cell">
                                             {formatDate(enquiry.createdAt)}
                                         </TableCell>
                                         <TableCell className="font-semibold text-slate-900">
@@ -189,17 +189,17 @@ const AdminDashboard = () => {
                                             </Badge>
                                         </TableCell>
                                         <TableCell className="text-slate-600">{enquiry.mobile || "-"}</TableCell>
-                                        <TableCell className="text-slate-600">{enquiry.whatsapp || "-"}</TableCell>
-                                        <TableCell className="text-slate-600 max-w-[200px] truncate">{enquiry.email}</TableCell>
+                                        <TableCell className="text-slate-600 hidden lg:table-cell">{enquiry.whatsapp || "-"}</TableCell>
+                                        <TableCell className="text-slate-600 max-w-[200px] truncate hidden md:table-cell">{enquiry.email}</TableCell>
                                         <TableCell className="text-right">
                                             <Button
-                                                variant="ghost"
+                                                variant="outline"
                                                 size="sm"
-                                                className="opacity-0 group-hover:opacity-100 transition-opacity"
+                                                className="md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                                                 onClick={() => setSelectedEnquiry(enquiry)}
                                             >
-                                                <Eye className="w-4 h-4 mr-2" />
-                                                View
+                                                <Eye className="w-4 h-4 md:mr-2" />
+                                                <span className="hidden md:inline">View</span>
                                             </Button>
                                         </TableCell>
                                     </TableRow>

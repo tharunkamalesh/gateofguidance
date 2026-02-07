@@ -21,7 +21,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { toast } = useToast();
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Default to closed for mobile-first
 
     const handleLogout = async () => {
         try {
@@ -44,7 +44,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         {
             label: "Dashboard",
             icon: LayoutDashboard,
-            path: "/admin",
+            path: "/admin/dashboard",
         },
         {
             label: "Enquiries",
@@ -112,6 +112,14 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                 </div>
             </aside>
 
+            {/* Backdrop for mobile */}
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
+
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-w-0">
                 <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-40">
@@ -120,7 +128,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                             variant="ghost"
                             size="icon"
                             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                            className="hidden lg:flex"
+                            className="flex"
                         >
                             <Menu className="w-5 h-5" />
                         </Button>
