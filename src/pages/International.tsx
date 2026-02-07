@@ -816,11 +816,11 @@ const International = () => {
       <section className="pt-12 pb-8 md:pt-16 md:pb-12 bg-gradient-to-b from-white to-slate-50 overflow-hidden border-t border-border">
         <div className="section-container">
           <div className="text-center mb-8 md:mb-12">
-            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Memories</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2 mb-2">
+            <span className="text-base md:text-lg font-semibold text-primary uppercase tracking-wider">Memories</span>
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-primary mt-3 mb-4">
               Airport Diaries
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Capturing the excitement and new beginnings as our students embark on their international medical journeys.
             </p>
           </div>
@@ -829,10 +829,10 @@ const International = () => {
         <div className="section-container pb-8">
           <AirportTree
             branches={[
-              { image: airport1, label: "Russia" },
-              { image: airport2, label: "Bangladesh" },
-              { image: airport3, label: "Kyrgyzstan" },
-              { image: airport4, label: "Uzbekistan" },
+              { image: airport1 },
+              { image: airport2 },
+              { image: airport3 },
+              { image: airport4 },
             ]}
           />
         </div>

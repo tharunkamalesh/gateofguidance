@@ -3,7 +3,6 @@ import logoImage from "@/assets/gog logo.png";
 
 interface BranchData {
     image: string;
-    label: string;
 }
 
 interface AirportTreeProps {
@@ -11,117 +10,122 @@ interface AirportTreeProps {
 }
 
 const AirportTree = ({ branches }: AirportTreeProps) => {
-    // Calculate positions for branches around the center
-    // For mobile: vertical list layout
-    // For tablet/desktop: radial tree layout
-
     return (
-        <div className="relative w-full">
-            {/* Mobile Layout: Vertical list with connecting lines */}
-            <div className="md:hidden flex flex-col items-center gap-4">
-                {/* Top branch images */}
-                <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                    {branches.slice(0, 2).map((branch, idx) => (
+        <div className="relative w-full flex flex-col items-center">
+            {/* Branch Images at the top */}
+            <div className="relative w-full max-w-4xl mx-auto">
+                {/* Mobile Layout: 2x2 grid */}
+                <div className="md:hidden grid grid-cols-2 gap-6 px-4">
+                    {branches.slice(0, 4).map((branch, idx) => (
                         <div key={idx} className="flex flex-col items-center">
-                            <div className="aspect-square w-full rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg hover:shadow-xl transition-all hover:scale-105">
-                                <img src={branch.image} alt={branch.label} className="w-full h-full object-cover" />
+                            <div className="aspect-square w-full max-w-[160px] mx-auto rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                                <img src={branch.image} alt={`Student ${idx + 1}`} className="w-full h-full object-cover" />
                             </div>
-                            <p className="mt-2 text-xs font-medium text-muted-foreground text-center">{branch.label}</p>
                         </div>
                     ))}
                 </div>
 
-                {/* Connecting line */}
-                <div className="w-0.5 h-8 bg-gradient-to-b from-primary/30 to-primary/60" />
-
-                {/* Center Logo */}
-                <div className="relative z-10 bg-white rounded-full p-4 shadow-2xl border-4 border-primary/20">
-                    <img src={logoImage} alt="Gate of Guidance" className="w-20 h-20 object-contain" />
-                </div>
-
-                {/* Connecting line */}
-                <div className="w-0.5 h-8 bg-gradient-to-b from-primary/60 to-primary/30" />
-
-                {/* Bottom branch images */}
-                <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                    {branches.slice(2, 4).map((branch, idx) => (
+                {/* Tablet/Desktop Layout: Images in a row */}
+                <div className="hidden md:flex justify-center items-end gap-8 lg:gap-12">
+                    {branches.slice(0, 4).map((branch, idx) => (
                         <div key={idx} className="flex flex-col items-center">
-                            <div className="aspect-square w-full rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg hover:shadow-xl transition-all hover:scale-105">
-                                <img src={branch.image} alt={branch.label} className="w-full h-full object-cover" />
+                            <div className="w-36 h-36 lg:w-44 lg:h-44 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl hover:shadow-2xl transition-all hover:scale-110 hover:z-10 bg-white">
+                                <img src={branch.image} alt={`Student ${idx + 1}`} className="w-full h-full object-cover" />
                             </div>
-                            <p className="mt-2 text-xs font-medium text-muted-foreground text-center">{branch.label}</p>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Tablet/Desktop Layout: Radial tree */}
-            <div className="hidden md:block relative min-h-[600px] lg:min-h-[700px]">
-                {/* Center Logo */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                    <div className="relative bg-white rounded-full p-6 lg:p-8 shadow-2xl border-4 border-primary/20 animate-pulse-slow">
-                        <img src={logoImage} alt="Gate of Guidance" className="w-24 h-24 lg:w-32 lg:h-32 object-contain" />
-                    </div>
+            {/* Tree Branches SVG */}
+            <div className="relative w-full max-w-4xl mx-auto">
+                {/* Mobile: Simple vertical lines */}
+                <div className="md:hidden flex justify-center py-4">
+                    <svg width="200" height="80" viewBox="0 0 200 80" className="overflow-visible">
+                        {/* Left branches */}
+                        <path
+                            d="M100 80 L100 40 L30 10"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="4"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path
+                            d="M100 40 L70 10"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="4"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                        {/* Right branches */}
+                        <path
+                            d="M100 40 L130 10"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="4"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                        <path
+                            d="M100 40 L170 10"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="4"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                    </svg>
                 </div>
 
-                {/* SVG Lines connecting center to branches */}
-                <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none" preserveAspectRatio="none">
-                    {/* Lines will be drawn from center to each branch position */}
-                    {branches.map((_, idx) => {
-                        const angle = (idx / branches.length) * 360 - 90; // Start from top
-                        const radius = 42; // % from center
-                        const radians = (angle * Math.PI) / 180;
-                        const endX = 50 + radius * Math.cos(radians);
-                        const endY = 50 + radius * Math.sin(radians);
+                {/* Desktop: Wider branches */}
+                <div className="hidden md:flex justify-center py-6">
+                    <svg width="600" height="100" viewBox="0 0 600 100" className="overflow-visible">
+                        {/* Main trunk */}
+                        <path
+                            d="M300 100 L300 50"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="6"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                        {/* Branch 1 - Far left */}
+                        <path
+                            d="M300 50 L75 5"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="5"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                        {/* Branch 2 - Left */}
+                        <path
+                            d="M300 50 L200 5"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="5"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                        {/* Branch 3 - Right */}
+                        <path
+                            d="M300 50 L400 5"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="5"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                        {/* Branch 4 - Far right */}
+                        <path
+                            d="M300 50 L525 5"
+                            stroke="hsl(227, 35%, 30%)"
+                            strokeWidth="5"
+                            fill="none"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                </div>
+            </div>
 
-                        return (
-                            <line
-                                key={idx}
-                                x1="50%"
-                                y1="50%"
-                                x2={`${endX}%`}
-                                y2={`${endY}%`}
-                                stroke="url(#branchGradient)"
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                className="opacity-60"
-                            />
-                        );
-                    })}
-                    <defs>
-                        <linearGradient id="branchGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="hsl(227, 35%, 25%)" stopOpacity="0.8" />
-                            <stop offset="100%" stopColor="hsl(227, 35%, 45%)" stopOpacity="0.4" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-
-                {/* Branch Images positioned radially */}
-                {branches.map((branch, idx) => {
-                    const angle = (idx / branches.length) * 360 - 90; // Start from top
-                    const radius = 42; // % from center
-                    const radians = (angle * Math.PI) / 180;
-                    const x = 50 + radius * Math.cos(radians);
-                    const y = 50 + radius * Math.sin(radians);
-
-                    return (
-                        <div
-                            key={idx}
-                            className="absolute z-10 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 hover:z-30 group"
-                            style={{
-                                left: `${x}%`,
-                                top: `${y}%`,
-                            }}
-                        >
-                            <div className="w-28 h-28 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border-3 border-white shadow-xl group-hover:shadow-2xl bg-white">
-                                <img src={branch.image} alt={branch.label} className="w-full h-full object-cover" />
-                            </div>
-                            <p className="mt-2 text-xs lg:text-sm font-medium text-center text-muted-foreground max-w-[120px] truncate">
-                                {branch.label}
-                            </p>
-                        </div>
-                    );
-                })}
+            {/* Logo at the bottom (tree trunk base) */}
+            <div className="relative z-10 bg-white rounded-full p-4 md:p-6 shadow-2xl border-4 border-primary/20 -mt-4">
+                <img src={logoImage} alt="Gate of Guidance" className="w-20 h-20 md:w-28 md:h-28 object-contain" />
             </div>
         </div>
     );
