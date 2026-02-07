@@ -13,6 +13,7 @@ import { PopupForm } from "@/components/ui/PopupForm";
 import SEO from "@/components/SEO";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
+import AirportTree from "@/components/ui/AirportTree";
 
 import fmgeAchiever1 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM (1).jpeg";
 import fmgeAchiever2 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM.jpeg";
@@ -94,27 +95,28 @@ const Index = () => {
       </section>
 
       {/* Airport Diaries Section */}
-      <section className="pt-12 pb-4 md:pt-16 md:pb-6 bg-slate-50 overflow-hidden border-t border-border">
+      <section className="pt-12 pb-8 md:pt-16 md:pb-12 bg-white overflow-hidden border-t border-border">
         <div className="section-container">
-          <div className="text-center mb-2">
-            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Memories</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2 mb-2">
+          <div className="text-center mb-8 md:mb-12">
+            <span className="text-base md:text-lg font-semibold text-primary uppercase tracking-wider">Memories</span>
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-primary mt-3 mb-4">
               Airport Diaries
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed mb-16">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Capturing the excitement and new beginnings as our students embark on their international medical journeys.
             </p>
           </div>
         </div>
 
-        <div className="section-container pb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[airport1, airport2, airport3, airport4, airport1, airport2, airport3, airport4, airport1, airport2, airport3, airport4].map((img, idx) => (
-              <div key={idx} className="aspect-square rounded-xl overflow-hidden border-2 border-white shadow-md hover:shadow-lg transition-shadow">
-                <img src={img} alt={`Airport ${idx}`} className="w-full h-full object-cover" />
-              </div>
-            ))}
-          </div>
+        <div className="section-container pb-8">
+          <AirportTree
+            branches={[
+              { image: airport1 },
+              { image: airport2 },
+              { image: airport3 },
+              { image: airport4 },
+            ]}
+          />
         </div>
       </section>
 
