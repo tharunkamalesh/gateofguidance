@@ -18,6 +18,7 @@ import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/high
 import SEO from "@/components/SEO";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
+import AirportTree from "@/components/ui/AirportTree";
 
 import heroVideo from "@/assets/inter-hero.mp4";
 import studentTabletImg from "@/assets/international-student-tablet.jpg";
@@ -812,27 +813,28 @@ const International = () => {
       </section>
 
       {/* Airport Diaries Section */}
-      <section className="pt-12 pb-4 md:pt-16 md:pb-6 bg-white overflow-hidden border-t border-border">
+      <section className="pt-12 pb-8 md:pt-16 md:pb-12 bg-gradient-to-b from-white to-slate-50 overflow-hidden border-t border-border">
         <div className="section-container">
-          <div className="text-center mb-2">
+          <div className="text-center mb-8 md:mb-12">
             <span className="text-sm font-semibold text-primary uppercase tracking-wider">Memories</span>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mt-2 mb-2">
               Airport Diaries
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed mb-16">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
               Capturing the excitement and new beginnings as our students embark on their international medical journeys.
             </p>
           </div>
         </div>
 
-        <div className="section-container pb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[airport1, airport2, airport3, airport4, airport1, airport2, airport3, airport4, airport1, airport2, airport3, airport4].map((img, idx) => (
-              <div key={idx} className="aspect-square rounded-xl overflow-hidden border-2 border-white shadow-md hover:shadow-lg transition-shadow">
-                <img src={img} alt={`Airport ${idx}`} className="w-full h-full object-cover" />
-              </div>
-            ))}
-          </div>
+        <div className="section-container pb-8">
+          <AirportTree
+            branches={[
+              { image: airport1, label: "Russia" },
+              { image: airport2, label: "Bangladesh" },
+              { image: airport3, label: "Kyrgyzstan" },
+              { image: airport4, label: "Uzbekistan" },
+            ]}
+          />
         </div>
       </section>
 
