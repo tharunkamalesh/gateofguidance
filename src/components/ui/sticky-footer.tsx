@@ -80,11 +80,11 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                 <div className="relative flex w-full flex-col justify-between border-t border-white/10 px-6 py-10 md:px-12 md:py-16 z-20">
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 xl:mt-0 relative z-10">
                         <div className="w-full col-span-2 sm:col-span-2 lg:col-span-1 space-y-4 md:space-y-6">
-                            <Link to="/" className="shrink-0 flex justify-center md:justify-start mb-6 transition-transform hover:scale-105 active:scale-95">
+                            <Link to="/" className="shrink-0 flex justify-center md:justify-start mb-2 transition-transform hover:scale-105 active:scale-95">
                                 <img
                                     src={logoImage}
                                     alt="Gate of Guidance"
-                                    className="h-20 md:h-24 w-auto object-contain brightness-0 invert drop-shadow-2xl"
+                                    className="h-14 md:h-24 w-auto object-contain drop-shadow-2xl"
                                 />
                             </Link>
                             <p className="text-white/80 mt-4 text-sm leading-relaxed max-w-xs mx-auto md:mx-0 text-center md:text-left">
