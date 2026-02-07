@@ -29,6 +29,7 @@ interface Enquiry {
     id: string;
     name: string;
     mobile: string;
+    whatsapp: string;
     email: string;
     fatherName: string;
     courseRequired: string;
@@ -74,7 +75,8 @@ const AdminDashboard = () => {
         const matchesSearch =
             (enquiry.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
             (enquiry.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-            (enquiry.mobile || "").includes(searchTerm);
+            (enquiry.mobile || "").includes(searchTerm) ||
+            (enquiry.whatsapp || "").includes(searchTerm);
 
         const matchesCourse = filterCourse === "All" || enquiry.courseRequired === filterCourse;
 
@@ -160,6 +162,7 @@ const AdminDashboard = () => {
                                 <TableHead className="font-semibold text-slate-700">Name</TableHead>
                                 <TableHead className="font-semibold text-slate-700">Course Required</TableHead>
                                 <TableHead className="font-semibold text-slate-700">Mobile</TableHead>
+                                <TableHead className="font-semibold text-slate-700">WhatsApp</TableHead>
                                 <TableHead className="font-semibold text-slate-700">Email</TableHead>
                                 <TableHead className="text-right font-semibold text-slate-700">Action</TableHead>
                             </TableRow>
@@ -186,6 +189,7 @@ const AdminDashboard = () => {
                                             </Badge>
                                         </TableCell>
                                         <TableCell className="text-slate-600">{enquiry.mobile || "-"}</TableCell>
+                                        <TableCell className="text-slate-600">{enquiry.whatsapp || "-"}</TableCell>
                                         <TableCell className="text-slate-600 max-w-[200px] truncate">{enquiry.email}</TableCell>
                                         <TableCell className="text-right">
                                             <Button
@@ -247,6 +251,12 @@ const AdminDashboard = () => {
                                         <Phone className="w-4 h-4" /> Mobile Number
                                     </div>
                                     <p className="text-lg font-semibold text-slate-900 border-b pb-2">{selectedEnquiry.mobile || "-"}</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <div className="flex items-center gap-2 text-sm font-medium text-slate-400">
+                                        <Phone className="w-4 h-4 text-green-500" /> WhatsApp Number
+                                    </div>
+                                    <p className="text-lg font-semibold text-slate-900 border-b pb-2">{selectedEnquiry.whatsapp || "-"}</p>
                                 </div>
                                 <div className="space-y-1">
                                     <div className="flex items-center gap-2 text-sm font-medium text-slate-400">

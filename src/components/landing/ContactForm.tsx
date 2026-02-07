@@ -11,6 +11,7 @@ import { useToast } from "@/components/ui/use-toast";
 const contactSchema = z.object({
     name: z.string().trim().min(1, "Name is required").max(100),
     mobile: z.string().trim().min(10, "Valid mobile number required").max(15),
+    whatsapp: z.string().trim().min(10, "Valid WhatsApp number required").max(15),
     email: z.string().trim().email("Valid email required").max(255),
     fatherName: z.string().trim().min(1, "Father's name is required").max(100),
     course: z.string().trim().min(1, "Course is required").max(200),
@@ -28,6 +29,7 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
     const [formData, setFormData] = useState<ContactFormData>({
         name: "",
         mobile: "",
+        whatsapp: "",
         email: "",
         fatherName: "",
         course: "",
@@ -62,6 +64,7 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
             await addDoc(collection(db, "consultancy_requests"), {
                 name: formData.name,
                 mobile: formData.mobile,
+                whatsapp: formData.whatsapp,
                 email: formData.email,
                 fatherName: formData.fatherName,
                 courseRequired: formData.course,
@@ -75,6 +78,7 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                 {
                     name: formData.name,
                     mobile: formData.mobile,
+                    whatsapp: formData.whatsapp,
                     email: formData.email,
                     fatherName: formData.fatherName,
                     courseRequired: formData.course,
@@ -116,7 +120,7 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                 className: "bg-[#0B1120] border-slate-800 text-white py-8 px-6 flex flex-col items-center justify-center shadow-2xl min-h-[220px]",
             });
 
-            setFormData({ name: "", mobile: "", email: "", fatherName: "", course: "" });
+            setFormData({ name: "", mobile: "", whatsapp: "", email: "", fatherName: "", course: "" });
             if (onSuccess) onSuccess();
         } catch (error) {
             console.error("Error submitting form:", error);
@@ -163,6 +167,23 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     autoComplete="off"
                 />
                 {errors.mobile && <p className="text-destructive text-[11px] font-medium mt-1 ml-1">{errors.mobile}</p>}
+            </div>
+
+            <div className="space-y-1.5">
+                <Label htmlFor="whatsapp" className="text-sm font-semibold text-slate-700 ml-1">
+                    WhatsApp Number
+                </Label>
+                <Input
+                    id="whatsapp"
+                    name="whatsapp"
+                    type="tel"
+                    value={formData.whatsapp}
+                    onChange={handleChange}
+                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    placeholder="WhatsApp number"
+                    autoComplete="off"
+                />
+                {errors.whatsapp && <p className="text-destructive text-[11px] font-medium mt-1 ml-1">{errors.whatsapp}</p>}
             </div>
 
             <div className="space-y-1.5">
