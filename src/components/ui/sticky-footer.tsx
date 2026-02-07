@@ -129,7 +129,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                         ))}
                     </div>
                     <div className="text-white/40 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 text-xs md:text-sm md:flex-row relative z-10 mt-16">
-                        <p>© 2025 Gate of Guidance. All rights reserved.</p>
+                        <p>© 2026 Gate of Guidance. All rights reserved.</p>
                         <div className="flex gap-8">
                             <p className="hover:text-white/60 cursor-pointer">Privacy Policy</p>
                             <p className="hover:text-white/60 cursor-pointer">Terms & Conditions</p>
