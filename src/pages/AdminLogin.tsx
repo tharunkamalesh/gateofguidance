@@ -56,10 +56,7 @@ const AdminLogin = () => {
             }
 
             if (isAdmin) {
-                toast({
-                    title: "Login Successful",
-                    description: "Welcome back, Admin!",
-                });
+
                 navigate("/admin/dashboard", { replace: true });
             } else {
                 console.log("Access Denied: Email not found in admins or incorrect role.");

@@ -161,7 +161,7 @@ const AdminDashboard = () => {
                                 <TableHead className="font-semibold text-slate-700 text-xs">Name</TableHead>
                                 <TableHead className="font-semibold text-slate-700 text-xs">Course</TableHead>
                                 <TableHead className="font-semibold text-slate-700 text-xs">Mobile</TableHead>
-                                <TableHead className="font-semibold text-slate-700 hidden lg:table-cell text-xs">WhatsApp</TableHead>
+                                <TableHead className="font-semibold text-slate-700 text-xs">WhatsApp</TableHead>
                                 <TableHead className="font-semibold text-slate-700 hidden md:table-cell text-xs">Email</TableHead>
                                 <TableHead className="text-right font-semibold text-slate-700 text-xs">Action</TableHead>
                             </TableRow>
@@ -188,7 +188,7 @@ const AdminDashboard = () => {
                                             </Badge>
                                         </TableCell>
                                         <TableCell className="text-slate-600 text-xs md:text-sm">{enquiry.mobile || "-"}</TableCell>
-                                        <TableCell className="text-slate-600 hidden lg:table-cell">{enquiry.whatsapp || "-"}</TableCell>
+                                        <TableCell className="text-slate-600 text-xs md:text-sm">{enquiry.whatsapp || "-"}</TableCell>
                                         <TableCell className="text-slate-600 max-w-[200px] truncate hidden md:table-cell">{enquiry.email}</TableCell>
                                         <TableCell className="text-right">
                                             <Button
