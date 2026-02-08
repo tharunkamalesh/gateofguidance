@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
-import logoImage from "@/assets/gog-logo.png";
+
 
 interface NavItem {
   label: string;
@@ -87,7 +87,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
             {/* Logo */}
             <Link to="/" className="shrink-0 -ml-2 md:-ml-4 flex items-center transition-transform hover:scale-105 active:scale-95">
               <img
-                src={logoImage}
+                src="/images/gog-logo.png"
                 alt="Gate of Guidance - The Career Destination"
                 className={cn(
                   "h-12 md:h-24 w-auto object-contain transition-all duration-300",
