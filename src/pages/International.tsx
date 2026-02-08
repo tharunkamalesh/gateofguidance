@@ -731,23 +731,46 @@ const International = () => {
 
             <div className="max-w-6xl mx-auto">
               <ProgressSlider activeSlider="step1" duration={5000} className="relative">
+                <SliderBtnGroup className="mb-4 grid grid-cols-2 md:grid-cols-4 rounded-xl md:rounded-3xl overflow-hidden border border-border shadow-xl bg-white dark:bg-neutral-900">
+                  {processSteps.map((step, index) => (
+                    <SliderBtn
+                      key={index}
+                      value={step.sliderName}
+                      className="text-left cursor-pointer p-3 md:p-8 focus:outline-none transition-all duration-500 border-r border-border last:border-0 relative overflow-hidden group"
+                      progressBarClass="bg-primary"
+                    >
+                      <div className="relative z-10">
+                        <span className={cn(
+                          "inline-block px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider mb-2 transition-colors duration-300",
+                          "bg-primary text-primary-foreground group-data-[active=true]:bg-white group-data-[active=true]:text-primary"
+                        )}>
+                          {step.label}
+                        </span>
+                        <h4 className="text-sm md:text-lg font-bold text-primary group-data-[active=true]:text-white transition-colors duration-300 leading-tight">
+                          {step.title}
+                        </h4>
+                      </div>
+                    </SliderBtn>
+                  ))}
+                </SliderBtnGroup>
+
                 <SliderContent>
                   {processSteps.map((step, index) => (
                     <SliderWrapper key={index} value={step.sliderName}>
-                      <div className="grid lg:grid-cols-2 gap-12 items-center bg-card border border-border rounded-3xl overflow-hidden shadow-2xl p-4 lg:p-8">
-                        <div className="order-2 lg:order-1 p-6">
-                          <div className="flex items-center gap-4 mb-6">
-                            <span className="text-6xl font-display font-bold text-primary/20">{step.number}</span>
+                      <div className="grid lg:grid-cols-2 gap-8 items-center bg-card border border-border rounded-2xl md:rounded-3xl overflow-hidden shadow-xl p-3 md:p-8">
+                        <div className="order-2 lg:order-1 p-2 md:p-6">
+                          <div className="flex items-center gap-4 mb-4 md:mb-6">
+                            <span className="text-4xl md:text-6xl font-display font-bold text-primary/20">{step.number}</span>
                             <div className="h-px bg-primary/20 flex-1"></div>
                           </div>
-                          <h3 className="text-2xl md:text-4xl font-display font-bold text-primary mb-4 md:mb-6">
+                          <h3 className="text-xl md:text-4xl font-display font-bold text-primary mb-3 md:mb-6">
                             {step.title}
                           </h3>
-                          <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8">
+                          <p className="text-sm md:text-xl text-muted-foreground leading-relaxed mb-4 md:mb-8">
                             {step.description}
                           </p>
                         </div>
-                        <div className="order-1 lg:order-2 aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl shadow-xl">
+                        <div className="order-1 lg:order-2 aspect-video lg:aspect-square overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
                           <img
                             src={step.img}
                             alt={step.title}
@@ -758,29 +781,6 @@ const International = () => {
                     </SliderWrapper>
                   ))}
                 </SliderContent>
-
-                <SliderBtnGroup className="mt-4 grid grid-cols-2 md:grid-cols-4 rounded-3xl overflow-hidden border border-border shadow-2xl bg-white dark:bg-neutral-900">
-                  {processSteps.map((step, index) => (
-                    <SliderBtn
-                      key={index}
-                      value={step.sliderName}
-                      className="text-left cursor-pointer p-8 focus:outline-none transition-all duration-500 border-r border-border last:border-0 relative overflow-hidden group"
-                      progressBarClass="bg-primary"
-                    >
-                      <div className="relative z-10">
-                        <span className={cn(
-                          "inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 transition-colors duration-300",
-                          "bg-primary text-primary-foreground group-data-[active=true]:bg-white group-data-[active=true]:text-primary"
-                        )}>
-                          {step.label}
-                        </span>
-                        <h4 className="text-lg font-bold text-primary group-data-[active=true]:text-white transition-colors duration-300">
-                          {step.title}
-                        </h4>
-                      </div>
-                    </SliderBtn>
-                  ))}
-                </SliderBtnGroup>
               </ProgressSlider>
             </div>
           </div>
