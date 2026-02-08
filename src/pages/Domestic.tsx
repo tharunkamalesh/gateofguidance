@@ -8,6 +8,7 @@ import Navbar from "@/components/landing/Navbar";
 import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { cn } from "@/lib/utils";
 import domesticHeroVideo from "@/assets/domestic hero.mp4";
 import domesticStudentsImg from "@/assets/domestic students.jpg";
 import domesticDeskImg from "@/assets/domestic desk.jpg";
@@ -307,15 +308,20 @@ const Domestic = () => {
               </p>
             </div>
 
-            {/* Courses Grid */}
-            <div className="grid grid-cols-4 md:grid-cols-8 border border-border divide-x divide-border mb-8 rounded-lg overflow-hidden">
+            {/* Courses Grid - Improved for mobile visibility */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y md:divide-y-0 lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-card/50 shadow-sm">
               {coursesData.map((course, index) => (
                 <button
                   key={course.id}
-                  onClick={() => setActiveHub(index)}
-                  className={`p-4 text-center transition-all duration-300 ${activeHub === index ? 'bg-primary text-primary-foreground' : 'bg-transparent text-foreground hover:bg-primary/5'}`}
+                  onClick={() => {
+                    setActiveHub(index);
+                  }}
+                  className={cn(
+                    "p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
+                    activeHub === index ? "bg-primary text-primary-foreground shadow-lg" : "bg-transparent text-foreground"
+                  )}
                 >
-                  <span className="text-xs md:text-sm font-semibold">{course.name}</span>
+                  <span className="text-xs md:text-sm font-bold tracking-tight">{course.name}</span>
                 </button>
               ))}
             </div>
