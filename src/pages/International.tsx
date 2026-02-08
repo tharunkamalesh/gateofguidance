@@ -49,7 +49,7 @@ const destinationsData = [
   {
     id: "russia",
     name: "Russia",
-    title: "About Russia",
+    title: "Russia",
     description: "Russia provides world-class medical education at a low cost compared to private colleges in India. With an HDI score of 0.824 and high literacy, it offers a safe, friendly environment. The straightforward admission process requires only NEET qualification, making it an ideal gateway to a promising medical career.",
     image: russiaImg,
     universities: [
@@ -74,7 +74,7 @@ const destinationsData = [
   {
     id: "azerbaijan",
     name: "Azerbaijan",
-    title: "About Azerbaijan",
+    title: "Azerbaijan",
     description: "Azerbaijan offers high-quality medical education with a blend of European and Asian standards. The universities are globally recognized, offering English-medium programs with modern medical technology and extensive clinical training in safe, beautiful cities.",
     image: azerbaijanImg,
     universities: []
@@ -82,7 +82,7 @@ const destinationsData = [
   {
     id: "kyrgyzstan",
     name: "Kyrgyzstan",
-    title: "About Kyrgyzstan",
+    title: "Kyrgyzstan",
     description: "Kyrgyzstan is an excellent choice for Indian medical aspirants due to its high-quality education at affordable fees and global recognition. With NMC-approved degrees, top-ranked universities, and extensive clinical exposure, it provides a perfect pathway for a successful medical career.",
     image: kyrgyzstanImg,
     universities: [
@@ -96,7 +96,7 @@ const destinationsData = [
   {
     id: "uzbekistan",
     name: "Uzbekistan",
-    title: "About Uzbekistan",
+    title: "Uzbekistan",
     description: "Emerging as a top choice for Indian students with its simple admission process (NEET only) and high FMGE passing rates. Universities in Tashkent and historic cities like Samarkand offer a safe environment and diverse culture.",
     image: uzbekistanImg,
     universities: [
@@ -110,7 +110,7 @@ const destinationsData = [
   {
     id: "china",
     name: "China",
-    title: "About China",
+    title: "China",
     description: "China offers world-class infrastructure and high-quality education at affordable costs. With advanced labs, English-medium programs, and high FMGE passing rates, it remains a top destination. The living expenses are budget-friendly, and the safe environment makes it ideal for international students.",
     image: chinaImg,
     universities: [
@@ -143,7 +143,7 @@ const destinationsData = [
   {
     id: "bangladesh",
     name: "Bangladesh",
-    title: "About Bangladesh",
+    title: "Bangladesh",
     description: "Bangladesh is a top choice for Indian students due to its medical syllabus and teaching patterns that closely resemble India's, making it easier to clear exams like FMGE/NEXT. With affordable education, a safe environment, and familiar culture (including food and language), it ensures a comfortable and successful academic journey.",
     image: bangladeshImg,
     universities: [
@@ -162,7 +162,7 @@ const destinationsData = [
   {
     id: "timor_leste",
     name: "Timor Leste",
-    title: "About Timor Leste",
+    title: "Timor Leste",
     description: "Timor Leste is a peaceful Southeast Asian nation with a tropical climate and affordable living costs. Medical programs are offered in English, providing students with real-world clinical experience in local hospitals. The degree is recognized internationally, allowing graduates to pursue global medical careers.",
     image: timorLesteImg,
     universities: []
@@ -422,13 +422,15 @@ const International = () => {
                   >
                     <div className="relative flex flex-col items-center">
                       <div className={cn(
-                        "bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg mb-2 transition-all duration-300 border",
+                        "bg-white/95 backdrop-blur-sm px-2 py-1 rounded-lg shadow-lg mb-2 transition-all duration-300 border",
                         isSelected
                           ? "opacity-100 scale-110 border-primary bg-primary text-white shadow-primary/30"
-                          : "opacity-90 group-hover:opacity-100 group-hover:scale-110 border-border/10"
+                          : "opacity-0 md:opacity-90 group-hover:opacity-100 group-hover:scale-110 border-border/10",
+                        // On mobile, hide names unless selected to prevent overlapping
+                        !isSelected && "hidden md:flex"
                       )}>
                         <span className={cn(
-                          "text-xs md:text-sm font-bold whitespace-nowrap",
+                          "text-[10px] md:text-xs font-bold whitespace-nowrap",
                           isSelected ? "text-white" : "text-slate-800"
                         )}>{country.name}</span>
                       </div>
@@ -469,8 +471,8 @@ const International = () => {
               })}
             </div>
 
-            {/* Country List Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
+            {/* Country List Grid - More compact on mobile */}
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 max-w-4xl mx-auto">
               {[
                 "Russia", "Kyrgyzstan", "Uzbekistan", "Azerbaijan", "China",
                 "Bangladesh", "Timor Leste"
@@ -557,7 +559,7 @@ const International = () => {
                 <img
                   src={destinationsData[activeDest].image}
                   alt={destinationsData[activeDest].name}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                  className="w-full aspect-video object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                 <div className="absolute bottom-6 left-6 right-6">

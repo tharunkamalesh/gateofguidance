@@ -20,7 +20,9 @@ interface PathCardProps {
 const PathCard = ({ image, title, subtitle, features, benefits, ctaText, ctaHref }: PathCardProps) => (
   <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm card-hover-lift">
     <div className="p-6">
-      <img src={image} alt={title} className="w-full h-48 object-cover rounded-xl mb-6" />
+      <div className="aspect-video overflow-hidden rounded-xl mb-6">
+        <img src={image} alt={title} className="w-full h-full object-cover" />
+      </div>
 
       <h3 className="text-xl font-bold text-foreground text-center mb-1">{title}</h3>
       <p className="text-muted-foreground text-sm text-center mb-6">{subtitle}</p>
@@ -83,7 +85,7 @@ const PathComparison = () => {
       <div className="section-container">
         <div
           ref={headerReveal.ref}
-          className={`text-center mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
+          className={`text-center pt-16 md:pt-20 mb-12 scroll-reveal ${headerReveal.isVisible ? 'is-visible' : ''}`}
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
             India or Abroad — Which Path Fits You?
