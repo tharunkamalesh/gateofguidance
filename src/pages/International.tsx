@@ -29,7 +29,7 @@ import medicalDeskImg from "@/assets/domestic desk.jpg";
 import travelImg from "@/assets/inter-travel.jpg";
 import worldMapBg from "@/assets/bg.jpg";
 import russiaImg from "@/assets/russia.webp";
-import azerbaijanImg from "@/assets/Azerbaijan.jpg";
+import azerbaijanImg from "@/assets/9.jpeg";
 import kyrgyzstanImg from "@/assets/Kyrgyzstan.jpg";
 import uzbekistanImg from "@/assets/Uzbekistan.webp";
 import chinaImg from "@/assets/China.jpg";
