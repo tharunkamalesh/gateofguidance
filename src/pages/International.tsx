@@ -33,7 +33,7 @@ import azerbaijanImg from "@/assets/9.jpeg";
 import kyrgyzstanImg from "@/assets/Kyrgyzstan.jpg";
 import uzbekistanImg from "@/assets/Uzbekistan.webp";
 import chinaImg from "@/assets/China.jpg";
-import bangladeshImg from "@/assets/Bangladesh.webp";
+import bangladeshImg from "@/assets/10.jpeg";
 import timorLesteImg from "@/assets/Timor Leste.jpg";
 import fmgeAchiever1 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM (1).jpeg";
 import fmgeAchiever2 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM.jpeg";
