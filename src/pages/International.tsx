@@ -77,7 +77,25 @@ const destinationsData = [
     title: "Azerbaijan",
     description: "Azerbaijan offers high-quality medical education with a blend of European and Asian standards. The universities are globally recognized, offering English-medium programs with modern medical technology and extensive clinical training in safe, beautiful cities.",
     image: azerbaijanImg,
-    universities: []
+    universities: [
+      "Alfraganus University – Faculty of Medicine, Tashkent, Uzbekistan",
+      "University of Cambridge",
+      "University of Huddersfield",
+      "Hochschule Anhalt – University of Applied Sciences",
+      "Belgian Education Council",
+      "Pomeranian University in Słupsk",
+      "University of Latvia",
+      "Riga Technical University",
+      "Belarusian State University",
+      "Polotsk State University",
+      "Czech University of Life Sciences Prague",
+      "Namsoul University",
+      "Seowon University",
+      "Iryo Sosei University",
+      "Nippon Global Education and Assessment",
+      "Universiti Pendidikan Sultan Idris",
+      "Universiti Putra Malaysia"
+    ]
   },
   {
     id: "kyrgyzstan",
