@@ -308,8 +308,8 @@ const Domestic = () => {
               </p>
             </div>
 
-            {/* Courses Grid - Improved for mobile visibility */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y md:divide-y-0 lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-card/50 shadow-sm">
+            {/* Courses Grid - Standardized for all categories */}
+            <div className="grid grid-cols-2 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md">
               {coursesData.map((course, index) => (
                 <button
                   key={course.id}
@@ -317,11 +317,11 @@ const Domestic = () => {
                     setActiveHub(index);
                   }}
                   className={cn(
-                    "p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
-                    activeHub === index ? "bg-primary text-primary-foreground shadow-lg" : "bg-transparent text-foreground"
+                    "min-h-[60px] md:min-h-[80px] p-2 md:p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
+                    activeHub === index ? "bg-primary text-primary-foreground" : "bg-transparent text-slate-700"
                   )}
                 >
-                  <span className="text-xs md:text-sm font-bold tracking-tight">{course.name}</span>
+                  <span className="text-[11px] md:text-sm font-bold tracking-tight uppercase">{course.name}</span>
                 </button>
               ))}
             </div>
