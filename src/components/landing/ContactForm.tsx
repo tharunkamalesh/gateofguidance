@@ -102,22 +102,22 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
             toast({
                 title: (
                     <div className="flex flex-col items-center gap-4">
-                        <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-1 ring-1 ring-green-500/50 animate-in zoom-in spin-in-12 duration-500">
-                            <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.6)]">
+                        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-1 ring-1 ring-green-500/20 animate-in zoom-in spin-in-12 duration-500">
+                            <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.3)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                             </div>
                         </div>
-                        <span className="text-xl font-bold text-white tracking-wide">Submitted Successfully</span>
+                        <span className="text-xl font-bold text-slate-900 tracking-wide">Submitted Successfully</span>
                     </div>
                 ) as any,
                 description: (
-                    <div className="text-center text-slate-300 text-base mt-2">
+                    <div className="text-center text-slate-500 text-base mt-2">
                         Your response has been submitted.<br />Our team will contact you shortly.
                     </div>
                 ) as any,
-                className: "bg-[#0B1120] border-slate-800 text-white py-8 px-6 flex flex-col items-center justify-center shadow-2xl min-h-[220px]",
+                className: "bg-white border-slate-200 text-slate-900 py-8 px-6 flex flex-col items-center justify-center shadow-2xl min-h-[220px]",
             });
 
             setFormData({ name: "", mobile: "", whatsapp: "", email: "", fatherName: "", course: "" });
