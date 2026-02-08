@@ -9,19 +9,19 @@ import StickyFooter from "@/components/ui/sticky-footer";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
-import domesticHeroVideo from "@/assets/domestic hero.mp4";
-import domesticStudentsImg from "@/assets/domestic students.jpg";
-import domesticDeskImg from "@/assets/domestic desk.jpg";
+import domesticHeroVideo from "@/assets/domestic-hero.mp4";
+import domesticStudentsImg from "@/assets/domestic-students.jpg";
+import domesticDeskImg from "@/assets/domestic-desk.jpg";
 import domesticCorridorImg from "@/assets/domestic-corridor.jpg";
-import domesticDoctorImg from "@/assets/domestic doc.jpg";
-import domesticEligibilityImg from "@/assets/domestic eligibilty.jpg";
+import domesticDoctorImg from "@/assets/domestic-doc.jpg";
+import domesticEligibilityImg from "@/assets/domestic-eligibility.jpg";
 import domesticNeetImg from "@/assets/dom-neet.jpg";
 import domesticCounselingImg from "@/assets/dom-register.jpg";
 import domesticClassroomImg from "@/assets/dom-clsroom.jpg";
 import domesticAdmissionImg from "@/assets/dom-study.jpg";
-import domesticSeatAllotmentImg from "@/assets/dom-seat allotment.jpg";
-import domesticGovtCollegeImg from "@/assets/domestic govrn.jpg";
-import domesticPrivateImg from "@/assets/domestic pvrt.jpg";
+import domesticSeatAllotmentImg from "@/assets/domestic-seat-allotment.jpg";
+import domesticGovtCollegeImg from "@/assets/domestic-govt-college.jpg";
+import domesticPrivateImg from "@/assets/domestic-private.jpg";
 import SEO from "@/components/SEO";
 
 const coursesData = [

@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 import CardFlip from "@/components/ui/flip-card";
-import featureVerified from "@/assets/verifief uni.jpg";
+import featureVerified from "@/assets/verified-uni.jpg";
 import featureTransparent from "@/assets/Transparency.jpg";
-import featureSupport from "@/assets/dedicated cons.jpg";
+import featureSupport from "@/assets/dedicated-cons.jpg";
 import featureHonest from "@/assets/honest.jpg";
 
 

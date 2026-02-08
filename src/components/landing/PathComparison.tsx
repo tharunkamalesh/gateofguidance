@@ -1,7 +1,7 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import mbbsIndiaImg from "@/assets/mbbs in india.avif";
-import mbbsAbroadImg from "@/assets/mbbs in abroad.png";
+import mbbsIndiaImg from "@/assets/mbbs-in-india.avif";
+import mbbsAbroadImg from "@/assets/mbbs-in-abroad.png";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 

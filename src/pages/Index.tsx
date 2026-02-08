@@ -15,15 +15,15 @@ import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
 import AirportTree from "@/components/ui/AirportTree";
 
-import fmgeAchiever1 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM (1).jpeg";
-import fmgeAchiever2 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM.jpeg";
-import fmgeAchiever3 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.33 PM (1).jpeg";
-import fmgeAchiever4 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.33 PM.jpeg";
+import fmgeAchiever1 from "@/assets/fmge-achiever-1.jpeg";
+import fmgeAchiever2 from "@/assets/fmge-achiever-2.jpeg";
+import fmgeAchiever3 from "@/assets/fmge-achiever-3.jpeg";
+import fmgeAchiever4 from "@/assets/fmge-achiever-4.jpeg";
 
-import airport1 from "@/assets/WhatsApp Image 2026-02-04 at 6.53.51 PM.jpeg";
-import airport2 from "@/assets/WhatsApp Image 2026-02-04 at 6.54.26 PM.jpeg";
-import airport3 from "@/assets/WhatsApp Image 2026-02-04 at 6.54.27 PM.jpeg";
-import airport4 from "@/assets/WhatsApp Image 2026-02-04 at 6.55.10 PM.jpeg";
+import airport1 from "@/assets/airport-1.jpeg";
+import airport2 from "@/assets/airport-2.jpeg";
+import airport3 from "@/assets/airport-3.jpeg";
+import airport4 from "@/assets/airport-4.jpeg";
 
 const Index = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

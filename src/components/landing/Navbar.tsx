@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
-import logoImage from "@/assets/gog logo.png";
+import logoImage from "@/assets/gog-logo.png";
 
 interface NavItem {
   label: string;

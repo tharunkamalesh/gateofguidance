@@ -25,7 +25,7 @@ import studentTabletImg from "@/assets/international-student-tablet.jpg";
 import studentsGroupImg from "@/assets/inter-group.jpg";
 import seminarImg from "@/assets/international-seminar.jpg";
 import destinationImg from "@/assets/inter-kazakasthan.jpg";
-import medicalDeskImg from "@/assets/domestic desk.jpg";
+import medicalDeskImg from "@/assets/domestic-desk.jpg";
 import travelImg from "@/assets/inter-travel.jpg";
 import worldMapBg from "@/assets/bg.jpg";
 import russiaImg from "@/assets/russia.webp";
@@ -34,16 +34,16 @@ import kyrgyzstanImg from "@/assets/Kyrgyzstan.jpg";
 import uzbekistanImg from "@/assets/Uzbekistan.webp";
 import chinaImg from "@/assets/China.jpg";
 import bangladeshImg from "@/assets/10.jpeg";
-import timorLesteImg from "@/assets/Timor Leste.jpg";
-import fmgeAchiever1 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM (1).jpeg";
-import fmgeAchiever2 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.32 PM.jpeg";
-import fmgeAchiever3 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.33 PM (1).jpeg";
-import fmgeAchiever4 from "@/assets/WhatsApp Image 2026-02-05 at 1.06.33 PM.jpeg";
+import timorLesteImg from "@/assets/timor-leste.jpg";
+import fmgeAchiever1 from "@/assets/fmge-achiever-1.jpeg";
+import fmgeAchiever2 from "@/assets/fmge-achiever-2.jpeg";
+import fmgeAchiever3 from "@/assets/fmge-achiever-3.jpeg";
+import fmgeAchiever4 from "@/assets/fmge-achiever-4.jpeg";
 
-import airport1 from "@/assets/WhatsApp Image 2026-02-04 at 6.53.51 PM.jpeg";
-import airport2 from "@/assets/WhatsApp Image 2026-02-04 at 6.54.26 PM.jpeg";
-import airport3 from "@/assets/WhatsApp Image 2026-02-04 at 6.54.27 PM.jpeg";
-import airport4 from "@/assets/WhatsApp Image 2026-02-04 at 6.55.10 PM.jpeg";
+import airport1 from "@/assets/airport-1.jpeg";
+import airport2 from "@/assets/airport-2.jpeg";
+import airport3 from "@/assets/airport-3.jpeg";
+import airport4 from "@/assets/airport-4.jpeg";
 
 const destinationsData = [
   {
