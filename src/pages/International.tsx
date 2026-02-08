@@ -525,28 +525,32 @@ const International = () => {
         <div className="section-container">
           <div
             ref={destinationsReveal.ref}
-            className={`border-2 border-border rounded-xl p-8 md:p-12 scroll-reveal ${destinationsReveal.isVisible ? 'is-visible' : ''}`}
+            className={`scroll-reveal ${destinationsReveal.isVisible ? 'is-visible' : ''}`}
           >
             <div className="text-center mb-8">
-              <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Destinations</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Destinations</span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mt-2 mb-4">
                 Primary study destinations
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground max-w-2xl mx-auto">
                 Established medical universities with strong international recognition and NMC approval.
               </p>
             </div>
 
             {/* Destinations Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-5 border border-border divide-x divide-y md:divide-y-0 divide-border mb-8 rounded-lg overflow-hidden bg-card/50">
+            <div className="grid grid-cols-2 md:grid-cols-5 border border-border divide-x divide-y md:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-card/50 shadow-sm">
               {destinationsData.map((dest, index) => (
                 <button
                   key={dest.id}
                   onClick={() => {
                     setActiveDest(index);
                     setSelectedMapCountry(dest.name);
+                    setIsUniListOpen(false);
                   }}
-                  className={`p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center ${activeDest === index ? 'bg-primary text-primary-foreground shadow-inner' : 'bg-transparent text-foreground'}`}
+                  className={cn(
+                    "p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
+                    activeDest === index ? "bg-primary text-primary-foreground shadow-lg" : "bg-transparent text-foreground"
+                  )}
                 >
                   <span className="text-xs md:text-sm font-semibold">{dest.name}</span>
                 </button>
@@ -554,27 +558,23 @@ const International = () => {
             </div>
 
             {/* Featured Destination */}
-            <div className="grid md:grid-cols-2 gap-12 items-start min-h-[400px]">
-              <div className="relative group overflow-hidden rounded-2xl shadow-xl md:sticky md:top-24">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-32">
                 <img
                   src={destinationsData[activeDest].image}
                   alt={destinationsData[activeDest].name}
-                  className="w-full aspect-video object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                  className="w-full aspect-video object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{destinationsData[activeDest].name}</h3>
-                  <div className="h-1 w-20 bg-primary rounded-full"></div>
-                </div>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6 md:space-y-8">
                 <div>
-                  <h3 className="text-2xl md:text-5xl font-display font-bold text-primary leading-tight">
+                  <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
                     {destinationsData[activeDest].title}
                   </h3>
+                  <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
                 </div>
-                <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+                <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                   {destinationsData[activeDest].description.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                   ))}
