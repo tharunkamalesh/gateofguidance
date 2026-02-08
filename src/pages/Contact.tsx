@@ -40,12 +40,12 @@ const Contact = () => {
             </div>
 
             {/* Image */}
-            <div className="hidden md:block">
-              <div className="aspect-square overflow-hidden rounded-xl">
+            <div className="block mt-8 md:mt-0">
+              <div className="aspect-square overflow-hidden rounded-2xl shadow-xl border border-border group">
                 <img
                   src={contactImage}
                   alt="Contact us"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>
