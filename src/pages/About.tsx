@@ -106,14 +106,14 @@ const About = () => {
             ref={directorReveal.ref}
             className={`grid md:grid-cols-2 gap-12 items-center scroll-reveal ${directorReveal.isVisible ? 'is-visible' : ''}`}
           >
-            <div className="order-2 md:order-1 rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto">
+            <div className="order-1 md:order-1 rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto">
               <img
                 src={gog1Img}
                 alt="Director"
                 className="w-full h-auto object-cover"
               />
             </div>
-            <div className="order-1 md:order-2">
+            <div className="order-2 md:order-2">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
                 Message from Director
               </h2>

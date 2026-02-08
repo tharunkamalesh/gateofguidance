@@ -34,13 +34,8 @@ const Contact = () => {
             ref={formReveal.ref}
             className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto scroll-reveal ${formReveal.isVisible ? 'is-visible' : ''}`}
           >
-            {/* Form */}
-            <div className="bg-[hsl(0,0%,91%)] p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
-              <ContactForm />
-            </div>
-
-            {/* Image */}
-            <div className="block mt-8 md:mt-0">
+            {/* Image - Hidden on mobile, second on desktop */}
+            <div className="hidden md:block order-2">
               <div className="aspect-square overflow-hidden rounded-2xl shadow-xl border border-border group">
                 <img
                   src={contactImage}
@@ -48,6 +43,11 @@ const Contact = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
+            </div>
+
+            {/* Form - Always first on mobile */}
+            <div className="order-1 md:order-1 bg-[hsl(0,0%,91%)] p-8 md:p-10 rounded-2xl border border-border transition-all hover:shadow-xl">
+              <ContactForm />
             </div>
           </div>
         </div>
