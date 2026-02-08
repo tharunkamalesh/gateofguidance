@@ -851,7 +851,7 @@ const International = () => {
               <HighlighterItem className="rounded-3xl p-6">
                 <div className="relative z-20 h-full overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-black py-20 px-6">
                   <Particles
-                    className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
+                    className="absolute inset-0 -z-10 opacity-40 transition-opacity duration-1000 ease-in-out"
                     quantity={200}
                     color={"#2d3552"}
                     vy={-0.2}

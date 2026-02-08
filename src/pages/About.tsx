@@ -114,8 +114,8 @@ const About = () => {
               />
             </div>
             <div className="order-2 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
-                Message from Director
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
+                Director
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg italic mb-6">
                 "Gate of Guidance was established with a clear vision to transform access to global medical education through integrity, transparency, and excellence. By simplifying complex admission, university selection, and visa processes, we have built a trusted, student-focused platform that delivers clarity and confidence at every stage. With an expanding presence across multiple locations, our expert team provides seamless end-to-end guidance—from strategic university selection to successful admissions and visa facilitation. Driven by the success of our students, we remain committed to shaping global medical careers and enabling access to world-class education worldwide."
@@ -292,7 +292,7 @@ const About = () => {
               <HighlighterItem className="rounded-3xl p-6">
                 <div className="relative z-20 h-full overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-black py-20 px-6">
                   <Particles
-                    className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
+                    className="absolute inset-0 -z-10 opacity-40 transition-opacity duration-1000 ease-in-out"
                     quantity={200}
                     color={"#2d3552"}
                     vy={-0.2}
