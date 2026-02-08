@@ -117,7 +117,7 @@ const About = () => {
               <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
                 Director
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg italic mb-6">
+              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
                 "Gate of Guidance was established with a clear vision to transform access to global medical education through integrity, transparency, and excellence. By simplifying complex admission, university selection, and visa processes, we have built a trusted, student-focused platform that delivers clarity and confidence at every stage. With an expanding presence across multiple locations, our expert team provides seamless end-to-end guidance—from strategic university selection to successful admissions and visa facilitation. Driven by the success of our students, we remain committed to shaping global medical careers and enabling access to world-class education worldwide."
               </p>
               <div className="pt-4 border-t border-border/50">
