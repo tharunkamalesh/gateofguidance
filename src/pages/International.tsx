@@ -736,17 +736,17 @@ const International = () => {
                     <SliderBtn
                       key={index}
                       value={step.sliderName}
-                      className="text-left cursor-pointer p-3 md:p-8 focus:outline-none transition-all duration-500 border-r border-border last:border-0 relative overflow-hidden group"
+                      className="text-left cursor-pointer p-4 md:p-8 focus:outline-none transition-all duration-500 border-r border-border last:border-0 relative overflow-hidden group"
                       progressBarClass="bg-primary"
                     >
                       <div className="relative z-10">
                         <span className={cn(
-                          "inline-block px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider mb-2 transition-colors duration-300",
+                          "inline-block px-2 py-0.5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-wider mb-2 transition-colors duration-300",
                           "bg-primary text-primary-foreground group-data-[active=true]:bg-white group-data-[active=true]:text-primary"
                         )}>
                           {step.label}
                         </span>
-                        <h4 className="text-sm md:text-lg font-bold text-primary group-data-[active=true]:text-white transition-colors duration-300 leading-tight">
+                        <h4 className="text-base md:text-xl font-bold text-primary group-data-[active=true]:text-white transition-colors duration-300 leading-tight">
                           {step.title}
                         </h4>
                       </div>
@@ -757,13 +757,13 @@ const International = () => {
                 <SliderContent>
                   {processSteps.map((step, index) => (
                     <SliderWrapper key={index} value={step.sliderName}>
-                      <div className="grid lg:grid-cols-2 gap-8 items-center bg-card border border-border rounded-2xl md:rounded-3xl overflow-hidden shadow-xl p-3 md:p-8">
+                      <div className="grid lg:grid-cols-2 gap-8 items-center bg-card border border-border rounded-2xl md:rounded-3xl overflow-hidden shadow-xl p-5 md:p-8">
                         <div className="order-2 lg:order-1 p-2 md:p-6">
                           <div className="flex items-center gap-4 mb-4 md:mb-6">
                             <span className="text-4xl md:text-6xl font-display font-bold text-primary/20">{step.number}</span>
                             <div className="h-px bg-primary/20 flex-1"></div>
                           </div>
-                          <h3 className="text-xl md:text-4xl font-display font-bold text-primary mb-3 md:mb-6">
+                          <h3 className="text-2xl md:text-4xl font-display font-bold text-primary mb-3 md:mb-6">
                             {step.title}
                           </h3>
                           <p className="text-sm md:text-xl text-muted-foreground leading-relaxed mb-4 md:mb-8">
