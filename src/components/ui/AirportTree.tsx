@@ -1,5 +1,4 @@
 import React from "react";
-import logoImage from "@/assets/gog logo.png";
 
 interface BranchData {
     image: string;
@@ -125,7 +124,7 @@ const AirportTree = ({ branches }: AirportTreeProps) => {
 
             {/* Logo at the bottom (tree trunk base) */}
             <div className="relative z-10 bg-white rounded-full p-0 shadow-2xl border-4 border-secondary/20 -mt-4 overflow-hidden">
-                <img src={logoImage} alt="Gate of Guidance" className="w-28 h-28 md:w-40 md:h-40 object-cover" />
+                <img src="/images/gog-logo.png" alt="Gate of Guidance" className="w-28 h-28 md:w-40 md:h-40 object-cover" />
             </div>
         </div>
     );

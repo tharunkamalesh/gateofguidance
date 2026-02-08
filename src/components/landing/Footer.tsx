@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
-import logoImage from "@/assets/gog logo.png";
+
 
 const footerLinks = {
   column1: [
@@ -35,7 +35,7 @@ const Footer = () => {
             <div>
               <Link to="/" className="block mb-8 group">
                 <img
-                  src={logoImage}
+                  src="/images/gog-logo.png"
                   alt="Gate of Guidance - The Career Destination"
                   className="h-36 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />

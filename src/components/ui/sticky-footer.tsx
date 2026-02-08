@@ -9,7 +9,7 @@ import {
 import { Button } from './button';
 import { Link } from 'react-router-dom';
 import footerBg from '@/assets/footer-background.png';
-import logoImage from '@/assets/gog logo.png';
+
 
 const socialLinks = [
     { title: 'Facebook', href: '#', icon: Facebook },
@@ -82,7 +82,7 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                         <div className="w-full col-span-2 sm:col-span-2 lg:col-span-1 space-y-4 md:space-y-6">
                             <Link to="/" className="shrink-0 flex justify-center md:justify-start mb-2 transition-transform hover:scale-105 active:scale-95">
                                 <img
-                                    src={logoImage}
+                                    src="/images/gog-logo.png"
                                     alt="Gate of Guidance"
                                     className="h-14 md:h-24 w-auto object-contain brightness-0 invert drop-shadow-2xl"
                                 />
