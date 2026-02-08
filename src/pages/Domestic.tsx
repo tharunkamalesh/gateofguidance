@@ -342,9 +342,9 @@ const Domestic = () => {
                   </h3>
                   <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
                 </div>
-                <ul className="text-muted-foreground text-lg leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+                <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-2 gap-x-4 md:gap-x-6 gap-y-2 md:gap-y-3">
                   {coursesData[activeHub].courses.map((course, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
+                    <li key={idx} className="flex items-start gap-1.5 md:gap-2">
                       <span className="text-primary font-bold">•</span>
                       <span className="text-foreground/80 font-medium">{course}</span>
                     </li>
