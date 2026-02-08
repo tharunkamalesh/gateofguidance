@@ -327,27 +327,26 @@ const Domestic = () => {
             </div>
 
             {/* Featured Course */}
-            <div className="grid md:grid-cols-2 gap-12 items-center min-h-[400px]">
-              <div className="relative group overflow-hidden rounded-2xl shadow-xl">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+              <div className="relative group overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border/50">
                 <img
                   src={coursesData[activeHub].image}
                   alt={coursesData[activeHub].name}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 md:space-y-8">
                 <div>
-                  <span className="text-sm font-bold text-primary uppercase tracking-widest">Courses Offered</span>
-                  <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 leading-tight">
+                  <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
                     {coursesData[activeHub].title}
                   </h3>
+                  <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
                 </div>
-                <ul className="text-muted-foreground text-base leading-relaxed grid grid-cols-2 gap-2 max-h-[250px] overflow-y-auto">
+                <ul className="text-muted-foreground text-lg leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
                   {coursesData[activeHub].courses.map((course, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{course}</span>
+                      <span className="text-primary font-bold">•</span>
+                      <span className="text-foreground/80 font-medium">{course}</span>
                     </li>
                   ))}
                 </ul>

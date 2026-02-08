@@ -559,11 +559,11 @@ const International = () => {
 
             {/* Featured Destination */}
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-32">
+              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-32 ring-1 ring-border/50">
                 <img
                   src={destinationsData[activeDest].image}
                   alt={destinationsData[activeDest].name}
-                  className="w-full aspect-video object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
+                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                 />
               </div>
 
