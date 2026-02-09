@@ -15,7 +15,7 @@ const testimonials = [
     rating: 5,
     quote:
       "Integrity and transparency are at the heart of their service. They managed my entire admission and visa process with extreme professionalism, giving me confidence at every stage.",
-    name: "Dr. Meera Krishnan",
+    name: "Dr. Noufal",
     role: "International Medical Graduate",
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     rating: 4,
     quote:
       "The guidance I received was truly transformative. Gate of Guidance simplified the complex admission and university selection process, making my dream of studying medicine a reality.",
-    name: "Dr. Arjun Sivan",
+    name: "Bilal kathar",
     role: "Government Medical College",
   },
   {
@@ -31,7 +31,7 @@ const testimonials = [
     rating: 4.5,
     quote:
       "A huge thank you to the team for their dedicated support. From strategic university selection to successful enrollment, they were with me every step of the way.",
-    name: "Dr. Rahul Verma",
+    name: "Sameer ahmad",
     role: "Top Tier Private Medical College",
   },
   {
@@ -39,7 +39,7 @@ const testimonials = [
     rating: 4,
     quote:
       "Gate of Guidance provides a seamless pathway for aspiring medical students. Their expertise in documentation and institutional matching ensures a smooth transition to your dream career.",
-    name: "Dr. Priya Sharma",
+    name: "Althaf from kollam",
     role: "International Medical Specialist",
   },
   {

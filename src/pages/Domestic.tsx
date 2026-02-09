@@ -26,6 +26,24 @@ import SEO from "@/components/SEO";
 
 const coursesData = [
   {
+    id: "engineering",
+    name: "Engineering",
+    title: "School of Engineering (B.E | B.Tech | M.E | M.Tech)",
+    courses: [
+      "Automobile Engineering", "Aerospace Engineering", "Automotive Engineering",
+      "Agricultural Engineering", "Bio Medical Engineering", "Biotechnology",
+      "Civil Engineering", "Mechanical Engineering", "Chemical Engineering",
+      "Fashion Technology", "Information Technology", "Metallurgical Engineering",
+      "Petroleum Engineering", "AI & Data Science", "AI & Machine Learning",
+      "Computer Science & Business Systems", "Textile Technology", "Mechatronics Engineering",
+      "Marine Engineering", "Nanotechnology Engineering", "Computer Science & Engineering",
+      "Electrical & Electronics Engineering", "Electronics & Communication Engineering",
+      "Instrumentation & Control Engineering", "Robotics & Automation Engineering",
+      "Food Processing and Engineering"
+    ],
+    image: domesticAdmissionImg,
+  },
+  {
     id: "commerce",
     name: "Commerce",
     title: "School of Commerce Courses",
@@ -40,10 +58,13 @@ const coursesData = [
     image: domesticStudentsImg,
   },
   {
-    id: "management",
-    name: "Management",
-    title: "School of Management Courses",
-    courses: ["B.B.A", "B.B.A (Computer Application)", "B.B.A (International Business)", "B.C.A (Computer Application)", "B.B.M (Business Management)"],
+    id: "management_arts",
+    name: "Management & Arts",
+    title: "School of Management & Arts Courses",
+    courses: [
+      "B.B.A", "B.B.A (Computer Application)", "B.B.A (International Business)", "B.C.A (Computer Application)", "B.B.M (Business Management)",
+      "B.A Criminology", "B.A (Tamil)", "B.A (Social Work)", "B.A (English)", "B.A (Corporate Secretaryship)", "B.A (Carnatic Music)"
+    ],
     image: domesticDeskImg,
   },
   {
@@ -59,13 +80,6 @@ const coursesData = [
     title: "School of Law Courses",
     courses: ["BA - LLB", "BBA - LLB", "LLB", "M.L", "LLM (Business Law)", "LLM (Human Rights)"],
     image: domesticCorridorImg,
-  },
-  {
-    id: "arts",
-    name: "Arts",
-    title: "School of Arts Courses",
-    courses: ["B.A Criminology", "B.A (Tamil)", "B.A (Social Work)", "B.A (English)", "B.A (Corporate Secretaryship)", "B.A (Carnatic Music)"],
-    image: domesticEligibilityImg,
   },
   {
     id: "pharmacy",
@@ -160,7 +174,7 @@ const Domestic = () => {
       <Navbar variant="transparent" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <video
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
@@ -171,25 +185,28 @@ const Domestic = () => {
           <source src={domesticHeroVideo} type="video/mp4" />
         </video>
 
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-slate-900/40 z-0" />
+
         <div
           ref={heroReveal.ref}
-          className={`relative z-10 section-container text-center text-primary-foreground scroll-reveal ${heroReveal.isVisible ? 'is-visible' : ''}`}
+          className={`relative z-10 section-container text-center text-white scroll-reveal ${heroReveal.isVisible ? 'is-visible' : ''}`}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 max-w-3xl mx-auto drop-shadow-lg">
             Navigate MBBS admissions with clarity
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 drop-shadow-md">
             We guide you through every step of India's medical education pathway with structured counselling and admission support. Your journey to becoming a doctor starts here.
           </p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/contact">
-              <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Enquire
+              <Button className="bg-primary text-white hover:bg-primary/90 px-10 py-7 text-lg rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 min-w-[200px]">
+                Enquire Now
               </Button>
             </Link>
             <Link to="/about">
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
-                Explore
+              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-7 text-lg rounded-full backdrop-blur-md transition-all hover:scale-105 active:scale-95 min-w-[200px] bg-transparent">
+                Explore More
               </Button>
             </Link>
           </div>

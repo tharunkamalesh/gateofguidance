@@ -14,7 +14,6 @@ import footerBg from '@/assets/footer-background.png';
 const socialLinks = [
     { title: 'Facebook', href: '#', icon: Facebook },
     { title: 'Instagram', href: '#', icon: Instagram },
-    { title: 'Youtube', href: '#', icon: Youtube },
     { title: 'LinkedIn', href: '#', icon: Linkedin },
 ];
 
@@ -45,8 +44,8 @@ const footerLinkGroups: FooterLinkGroup[] = [
     {
         label: 'Branches',
         links: [
-            { title: 'Theni: 197, L.F.Road, Cumbum - 625516.', href: '#' },
-            { title: 'Puducherry: No. 89, Anna Nagar Main Road, Anna Nagar - 605005.', href: '#' },
+            { title: 'Theni: 197, L F Road, Cumbum, Theni-625516', href: '#' },
+            { title: 'Puducherry: No:-89, Anna nagar Main Road, Anna nagar, Puducherry-605005', href: '#' },
         ],
     },
 ];

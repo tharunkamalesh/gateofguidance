@@ -105,7 +105,7 @@ const PathComparison = () => {
             subtitle="Global medical education opportunity"
             features={[
               { label: "NEET Requirement", value: "NEET Qualification" },
-              { label: "Academic Criteria", value: "PCB (Min 50%/40%)" },
+              { label: "Academic Criteria", value: "PCB (50% Gen, 40% Res)" },
               { label: "Age Limit", value: "Min. 17 Years" },
               { label: "Language", value: "English proficiency" },
             ]}

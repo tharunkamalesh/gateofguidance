@@ -18,14 +18,15 @@ import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/high
 import SEO from "@/components/SEO";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
-import AirportTree from "@/components/ui/AirportTree";
+import { ImageGallery } from "@/components/ui/carousel-circular-image-gallery";
 
 import heroVideo from "@/assets/inter-hero.mp4";
 import studentTabletImg from "@/assets/international-student-tablet.jpg";
 import studentsGroupImg from "@/assets/inter-group.jpg";
 import seminarImg from "@/assets/international-seminar.jpg";
-import destinationImg from "@/assets/inter-kazakasthan.jpg";
-import medicalDeskImg from "@/assets/domestic-desk.jpg";
+import clinicalExposureImg from "@/assets/dom-study.jpg";
+import destinationImg from "@/assets/international-destination.jpg";
+import medicalDeskImg from "@/assets/international-medical-desk.jpg";
 import travelImg from "@/assets/inter-travel.jpg";
 import worldMapBg from "@/assets/bg.jpg";
 import russiaImg from "@/assets/russia.webp";
@@ -78,23 +79,10 @@ const destinationsData = [
     description: "Azerbaijan offers high-quality medical education with a blend of European and Asian standards. The universities are globally recognized, offering English-medium programs with modern medical technology and extensive clinical training in safe, beautiful cities.",
     image: azerbaijanImg,
     universities: [
-      "Alfraganus University – Faculty of Medicine, Tashkent, Uzbekistan",
-      "University of Cambridge",
-      "University of Huddersfield",
-      "Hochschule Anhalt – University of Applied Sciences",
-      "Belgian Education Council",
-      "Pomeranian University in Słupsk",
-      "University of Latvia",
-      "Riga Technical University",
-      "Belarusian State University",
-      "Polotsk State University",
-      "Czech University of Life Sciences Prague",
-      "Namsoul University",
-      "Seowon University",
-      "Iryo Sosei University",
-      "Nippon Global Education and Assessment",
-      "Universiti Pendidikan Sultan Idris",
-      "Universiti Putra Malaysia"
+      "Azerbaijan Medical University (AMU)",
+      "Nakhchivan State University",
+      "Ganja State University",
+      "Baku State University"
     ]
   },
   {
@@ -165,6 +153,7 @@ const destinationsData = [
     description: "Bangladesh is a top choice for Indian students due to its medical syllabus and teaching patterns that closely resemble India's, making it easier to clear exams like FMGE/NEXT. With affordable education, a safe environment, and familiar culture (including food and language), it ensures a comfortable and successful academic journey.",
     image: bangladeshImg,
     universities: [
+      "Community Based Medical College",
       "Dhaka National Medical College",
       "Sahabuddin Medical College",
       "Maina Moti Medical College",
@@ -345,7 +334,7 @@ const International = () => {
                   </p>
                   <div className="grid grid-cols-1 gap-4">
                     <img
-                      src={studentsGroupImg}
+                      src={clinicalExposureImg}
                       alt="International medical students"
                       className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
                     />
@@ -846,13 +835,15 @@ const International = () => {
           </div>
         </div>
 
-        <div className="section-container pb-8">
-          <AirportTree
-            branches={[
-              { image: airport1 },
-              { image: airport2 },
-              { image: airport3 },
-              { image: airport4 },
+        <div className="section-container pb-12 overflow-visible">
+          <ImageGallery
+            images={[
+              { title: "Departure 1", url: airport1 },
+              { title: "Departure 2", url: airport2 },
+              { title: "Departure 3", url: airport3 },
+              { title: "Departure 4", url: airport4 },
+              { title: "Arrival 1", url: airport1 }, // Re-using for more items in the circular gallery
+              { title: "Arrival 2", url: airport2 },
             ]}
           />
         </div>

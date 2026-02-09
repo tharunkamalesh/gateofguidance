@@ -16,9 +16,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 section-container w-full pt-12 md:pt-20">
         <div className="max-w-3xl text-center md:text-left">
-          <div className="inline-block text-white font-medium tracking-wider uppercase text-[10px] md:text-sm mb-6 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
-            Built on Transparency.
-          </div>
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.2] md:leading-[1.1] mb-4 md:mb-6">
             Focused on Your <br className="sm:hidden" /> <span className="text-secondary italic">Medical Future.</span>
           </h1>

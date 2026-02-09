@@ -7,7 +7,7 @@ import { db } from "../../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/components/ui/use-toast";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, X } from "lucide-react";
 
 const SUBMISSION_KEY = "gog_form_submitted";
 
@@ -162,7 +162,17 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
     // Show "Already Submitted" message if user has already submitted from this device
     if (hasAlreadySubmitted) {
         return (
-            <div className={`flex flex-col items-center justify-center py-12 px-6 text-center ${className}`}>
+            <div className={`relative flex flex-col items-center justify-center py-12 px-6 text-center ${className}`}>
+                <button
+                    onClick={() => {
+                        localStorage.removeItem(SUBMISSION_KEY);
+                        setHasAlreadySubmitted(false);
+                    }}
+                    className="absolute top-2 right-2 p-2 rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-600"
+                    aria-label="Close"
+                >
+                    <X size={20} />
+                </button>
                 <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6 ring-2 ring-green-500/20">
                     <CheckCircle className="w-12 h-12 text-green-500" />
                 </div>

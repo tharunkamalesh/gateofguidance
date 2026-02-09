@@ -13,7 +13,7 @@ import { PopupForm } from "@/components/ui/PopupForm";
 import SEO from "@/components/SEO";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
-import AirportTree from "@/components/ui/AirportTree";
+import { ImageGallery } from "@/components/ui/carousel-circular-image-gallery";
 
 import fmgeAchiever1 from "@/assets/fmge-achiever-1.jpeg";
 import fmgeAchiever2 from "@/assets/fmge-achiever-2.jpeg";
@@ -108,13 +108,15 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="section-container pb-8">
-          <AirportTree
-            branches={[
-              { image: airport1 },
-              { image: airport2 },
-              { image: airport3 },
-              { image: airport4 },
+        <div className="section-container pb-12 overflow-visible">
+          <ImageGallery
+            images={[
+              { title: "Departure 1", url: airport1 },
+              { title: "Departure 2", url: airport2 },
+              { title: "Departure 3", url: airport3 },
+              { title: "Departure 4", url: airport4 },
+              { title: "Arrival 1", url: airport1 },
+              { title: "Arrival 2", url: airport2 },
             ]}
           />
         </div>
