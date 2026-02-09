@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +7,9 @@ import { db } from "../../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/components/ui/use-toast";
+import { CheckCircle } from "lucide-react";
+
+const SUBMISSION_KEY = "gog_form_submitted";
 
 const contactSchema = z.object({
     name: z.string().trim().min(1, "Name is required").max(100),
@@ -26,6 +29,7 @@ interface ContactFormProps {
 
 export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
     const { toast } = useToast();
+    const [hasAlreadySubmitted, setHasAlreadySubmitted] = useState(false);
     const [formData, setFormData] = useState<ContactFormData>({
         name: "",
         mobile: "",
@@ -36,6 +40,19 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
     });
     const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Check localStorage on mount to see if user has already submitted
+    useEffect(() => {
+        try {
+            const submitted = localStorage.getItem(SUBMISSION_KEY);
+            if (submitted === "true") {
+                setHasAlreadySubmitted(true);
+            }
+        } catch (e) {
+            // localStorage might be unavailable (e.g., private browsing)
+            console.warn("localStorage not available:", e);
+        }
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -120,6 +137,14 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                 className: "bg-white border-slate-200 text-slate-900 py-8 px-6 flex flex-col items-center justify-center shadow-2xl min-h-[220px]",
             });
 
+            // Save to localStorage to prevent duplicate submissions from same device
+            try {
+                localStorage.setItem(SUBMISSION_KEY, "true");
+                setHasAlreadySubmitted(true);
+            } catch (e) {
+                console.warn("Could not save to localStorage:", e);
+            }
+
             setFormData({ name: "", mobile: "", whatsapp: "", email: "", fatherName: "", course: "" });
             if (onSuccess) onSuccess();
         } catch (error) {
@@ -133,6 +158,24 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
             setIsSubmitting(false);
         }
     };
+
+    // Show "Already Submitted" message if user has already submitted from this device
+    if (hasAlreadySubmitted) {
+        return (
+            <div className={`flex flex-col items-center justify-center py-12 px-6 text-center ${className}`}>
+                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6 ring-2 ring-green-500/20">
+                    <CheckCircle className="w-12 h-12 text-green-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                    Already Submitted!
+                </h3>
+                <p className="text-slate-600 text-base leading-relaxed max-w-sm">
+                    You have already submitted your application from this device.
+                    Our team will contact you shortly.
+                </p>
+            </div>
+        );
+    }
 
     return (
         <form onSubmit={handleSubmit} className={`space-y-4 ${className}`} autoComplete="off">
@@ -229,7 +272,7 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     value={formData.course}
                     onChange={handleChange}
                     className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
-                    placeholder="e.g. MBBS Abroad, Domestic MBBS"
+                    placeholder="Enter your course"
                     autoComplete="off"
                 />
                 {errors.course && <p className="text-destructive text-[11px] font-medium mt-1 ml-1">{errors.course}</p>}
