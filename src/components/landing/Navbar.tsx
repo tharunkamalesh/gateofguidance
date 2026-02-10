@@ -89,7 +89,10 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
               <img
                 src="/images/gog-logo.png"
                 alt="Gate of Guidance - The Career Destination"
-                className="h-12 md:h-24 w-auto object-contain transition-all duration-300 drop-shadow-2xl"
+                className={cn(
+                  "h-12 md:h-24 w-auto object-contain transition-all duration-300 drop-shadow-2xl",
+                  !shouldBeSolid && "brightness-0 invert"
+                )}
               />
             </Link>
 
