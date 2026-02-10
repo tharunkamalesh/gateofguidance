@@ -73,10 +73,7 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
             >
                 <div className="max-w-[1600px] mx-auto px-6 md:px-12">
                     <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
-                        <div className="flex items-center gap-2 order-1 md:order-1">
-                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                            <p className="font-semibold text-white/80 italic">Empowering Future Doctors</p>
-                        </div>
+
                         <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
                         <div className="flex gap-8 order-3 md:order-3">
                             <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
@@ -160,10 +157,7 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
 
                     <div className="pt-8">
                         <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
-                            <div className="flex items-center gap-2 order-1 md:order-1">
-                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                                <p className="font-semibold text-white/80 italic">Empowering Future Doctors</p>
-                            </div>
+
                             <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
                             <div className="flex gap-8 order-3 md:order-3">
                                 <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
