@@ -4,13 +4,13 @@ import heroImage from "@/assets/hero main.jpg";
 const Hero = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-end md:items-center overflow-hidden">
-      {/* Background Image - Full bleed, centered on subject */}
+      {/* Background Image - Full bleed, face centered */}
       <div
-        className="absolute inset-0 bg-cover bg-[50%_20%] md:bg-right bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[50%_30%] md:bg-right bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        {/* Subtle overlay - lighter to let the image breathe */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-slate-900/20 md:bg-gradient-to-r md:from-[hsl(227,35%,15%)]/85 md:via-[hsl(227,35%,15%)]/40 md:to-transparent" />
+        {/* Light overlay on mobile to let the face show through clearly */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-slate-900/10 md:bg-gradient-to-r md:from-[hsl(227,35%,15%)]/85 md:via-[hsl(227,35%,15%)]/40 md:to-transparent" />
       </div>
 
       {/* Content - positioned at bottom on mobile for the immersive look */}
