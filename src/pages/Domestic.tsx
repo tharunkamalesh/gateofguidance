@@ -337,39 +337,39 @@ const Domestic = () => {
             </div>
 
             {/* Courses Tabs - Box Style matching International Page */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md max-w-full">
               {coursesData.map((course, index) => (
                 <button
                   key={course.id}
                   onClick={() => setActiveHub(index)}
                   className={cn(
-                    "min-h-[60px] md:min-h-[80px] p-2 md:p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
+                    "min-h-[50px] md:min-h-[80px] p-2 md:p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
                     activeHub === index ? "bg-primary text-primary-foreground" : "bg-transparent text-slate-700"
                   )}
                 >
-                  <span className="text-[11px] md:text-sm font-bold tracking-tight uppercase">{course.name}</span>
+                  <span className="text-[10px] sm:text-[11px] md:text-sm font-bold tracking-tight uppercase break-words px-1">{course.name}</span>
                 </button>
               ))}
             </div>
 
             {/* Featured Course Content */}
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-40 ring-1 ring-border/50 mt-12">
+              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-40 ring-1 ring-border/50 lg:mt-12">
                 <img
                   src={coursesData[activeHub].image}
                   alt={coursesData[activeHub].name}
-                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
+                  className="w-full aspect-[4/3] sm:aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                 />
               </div>
               <div className="space-y-6 md:space-y-8">
                 <div>
-                  <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
+                  <h3 className="text-2xl md:text-5xl font-display font-bold text-primary leading-tight">
                     {coursesData[activeHub].title}
                   </h3>
                   <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
                 </div>
 
-                <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-1 sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 max-h-[300px] md:max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                   {coursesData[activeHub].courses.map((course, idx) => (
                     <li key={idx} className="flex items-start gap-2 group/item">
                       <span className="text-primary font-bold mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
@@ -378,9 +378,9 @@ const Domestic = () => {
                   ))}
                 </ul>
 
-                <div className="pt-8">
-                  <Link to="/contact" className="inline-block w-full md:w-auto">
-                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-4 h-auto text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full md:w-auto">
+                <div className="pt-4 md:pt-8 text-center sm:text-left">
+                  <Link to="/contact" className="inline-block w-full sm:w-auto">
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-4 h-auto text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full sm:w-auto">
                       Admission in {coursesData[activeHub].name}
                       <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>

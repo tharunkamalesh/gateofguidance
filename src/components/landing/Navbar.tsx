@@ -85,7 +85,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
         <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 w-full">
           <div className="flex items-center justify-between h-16 md:h-28 transition-all duration-300">
             {/* Logo */}
-            <Link to="/" className="shrink-0 -ml-2 md:-ml-4 flex items-center transition-transform hover:scale-105 active:scale-95">
+            <Link to="/" className="shrink-0 flex items-center transition-transform hover:scale-105 active:scale-95">
               <img
                 src="/images/gog-logo.png"
                 alt="Gate of Guidance - The Career Destination"

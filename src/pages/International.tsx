@@ -545,7 +545,7 @@ const International = () => {
             </div>
 
             {/* Destinations Grid - Standardized for all countries */}
-            <div className="grid grid-cols-2 lg:grid-cols-7 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md max-w-full">
               {destinationsData.map((dest, index) => (
                 <button
                   key={dest.id}
@@ -555,11 +555,11 @@ const International = () => {
                     setIsUniListOpen(false);
                   }}
                   className={cn(
-                    "min-h-[60px] md:min-h-[80px] p-2 md:p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
+                    "min-h-[50px] md:min-h-[80px] p-2 md:p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
                     activeDest === index ? "bg-primary text-primary-foreground" : "bg-transparent text-slate-700"
                   )}
                 >
-                  <span className="text-[11px] md:text-sm font-bold tracking-tight uppercase">{dest.name}</span>
+                  <span className="text-[10px] sm:text-[11px] md:text-sm font-bold tracking-tight uppercase break-words px-1">{dest.name}</span>
                 </button>
               ))}
             </div>
@@ -570,13 +570,13 @@ const International = () => {
                 <img
                   src={destinationsData[activeDest].image}
                   alt={destinationsData[activeDest].name}
-                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
+                  className="w-full aspect-[4/3] sm:aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                 />
               </div>
 
               <div className="space-y-6 md:space-y-8">
                 <div>
-                  <h3 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
+                  <h3 className="text-2xl md:text-5xl font-display font-bold text-primary leading-tight">
                     {destinationsData[activeDest].title}
                   </h3>
                   <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
