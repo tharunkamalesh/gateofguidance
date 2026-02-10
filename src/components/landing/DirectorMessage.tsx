@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import directorImg from "@/assets/director image.jpeg";
+import directorImg from "@/assets/new.jpeg";
 import { Quote } from "lucide-react";
 
 export const DirectorMessage = () => {
@@ -45,14 +45,14 @@ export const DirectorMessage = () => {
                             </h2>
                         </div>
 
-                        <div className="space-y-6 text-lg text-slate-600 leading-relaxed italic font-medium">
+                        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                             <p>
                                 "Gate of Guidance was founded with a mission to simplify the complex path to international medical education. We provide transparent, ethical guidance to help students navigate admissions and visa processing with ease. Our expertise ensures that every aspiring doctor finds the right institution matching their merit and goals. We are committed to building a trusted platform where integrity and student success are the priority. Join us as we bridge the gap between dreams and reality for future medical professionals worldwide."
                             </p>
                         </div>
 
                         <div className="pt-4 space-y-2 border-t border-slate-200">
-                            <p className="text-2xl font-display font-bold text-slate-900">Mr. Murali Dharan</p>
+                            <p className="text-2xl font-display font-bold text-primary">Mr. Murali Dharan</p>
                             <p className="text-primary font-medium">Founder & Director, GateOfGuidance</p>
                         </div>
                     </motion.div>

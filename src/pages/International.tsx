@@ -172,7 +172,7 @@ const destinationsData = [
     title: "Timor Leste",
     description: "Timor Leste is a peaceful Southeast Asian nation with a tropical climate and affordable living costs. Medical programs are offered in English, providing students with real-world clinical experience in local hospitals. The degree is recognized internationally, allowing graduates to pursue global medical careers.",
     image: timorLesteImg,
-    universities: []
+    universities: ["Universidade Catolica Timorense(UCT)"]
   },
 ];
 

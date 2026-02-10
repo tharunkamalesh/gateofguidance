@@ -55,7 +55,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
   const isSolidPage = location.pathname === "/contact";
   const shouldBeSolid = scrolled || isSolidPage || variant === "solid" || mobileMenuOpen;
 
-  // Dynamic Styles
+  // Dynamic Styles - Overlay content initially, transition to solid on scroll
   const navbarClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
     shouldBeSolid
@@ -89,9 +89,7 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
               <img
                 src="/images/gog-logo.png"
                 alt="Gate of Guidance - The Career Destination"
-                className={cn(
-                  "h-12 md:h-24 w-auto object-contain transition-all duration-300 brightness-0 invert drop-shadow-2xl"
-                )}
+                className="h-12 md:h-24 w-auto object-contain transition-all duration-300 drop-shadow-2xl"
               />
             </Link>
 

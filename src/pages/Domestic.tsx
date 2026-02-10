@@ -13,7 +13,8 @@ import domesticHeroVideo from "@/assets/domestic-hero.mp4";
 import domesticStudentsImg from "@/assets/domestic-students.jpg";
 import domesticDeskImg from "@/assets/domestic-desk.jpg";
 import domesticCorridorImg from "@/assets/domestic-corridor.jpg";
-import domesticDoctorImg from "@/assets/domestic-doc.jpg";
+import domesticDoctorImg from "@/assets/domestic-doctor.jpg";
+import domesticDocImg from "@/assets/domestic-doc.jpg";
 import domesticEligibilityImg from "@/assets/domestic-eligibility.jpg";
 import domesticNeetImg from "@/assets/dom-neet.jpg";
 import domesticCounselingImg from "@/assets/dom-register.jpg";
@@ -22,13 +23,23 @@ import domesticAdmissionImg from "@/assets/dom-study.jpg";
 import domesticSeatAllotmentImg from "@/assets/domestic-seat-allotment.jpg";
 import domesticGovtCollegeImg from "@/assets/domestic-govt-college.jpg";
 import domesticPrivateImg from "@/assets/domestic-private.jpg";
+import internationalSeminarImg from "@/assets/international-seminar.jpg";
+import verifiedUniImg from "@/assets/verified-uni.jpg";
+import engineeringImg from "@/assets/engineeering.jpeg";
+import commerceImg from "@/assets/commerce.jpeg";
+import scienceImg from "@/assets/science.jpeg";
+import artsImg from "@/assets/arts.jpeg";
+import agriImg from "@/assets/agri.jpeg";
+import nursingImg from "@/assets/nursing.jpeg";
+import pharmacyImg from "@/assets/pharmacy.jpeg";
+import lawImg from "@/assets/law.jpeg";
 import SEO from "@/components/SEO";
 
 const coursesData = [
   {
     id: "engineering",
     name: "Engineering",
-    title: "School of Engineering (B.E | B.Tech | M.E | M.Tech)",
+    title: "School of Engineering",
     courses: [
       "Automobile Engineering", "Aerospace Engineering", "Automotive Engineering",
       "Agricultural Engineering", "Bio Medical Engineering", "Biotechnology",
@@ -41,59 +52,59 @@ const coursesData = [
       "Instrumentation & Control Engineering", "Robotics & Automation Engineering",
       "Food Processing and Engineering"
     ],
-    image: domesticAdmissionImg,
+    image: engineeringImg,
   },
   {
     id: "commerce",
     name: "Commerce",
-    title: "School of Commerce Courses",
+    title: "School of Commerce",
     courses: ["B.Com (Hons)", "B.Com (Computer Application)", "B.Com (Chartered Accountancy)", "B.Com (with Accounting & Finance)", "B.Com (Information Technology)", "B.Com (Cost & Management Accountant)", "B.Com (Business Process Services)", "B.Com (Company Secretary)", "B.Com (Certified Financial Planner)", "B.Com (E-Commerce)", "B.Com (Banking & Insurance)", "B.Com (Professional Accounting)"],
-    image: domesticGovtCollegeImg,
+    image: commerceImg,
   },
   {
     id: "science",
     name: "Science",
-    title: "School of Science Courses",
+    title: "School of Science",
     courses: ["B.Sc. (Computer Science)", "B.Sc. (Computer Technology)", "B.Sc. (Embedded & Real-time System)", "B.Sc. (Biochemistry)", "B.Sc. (Control Systems)", "B.Sc. (Computer System & Design)", "B.Sc. (Microbiology)", "B.Sc. (Information Technology)", "B.Sc. (Communication System)", "B.Sc. (Zoology)", "B.Sc. (Chemistry)", "B.Sc. (Botany)", "B.Sc. (Rural Development Science)", "B.Sc. (Electronics)", "B.Sc. (Mathematics)", "B.Sc. (Industrial Electronics)", "B.Sc. (Costume Design & Fashion)", "B.Sc. (Interior Decoration)", "B.Sc. (Visual Communication)", "B.Sc. (Mathematics with CA)", "B.Sc. Cyber Security", "B.Sc. (Rehabilitation Science)", "B.Sc. (Geology)", "B.Sc. (Physical Education)", "B.Sc. (Physics)", "B.Sc. (Psychology)", "B.Sc. (Industrial Microbiology)", "B.Sc. Forensic Science", "B.Sc. (Computer Integrated Manufacturing)", "B.Sc. Information Security & Digital Forensics"],
-    image: domesticStudentsImg,
+    image: scienceImg,
   },
   {
     id: "management_arts",
     name: "Management & Arts",
-    title: "School of Management & Arts Courses",
+    title: "School of Management & Arts",
     courses: [
       "B.B.A", "B.B.A (Computer Application)", "B.B.A (International Business)", "B.C.A (Computer Application)", "B.B.M (Business Management)",
       "B.A Criminology", "B.A (Tamil)", "B.A (Social Work)", "B.A (English)", "B.A (Corporate Secretaryship)", "B.A (Carnatic Music)"
     ],
-    image: domesticDeskImg,
+    image: artsImg,
   },
   {
     id: "agriculture",
     name: "Agriculture",
-    title: "School of Agriculture Courses",
+    title: "School of Agriculture",
     courses: ["B.Sc. Agriculture", "B.Sc. Horticulture", "B.Sc. Fisheries Science", "B.Sc. Forestry", "B.Sc. Dairy Science"],
-    image: domesticDoctorImg,
+    image: agriImg,
   },
   {
     id: "law",
     name: "Law",
-    title: "School of Law Courses",
+    title: "School of Law",
     courses: ["BA - LLB", "BBA - LLB", "LLB", "M.L", "LLM (Business Law)", "LLM (Human Rights)"],
-    image: domesticCorridorImg,
+    image: lawImg,
   },
   {
     id: "pharmacy",
     name: "Pharmacy",
-    title: "Pharmacy Courses",
+    title: "School of Pharmacy",
     courses: ["Diploma in Pharmacy", "B.Pharm", "Pharm.D", "M.Pharm in Pharmaceutics", "M.Pharm in Industrial Pharmacy", "M.Pharm in Pharmacy Practice", "M.Pharm in Pharmacology", "M.Pharm in Pharmaceutical Analysis", "BPT", "MPT", "MPT Cardio Pulmonary Diseases", "MPT Orthopaedics", "MPT Neurology", "MPT Sports Physiotherapy", "MPT Paediatric Neurology", "MPT Obstetrics and Gynaecology"],
-    image: domesticNeetImg,
+    image: pharmacyImg,
   },
   {
     id: "nursing",
     name: "Nursing",
-    title: "Nursing Courses",
+    title: "School of Nursing",
     courses: ["B.Sc. Nursing", "GNM & ANM", "M.Sc. Nursing", "Psychiatric Nursing", "Medical-Surgical Nursing", "Public Health Nursing", "Critical Care Nursing", "Occupational Health Nursing", "Obstetrics and Gynaecology", "Pediatric Nursing", "Oncology", "Orthopaedic Nursing", "Neuroscience", "Neuroscience Nursing", "Nursing Management"],
-    image: domesticCounselingImg,
+    image: nursingImg,
   },
 ];
 
@@ -299,7 +310,7 @@ const Domestic = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-full blur-3xl" />
               <img
-                src={domesticDoctorImg}
+                src={domesticDocImg}
                 alt="Medical professional"
                 className="relative w-full h-[400px] object-cover rounded-2xl shadow-2xl"
               />
@@ -325,14 +336,12 @@ const Domestic = () => {
               </p>
             </div>
 
-            {/* Courses Grid - Standardized for all categories */}
-            <div className="grid grid-cols-2 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md">
+            {/* Courses Tabs - Box Style matching International Page */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md">
               {coursesData.map((course, index) => (
                 <button
                   key={course.id}
-                  onClick={() => {
-                    setActiveHub(index);
-                  }}
+                  onClick={() => setActiveHub(index)}
                   className={cn(
                     "min-h-[60px] md:min-h-[80px] p-2 md:p-4 text-center transition-all duration-300 hover:bg-primary/5 h-full flex items-center justify-center",
                     activeHub === index ? "bg-primary text-primary-foreground" : "bg-transparent text-slate-700"
@@ -343,9 +352,9 @@ const Domestic = () => {
               ))}
             </div>
 
-            {/* Featured Course */}
+            {/* Featured Course Content */}
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-              <div className="relative group overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border/50">
+              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-40 ring-1 ring-border/50 mt-12">
                 <img
                   src={coursesData[activeHub].image}
                   alt={coursesData[activeHub].name}
@@ -359,19 +368,21 @@ const Domestic = () => {
                   </h3>
                   <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
                 </div>
-                <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-2 gap-x-4 md:gap-x-6 gap-y-2 md:gap-y-3 max-h-[350px] md:max-h-none overflow-y-auto md:overflow-visible pr-2 custom-scrollbar">
+
+                <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                   {coursesData[activeHub].courses.map((course, idx) => (
-                    <li key={idx} className="flex items-start gap-1.5 md:gap-2">
-                      <span className="text-primary font-bold">•</span>
+                    <li key={idx} className="flex items-start gap-2 group/item">
+                      <span className="text-primary font-bold mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
                       <span className="text-foreground/80 font-medium">{course}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="pt-4">
-                  <Link to="/contact">
-                    <Button className="rounded-full px-8 flex items-center gap-2 group">
-                      Enquire about {coursesData[activeHub].name}
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+
+                <div className="pt-8">
+                  <Link to="/contact" className="inline-block w-full md:w-auto">
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-4 h-auto text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full md:w-auto">
+                      Admission in {coursesData[activeHub].name}
+                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                 </div>

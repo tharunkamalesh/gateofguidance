@@ -211,36 +211,7 @@ export default function CardFlip({
                         </div>
                     </div>
 
-                    <div className="relative z-10 mt-auto border-t border-slate-200 pt-4 dark:border-zinc-800">
-                        <div
-                            className={cn(
-                                'group/start relative',
-                                'flex items-center justify-between',
-                                'rounded-lg p-2.5',
-                                'transition-all duration-300',
-                                'bg-gradient-to-r from-slate-100 via-slate-100 to-slate-100',
-                                'dark:from-zinc-800 dark:via-zinc-800 dark:to-zinc-800',
-                                'hover:from-primary/10 hover:via-primary/5 hover:to-transparent',
-                                'dark:hover:from-primary/20 dark:hover:via-primary/10 dark:hover:to-transparent',
-                                'hover:scale-[1.02] hover:cursor-pointer',
-                                'hover:border-primary/20 border border-transparent',
-                            )}
-                        >
-                            <span className="group-hover/start:text-primary text-sm font-semibold text-zinc-900 transition-colors duration-300 dark:text-white">
-                                Learn More
-                            </span>
-                            <div className="group/icon relative">
-                                <div
-                                    className={cn(
-                                        'absolute inset-[-6px] rounded-lg transition-all duration-300',
-                                        'from-primary/20 via-primary/10 bg-gradient-to-br to-transparent',
-                                        'scale-90 opacity-0 group-hover/start:scale-100 group-hover/start:opacity-100',
-                                    )}
-                                />
-                                <ArrowRight className="text-primary relative z-10 h-4 w-4 transition-all duration-300 group-hover/start:translate-x-1 group-hover/start:scale-110" />
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

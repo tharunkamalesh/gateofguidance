@@ -8,6 +8,7 @@ import img4 from "@/assets/s4.jpeg";
 import img5 from "@/assets/1.jpeg";
 import img6 from "@/assets/2.jpeg";
 import img7 from "@/assets/3.jpeg";
+import img8 from "@/assets/7.jpeg";
 
 const testimonials = [
   {
@@ -65,6 +66,14 @@ const testimonials = [
       "The expert advice I received was instrumental in navigating the complex medical admission pathway. Their honest approach ensured I made the best decision for my future career.",
     name: "Dr Hari Saravanan",
     role: "Dindugal",
+  },
+  {
+    image: img8,
+    rating: 5,
+    quote:
+      "Choosing Dhaka International College, Bangladesh was one of my best decisions. The guidance and documentation support provided by the team were incredibly efficient and reliable.",
+    name: "Rithika",
+    role: "Dhaka International College, Bangladesh",
   },
 ];
 
