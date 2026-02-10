@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="relative h-screen min-h-[600px] flex items-end md:items-center overflow-hidden">
       {/* Background Image - Full bleed, face centered */}
       <div
-        className="absolute inset-0 bg-cover bg-[50%_30%] md:bg-right bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[65%_20%] md:bg-right bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         {/* Light overlay on mobile to let the face show through clearly */}
