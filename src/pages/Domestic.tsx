@@ -388,9 +388,9 @@ const Domestic = () => {
 
                 <div className="pt-2 md:pt-8 text-center sm:text-left">
                   <Link to="/contact" className="inline-block w-full sm:w-auto">
-                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 md:px-10 py-3 md:py-4 h-auto text-base md:text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full sm:w-auto">
-                      Admission in {coursesData[activeHub].name}
-                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-5 sm:px-8 md:px-10 py-3 md:py-4 h-auto text-sm sm:text-base md:text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full sm:w-auto whitespace-normal text-center leading-tight">
+                      <span>Admission in {coursesData[activeHub].name}</span>
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                 </div>
