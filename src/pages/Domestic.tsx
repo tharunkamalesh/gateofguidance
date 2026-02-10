@@ -324,7 +324,7 @@ const Domestic = () => {
         <div className="section-container">
           <div
             ref={hubsReveal.ref}
-            className={`border-2 border-border rounded-xl p-8 md:p-12 scroll-reveal ${hubsReveal.isVisible ? 'is-visible' : ''}`}
+            className={`border-2 border-border rounded-xl p-4 sm:p-8 md:p-12 overflow-hidden scroll-reveal ${hubsReveal.isVisible ? 'is-visible' : ''}`}
           >
             <div className="text-center mb-8">
               <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Programs</span>
@@ -337,7 +337,7 @@ const Domestic = () => {
             </div>
 
             {/* Courses Tabs - Box Style matching International Page */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-12 rounded-xl overflow-hidden bg-white shadow-md max-w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 border border-border divide-x divide-y lg:divide-y-0 divide-border mb-8 md:mb-12 rounded-xl overflow-hidden bg-white shadow-md">
               {coursesData.map((course, index) => (
                 <button
                   key={course.id}
@@ -353,34 +353,42 @@ const Domestic = () => {
             </div>
 
             {/* Featured Course Content */}
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-              <div className="relative group overflow-hidden rounded-2xl shadow-2xl lg:sticky lg:top-40 ring-1 ring-border/50 lg:mt-12">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-start">
+              {/* Image - constrained height on mobile */}
+              <div className="relative group overflow-hidden rounded-xl md:rounded-2xl shadow-lg md:shadow-2xl lg:sticky lg:top-40 ring-1 ring-border/50 max-h-[200px] sm:max-h-[280px] md:max-h-none">
                 <img
                   src={coursesData[activeHub].image}
                   alt={coursesData[activeHub].name}
-                  className="w-full aspect-[4/3] sm:aspect-[3/2] object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                 />
               </div>
-              <div className="space-y-6 md:space-y-8">
+
+              {/* Course details */}
+              <div className="space-y-4 md:space-y-8">
                 <div>
-                  <h3 className="text-2xl md:text-5xl font-display font-bold text-primary leading-tight">
+                  <h3 className="text-xl sm:text-2xl md:text-5xl font-display font-bold text-primary leading-tight">
                     {coursesData[activeHub].title}
                   </h3>
-                  <div className="h-1.5 w-20 bg-primary rounded-full mt-4"></div>
+                  <div className="h-1.5 w-16 md:w-20 bg-primary rounded-full mt-3 md:mt-4"></div>
                 </div>
 
-                <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-1 sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 max-h-[300px] md:max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-                  {coursesData[activeHub].courses.map((course, idx) => (
-                    <li key={idx} className="flex items-start gap-2 group/item">
-                      <span className="text-primary font-bold mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
-                      <span className="text-foreground/80 font-medium">{course}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Scrollable course list with fade indicator */}
+                <div className="relative">
+                  <ul className="text-muted-foreground text-sm md:text-lg leading-relaxed grid grid-cols-1 sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-3 max-h-[220px] sm:max-h-[280px] md:max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                    {coursesData[activeHub].courses.map((course, idx) => (
+                      <li key={idx} className="flex items-start gap-2 group/item">
+                        <span className="text-primary font-bold mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
+                        <span className="text-foreground/80 font-medium text-sm">{course}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {/* Fade-out at bottom to hint scrollability */}
+                  <div className="pointer-events-none absolute bottom-0 left-0 right-2 h-8 bg-gradient-to-t from-background to-transparent md:hidden"></div>
+                </div>
 
-                <div className="pt-4 md:pt-8 text-center sm:text-left">
+                <div className="pt-2 md:pt-8 text-center sm:text-left">
                   <Link to="/contact" className="inline-block w-full sm:w-auto">
-                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-4 h-auto text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full sm:w-auto">
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 md:px-10 py-3 md:py-4 h-auto text-base md:text-lg font-bold shadow-lg flex items-center justify-center gap-2 group transition-all hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 w-full sm:w-auto">
                       Admission in {coursesData[activeHub].name}
                       <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
