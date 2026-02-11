@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -163,25 +164,32 @@ export const ContactForm = ({ onSuccess, className, compact = false }: ContactFo
     // Show "Already Submitted" message if user has already submitted from this device
     if (hasAlreadySubmitted) {
         return (
-            <div className={`relative flex flex-col items-center justify-center py-12 px-6 text-center ${className}`}>
+            <div className={cn(
+                "relative flex flex-col items-center justify-center text-center",
+                compact ? "py-4 px-2" : "py-12 px-6",
+                className
+            )}>
                 <button
                     onClick={() => {
                         localStorage.removeItem(SUBMISSION_KEY);
                         setHasAlreadySubmitted(false);
                     }}
-                    className="absolute top-2 right-2 p-2 rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-600"
+                    className="absolute top-0 right-0 p-1.5 rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-600"
                     aria-label="Close"
                 >
-                    <X size={20} />
+                    <X size={compact ? 16 : 20} />
                 </button>
-                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6 ring-2 ring-green-500/20">
-                    <CheckCircle className="w-12 h-12 text-green-500" />
+                <div className={cn(
+                    "rounded-full bg-green-100 flex items-center justify-center ring-2 ring-green-500/20",
+                    compact ? "w-12 h-12 mb-3" : "w-20 h-20 mb-6"
+                )}>
+                    <CheckCircle className={cn("text-green-500", compact ? "w-6 h-6" : "w-12 h-12")} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                <h3 className={cn("font-bold text-slate-800 mb-1", compact ? "text-lg" : "text-2xl mb-3")}>
                     Already Submitted!
                 </h3>
-                <p className="text-slate-600 text-base leading-relaxed max-w-sm">
-                    You have already submitted your application from this device.
+                <p className={cn("text-slate-600 leading-relaxed max-w-sm", compact ? "text-[11px]" : "text-base")}>
+                    You have already submitted your application.
                     Our team will contact you shortly.
                 </p>
             </div>
