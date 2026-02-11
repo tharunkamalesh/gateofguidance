@@ -111,7 +111,7 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
                                 <img
                                     src="/images/gog-logo.png"
                                     alt="Gate of Guidance"
-                                    className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                    className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-0 invert"
                                 />
                             </Link>
                             <p className="text-white/60 text-sm leading-relaxed max-w-xs">

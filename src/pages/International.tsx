@@ -56,8 +56,6 @@ const destinationsData = [
     universities: [
       "Kazan State Medical University",
       "Kazan Federal University",
-      "Azerbaijan Samarkand State Medical University (SSMU)",
-      "Timor Leste AMS Curriculum (4.5+1 years, similar to India)",
       "Siberian State Medical University",
       "Voronezh State Medical University named after N.N. Burdenko",
       "Volgograd State Medical University",
@@ -85,7 +83,6 @@ const destinationsData = [
       "Nakhchivan State University",
       "Ganja State University",
       "Baku State University",
-      "Samarkand State Medical University (SSMU)"
     ]
   },
   {
@@ -177,7 +174,7 @@ const destinationsData = [
     title: "Timor Leste",
     description: "Timor Leste is a peaceful Southeast Asian nation with a tropical climate and affordable living costs. Medical programs are offered in English, providing students with real-world clinical experience in local hospitals. The degree is recognized internationally, allowing graduates to pursue global medical careers.",
     image: timorLesteImg,
-    universities: ["Universidade Catolica Timorense(UCT)"]
+    universities: ["Universidade Catolica Timorense(UCT) - AIMS Curriculum (4.5 + 1 year)"]
   },
 ];
 

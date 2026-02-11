@@ -37,7 +37,7 @@ const Footer = () => {
                 <img
                   src="/images/gog-logo.png"
                   alt="Gate of Guidance - The Career Destination"
-                  className="h-36 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-36 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-0 invert"
                 />
               </Link>
 
