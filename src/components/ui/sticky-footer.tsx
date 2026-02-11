@@ -12,7 +12,7 @@ import footerBg from '@/assets/footer-background.png';
 
 const socialLinks = [
     { title: 'Facebook', href: '#', icon: Facebook },
-    { title: 'Instagram', href: '#', icon: Instagram },
+    { title: 'Instagram', href: 'https://www.instagram.com/gateofguidance2026?igsh=MXJsYXJ3aXl5aGR6MA==', icon: Instagram },
     { title: 'LinkedIn', href: '#', icon: Linkedin },
 ];
 
@@ -122,6 +122,8 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
                                     <a
                                         key={social.title}
                                         href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all group"
                                         aria-label={social.title}
                                     >

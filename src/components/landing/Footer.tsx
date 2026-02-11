@@ -20,7 +20,7 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: Facebook, href: "#" },
-  { icon: Instagram, href: "#" },
+  { icon: Instagram, href: "https://www.instagram.com/gateofguidance2026?igsh=MXJsYXJ3aXl5aGR6MA==" },
   { icon: Linkedin, href: "#" },
   { icon: Youtube, href: "#" },
 ];
@@ -62,6 +62,8 @@ const Footer = () => {
                   <a
                     key={index}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-foreground hover:text-primary transition-colors"
                   >
                     <Icon className="w-5 h-5" />
