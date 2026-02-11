@@ -29,9 +29,9 @@ const PathCard = ({ image, title, subtitle, features, benefits, ctaText, ctaHref
 
       <div className="space-y-4 mb-6">
         {features.map((feature, index) => (
-          <div key={index} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-            <span className="text-muted-foreground text-sm">{feature.label}</span>
-            <span className="text-foreground font-semibold text-sm">{feature.value}</span>
+          <div key={index} className="flex justify-between items-start py-2 border-b border-border last:border-0 gap-4">
+            <span className="text-muted-foreground text-sm flex-shrink-0">{feature.label}</span>
+            <span className="text-foreground font-semibold text-sm text-right">{feature.value}</span>
           </div>
         ))}
       </div>

@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import contactImage from "@/assets/handshake-centered.png";
+import StickyFooter from "@/components/ui/sticky-footer";
 import { ContactForm } from "@/components/landing/ContactForm";
 import SEO from "@/components/SEO";
 
@@ -96,10 +97,10 @@ const Contact = () => {
                   Speak directly with our counselling team during office hours
                 </p>
                 <a
-                  href="tel:+919342094698"
+                  href="tel:+919944294698"
                   className="text-primary-foreground underline text-sm"
                 >
-                  93420 94698
+                  99442 94698
                 </a>
               </div>
 
@@ -108,16 +109,14 @@ const Contact = () => {
                 <div className="w-12 h-12 rounded-lg border border-primary-foreground/30 flex items-center justify-center mb-4">
                   <MapPin className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-primary-foreground mb-2">Head Office</h3>
-                <p className="text-primary-foreground/70 text-sm mb-2">
-                  100 Jalan Sultan, #09-06, Sultan Plaza
-                </p>
-                <p className="text-primary-foreground text-sm mb-4">
-                  Singapore - 199 001
+                <h3 className="text-xl font-bold text-primary-foreground mb-2">Our Locations</h3>
+                <p className="text-primary-foreground/90 font-semibold text-sm mb-1">Head Office:</p>
+                <p className="text-primary-foreground/70 text-sm mb-4">
+                  100 Jalan Sultan, #09-06, Sultan Plaza, Singapore - 199 001
                 </p>
 
-                <h3 className="text-lg font-bold text-primary-foreground mb-2">Branches</h3>
-                <p className="text-primary-foreground/70 text-sm">
+                <p className="text-primary-foreground/90 font-semibold text-sm mb-1">India Branches:</p>
+                <p className="text-primary-foreground/70 text-sm mb-2">
                   Theni: 197, L.F.Road, Cumbum - 625516
                 </p>
                 <p className="text-primary-foreground/70 text-sm">
@@ -125,10 +124,21 @@ const Contact = () => {
                 </p>
               </div>
             </div>
+
+            {/* Integrated Footer Wordings */}
+            <div className="mt-20 pt-8 border-t border-primary-foreground/10">
+              <div className="text-primary-foreground/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
+
+                <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
+                <div className="flex gap-8 order-3 md:order-3">
+                  <p className="hover:text-primary-foreground/60 cursor-pointer transition-colors shadow-sm">Privacy Policy</p>
+                  <p className="hover:text-primary-foreground/60 cursor-pointer transition-colors shadow-sm">Terms & Conditions</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
     </div>
   );
 };

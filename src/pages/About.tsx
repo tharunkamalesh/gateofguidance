@@ -12,7 +12,7 @@ import aboutCounseling from "@/assets/about-us-ethical.jpg";
 import ethicalGuidanceImg from "@/assets/honest.jpg";
 import studentFirstImg from "@/assets/dedicated-cons.jpg";
 import testimonialStudent from "@/assets/testimonial.jpg";
-import gog1Img from "@/assets/director image.jpeg";
+import gog1Img from "@/assets/new.jpeg";
 import SEO from "@/components/SEO";
 
 const About = () => {
@@ -106,18 +106,18 @@ const About = () => {
             ref={directorReveal.ref}
             className={`grid md:grid-cols-2 gap-12 items-center scroll-reveal ${directorReveal.isVisible ? 'is-visible' : ''}`}
           >
-            <div className="order-1 md:order-1 rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto">
+            <div className="order-1 md:order-1 rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto max-h-[500px]">
               <img
                 src={gog1Img}
                 alt="Director"
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <div className="order-2 md:order-2">
               <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
                 Director
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg mb-6 italic">
+              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
                 "Gate of Guidance was founded with a mission to simplify the complex path to international medical education. We provide transparent, ethical guidance to help students navigate admissions and visa processing with ease. Our expertise ensures that every aspiring doctor finds the right institution matching their merit and goals. We are committed to building a trusted platform where integrity and student success are the priority. Join us as we bridge the gap between dreams and reality for future medical professionals worldwide."
               </p>
               <div className="pt-4 border-t border-border/50">

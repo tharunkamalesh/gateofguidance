@@ -3,18 +3,18 @@ import heroImage from "@/assets/hero main.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
-      {/* Background Image - Adjusted to show the student's face better on mobile */}
+    <section className="relative h-screen min-h-[600px] flex items-end md:items-center overflow-hidden">
+      {/* Background Image - Full bleed, face centered */}
       <div
-        className="absolute inset-0 bg-cover bg-[80%_center] md:bg-right bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[65%_20%] md:bg-right bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        {/* Stronger left-to-right gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(227,35%,15%)]/60 via-transparent to-[hsl(227,35%,15%)]/80 md:bg-gradient-to-r md:from-[hsl(227,35%,15%)]/90 md:via-[hsl(227,35%,15%)]/40 md:to-transparent" />
+        {/* Light overlay on mobile to let the face show through clearly */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-slate-900/10 md:bg-gradient-to-r md:from-[hsl(227,35%,15%)]/85 md:via-[hsl(227,35%,15%)]/40 md:to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 section-container w-full pt-12 md:pt-20">
+      {/* Content - positioned at bottom on mobile for the immersive look */}
+      <div className="relative z-10 section-container w-full pb-16 md:pb-0 md:pt-20">
         <div className="max-w-3xl text-center md:text-left">
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.2] md:leading-[1.1] mb-4 md:mb-6">

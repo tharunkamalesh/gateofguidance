@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 import {
     Facebook,
     Instagram,
@@ -7,9 +8,7 @@ import {
     Youtube,
 } from 'lucide-react';
 import { Button } from './button';
-import { Link } from 'react-router-dom';
 import footerBg from '@/assets/footer-background.png';
-
 
 const socialLinks = [
     { title: 'Facebook', href: '#', icon: Facebook },
@@ -31,7 +30,7 @@ const footerLinkGroups: FooterLinkGroup[] = [
     {
         label: 'Contact Us',
         links: [
-            { title: 'Tel: 93420 94698', href: 'tel:+919342094698' },
+            { title: 'Tel: 99442 94698', href: 'tel:+919944294698' },
             { title: 'Email: info@gateofguidance.com', href: 'mailto:info@gateofguidance.com' },
         ],
     },
@@ -61,9 +60,31 @@ interface FooterLinkGroup {
     links: FooterLink[];
 }
 
-type StickyFooterProps = React.ComponentProps<'footer'>;
+interface StickyFooterProps extends React.ComponentProps<'footer'> {
+    minimal?: boolean;
+}
 
-export default function StickyFooter({ className, ...props }: StickyFooterProps) {
+export default function StickyFooter({ className, minimal = false, ...props }: StickyFooterProps) {
+    if (minimal) {
+        return (
+            <footer
+                className={cn('w-full bg-[hsl(227,35%,15%)] text-white py-6 md:py-8 border-t border-white/5', className)}
+                {...props}
+            >
+                <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+                    <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
+
+                        <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
+                        <div className="flex gap-8 order-3 md:order-3">
+                            <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
+                            <p className="hover:text-white/60 cursor-pointer transition-colors">Terms & Conditions</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        );
+    }
+
     return (
         <footer
             className={cn('relative w-full bg-[hsl(227,35%,15%)] text-white overflow-hidden', className)}
@@ -76,48 +97,54 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                 {/* Dark Overlay for better text legibility */}
                 <div className="absolute inset-0 bg-[hsl(227,35%,10%)]/80 md:bg-[hsl(227,35%,10%)]/60" />
 
-                <div className="relative flex w-full flex-col justify-between border-t border-white/10 px-6 py-10 md:px-12 md:py-16 z-20">
-                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 xl:mt-0 relative z-10">
-                        <div className="w-full col-span-2 sm:col-span-2 lg:col-span-1 space-y-4 md:space-y-6">
-                            <Link to="/" className="shrink-0 flex justify-center md:justify-start mb-2 transition-transform hover:scale-105 active:scale-95">
-                                <img
-                                    src="/images/gog-logo.png"
-                                    alt="Gate of Guidance"
-                                    className="h-14 md:h-24 w-auto object-contain brightness-0 invert drop-shadow-2xl"
-                                />
+                <div className="relative z-20 max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 border-b border-white/10 pb-12">
+                        {/* Brand Section */}
+                        <div className="space-y-6">
+                            <Link to="/" className="inline-block group">
+                                <span className="text-2xl font-display font-bold text-white tracking-tight flex items-center gap-2">
+                                    <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-sm">G</span>
+                                    GateOfGuidance
+                                </span>
                             </Link>
-                            <p className="text-white/80 mt-4 text-sm leading-relaxed max-w-xs mx-auto md:mx-0 text-center md:text-left">
-                                Empowering aspiring medical students with verified counseling,
-                                transparent admission processes, and global education opportunities.
+                            <p className="text-white/60 text-sm leading-relaxed max-w-xs">
+                                Professional medical education consultancy guiding students toward excellence in India and abroad.
                             </p>
-                            <div className="flex justify-center md:justify-start gap-3 pt-4">
-                                {socialLinks.map((link, idx) => (
-                                    <Button key={idx} size="icon" variant="outline" className="size-10 border-white/20 text-white bg-white/5 hover:bg-white/10 shadow-none rounded-full">
-                                        <link.icon className="size-5" />
-                                    </Button>
+                            <div className="flex gap-4">
+                                {socialLinks.map((social) => (
+                                    <a
+                                        key={social.title}
+                                        href={social.href}
+                                        className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all group"
+                                        aria-label={social.title}
+                                    >
+                                        <social.icon className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
+                                    </a>
                                 ))}
                             </div>
                         </div>
+
+                        {/* Links Sections */}
                         {footerLinkGroups.map((group) => (
-                            <div key={group.label} className="w-full space-y-6">
-                                <h3 className="text-sm uppercase font-bold tracking-widest text-white/60">{group.label}</h3>
-                                <ul className="text-white/90 space-y-4 text-sm font-medium">
+                            <div key={group.label} className="space-y-6">
+                                <h4 className="text-sm font-bold uppercase tracking-wider text-white">{group.label}</h4>
+                                <ul className="space-y-4">
                                     {group.links.map((link) => (
                                         <li key={link.title}>
                                             {link.isRoute ? (
                                                 <Link
                                                     to={link.href}
-                                                    className="hover:text-primary-foreground/70 inline-flex items-center transition-all duration-300"
+                                                    className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 group"
                                                 >
-                                                    {link.icon && <link.icon className="me-2 size-4" />}
+                                                    <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-primary transition-colors" />
                                                     {link.title}
                                                 </Link>
                                             ) : (
                                                 <a
                                                     href={link.href}
-                                                    className="hover:text-primary-foreground/70 inline-flex items-center transition-all duration-300"
+                                                    className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 group"
                                                 >
-                                                    {link.icon && <link.icon className="me-2 size-4" />}
+                                                    <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-primary transition-colors" />
                                                     {link.title}
                                                 </a>
                                             )}
@@ -127,13 +154,16 @@ export default function StickyFooter({ className, ...props }: StickyFooterProps)
                             </div>
                         ))}
                     </div>
-                    <div className="text-white/40 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 text-xs md:text-sm md:flex-row relative z-10 mt-16">
-                        <p>© 2026 Gate of Guidance. All rights reserved.</p>
-                        <div className="flex gap-8">
-                            <p className="hover:text-white/60 cursor-pointer">Privacy Policy</p>
-                            <p className="hover:text-white/60 cursor-pointer">Terms & Conditions</p>
+
+                    <div className="pt-8">
+                        <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
+
+                            <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
+                            <div className="flex gap-8 order-3 md:order-3">
+                                <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
+                                <p className="hover:text-white/60 cursor-pointer transition-colors">Terms & Conditions</p>
+                            </div>
                         </div>
-                        <p className="font-semibold text-white/60 italic">Empowering Future Doctors</p>
                     </div>
                 </div>
             </div>
