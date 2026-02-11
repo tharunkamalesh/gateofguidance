@@ -109,7 +109,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="section-container py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © 2025 MBBS Admission Consultancy. All rights reserved.
+            © 2025 Gate of Guidance Private Limited. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground text-sm">
