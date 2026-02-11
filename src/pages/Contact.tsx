@@ -129,7 +129,7 @@ const Contact = () => {
             <div className="mt-20 pt-8 border-t border-primary-foreground/10">
               <div className="text-primary-foreground/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
 
-                <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
+                <p className="order-2 md:order-2">© 2026 GateOfGuidance Private Limited. All rights reserved.</p>
                 <div className="flex gap-8 order-3 md:order-3">
                   <p className="hover:text-primary-foreground/60 cursor-pointer transition-colors shadow-sm">Privacy Policy</p>
                   <p className="hover:text-primary-foreground/60 cursor-pointer transition-colors shadow-sm">Terms & Conditions</p>

@@ -82,7 +82,8 @@ const destinationsData = [
       "Azerbaijan Medical University (AMU)",
       "Nakhchivan State University",
       "Ganja State University",
-      "Baku State University"
+      "Baku State University",
+      "Samarkand State Medical University (SSMU)"
     ]
   },
   {

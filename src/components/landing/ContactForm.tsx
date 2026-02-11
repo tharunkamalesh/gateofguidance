@@ -25,9 +25,10 @@ type ContactFormData = z.infer<typeof contactSchema>;
 interface ContactFormProps {
     onSuccess?: () => void;
     className?: string;
+    compact?: boolean;
 }
 
-export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
+export const ContactForm = ({ onSuccess, className, compact = false }: ContactFormProps) => {
     const { toast } = useToast();
     const [hasAlreadySubmitted, setHasAlreadySubmitted] = useState(false);
     const [formData, setFormData] = useState<ContactFormData>({
@@ -188,7 +189,7 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className={`space-y-4 ${className}`} autoComplete="off">
+        <form onSubmit={handleSubmit} className={cn("space-y-4", compact ? "space-y-2" : "space-y-4", className)} autoComplete="off">
             <div className="space-y-1.5">
                 <Label htmlFor="name" className="text-sm font-semibold text-slate-700 ml-1">
                     Name
@@ -198,7 +199,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    className={cn(
+                        "rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all",
+                        compact ? "h-9 text-sm" : "h-12"
+                    )}
                     placeholder="Your full name"
                     autoComplete="off"
                 />
@@ -215,7 +219,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     type="tel"
                     value={formData.mobile}
                     onChange={handleChange}
-                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    className={cn(
+                        "rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all",
+                        compact ? "h-9 text-sm" : "h-12"
+                    )}
                     placeholder="10-digit number"
                     autoComplete="off"
                 />
@@ -232,7 +239,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     type="tel"
                     value={formData.whatsapp}
                     onChange={handleChange}
-                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    className={cn(
+                        "rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all",
+                        compact ? "h-9 text-sm" : "h-12"
+                    )}
                     placeholder="WhatsApp number"
                     autoComplete="off"
                 />
@@ -249,7 +259,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    className={cn(
+                        "rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all",
+                        compact ? "h-9 text-sm" : "h-12"
+                    )}
                     placeholder="your.email@example.com"
                     autoComplete="off"
                 />
@@ -265,7 +278,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     name="fatherName"
                     value={formData.fatherName}
                     onChange={handleChange}
-                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    className={cn(
+                        "rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all",
+                        compact ? "h-9 text-sm" : "h-12"
+                    )}
                     placeholder="Father's full name"
                     autoComplete="off"
                 />
@@ -281,7 +297,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
                     name="course"
                     value={formData.course}
                     onChange={handleChange}
-                    className="h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all"
+                    className={cn(
+                        "rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white transition-all",
+                        compact ? "h-9 text-sm" : "h-12"
+                    )}
                     placeholder="Enter your course"
                     autoComplete="off"
                 />
@@ -290,7 +309,10 @@ export const ContactForm = ({ onSuccess, className }: ContactFormProps) => {
 
             <Button
                 type="submit"
-                className="w-full h-12 bg-[#1e293b] hover:bg-[#0f172a] text-white font-bold rounded-xl mt-4 shadow-lg shadow-slate-200 transition-all active:scale-[0.98]"
+                className={cn(
+                    "w-full bg-[#1e293b] hover:bg-[#0f172a] text-white font-bold rounded-xl mt-4 shadow-lg shadow-slate-200 transition-all active:scale-[0.98]",
+                    compact ? "h-10 mt-2" : "h-12 mt-4"
+                )}
                 disabled={isSubmitting}
             >
                 {isSubmitting ? "Sending..." : "Send Enquiry"}

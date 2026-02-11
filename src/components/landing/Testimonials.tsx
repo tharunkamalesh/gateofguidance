@@ -16,8 +16,8 @@ const testimonials = [
     rating: 5,
     quote:
       "Integrity and transparency are at the heart of their service. They managed my entire admission and visa process with extreme professionalism, giving me confidence at every stage.",
-    name: "Dr. Noufal",
-    role: "International Medical Graduate",
+    name: "Dr. Noufal (Theni)",
+    role: "Azerbaijan Medical University",
   },
   {
     image: img2,

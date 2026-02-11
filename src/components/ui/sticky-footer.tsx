@@ -73,8 +73,14 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
             >
                 <div className="max-w-[1600px] mx-auto px-6 md:px-12">
                     <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
-
-                        <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
+                        <Link to="/" className="order-1 md:order-1 flex items-center gap-2 grayscale brightness-200 opacity-50 hover:opacity-100 transition-opacity">
+                            <img
+                                src="/images/gog-logo.png"
+                                alt="Gate of Guidance"
+                                className="h-8 w-auto object-contain"
+                            />
+                        </Link>
+                        <p className="order-2 md:order-2">© 2026 GateOfGuidance Private Limited. All rights reserved.</p>
                         <div className="flex gap-8 order-3 md:order-3">
                             <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
                             <p className="hover:text-white/60 cursor-pointer transition-colors">Terms & Conditions</p>
@@ -102,10 +108,11 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
                         {/* Brand Section */}
                         <div className="space-y-6">
                             <Link to="/" className="inline-block group">
-                                <span className="text-2xl font-display font-bold text-white tracking-tight flex items-center gap-2">
-                                    <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-sm">G</span>
-                                    GateOfGuidance
-                                </span>
+                                <img
+                                    src="/images/gog-logo.png"
+                                    alt="Gate of Guidance"
+                                    className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                />
                             </Link>
                             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
                                 Professional medical education consultancy guiding students toward excellence in India and abroad.
@@ -158,7 +165,7 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
                     <div className="pt-8">
                         <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
 
-                            <p className="order-2 md:order-2">© 2026 Gate of Guidance. All rights reserved.</p>
+                            <p className="order-2 md:order-2">© 2026 GateOfGuidance Private Limited. All rights reserved.</p>
                             <div className="flex gap-8 order-3 md:order-3">
                                 <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
                                 <p className="hover:text-white/60 cursor-pointer transition-colors">Terms & Conditions</p>
