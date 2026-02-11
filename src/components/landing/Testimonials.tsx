@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star, StarHalf } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { cn } from "@/lib/utils";
 import img1 from "@/assets/s2.jpeg";
 import img2 from "@/assets/s1.jpeg";
 import img3 from "@/assets/s3.jpeg";
@@ -18,30 +19,31 @@ const testimonials = [
       "Integrity and transparency are at the heart of their service. They managed my entire admission and visa process with extreme professionalism, giving me confidence at every stage.",
     name: "Dr. Noufal (Theni)",
     role: "Azerbaijan Medical University",
-  },
-  {
-    image: img2,
-    rating: 4,
-    quote:
-      "The guidance I received was truly transformative. Gate of Guidance simplified the complex admission and university selection process, making my dream of studying medicine a reality.",
-    name: "Bilal kathar",
-    role: "Government Medical College",
-  },
-  {
-    image: img3,
-    rating: 4.5,
-    quote:
-      "A huge thank you to the team for their dedicated support. From strategic university selection to successful enrollment, they were with me every step of the way.",
-    name: "Sameer ahmad",
-    role: "Top Tier Private Medical College",
+    highlighted: true,
   },
   {
     image: img4,
     rating: 4,
     quote:
       "Gate of Guidance provides a seamless pathway for aspiring medical students. Their expertise in documentation and institutional matching ensures a smooth transition to your dream career.",
-    name: "Althaf from kollam",
-    role: "International Medical Specialist",
+    name: "Althaf",
+    role: "Riyadh (Saudi Arabia), Azerbaijan Medical University",
+  },
+  {
+    image: img3,
+    rating: 4.5,
+    quote:
+      "A huge thank you to the team for their dedicated support. From strategic university selection to successful enrollment, they were with me every step of the way.",
+    name: "Sameer Ahmed",
+    role: "Kayalpattinam, Azerbaijan Medical University",
+  },
+  {
+    image: img2,
+    rating: 4,
+    quote:
+      "The guidance I received was truly transformative. Gate of Guidance simplified the complex admission and university selection process, making my dream of studying medicine a reality.",
+    name: "Bilal",
+    role: "Dammam, Azerbaijan Medical University",
   },
   {
     image: img5,
@@ -103,7 +105,10 @@ const Testimonials = () => {
           className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto scroll-reveal ${testimonialReveal.isVisible ? 'is-visible' : ''}`}
         >
           {/* Image */}
-          <div className="aspect-[4/5] overflow-hidden rounded-xl">
+          <div className={cn(
+            "aspect-[4/5] overflow-hidden rounded-xl transition-all duration-500",
+            current.highlighted && "ring-4 ring-primary ring-offset-4 ring-offset-background shadow-[0_0_25px_rgba(var(--primary),0.3)] scale-[1.02]"
+          )}>
             <img
               src={current.image}
               alt={current.name}

@@ -54,14 +54,16 @@ const destinationsData = [
     description: "Russia provides world-class medical education at a low cost compared to private colleges in India. With an HDI score of 0.824 and high literacy, it offers a safe, friendly environment. The straightforward admission process requires only NEET qualification, making it an ideal gateway to a promising medical career.",
     image: russiaImg,
     universities: [
+      "Kazan State Medical University",
+      "Kazan Federal University",
+      "Azerbaijan Samarkand State Medical University (SSMU)",
+      "Timor Leste AMS Curriculum (4.5+1 years, similar to India)",
       "Siberian State Medical University",
       "Voronezh State Medical University named after N.N. Burdenko",
       "Volgograd State Medical University",
       "Bashkir State Medical University",
       "Kemerovo State Medical Academy",
       "North Caucasian State Medical University",
-      "Kazan State Medical University",
-      "Kazan Federal University",
       "Pitirim Sorokin Syktyvkar State University",
       "Ural State Medical University",
       "Omsk State Medical University",
@@ -111,7 +113,9 @@ const destinationsData = [
       "Tashkent Medical Academy Urgench",
       "Tashkent Pediatric Medical Institute",
       "Bukhara State Medical University",
-      "Fergana State University"
+      "Fergana State University",
+      "Alfraganus Medical University, Tashkent",
+      "Tashkent State Medical University (Termez branch)"
     ]
   },
   {
