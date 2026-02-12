@@ -63,7 +63,7 @@ const testimonials = [
   },
   {
     image: img7,
-    rating: 3.5,
+    rating: 4,
     quote:
       "The expert advice I received was instrumental in navigating the complex medical admission pathway. Their honest approach ensured I made the best decision for my future career.",
     name: "Dr Hari Saravanan",
