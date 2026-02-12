@@ -55,11 +55,23 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="GATEOFGUIDANCE"
-        description="Expert MBBS admission guidance in India and abroad. Get counseling, college selection, and application support."
+        title="Best MBBS Abroad Consultancy in India | Gate of Guidance"
+        description="Gate of Guidance is a trusted MBBS abroad consultancy in India helping students secure medical admissions in Russia, china, and other countries with complete support from counselling to visa processing."
       />
       <Navbar />
       <Hero />
+
+      {/* SEO Optimized Introductory Paragraph */}
+      <section className="py-12 md:py-16 bg-slate-50 border-y border-border/50">
+        <div className="section-container">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium">
+              Gate of Guidance is a leading <span className="text-primary font-bold">MBBS abroad consultancy</span> dedicated to helping Indian students achieve their dream of becoming doctors. We provide expert <span className="text-primary font-bold">medical admission guidance</span>, university selection support, admission processing, visa assistance, and complete guidance for studying MBBS in <span className="text-primary font-bold">Russia</span>, <span className="text-primary font-bold">china</span> and other top medical destinations.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <PathComparison />
       <Process />
       <div ref={processTriggerRef}>
