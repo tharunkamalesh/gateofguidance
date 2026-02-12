@@ -97,10 +97,10 @@ const Contact = () => {
                   Speak directly with our counselling team during office hours
                 </p>
                 <a
-                  href="tel:+919944294698"
+                  href="tel:+919940794698"
                   className="text-primary-foreground underline text-sm"
                 >
-                  99442 94698
+                  99407 94698
                 </a>
               </div>
 
@@ -115,7 +115,7 @@ const Contact = () => {
                   100 Jalan Sultan, #09-06, Sultan Plaza, Singapore - 199 001
                 </p>
 
-                <p className="text-primary-foreground/90 font-semibold text-sm mb-1">India Branches:</p>
+                <p className="text-primary-foreground/90 font-semibold text-sm mb-1">Branches:</p>
                 <p className="text-primary-foreground/70 text-sm mb-2">
                   Theni: 197, L.F.Road, Cumbum - 625516
                 </p>
@@ -129,7 +129,7 @@ const Contact = () => {
             <div className="mt-20 pt-8 border-t border-primary-foreground/10">
               <div className="text-primary-foreground/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
 
-                <p className="order-2 md:order-2">© 2026 GateOfGuidance Private Limited. All rights reserved.</p>
+                <p className="order-2 md:order-2">© 2026 GateOfGuidance Pvt.Ltd. All rights reserved.</p>
                 <div className="flex gap-8 order-3 md:order-3">
                   <p className="hover:text-primary-foreground/60 cursor-pointer transition-colors shadow-sm">Privacy Policy</p>
                   <p className="hover:text-primary-foreground/60 cursor-pointer transition-colors shadow-sm">Terms & Conditions</p>

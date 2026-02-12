@@ -30,7 +30,7 @@ const footerLinkGroups: FooterLinkGroup[] = [
     {
         label: 'Contact Us',
         links: [
-            { title: 'Tel: 99442 94698', href: 'tel:+919944294698' },
+            { title: 'Tel: 99407 94698', href: 'tel:+919940794698' },
             { title: 'Email: info@gateofguidance.com', href: 'mailto:info@gateofguidance.com' },
         ],
     },
@@ -80,7 +80,7 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
                                 className="h-8 w-auto object-contain"
                             />
                         </Link>
-                        <p className="order-2 md:order-2">© 2026 GateOfGuidance Private Limited. All rights reserved.</p>
+                        <p className="order-2 md:order-2">© 2026 GateOfGuidance Pvt.Ltd. All rights reserved.</p>
                         <div className="flex gap-8 order-3 md:order-3">
                             <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
                             <p className="hover:text-white/60 cursor-pointer transition-colors">Terms & Conditions</p>
@@ -167,7 +167,7 @@ export default function StickyFooter({ className, minimal = false, ...props }: S
                     <div className="pt-8">
                         <div className="text-white/40 flex flex-col items-center justify-between gap-6 text-xs md:text-sm md:flex-row w-full font-sans">
 
-                            <p className="order-2 md:order-2">© 2026 GateOfGuidance Private Limited. All rights reserved.</p>
+                            <p className="order-2 md:order-2">© 2026 GateOfGuidance Pvt.Ltd. All rights reserved.</p>
                             <div className="flex gap-8 order-3 md:order-3">
                                 <p className="hover:text-white/60 cursor-pointer transition-colors">Privacy Policy</p>
                                 <p className="hover:text-white/60 cursor-pointer transition-colors">Terms & Conditions</p>

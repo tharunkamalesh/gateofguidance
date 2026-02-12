@@ -83,7 +83,6 @@ const destinationsData = [
       "Nakhchivan State University",
       "Ganja State University",
       "Baku State University",
-      "Samarkand State Medical University (SSMU)",
     ]
   },
   {
@@ -113,7 +112,8 @@ const destinationsData = [
       "Bukhara State Medical University",
       "Fergana State University",
       "Alfraganus Medical University, Tashkent",
-      "Tashkent State Medical University (Termez branch)"
+      "Tashkent State Medical University (Termez branch)",
+      "Samarkand State Medical University (SSMU)",
     ]
   },
   {
@@ -303,7 +303,7 @@ const International = () => {
                     <img
                       src={studentTabletImg}
                       alt="Medical student"
-                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                      className="rounded-2xl object-cover object-top h-auto aspect-square md:aspect-auto md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
                     />
                   </div>
                 </div>
@@ -321,7 +321,7 @@ const International = () => {
                     <img
                       src={studentsGroupImg}
                       alt="Group of students"
-                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                      className="rounded-2xl object-cover object-top h-auto aspect-square md:aspect-auto md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
                     />
                   </div>
                 </div>
@@ -339,7 +339,7 @@ const International = () => {
                     <img
                       src={clinicalExposureImg}
                       alt="International medical students"
-                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                      className="rounded-2xl object-cover object-top h-auto aspect-square md:aspect-auto md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
                     />
                   </div>
                 </div>
@@ -357,7 +357,7 @@ const International = () => {
                     <img
                       src={seminarImg}
                       alt="Seminar"
-                      className="rounded-2xl object-cover h-40 md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                      className="rounded-2xl object-cover object-top h-auto aspect-square md:aspect-auto md:h-80 lg:h-[500px] w-full shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
                     />
                   </div>
                 </div>
@@ -780,11 +780,11 @@ const International = () => {
                             {step.description}
                           </p>
                         </div>
-                        <div className="order-1 lg:order-2 aspect-video lg:aspect-square overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
+                        <div className="order-1 lg:order-2 aspect-square overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
                           <img
                             src={step.img}
                             alt={step.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-top"
                           />
                         </div>
                       </div>
