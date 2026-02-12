@@ -229,7 +229,7 @@ const International = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="MBBS Abroad Admissions | GateOfGuidance"
+        title="MBBS Abroad Admissions | GATEOFGUIDANCE"
         description="Study MBBS abroad in top medical universities. Expert guidance for admissions in Russia, Uzbekistan, Kyrgyzstan, and more."
       />
       <Navbar variant="transparent" />

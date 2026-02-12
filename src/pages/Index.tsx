@@ -55,7 +55,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="MBBS Admissions Guidance | GateOfGuidance"
+        title="GATEOFGUIDANCE"
         description="Expert MBBS admission guidance in India and abroad. Get counseling, college selection, and application support."
       />
       <Navbar />

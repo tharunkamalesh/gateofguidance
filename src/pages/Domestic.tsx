@@ -179,7 +179,7 @@ const Domestic = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="MBBS in India Admissions | GateOfGuidance"
+        title="MBBS in India Admissions | GATEOFGUIDANCE"
         description="Study MBBS in India. Get expert guidance for NEET, college selection, and admissions in top Indian medical colleges."
       />
       <Navbar variant="transparent" />

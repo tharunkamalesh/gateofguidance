@@ -13,7 +13,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Us | GateOfGuidance"
+        title="Contact Us | GATEOFGUIDANCE"
         description="Contact GateOfGuidance for MBBS admission counseling and expert guidance."
       />
       <Navbar variant="solid" />

@@ -53,7 +53,7 @@ export const DirectorMessage = () => {
 
                         <div className="pt-4 space-y-2 border-t border-slate-200">
                             <p className="text-2xl font-display font-bold text-primary">Mr. Murali Dharan</p>
-                            <p className="text-primary font-medium">Founder & Director, GateOfGuidance</p>
+                            <p className="text-primary font-medium">Founder & Director, GATEOFGUIDANCE</p>
                         </div>
                     </motion.div>
                 </div>

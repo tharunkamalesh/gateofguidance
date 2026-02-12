@@ -26,7 +26,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="About Us | GateOfGuidance"
+        title="About Us | GATEOFGUIDANCE"
         description="Learn about GateOfGuidance's mission to simplify medical admissions. Dedicated support for aspiring doctors in India and overseas."
       />
       <Navbar />
