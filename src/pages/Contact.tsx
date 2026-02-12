@@ -120,7 +120,7 @@ const Contact = () => {
                   Theni: 197, L.F.Road, Cumbum - 625516
                 </p>
                 <p className="text-primary-foreground/70 text-sm">
-                  Puducherry: No. 89, Anna Nagar Main Road
+                  Puducherry: No. 89, Anna Nagar Main Road - 605005
                 </p>
               </div>
             </div>
